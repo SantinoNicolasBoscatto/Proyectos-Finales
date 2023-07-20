@@ -1,0 +1,20 @@
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Santino\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Calculadora.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Calculadora.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Santino\Desktop\Repositorio GITHUB\Mini_Proyectos\Calculadora 2.0\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

@@ -1,0 +1,18 @@
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\bin\Debug\ClaseNegocio.dll
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\bin\Debug\ClaseNegocio.pdb
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\bin\Debug\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\bin\Debug\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.CopyComplete
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.dll
+C:\Users\Santino\Desktop\C#\Repositorio GITHUB\Mini_Proyectos\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\bin\Debug\ClaseNegocio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\bin\Debug\ClaseNegocio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\bin\Debug\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\bin\Debug\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.csproj.CopyComplete
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\PokedexProyecto\ClaseNegocio\obj\Debug\ClaseNegocio.pdb

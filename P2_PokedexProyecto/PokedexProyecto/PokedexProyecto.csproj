@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39148BF4-6A88-46F1-B3B9-DBB21796F0A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PokedexProyecto</RootNamespace>
+    <AssemblyName>PokedexProyecto</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>..\..\..\..\..\..\Downloads\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.2.1.0\lib\net472\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Asio, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Asio.2.1.0\lib\netstandard2.0\NAudio.Asio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Core.2.1.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Midi.2.1.0\lib\netstandard2.0\NAudio.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Wasapi.2.1.0\lib\netstandard2.0\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinForms.2.1.0\lib\net472\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinMM.2.1.0\lib\netstandard2.0\NAudio.WinMM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BotonCircular.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgressBarFull.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plantilla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Poke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-izq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gritos\001 - Bulbasaur.wav" />
+    <Content Include="Gritos\002 - Ivysaur.wav" />
+    <Content Include="Gritos\003 - Venusaur.wav" />
+    <Content Include="Gritos\003M - Venusaur %28Mega%29.wav" />
+    <Content Include="Gritos\004 - Charmander.wav" />
+    <Content Include="Gritos\005 - Charmeleon.wav" />
+    <Content Include="Gritos\006 - Charizard.wav" />
+    <Content Include="Gritos\006X - Charizard %28Mega X%29.wav" />
+    <Content Include="Gritos\006Y - Charizard %28Mega Y%29.wav" />
+    <Content Include="Gritos\007 - Squirtle.wav" />
+    <Content Include="Gritos\008 - Wartortle.wav" />
+    <Content Include="Gritos\009 - Blastoise.wav" />
+    <Content Include="Gritos\009M - Blastoise %28Mega%29.wav" />
+    <Content Include="Gritos\010 - Caterpie.wav" />
+    <Content Include="Gritos\011 - Metapod.wav" />
+    <Content Include="Gritos\012 - Butterfree.wav" />
+    <Content Include="Gritos\013 - Weedle.wav" />
+    <Content Include="Gritos\014 - Kakuna.wav" />
+    <Content Include="Gritos\015 - Beedrill.wav" />
+    <Content Include="Gritos\015M - Beedrill %28Mega%29.wav" />
+    <Content Include="Gritos\016 - Pidgey.wav" />
+    <Content Include="Gritos\017 - Pidgeotto.wav" />
+    <Content Include="Gritos\018 - Pidgeot.wav" />
+    <Content Include="Gritos\018M - Pidgeot %28Mega%29.wav" />
+    <Content Include="Gritos\019 - Rattata.wav" />
+    <Content Include="Gritos\020 - Raticate.wav" />
+    <Content Include="Gritos\021 - Spearow.wav" />
+    <Content Include="Gritos\022 - Fearow.wav" />
+    <Content Include="Gritos\023 - Ekans.wav" />
+    <Content Include="Gritos\024 - Arbok.wav" />
+    <Content Include="Gritos\025 - Pikachu.wav" />
+    <Content Include="Gritos\026 - Raichu.wav" />
+    <Content Include="Gritos\027 - Sandshrew.wav" />
+    <Content Include="Gritos\028 - Sandslash.wav" />
+    <Content Include="Gritos\029 - Nidoran %28Female%29.wav" />
+    <Content Include="Gritos\030 - Nidorina.wav" />
+    <Content Include="Gritos\031 - Nidoqueen.wav" />
+    <Content Include="Gritos\032 - Nidoran %28Male%29.wav" />
+    <Content Include="Gritos\033 - Nidorino.wav" />
+    <Content Include="Gritos\034 - Nidoking.wav" />
+    <Content Include="Gritos\035 - Clefairy.wav" />
+    <Content Include="Gritos\036 - Clefable.wav" />
+    <Content Include="Gritos\037 - Vulpix.wav" />
+    <Content Include="Gritos\038 - Ninetales.wav" />
+    <Content Include="Gritos\039 - Jigglypuff.wav" />
+    <Content Include="Gritos\040 - Wigglytuff.wav" />
+    <Content Include="Gritos\041 - Zubat.wav" />
+    <Content Include="Gritos\042 - Golbat.wav" />
+    <Content Include="Gritos\043 - Oddish.wav" />
+    <Content Include="Gritos\044 - Gloom.wav" />
+    <Content Include="Gritos\045 - Vileplume.wav" />
+    <Content Include="Gritos\046 - Paras.wav" />
+    <Content Include="Gritos\047 - Parasect.wav" />
+    <Content Include="Gritos\048 - Venonat.wav" />
+    <Content Include="Gritos\049 - Venomoth.wav" />
+    <Content Include="Gritos\050 - Diglett.wav" />
+    <Content Include="Gritos\051 - Dugtrio.wav" />
+    <Content Include="Gritos\052 - Meowth.wav" />
+    <Content Include="Gritos\053 - Persian.wav" />
+    <Content Include="Gritos\054 - Psyduck.wav" />
+    <Content Include="Gritos\055 - Golduck.wav" />
+    <Content Include="Gritos\056 - Mankey.wav" />
+    <Content Include="Gritos\057 - Primeape.wav" />
+    <Content Include="Gritos\058 - Growlithe.wav" />
+    <Content Include="Gritos\059 - Arcanine.wav" />
+    <Content Include="Gritos\060 - Poliwag.wav" />
+    <Content Include="Gritos\061 - Poliwhirl.wav" />
+    <Content Include="Gritos\062 - Poliwrath.wav" />
+    <Content Include="Gritos\063 - Abra.wav" />
+    <Content Include="Gritos\064 - Kadabra.wav" />
+    <Content Include="Gritos\065 - Alakazam.wav" />
+    <Content Include="Gritos\065M - Alakazam %28Mega%29.wav" />
+    <Content Include="Gritos\066 - Machop.wav" />
+    <Content Include="Gritos\067 - Machoke.wav" />
+    <Content Include="Gritos\068 - Machamp.wav" />
+    <Content Include="Gritos\069 - Bellsprout.wav" />
+    <Content Include="Gritos\070 - Weepinbell.wav" />
+    <Content Include="Gritos\071 - Victreebel.wav" />
+    <Content Include="Gritos\072 - Tentacool.wav" />
+    <Content Include="Gritos\073 - Tentacruel.wav" />
+    <Content Include="Gritos\074 - Geodude.wav" />
+    <Content Include="Gritos\075 - Graveler.wav" />
+    <Content Include="Gritos\076 - Golem.wav" />
+    <Content Include="Gritos\077 - Ponyta.wav" />
+    <Content Include="Gritos\078 - Rapidash.wav" />
+    <Content Include="Gritos\079 - Slowpoke.wav" />
+    <Content Include="Gritos\080 - Slowbro.wav" />
+    <Content Include="Gritos\080M - Slowbro %28Mega%29.wav" />
+    <Content Include="Gritos\081 - Magnemite.wav" />
+    <Content Include="Gritos\082 - Magneton.wav" />
+    <Content Include="Gritos\083 - Farfetch%27d.wav" />
+    <Content Include="Gritos\084 - Doduo.wav" />
+    <Content Include="Gritos\085 - Dodrio.wav" />
+    <Content Include="Gritos\086 - Seel.wav" />
+    <Content Include="Gritos\087 - Dewgong.wav" />
+    <Content Include="Gritos\088 - Grimer.wav" />
+    <Content Include="Gritos\089 - Muk.wav" />
+    <Content Include="Gritos\090 - Shellder.wav" />
+    <Content Include="Gritos\091 - Cloyster.wav" />
+    <Content Include="Gritos\092 - Gastly.wav" />
+    <Content Include="Gritos\093 - Haunter.wav" />
+    <Content Include="Gritos\094 - Gengar.wav" />
+    <Content Include="Gritos\094M - Gengar %28Mega%29.wav" />
+    <Content Include="Gritos\095 - Onix.wav" />
+    <Content Include="Gritos\096 - Drowzee.wav" />
+    <Content Include="Gritos\097 - Hypno.wav" />
+    <Content Include="Gritos\098 - Krabby.wav" />
+    <Content Include="Gritos\099 - Kingler.wav" />
+    <Content Include="Gritos\100 - Voltorb.wav" />
+    <Content Include="Gritos\101 - Electrode.wav" />
+    <Content Include="Gritos\102 - Exeggcute.wav" />
+    <Content Include="Gritos\103 - Exeggutor.wav" />
+    <Content Include="Gritos\104 - Cubone.wav" />
+    <Content Include="Gritos\105 - Marowak.wav" />
+    <Content Include="Gritos\106 - Hitmonlee.wav" />
+    <Content Include="Gritos\107 - Hitmonchan.wav" />
+    <Content Include="Gritos\108 - Lickitung.wav" />
+    <Content Include="Gritos\109 - Koffing.wav" />
+    <Content Include="Gritos\110 - Weezing.wav" />
+    <Content Include="Gritos\111 - Rhyhorn.wav" />
+    <Content Include="Gritos\112 - Rhydon.wav" />
+    <Content Include="Gritos\113 - Chansey.wav" />
+    <Content Include="Gritos\114 - Tangela.wav" />
+    <Content Include="Gritos\115 - Kangaskhan.wav" />
+    <Content Include="Gritos\115M - Kangaskhan %28Mega%29.wav" />
+    <Content Include="Gritos\116 - Horsea.wav" />
+    <Content Include="Gritos\117 - Seadra.wav" />
+    <Content Include="Gritos\118 - Goldeen.wav" />
+    <Content Include="Gritos\119 - Seaking.wav" />
+    <Content Include="Gritos\120 - Staryu.wav" />
+    <Content Include="Gritos\121 - Starmie.wav" />
+    <Content Include="Gritos\122 - Mr. Mime.wav" />
+    <Content Include="Gritos\123 - Scyther.wav" />
+    <Content Include="Gritos\124 - Jynx.wav" />
+    <Content Include="Gritos\125 - Electabuzz.wav" />
+    <Content Include="Gritos\126 - Magmar.wav" />
+    <Content Include="Gritos\127 - Pinsir.wav" />
+    <Content Include="Gritos\127M - Pinsir %28Mega%29.wav" />
+    <Content Include="Gritos\128 - Tauros.wav" />
+    <Content Include="Gritos\129 - Magikarp.wav" />
+    <Content Include="Gritos\130 - Gyarados.wav" />
+    <Content Include="Gritos\130M - Gyarados %28Mega%29.wav" />
+    <Content Include="Gritos\131 - Lapras.wav" />
+    <Content Include="Gritos\132 - Ditto.wav" />
+    <Content Include="Gritos\133 - Eevee.wav" />
+    <Content Include="Gritos\134 - Vaporeon.wav" />
+    <Content Include="Gritos\135 - Jolteon.wav" />
+    <Content Include="Gritos\136 - Flareon.wav" />
+    <Content Include="Gritos\137 - Porygon.wav" />
+    <Content Include="Gritos\138 - Omanyte.wav" />
+    <Content Include="Gritos\139 - Omastar.wav" />
+    <Content Include="Gritos\140 - Kabuto.wav" />
+    <Content Include="Gritos\141 - Kabutops.wav" />
+    <Content Include="Gritos\142 - Aerodactyl.wav" />
+    <Content Include="Gritos\142M - Aerodactyl %28Mega%29.wav" />
+    <Content Include="Gritos\143 - Snorlax.wav" />
+    <Content Include="Gritos\144 - Articuno.wav" />
+    <Content Include="Gritos\145 - Zapdos.wav" />
+    <Content Include="Gritos\146 - Moltres.wav" />
+    <Content Include="Gritos\147 - Dratini.wav" />
+    <Content Include="Gritos\148 - Dragonair.wav" />
+    <Content Include="Gritos\149 - Dragonite.wav" />
+    <Content Include="Gritos\150 - Mewtwo.wav" />
+    <Content Include="Gritos\150X - Mewtwo %28Mega X%29.wav" />
+    <Content Include="Gritos\150Y - Mewtwo %28Mega Y%29.wav" />
+    <Content Include="Gritos\151 - Mew.wav" />
+    <None Include="Resources\desktop-wallpaper-pokedex-template-by-hatirem-pokemon-pokedex-background.jpg" />
+    <None Include="Resources\images.jpeg" />
+    <None Include="Resources\18182_capture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClaseNegocio\ClaseNegocio.csproj">
+      <Project>{4a920e9b-0a4c-4822-abe1-c328966e23c5}</Project>
+      <Name>ClaseNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloDeDominio\ModeloDeDominio.csproj">
+      <Project>{3cde4810-a247-45da-b6ce-8e4f265471a2}</Project>
+      <Name>ModeloDeDominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
