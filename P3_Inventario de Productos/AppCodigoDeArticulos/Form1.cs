@@ -40,13 +40,13 @@ namespace AppCodigoDeArticulos
             DgvProductos.DataSource = listaDeArticulos;
             DgvProductos.Columns["Id"].Visible = false;
             DgvProductos.Columns["ImagenDelProducto"].Visible = false;
-            DgvProductos.Columns["CodigoDeArticulo"].Width = 45;
-            DgvProductos.Columns["CategoriaDelProducto"].Width = 70;
-            DgvProductos.RowHeadersWidth = 24;
-            DgvProductos.Columns["MarcaDelProducto"].Width = 65;
-            DgvProductos.Columns["PrecioDelProducto"].Width = 75;
-            DgvProductos.Columns["DescripcionDeArticulo"].Width = 175;
-            DgvProductos.Columns["NombreDeArticulo"].Width = 115;
+            DgvProductos.Columns["CodigoDeArticulo"].Visible = false;
+            DgvProductos.Columns["CategoriaDelProducto"].Width = 85;
+            DgvProductos.RowHeadersWidth = 40;
+            DgvProductos.Columns["MarcaDelProducto"].Width = 90;
+            DgvProductos.Columns["PrecioDelProducto"].Width = 100;
+            DgvProductos.Columns["DescripcionDeArticulo"].Visible = false;
+            DgvProductos.Columns["NombreDeArticulo"].Width = 150;
             CargarImagen(listaDeArticulos[0].ImagenDelProducto);
             CampoComboBox.Items.Add("Codigo");
             CampoComboBox.Items.Add("Nombre");
@@ -112,7 +112,7 @@ namespace AppCodigoDeArticulos
         {
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Esta seguro que desea eliminar este articulo?", "", MessageBoxButtons.YesNo);
+                DialogResult respuesta = MessageBox.Show("¿Esta seguro que desea eliminar este articulo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     if (DgvProductos.CurrentRow != null)
@@ -398,12 +398,14 @@ namespace AppCodigoDeArticulos
             CampoComboBox.Visible = false;
             CriterioComboBox.Visible = false;
             TextoFiltradoBox.Visible = false;
-            MarcaLabel.Location = new Point(666, 260);
+            MarcaLabel.Location = new Point(647, 218);
             MarcaLabel.Visible = true;
             label1.Visible = false;
             CampoLabel.Visible = false;
             CriterioLabel.Visible = false;
             CategoriaLabel.Visible = false;
+            ListaCompletaBoton.Visible = false;
+            AgregarMarcaCategoria.BackColor = Color.White;
         }
         //Pone visible y oculta elementos
         private void BotonCategori_Click(object sender, EventArgs e)
@@ -417,12 +419,14 @@ namespace AppCodigoDeArticulos
             CampoComboBox.Visible = false;
             CriterioComboBox.Visible = false;
             TextoFiltradoBox.Visible = false;
-            CategoriaLabel.Location = new Point(657, 260);
+            CategoriaLabel.Location = new Point(638, 218);
             CategoriaLabel.Visible = true;
             MarcaLabel.Visible = false;
             label1.Visible = false;
             CampoLabel.Visible = false;
             CriterioLabel.Visible = false;
+            ListaCompletaBoton.Visible = false;
+            AgregarMarcaCategoria.BackColor = Color.White;
         }
         //Pone visible y oculta elementos
         private void Cancelar_Click(object sender, EventArgs e)
@@ -431,23 +435,37 @@ namespace AppCodigoDeArticulos
         }
 
         //Ejecuta la funcion de agregar marca/categoria
+        bool banderaValidar = false;
         private void Agregar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MarcaLabel.Visible == true)
-                {
-                    NegocioProductos negocioMarca = new NegocioProductos();
-                    negocio.AgregarMarca(AgregarMarcaCategoria.Text);
-                    MessageBox.Show("Marca Agregada con exito");
-                }
-                else
-                {
-                    NegocioProductos negocioCategoria = new NegocioProductos();
-                    negocioCategoria.AgregarCategoria(AgregarMarcaCategoria.Text);
-                    MessageBox.Show("Categoria Agregada con exito");
-                }
-                reset();
+                    if (MarcaLabel.Visible == true)
+                    {
+                        if (AgregarMarcaCategoria.Text != "")
+                        {
+                            NegocioProductos negocioMarca = new NegocioProductos();
+                            negocio.AgregarMarca(AgregarMarcaCategoria.Text);
+                            MessageBox.Show("Marca Agregada con exito");
+                            banderaValidar = true;
+                        }
+                        else
+                            AgregarMarcaCategoria.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        if (AgregarMarcaCategoria.Text != "")
+                        {
+                            NegocioProductos negocioCategoria = new NegocioProductos();
+                            negocioCategoria.AgregarCategoria(AgregarMarcaCategoria.Text);
+                            MessageBox.Show("Categoria Agregada con exito");
+                            banderaValidar = true;
+                    }
+                        else
+                            AgregarMarcaCategoria.BackColor = Color.Red;
+                    }
+                    if(banderaValidar)
+                        reset();
             }
             catch (Exception ex)
             {
@@ -469,11 +487,13 @@ namespace AppCodigoDeArticulos
             label1.Visible = true;
             CampoLabel.Visible = true;
             CriterioLabel.Visible = true;
+            ListaCompletaBoton.Visible = true;
+            banderaValidar = false;
+            AgregarMarcaCategoria.BackColor = Color.White;
             AgregarMarcaCategoria.Text = "";
             if (CampoComboBox.Text != "" || TextoFiltradoBox.Text != "")
                 LimpiarBoton.Visible = true;
         }
-
     }
     
 }

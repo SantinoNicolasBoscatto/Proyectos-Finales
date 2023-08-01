@@ -61,7 +61,7 @@ namespace AppCodigoDeArticulos
             this.DgvProductos.BackgroundColor = System.Drawing.SystemColors.Highlight;
             this.DgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.DgvProductos.Location = new System.Drawing.Point(10, 9);
+            this.DgvProductos.Location = new System.Drawing.Point(51, 7);
             this.DgvProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DgvProductos.MultiSelect = false;
             this.DgvProductos.Name = "DgvProductos";
@@ -69,14 +69,14 @@ namespace AppCodigoDeArticulos
             this.DgvProductos.RowTemplate.Height = 24;
             this.DgvProductos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvProductos.Size = new System.Drawing.Size(762, 349);
+            this.DgvProductos.Size = new System.Drawing.Size(665, 349);
             this.DgvProductos.TabIndex = 0;
             this.DgvProductos.SelectionChanged += new System.EventHandler(this.DgvProductos_SelectionChanged);
             // 
             // ProductosPictureBox
             // 
             this.ProductosPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ProductosPictureBox.Location = new System.Drawing.Point(813, 7);
+            this.ProductosPictureBox.Location = new System.Drawing.Point(787, 9);
             this.ProductosPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProductosPictureBox.Name = "ProductosPictureBox";
             this.ProductosPictureBox.Size = new System.Drawing.Size(304, 258);
@@ -89,13 +89,13 @@ namespace AppCodigoDeArticulos
             // 
             // EliminarBoton
             // 
-            this.EliminarBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.EliminarBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.EliminarBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.EliminarBoton.BackColor = System.Drawing.Color.Maroon;
+            this.EliminarBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.EliminarBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.EliminarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EliminarBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarBoton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.EliminarBoton.Location = new System.Drawing.Point(403, 368);
+            this.EliminarBoton.Location = new System.Drawing.Point(331, 369);
             this.EliminarBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EliminarBoton.Name = "EliminarBoton";
             this.EliminarBoton.Size = new System.Drawing.Size(105, 65);
@@ -112,7 +112,7 @@ namespace AppCodigoDeArticulos
             this.ModificarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ModificarBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ModificarBoton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ModificarBoton.Location = new System.Drawing.Point(274, 368);
+            this.ModificarBoton.Location = new System.Drawing.Point(191, 369);
             this.ModificarBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModificarBoton.Name = "ModificarBoton";
             this.ModificarBoton.Size = new System.Drawing.Size(105, 65);
@@ -129,7 +129,7 @@ namespace AppCodigoDeArticulos
             this.AgregarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AgregarBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgregarBoton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AgregarBoton.Location = new System.Drawing.Point(145, 368);
+            this.AgregarBoton.Location = new System.Drawing.Point(51, 369);
             this.AgregarBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AgregarBoton.Name = "AgregarBoton";
             this.AgregarBoton.Size = new System.Drawing.Size(105, 65);
@@ -142,7 +142,7 @@ namespace AppCodigoDeArticulos
             // 
             this.CampoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CampoComboBox.FormattingEnabled = true;
-            this.CampoComboBox.Location = new System.Drawing.Point(780, 313);
+            this.CampoComboBox.Location = new System.Drawing.Point(752, 313);
             this.CampoComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CampoComboBox.Name = "CampoComboBox";
             this.CampoComboBox.Size = new System.Drawing.Size(119, 24);
@@ -153,7 +153,7 @@ namespace AppCodigoDeArticulos
             // 
             this.CriterioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CriterioComboBox.FormattingEnabled = true;
-            this.CriterioComboBox.Location = new System.Drawing.Point(904, 313);
+            this.CriterioComboBox.Location = new System.Drawing.Point(885, 313);
             this.CriterioComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CriterioComboBox.Name = "CriterioComboBox";
             this.CriterioComboBox.Size = new System.Drawing.Size(119, 24);
@@ -163,7 +163,7 @@ namespace AppCodigoDeArticulos
             // TextoFiltradoBox
             // 
             this.TextoFiltradoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextoFiltradoBox.Location = new System.Drawing.Point(1030, 313);
+            this.TextoFiltradoBox.Location = new System.Drawing.Point(1018, 313);
             this.TextoFiltradoBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextoFiltradoBox.Name = "TextoFiltradoBox";
             this.TextoFiltradoBox.Size = new System.Drawing.Size(119, 24);
@@ -174,7 +174,7 @@ namespace AppCodigoDeArticulos
             // 
             this.CampoLabel.AutoSize = true;
             this.CampoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CampoLabel.Location = new System.Drawing.Point(804, 293);
+            this.CampoLabel.Location = new System.Drawing.Point(781, 284);
             this.CampoLabel.Name = "CampoLabel";
             this.CampoLabel.Size = new System.Drawing.Size(62, 18);
             this.CampoLabel.TabIndex = 8;
@@ -184,7 +184,7 @@ namespace AppCodigoDeArticulos
             // 
             this.CriterioLabel.AutoSize = true;
             this.CriterioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriterioLabel.Location = new System.Drawing.Point(930, 292);
+            this.CriterioLabel.Location = new System.Drawing.Point(910, 284);
             this.CriterioLabel.Name = "CriterioLabel";
             this.CriterioLabel.Size = new System.Drawing.Size(64, 18);
             this.CriterioLabel.TabIndex = 9;
@@ -194,7 +194,7 @@ namespace AppCodigoDeArticulos
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1065, 292);
+            this.label1.Location = new System.Drawing.Point(1052, 284);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 18);
             this.label1.TabIndex = 10;
@@ -202,16 +202,16 @@ namespace AppCodigoDeArticulos
             // 
             // ListaCompletaBoton
             // 
-            this.ListaCompletaBoton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ListaCompletaBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.ListaCompletaBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.ListaCompletaBoton.BackColor = System.Drawing.Color.Aquamarine;
+            this.ListaCompletaBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ListaCompletaBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.ListaCompletaBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ListaCompletaBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListaCompletaBoton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ListaCompletaBoton.Location = new System.Drawing.Point(16, 368);
+            this.ListaCompletaBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListaCompletaBoton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ListaCompletaBoton.Location = new System.Drawing.Point(1033, 367);
             this.ListaCompletaBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ListaCompletaBoton.Name = "ListaCompletaBoton";
-            this.ListaCompletaBoton.Size = new System.Drawing.Size(105, 65);
+            this.ListaCompletaBoton.Size = new System.Drawing.Size(95, 65);
             this.ListaCompletaBoton.TabIndex = 11;
             this.ListaCompletaBoton.Text = "Listado  Completo";
             this.ListaCompletaBoton.UseVisualStyleBackColor = false;
@@ -224,10 +224,10 @@ namespace AppCodigoDeArticulos
             this.BuscarFiltradoBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.BuscarFiltradoBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarFiltradoBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BuscarFiltradoBoton.Location = new System.Drawing.Point(798, 368);
+            this.BuscarFiltradoBoton.Location = new System.Drawing.Point(767, 367);
             this.BuscarFiltradoBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BuscarFiltradoBoton.Name = "BuscarFiltradoBoton";
-            this.BuscarFiltradoBoton.Size = new System.Drawing.Size(77, 62);
+            this.BuscarFiltradoBoton.Size = new System.Drawing.Size(90, 65);
             this.BuscarFiltradoBoton.TabIndex = 12;
             this.BuscarFiltradoBoton.Text = "Buscar";
             this.BuscarFiltradoBoton.UseVisualStyleBackColor = false;
@@ -240,10 +240,10 @@ namespace AppCodigoDeArticulos
             this.LimpiarBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.LimpiarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LimpiarBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LimpiarBoton.Location = new System.Drawing.Point(1051, 368);
+            this.LimpiarBoton.Location = new System.Drawing.Point(900, 368);
             this.LimpiarBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LimpiarBoton.Name = "LimpiarBoton";
-            this.LimpiarBoton.Size = new System.Drawing.Size(79, 62);
+            this.LimpiarBoton.Size = new System.Drawing.Size(90, 65);
             this.LimpiarBoton.TabIndex = 13;
             this.LimpiarBoton.Text = "Limpiar Filtros";
             this.LimpiarBoton.UseVisualStyleBackColor = false;
@@ -252,13 +252,13 @@ namespace AppCodigoDeArticulos
             // 
             // BotonCategori
             // 
-            this.BotonCategori.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BotonCategori.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.BotonCategori.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.BotonCategori.BackColor = System.Drawing.Color.DarkGreen;
+            this.BotonCategori.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BotonCategori.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BotonCategori.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BotonCategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BotonCategori.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BotonCategori.Location = new System.Drawing.Point(532, 368);
+            this.BotonCategori.Location = new System.Drawing.Point(471, 368);
             this.BotonCategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonCategori.Name = "BotonCategori";
             this.BotonCategori.Size = new System.Drawing.Size(105, 65);
@@ -269,13 +269,13 @@ namespace AppCodigoDeArticulos
             // 
             // BotonMarca
             // 
-            this.BotonMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BotonMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.BotonMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.BotonMarca.BackColor = System.Drawing.Color.DarkGreen;
+            this.BotonMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BotonMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BotonMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BotonMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BotonMarca.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BotonMarca.Location = new System.Drawing.Point(661, 368);
+            this.BotonMarca.Location = new System.Drawing.Point(611, 369);
             this.BotonMarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BotonMarca.Name = "BotonMarca";
             this.BotonMarca.Size = new System.Drawing.Size(105, 65);
@@ -292,7 +292,7 @@ namespace AppCodigoDeArticulos
             this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Agregar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Agregar.Location = new System.Drawing.Point(847, 398);
+            this.Agregar.Location = new System.Drawing.Point(836, 317);
             this.Agregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(95, 36);
@@ -310,7 +310,7 @@ namespace AppCodigoDeArticulos
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Cancelar.Location = new System.Drawing.Point(979, 398);
+            this.Cancelar.Location = new System.Drawing.Point(950, 317);
             this.Cancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(96, 36);
@@ -322,9 +322,9 @@ namespace AppCodigoDeArticulos
             // 
             // AgregarMarcaCategoria
             // 
-            this.AgregarMarcaCategoria.Location = new System.Drawing.Point(881, 342);
+            this.AgregarMarcaCategoria.Location = new System.Drawing.Point(836, 290);
             this.AgregarMarcaCategoria.Name = "AgregarMarcaCategoria";
-            this.AgregarMarcaCategoria.Size = new System.Drawing.Size(164, 22);
+            this.AgregarMarcaCategoria.Size = new System.Drawing.Size(210, 22);
             this.AgregarMarcaCategoria.TabIndex = 18;
             this.AgregarMarcaCategoria.Visible = false;
             // 
@@ -332,7 +332,7 @@ namespace AppCodigoDeArticulos
             // 
             this.CategoriaLabel.AutoSize = true;
             this.CategoriaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoriaLabel.Location = new System.Drawing.Point(1001, 16);
+            this.CategoriaLabel.Location = new System.Drawing.Point(867, 269);
             this.CategoriaLabel.Name = "CategoriaLabel";
             this.CategoriaLabel.Size = new System.Drawing.Size(158, 18);
             this.CategoriaLabel.TabIndex = 19;
@@ -355,7 +355,7 @@ namespace AppCodigoDeArticulos
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
-            this.ClientSize = new System.Drawing.Size(1156, 453);
+            this.ClientSize = new System.Drawing.Size(1146, 453);
             this.Controls.Add(this.MarcaLabel);
             this.Controls.Add(this.CategoriaLabel);
             this.Controls.Add(this.AgregarMarcaCategoria);

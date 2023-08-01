@@ -15,3 +15,20 @@ C:\Users\Santino\source\repos\TPFinalNivel2_Boscatto\AppCodigoDeArticulos\bin\De
 C:\Users\Santino\source\repos\TPFinalNivel2_Boscatto\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.csproj.CopyComplete
 C:\Users\Santino\source\repos\TPFinalNivel2_Boscatto\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Form2.resources
 C:\Users\Santino\source\repos\TPFinalNivel2_Boscatto\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Form3.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\AppCodigoDeArticulos.exe.config
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\AppCodigoDeArticulos.exe
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\AppCodigoDeArticulos.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\NegocioConDB.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\bin\Debug\NegocioConDB.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Form1.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Form2.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Form3.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.Properties.Resources.resources
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.csproj.GenerateResource.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.csproj.CopyComplete
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.exe
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P3_Inventario de Productos\AppCodigoDeArticulos\obj\Debug\AppCodigoDeArticulos.pdb
