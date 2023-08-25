@@ -1,7 +1,7 @@
 ﻿
 namespace Touge_App
 {
-    partial class Form1
+    partial class TougeForms
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
             this.AutosBoton = new System.Windows.Forms.Button();
@@ -38,7 +38,6 @@ namespace Touge_App
             this.BotonPistas = new System.Windows.Forms.Button();
             this.CloseBoton = new System.Windows.Forms.Button();
             this.PictureBoxBack = new System.Windows.Forms.PictureBox();
-            this.VolumenControl = new System.Windows.Forms.TrackBar();
             this.EconomiaBoton = new System.Windows.Forms.Button();
             this.ConfiguracionBoton = new System.Windows.Forms.Button();
             this.BackBoton = new System.Windows.Forms.Button();
@@ -52,10 +51,62 @@ namespace Touge_App
             this.DistanciaTextbox = new ZBobb.AlphaBlendTextBox();
             this.AnteriorPistaBoton = new System.Windows.Forms.Button();
             this.SiguientePistaBoton = new System.Windows.Forms.Button();
+            this.PilotosPictureBox = new System.Windows.Forms.PictureBox();
+            this.BiografiaPilotosTextBox = new ZBobb.AlphaBlendTextBox();
+            this.AutoPilotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.PaisPictureBox = new System.Windows.Forms.PictureBox();
+            this.VolumenControl = new Winamp.Components.WinampTrackBar();
+            this.Cornering = new System.Windows.Forms.Label();
+            this.Braking = new System.Windows.Forms.Label();
+            this.Reflexes = new System.Windows.Forms.Label();
+            this.Pressure = new System.Windows.Forms.Label();
+            this.Experience = new System.Windows.Forms.Label();
+            this.Pace = new System.Windows.Forms.Label();
+            this.Tyres = new System.Windows.Forms.Label();
+            this.Agressiveness = new System.Windows.Forms.Label();
+            this.Overtaking = new System.Windows.Forms.Label();
+            this.Concentration = new System.Windows.Forms.Label();
+            this.Rain = new System.Windows.Forms.Label();
+            this.Defending = new System.Windows.Forms.Label();
+            this.Overall = new System.Windows.Forms.Label();
+            this.NombrePilotoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.EquipoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.ApodoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.BackDriver = new System.Windows.Forms.Button();
+            this.NextDriver = new System.Windows.Forms.Button();
+            this.AlturaTextBox = new ZBobb.AlphaBlendTextBox();
+            this.PesoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.VictoriaTextBox = new ZBobb.AlphaBlendTextBox();
+            this.DerrotaTextBox = new ZBobb.AlphaBlendTextBox();
+            this.WinRateTextBox = new ZBobb.AlphaBlendTextBox();
+            this.TotalTextBox = new ZBobb.AlphaBlendTextBox();
+            this.RivalTextBox = new ZBobb.AlphaBlendTextBox();
+            this.EdadTextBox = new ZBobb.AlphaBlendTextBox();
+            this.AutosPictureBox = new System.Windows.Forms.PictureBox();
+            this.BanderasPictureBox = new System.Windows.Forms.PictureBox();
+            this.FichaTecnicaTextBox = new ZBobb.AlphaBlendTextBox();
+            this.NombreAutoTextbox = new ZBobb.AlphaBlendTextBox();
+            this.NextAuto = new System.Windows.Forms.Button();
+            this.BackAuto = new System.Windows.Forms.Button();
+            this.MarcaPictureBox = new System.Windows.Forms.PictureBox();
+            this.AnioLabel = new System.Windows.Forms.Label();
+            this.HPlabel = new System.Windows.Forms.Label();
+            this.PesoLabel = new System.Windows.Forms.Label();
+            this.PesoPotenciaLabel = new System.Windows.Forms.Label();
+            this.TorqueLabel = new System.Windows.Forms.Label();
+            this.TopSpeedLabel = new System.Windows.Forms.Label();
+            this.KilometrosLabel = new System.Windows.Forms.Label();
+            this.CategoriaLabel = new System.Windows.Forms.Label();
+            this.PilotoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VolumenControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PilotosPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutoPilotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaisPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutosPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BanderasPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -75,6 +126,7 @@ namespace Touge_App
             this.PilotosBoton.Size = new System.Drawing.Size(540, 308);
             this.PilotosBoton.TabIndex = 4;
             this.PilotosBoton.UseVisualStyleBackColor = true;
+            this.PilotosBoton.Click += new System.EventHandler(this.PilotosBoton_Click);
             this.PilotosBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.PilotosBoton_Paint);
             this.PilotosBoton.MouseEnter += new System.EventHandler(this.PilotosBoton_MouseEnter);
             this.PilotosBoton.MouseLeave += new System.EventHandler(this.PilotosBoton_MouseLeave);
@@ -94,6 +146,7 @@ namespace Touge_App
             this.AutosBoton.Size = new System.Drawing.Size(540, 308);
             this.AutosBoton.TabIndex = 2;
             this.AutosBoton.UseVisualStyleBackColor = true;
+            this.AutosBoton.Click += new System.EventHandler(this.AutosBoton_Click);
             this.AutosBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.AutosBoton_Paint);
             this.AutosBoton.MouseEnter += new System.EventHandler(this.AutosBoton_MouseEnter);
             this.AutosBoton.MouseLeave += new System.EventHandler(this.AutosBoton_MouseLeave);
@@ -179,29 +232,15 @@ namespace Touge_App
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PictureBoxBack.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PictureBoxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxBack.Location = new System.Drawing.Point(-2, -22);
+            this.PictureBoxBack.Location = new System.Drawing.Point(0, 0);
             this.PictureBoxBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxBack.Name = "PictureBoxBack";
-            this.PictureBoxBack.Size = new System.Drawing.Size(1823, 1122);
+            this.PictureBoxBack.Size = new System.Drawing.Size(1811, 884);
             this.PictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxBack.TabIndex = 0;
             this.PictureBoxBack.TabStop = false;
             this.PictureBoxBack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxBack_MouseDown);
             this.PictureBoxBack.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxBack_MouseMove);
-            // 
-            // VolumenControl
-            // 
-            this.VolumenControl.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.VolumenControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolumenControl.BackColor = System.Drawing.Color.AliceBlue;
-            this.VolumenControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.VolumenControl.Location = new System.Drawing.Point(639, 825);
-            this.VolumenControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.VolumenControl.Name = "VolumenControl";
-            this.VolumenControl.Size = new System.Drawing.Size(540, 56);
-            this.VolumenControl.TabIndex = 10;
-            this.VolumenControl.Visible = false;
-            this.VolumenControl.ValueChanged += new System.EventHandler(this.VolumenControl_ValueChanged);
             // 
             // EconomiaBoton
             // 
@@ -229,7 +268,7 @@ namespace Touge_App
             this.ConfiguracionBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ConfiguracionBoton.FlatAppearance.BorderSize = 0;
             this.ConfiguracionBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfiguracionBoton.Location = new System.Drawing.Point(24, 824);
+            this.ConfiguracionBoton.Location = new System.Drawing.Point(41, 822);
             this.ConfiguracionBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ConfiguracionBoton.Name = "ConfiguracionBoton";
             this.ConfiguracionBoton.Size = new System.Drawing.Size(69, 57);
@@ -249,7 +288,7 @@ namespace Touge_App
             this.BackBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BackBoton.FlatAppearance.BorderSize = 0;
             this.BackBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackBoton.Location = new System.Drawing.Point(127, 824);
+            this.BackBoton.Location = new System.Drawing.Point(411, 823);
             this.BackBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackBoton.Name = "BackBoton";
             this.BackBoton.Size = new System.Drawing.Size(69, 57);
@@ -266,7 +305,7 @@ namespace Touge_App
             this.NextBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.NextBoton.FlatAppearance.BorderSize = 0;
             this.NextBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextBoton.Location = new System.Drawing.Point(202, 824);
+            this.NextBoton.Location = new System.Drawing.Point(495, 823);
             this.NextBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextBoton.Name = "NextBoton";
             this.NextBoton.Size = new System.Drawing.Size(69, 57);
@@ -280,7 +319,7 @@ namespace Touge_App
             this.VolverBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.VolverBoton.BackColor = System.Drawing.Color.Transparent;
             this.VolverBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverBoton.BackgroundImage")));
-            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.VolverBoton.FlatAppearance.BorderSize = 0;
             this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VolverBoton.Location = new System.Drawing.Point(1729, 825);
@@ -307,7 +346,6 @@ namespace Touge_App
             // 
             this.NombreCircuito.BackAlpha = 30;
             this.NombreCircuito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.NombreCircuito.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NombreCircuito.Font = new System.Drawing.Font("Sui Generis", 41F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreCircuito.ForeColor = System.Drawing.SystemColors.WindowText;
             this.NombreCircuito.Location = new System.Drawing.Point(41, 716);
@@ -322,6 +360,8 @@ namespace Touge_App
             // 
             this.PaisTextBox.BackAlpha = 60;
             this.PaisTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PaisTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PaisTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PaisTextBox.Font = new System.Drawing.Font("F1TV-2022-NameCondensed-BoldObl", 13.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaisTextBox.Location = new System.Drawing.Point(1230, 762);
             this.PaisTextBox.Multiline = true;
@@ -336,6 +376,8 @@ namespace Touge_App
             // 
             this.ModalidadTextBox.BackAlpha = 60;
             this.ModalidadTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ModalidadTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ModalidadTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.ModalidadTextBox.Font = new System.Drawing.Font("F1TV-2022-NameCondensed", 11.45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ModalidadTextBox.Location = new System.Drawing.Point(1230, 716);
             this.ModalidadTextBox.Multiline = true;
@@ -350,10 +392,13 @@ namespace Touge_App
             // 
             this.PistasBiografia.BackAlpha = 60;
             this.PistasBiografia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PistasBiografia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PistasBiografia.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PistasBiografia.Font = new System.Drawing.Font("F1TV-2022-NameCondensed-BoldObl", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PistasBiografia.Location = new System.Drawing.Point(1230, 50);
             this.PistasBiografia.Multiline = true;
             this.PistasBiografia.Name = "PistasBiografia";
+            this.PistasBiografia.ReadOnly = true;
             this.PistasBiografia.Size = new System.Drawing.Size(555, 646);
             this.PistasBiografia.TabIndex = 21;
             this.PistasBiografia.Visible = false;
@@ -362,6 +407,8 @@ namespace Touge_App
             // 
             this.DistanciaTextbox.BackAlpha = 60;
             this.DistanciaTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DistanciaTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DistanciaTextbox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DistanciaTextbox.Font = new System.Drawing.Font("F1TV-2022-NameCondensed", 10.7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DistanciaTextbox.Location = new System.Drawing.Point(1592, 716);
             this.DistanciaTextbox.Multiline = true;
@@ -374,6 +421,8 @@ namespace Touge_App
             // 
             // AnteriorPistaBoton
             // 
+            this.AnteriorPistaBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnteriorPistaBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AnteriorPistaBoton.BackColor = System.Drawing.Color.Transparent;
             this.AnteriorPistaBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AnteriorPistaBoton.BackgroundImage")));
             this.AnteriorPistaBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -391,6 +440,8 @@ namespace Touge_App
             // 
             // SiguientePistaBoton
             // 
+            this.SiguientePistaBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SiguientePistaBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SiguientePistaBoton.BackColor = System.Drawing.Color.Transparent;
             this.SiguientePistaBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SiguientePistaBoton.BackgroundImage")));
             this.SiguientePistaBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -406,11 +457,759 @@ namespace Touge_App
             this.SiguientePistaBoton.Visible = false;
             this.SiguientePistaBoton.Click += new System.EventHandler(this.SiguientePistaBoton_Click);
             // 
-            // Form1
+            // PilotosPictureBox
+            // 
+            this.PilotosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PilotosPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PilotosPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PilotosPictureBox.BackgroundImage")));
+            this.PilotosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PilotosPictureBox.Location = new System.Drawing.Point(915, 34);
+            this.PilotosPictureBox.Name = "PilotosPictureBox";
+            this.PilotosPictureBox.Size = new System.Drawing.Size(877, 785);
+            this.PilotosPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PilotosPictureBox.TabIndex = 26;
+            this.PilotosPictureBox.TabStop = false;
+            this.PilotosPictureBox.Visible = false;
+            // 
+            // BiografiaPilotosTextBox
+            // 
+            this.BiografiaPilotosTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BiografiaPilotosTextBox.BackAlpha = 70;
+            this.BiografiaPilotosTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BiografiaPilotosTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BiografiaPilotosTextBox.Font = new System.Drawing.Font("F1TV-2022-NameCondensed", 14.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BiografiaPilotosTextBox.Location = new System.Drawing.Point(18, 34);
+            this.BiografiaPilotosTextBox.Multiline = true;
+            this.BiografiaPilotosTextBox.Name = "BiografiaPilotosTextBox";
+            this.BiografiaPilotosTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.BiografiaPilotosTextBox.Size = new System.Drawing.Size(880, 504);
+            this.BiografiaPilotosTextBox.TabIndex = 27;
+            this.BiografiaPilotosTextBox.Visible = false;
+            // 
+            // AutoPilotoPictureBox
+            // 
+            this.AutoPilotoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AutoPilotoPictureBox.Location = new System.Drawing.Point(18, 555);
+            this.AutoPilotoPictureBox.Name = "AutoPilotoPictureBox";
+            this.AutoPilotoPictureBox.Size = new System.Drawing.Size(555, 264);
+            this.AutoPilotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AutoPilotoPictureBox.TabIndex = 28;
+            this.AutoPilotoPictureBox.TabStop = false;
+            this.AutoPilotoPictureBox.Visible = false;
+            this.AutoPilotoPictureBox.Click += new System.EventHandler(this.AutoPilotoPictureBox_Click);
+            // 
+            // PaisPictureBox
+            // 
+            this.PaisPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PaisPictureBox.Location = new System.Drawing.Point(583, 555);
+            this.PaisPictureBox.Name = "PaisPictureBox";
+            this.PaisPictureBox.Size = new System.Drawing.Size(315, 264);
+            this.PaisPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PaisPictureBox.TabIndex = 29;
+            this.PaisPictureBox.TabStop = false;
+            this.PaisPictureBox.Visible = false;
+            // 
+            // VolumenControl
+            // 
+            this.VolumenControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolumenControl.BackColor = System.Drawing.Color.Transparent;
+            this.VolumenControl.EmptyTrackColor = System.Drawing.Color.Red;
+            this.VolumenControl.Location = new System.Drawing.Point(116, 822);
+            this.VolumenControl.Name = "VolumenControl";
+            this.VolumenControl.ScaleType = Winamp.Components.WinampTrackBar.WinampTrackBarScaleType.None;
+            this.VolumenControl.ShowSlider = Winamp.Components.WinampTrackBar.WinampTrackBarShowSlider.OnHover;
+            this.VolumenControl.Size = new System.Drawing.Size(289, 54);
+            this.VolumenControl.SmallChange = 1;
+            this.VolumenControl.TabIndex = 30;
+            this.VolumenControl.TrackLowerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.VolumenControl.TrackUpperColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.VolumenControl.Visible = false;
+            // 
+            // Cornering
+            // 
+            this.Cornering.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cornering.AutoSize = true;
+            this.Cornering.BackColor = System.Drawing.Color.Transparent;
+            this.Cornering.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cornering.Location = new System.Drawing.Point(968, 72);
+            this.Cornering.Name = "Cornering";
+            this.Cornering.Size = new System.Drawing.Size(70, 43);
+            this.Cornering.TabIndex = 31;
+            this.Cornering.Text = "30";
+            this.Cornering.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Braking
+            // 
+            this.Braking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Braking.AutoSize = true;
+            this.Braking.BackColor = System.Drawing.Color.Transparent;
+            this.Braking.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Braking.Location = new System.Drawing.Point(1124, 83);
+            this.Braking.Name = "Braking";
+            this.Braking.Size = new System.Drawing.Size(70, 43);
+            this.Braking.TabIndex = 32;
+            this.Braking.Text = "30";
+            this.Braking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Reflexes
+            // 
+            this.Reflexes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Reflexes.AutoSize = true;
+            this.Reflexes.BackColor = System.Drawing.Color.Transparent;
+            this.Reflexes.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reflexes.Location = new System.Drawing.Point(1265, 83);
+            this.Reflexes.Name = "Reflexes";
+            this.Reflexes.Size = new System.Drawing.Size(70, 43);
+            this.Reflexes.TabIndex = 33;
+            this.Reflexes.Text = "30";
+            this.Reflexes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pressure
+            // 
+            this.Pressure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pressure.AutoSize = true;
+            this.Pressure.BackColor = System.Drawing.Color.Transparent;
+            this.Pressure.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pressure.Location = new System.Drawing.Point(972, 212);
+            this.Pressure.Name = "Pressure";
+            this.Pressure.Size = new System.Drawing.Size(70, 43);
+            this.Pressure.TabIndex = 34;
+            this.Pressure.Text = "30";
+            this.Pressure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Experience
+            // 
+            this.Experience.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Experience.AutoSize = true;
+            this.Experience.BackColor = System.Drawing.Color.Transparent;
+            this.Experience.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Experience.Location = new System.Drawing.Point(1124, 212);
+            this.Experience.Name = "Experience";
+            this.Experience.Size = new System.Drawing.Size(70, 43);
+            this.Experience.TabIndex = 35;
+            this.Experience.Text = "30";
+            this.Experience.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Pace
+            // 
+            this.Pace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Pace.AutoSize = true;
+            this.Pace.BackColor = System.Drawing.Color.Transparent;
+            this.Pace.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pace.Location = new System.Drawing.Point(1265, 212);
+            this.Pace.Name = "Pace";
+            this.Pace.Size = new System.Drawing.Size(70, 43);
+            this.Pace.TabIndex = 36;
+            this.Pace.Text = "30";
+            this.Pace.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Tyres
+            // 
+            this.Tyres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tyres.AutoSize = true;
+            this.Tyres.BackColor = System.Drawing.Color.Transparent;
+            this.Tyres.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tyres.Location = new System.Drawing.Point(968, 344);
+            this.Tyres.Name = "Tyres";
+            this.Tyres.Size = new System.Drawing.Size(70, 43);
+            this.Tyres.TabIndex = 37;
+            this.Tyres.Text = "30";
+            this.Tyres.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Agressiveness
+            // 
+            this.Agressiveness.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Agressiveness.AutoSize = true;
+            this.Agressiveness.BackColor = System.Drawing.Color.Transparent;
+            this.Agressiveness.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Agressiveness.Location = new System.Drawing.Point(1124, 344);
+            this.Agressiveness.Name = "Agressiveness";
+            this.Agressiveness.Size = new System.Drawing.Size(70, 43);
+            this.Agressiveness.TabIndex = 38;
+            this.Agressiveness.Text = "30";
+            this.Agressiveness.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Overtaking
+            // 
+            this.Overtaking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Overtaking.AutoSize = true;
+            this.Overtaking.BackColor = System.Drawing.Color.Transparent;
+            this.Overtaking.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Overtaking.Location = new System.Drawing.Point(1265, 344);
+            this.Overtaking.Name = "Overtaking";
+            this.Overtaking.Size = new System.Drawing.Size(70, 43);
+            this.Overtaking.TabIndex = 39;
+            this.Overtaking.Text = "30";
+            this.Overtaking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Concentration
+            // 
+            this.Concentration.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Concentration.AutoSize = true;
+            this.Concentration.BackColor = System.Drawing.Color.Transparent;
+            this.Concentration.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Concentration.Location = new System.Drawing.Point(968, 465);
+            this.Concentration.Name = "Concentration";
+            this.Concentration.Size = new System.Drawing.Size(70, 43);
+            this.Concentration.TabIndex = 40;
+            this.Concentration.Text = "30";
+            this.Concentration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Rain
+            // 
+            this.Rain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rain.AutoSize = true;
+            this.Rain.BackColor = System.Drawing.Color.Transparent;
+            this.Rain.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Rain.Location = new System.Drawing.Point(1124, 465);
+            this.Rain.Name = "Rain";
+            this.Rain.Size = new System.Drawing.Size(70, 43);
+            this.Rain.TabIndex = 41;
+            this.Rain.Text = "30";
+            this.Rain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Defending
+            // 
+            this.Defending.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.Defending.AutoSize = true;
+            this.Defending.BackColor = System.Drawing.Color.Transparent;
+            this.Defending.Font = new System.Drawing.Font("F1TV-2022-Position", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Defending.Location = new System.Drawing.Point(1265, 465);
+            this.Defending.Name = "Defending";
+            this.Defending.Size = new System.Drawing.Size(70, 43);
+            this.Defending.TabIndex = 42;
+            this.Defending.Text = "30";
+            this.Defending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Overall
+            // 
+            this.Overall.AutoSize = true;
+            this.Overall.BackColor = System.Drawing.Color.White;
+            this.Overall.Font = new System.Drawing.Font("F1TV-2022-Position", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Overall.ForeColor = System.Drawing.SystemColors.Control;
+            this.Overall.Location = new System.Drawing.Point(1548, 431);
+            this.Overall.Name = "Overall";
+            this.Overall.Size = new System.Drawing.Size(129, 81);
+            this.Overall.TabIndex = 43;
+            this.Overall.Text = "30";
+            this.Overall.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NombrePilotoTextBox
+            // 
+            this.NombrePilotoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NombrePilotoTextBox.BackAlpha = 0;
+            this.NombrePilotoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NombrePilotoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NombrePilotoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.NombrePilotoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombrePilotoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.NombrePilotoTextBox.Location = new System.Drawing.Point(1069, 633);
+            this.NombrePilotoTextBox.Multiline = true;
+            this.NombrePilotoTextBox.Name = "NombrePilotoTextBox";
+            this.NombrePilotoTextBox.ReadOnly = true;
+            this.NombrePilotoTextBox.Size = new System.Drawing.Size(277, 40);
+            this.NombrePilotoTextBox.TabIndex = 44;
+            this.NombrePilotoTextBox.Visible = false;
+            // 
+            // EquipoTextBox
+            // 
+            this.EquipoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EquipoTextBox.BackAlpha = 0;
+            this.EquipoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.EquipoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EquipoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.EquipoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EquipoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.EquipoTextBox.Location = new System.Drawing.Point(1069, 717);
+            this.EquipoTextBox.Multiline = true;
+            this.EquipoTextBox.Name = "EquipoTextBox";
+            this.EquipoTextBox.ReadOnly = true;
+            this.EquipoTextBox.Size = new System.Drawing.Size(278, 40);
+            this.EquipoTextBox.TabIndex = 46;
+            this.EquipoTextBox.WordWrap = false;
+            // 
+            // ApodoTextBox
+            // 
+            this.ApodoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApodoTextBox.BackAlpha = 0;
+            this.ApodoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ApodoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ApodoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ApodoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApodoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ApodoTextBox.Location = new System.Drawing.Point(1070, 675);
+            this.ApodoTextBox.Multiline = true;
+            this.ApodoTextBox.Name = "ApodoTextBox";
+            this.ApodoTextBox.ReadOnly = true;
+            this.ApodoTextBox.Size = new System.Drawing.Size(277, 40);
+            this.ApodoTextBox.TabIndex = 48;
+            // 
+            // BackDriver
+            // 
+            this.BackDriver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackDriver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackDriver.BackColor = System.Drawing.Color.Transparent;
+            this.BackDriver.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackDriver.BackgroundImage")));
+            this.BackDriver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackDriver.FlatAppearance.BorderSize = 0;
+            this.BackDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackDriver.Location = new System.Drawing.Point(1283, 822);
+            this.BackDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackDriver.Name = "BackDriver";
+            this.BackDriver.Size = new System.Drawing.Size(66, 57);
+            this.BackDriver.TabIndex = 50;
+            this.BackDriver.UseVisualStyleBackColor = false;
+            this.BackDriver.Visible = false;
+            this.BackDriver.Click += new System.EventHandler(this.BackDriver_Click);
+            // 
+            // NextDriver
+            // 
+            this.NextDriver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextDriver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextDriver.BackColor = System.Drawing.Color.Transparent;
+            this.NextDriver.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextDriver.BackgroundImage")));
+            this.NextDriver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextDriver.FlatAppearance.BorderSize = 0;
+            this.NextDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextDriver.Location = new System.Drawing.Point(1358, 822);
+            this.NextDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NextDriver.Name = "NextDriver";
+            this.NextDriver.Size = new System.Drawing.Size(66, 57);
+            this.NextDriver.TabIndex = 51;
+            this.NextDriver.UseVisualStyleBackColor = false;
+            this.NextDriver.Visible = false;
+            this.NextDriver.Click += new System.EventHandler(this.NextDriver_Click);
+            // 
+            // AlturaTextBox
+            // 
+            this.AlturaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AlturaTextBox.BackAlpha = 0;
+            this.AlturaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AlturaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AlturaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.AlturaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlturaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.AlturaTextBox.Location = new System.Drawing.Point(1482, 681);
+            this.AlturaTextBox.Multiline = true;
+            this.AlturaTextBox.Name = "AlturaTextBox";
+            this.AlturaTextBox.ReadOnly = true;
+            this.AlturaTextBox.Size = new System.Drawing.Size(103, 31);
+            this.AlturaTextBox.TabIndex = 53;
+            this.AlturaTextBox.Text = "2,00 M";
+            this.AlturaTextBox.Visible = false;
+            // 
+            // PesoTextBox
+            // 
+            this.PesoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PesoTextBox.BackAlpha = 0;
+            this.PesoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PesoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PesoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PesoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.PesoTextBox.Location = new System.Drawing.Point(1482, 720);
+            this.PesoTextBox.Multiline = true;
+            this.PesoTextBox.Name = "PesoTextBox";
+            this.PesoTextBox.ReadOnly = true;
+            this.PesoTextBox.Size = new System.Drawing.Size(103, 40);
+            this.PesoTextBox.TabIndex = 54;
+            this.PesoTextBox.Text = "100 Kg";
+            this.PesoTextBox.Visible = false;
+            // 
+            // VictoriaTextBox
+            // 
+            this.VictoriaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VictoriaTextBox.BackAlpha = 0;
+            this.VictoriaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VictoriaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VictoriaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.VictoriaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VictoriaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.VictoriaTextBox.Location = new System.Drawing.Point(1729, 637);
+            this.VictoriaTextBox.Multiline = true;
+            this.VictoriaTextBox.Name = "VictoriaTextBox";
+            this.VictoriaTextBox.ReadOnly = true;
+            this.VictoriaTextBox.Size = new System.Drawing.Size(63, 34);
+            this.VictoriaTextBox.TabIndex = 55;
+            this.VictoriaTextBox.Text = "999";
+            this.VictoriaTextBox.Visible = false;
+            // 
+            // DerrotaTextBox
+            // 
+            this.DerrotaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DerrotaTextBox.BackAlpha = 0;
+            this.DerrotaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DerrotaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DerrotaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.DerrotaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DerrotaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.DerrotaTextBox.Location = new System.Drawing.Point(1729, 678);
+            this.DerrotaTextBox.Multiline = true;
+            this.DerrotaTextBox.Name = "DerrotaTextBox";
+            this.DerrotaTextBox.ReadOnly = true;
+            this.DerrotaTextBox.Size = new System.Drawing.Size(63, 34);
+            this.DerrotaTextBox.TabIndex = 56;
+            this.DerrotaTextBox.Text = "100%";
+            this.DerrotaTextBox.Visible = false;
+            // 
+            // WinRateTextBox
+            // 
+            this.WinRateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WinRateTextBox.BackAlpha = 0;
+            this.WinRateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WinRateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WinRateTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.WinRateTextBox.Font = new System.Drawing.Font("Formula1 TV-", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WinRateTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.WinRateTextBox.Location = new System.Drawing.Point(1729, 718);
+            this.WinRateTextBox.Multiline = true;
+            this.WinRateTextBox.Name = "WinRateTextBox";
+            this.WinRateTextBox.ReadOnly = true;
+            this.WinRateTextBox.Size = new System.Drawing.Size(64, 34);
+            this.WinRateTextBox.TabIndex = 57;
+            this.WinRateTextBox.Text = "999";
+            this.WinRateTextBox.Visible = false;
+            // 
+            // TotalTextBox
+            // 
+            this.TotalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalTextBox.BackAlpha = 0;
+            this.TotalTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TotalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TotalTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TotalTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.TotalTextBox.Location = new System.Drawing.Point(1729, 756);
+            this.TotalTextBox.Multiline = true;
+            this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
+            this.TotalTextBox.Size = new System.Drawing.Size(64, 34);
+            this.TotalTextBox.TabIndex = 58;
+            this.TotalTextBox.Text = "999";
+            this.TotalTextBox.Visible = false;
+            // 
+            // RivalTextBox
+            // 
+            this.RivalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RivalTextBox.BackAlpha = 0;
+            this.RivalTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RivalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RivalTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RivalTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RivalTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.RivalTextBox.Location = new System.Drawing.Point(1068, 759);
+            this.RivalTextBox.Multiline = true;
+            this.RivalTextBox.Name = "RivalTextBox";
+            this.RivalTextBox.ReadOnly = true;
+            this.RivalTextBox.Size = new System.Drawing.Size(278, 40);
+            this.RivalTextBox.TabIndex = 59;
+            this.RivalTextBox.WordWrap = false;
+            // 
+            // EdadTextBox
+            // 
+            this.EdadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EdadTextBox.BackAlpha = 0;
+            this.EdadTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.EdadTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EdadTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.EdadTextBox.Font = new System.Drawing.Font("Formula1 TV-", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EdadTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.EdadTextBox.Location = new System.Drawing.Point(1483, 631);
+            this.EdadTextBox.Multiline = true;
+            this.EdadTextBox.Name = "EdadTextBox";
+            this.EdadTextBox.ReadOnly = true;
+            this.EdadTextBox.Size = new System.Drawing.Size(102, 40);
+            this.EdadTextBox.TabIndex = 60;
+            this.EdadTextBox.WordWrap = false;
+            // 
+            // AutosPictureBox
+            // 
+            this.AutosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AutosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AutosPictureBox.Location = new System.Drawing.Point(19, 35);
+            this.AutosPictureBox.Name = "AutosPictureBox";
+            this.AutosPictureBox.Size = new System.Drawing.Size(1206, 677);
+            this.AutosPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AutosPictureBox.TabIndex = 61;
+            this.AutosPictureBox.TabStop = false;
+            this.AutosPictureBox.Visible = false;
+            this.AutosPictureBox.Click += new System.EventHandler(this.AutosPictureBox_Click);
+            // 
+            // BanderasPictureBox
+            // 
+            this.BanderasPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BanderasPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("BanderasPictureBox.Image")));
+            this.BanderasPictureBox.Location = new System.Drawing.Point(1242, 34);
+            this.BanderasPictureBox.Name = "BanderasPictureBox";
+            this.BanderasPictureBox.Size = new System.Drawing.Size(551, 681);
+            this.BanderasPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BanderasPictureBox.TabIndex = 62;
+            this.BanderasPictureBox.TabStop = false;
+            this.BanderasPictureBox.Visible = false;
+            // 
+            // FichaTecnicaTextBox
+            // 
+            this.FichaTecnicaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FichaTecnicaTextBox.BackAlpha = 50;
+            this.FichaTecnicaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.FichaTecnicaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FichaTecnicaTextBox.Location = new System.Drawing.Point(1241, 34);
+            this.FichaTecnicaTextBox.Multiline = true;
+            this.FichaTecnicaTextBox.Name = "FichaTecnicaTextBox";
+            this.FichaTecnicaTextBox.ReadOnly = true;
+            this.FichaTecnicaTextBox.Size = new System.Drawing.Size(551, 678);
+            this.FichaTecnicaTextBox.TabIndex = 63;
+            this.FichaTecnicaTextBox.Visible = false;
+            // 
+            // NombreAutoTextbox
+            // 
+            this.NombreAutoTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NombreAutoTextbox.BackAlpha = 25;
+            this.NombreAutoTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NombreAutoTextbox.Font = new System.Drawing.Font("F1TV-2022-Position", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreAutoTextbox.Location = new System.Drawing.Point(26, 721);
+            this.NombreAutoTextbox.Multiline = true;
+            this.NombreAutoTextbox.Name = "NombreAutoTextbox";
+            this.NombreAutoTextbox.Size = new System.Drawing.Size(1186, 64);
+            this.NombreAutoTextbox.TabIndex = 64;
+            this.NombreAutoTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NombreAutoTextbox.Visible = false;
+            // 
+            // NextAuto
+            // 
+            this.NextAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextAuto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextAuto.BackColor = System.Drawing.Color.Transparent;
+            this.NextAuto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextAuto.BackgroundImage")));
+            this.NextAuto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextAuto.FlatAppearance.BorderSize = 0;
+            this.NextAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NextAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextAuto.Location = new System.Drawing.Point(1547, 728);
+            this.NextAuto.Name = "NextAuto";
+            this.NextAuto.Size = new System.Drawing.Size(197, 57);
+            this.NextAuto.TabIndex = 65;
+            this.NextAuto.UseVisualStyleBackColor = false;
+            this.NextAuto.Visible = false;
+            // 
+            // BackAuto
+            // 
+            this.BackAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackAuto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackAuto.BackColor = System.Drawing.Color.Transparent;
+            this.BackAuto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackAuto.BackgroundImage")));
+            this.BackAuto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackAuto.FlatAppearance.BorderSize = 0;
+            this.BackAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.BackAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackAuto.Location = new System.Drawing.Point(1312, 728);
+            this.BackAuto.Name = "BackAuto";
+            this.BackAuto.Size = new System.Drawing.Size(184, 57);
+            this.BackAuto.TabIndex = 66;
+            this.BackAuto.UseVisualStyleBackColor = false;
+            this.BackAuto.Visible = false;
+            // 
+            // MarcaPictureBox
+            // 
+            this.MarcaPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MarcaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("MarcaPictureBox.Image")));
+            this.MarcaPictureBox.Location = new System.Drawing.Point(1112, 50);
+            this.MarcaPictureBox.Name = "MarcaPictureBox";
+            this.MarcaPictureBox.Size = new System.Drawing.Size(98, 82);
+            this.MarcaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MarcaPictureBox.TabIndex = 67;
+            this.MarcaPictureBox.TabStop = false;
+            // 
+            // AnioLabel
+            // 
+            this.AnioLabel.AutoSize = true;
+            this.AnioLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AnioLabel.Location = new System.Drawing.Point(1311, 50);
+            this.AnioLabel.Name = "AnioLabel";
+            this.AnioLabel.Size = new System.Drawing.Size(92, 48);
+            this.AnioLabel.TabIndex = 68;
+            this.AnioLabel.Text = "Año";
+            // 
+            // HPlabel
+            // 
+            this.HPlabel.AutoSize = true;
+            this.HPlabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HPlabel.Location = new System.Drawing.Point(1322, 184);
+            this.HPlabel.Name = "HPlabel";
+            this.HPlabel.Size = new System.Drawing.Size(68, 48);
+            this.HPlabel.TabIndex = 69;
+            this.HPlabel.Text = "HP";
+            // 
+            // PesoLabel
+            // 
+            this.PesoLabel.AutoSize = true;
+            this.PesoLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoLabel.Location = new System.Drawing.Point(1554, 184);
+            this.PesoLabel.Name = "PesoLabel";
+            this.PesoLabel.Size = new System.Drawing.Size(116, 48);
+            this.PesoLabel.TabIndex = 70;
+            this.PesoLabel.Text = "Peso";
+            // 
+            // PesoPotenciaLabel
+            // 
+            this.PesoPotenciaLabel.AutoSize = true;
+            this.PesoPotenciaLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoPotenciaLabel.Location = new System.Drawing.Point(1292, 330);
+            this.PesoPotenciaLabel.Name = "PesoPotenciaLabel";
+            this.PesoPotenciaLabel.Size = new System.Drawing.Size(140, 48);
+            this.PesoPotenciaLabel.TabIndex = 71;
+            this.PesoPotenciaLabel.Text = "KG/HP";
+            // 
+            // TorqueLabel
+            // 
+            this.TorqueLabel.AutoSize = true;
+            this.TorqueLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TorqueLabel.Location = new System.Drawing.Point(1539, 50);
+            this.TorqueLabel.Name = "TorqueLabel";
+            this.TorqueLabel.Size = new System.Drawing.Size(164, 48);
+            this.TorqueLabel.TabIndex = 72;
+            this.TorqueLabel.Text = "Torque";
+            // 
+            // TopSpeedLabel
+            // 
+            this.TopSpeedLabel.AutoSize = true;
+            this.TopSpeedLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TopSpeedLabel.Location = new System.Drawing.Point(1508, 330);
+            this.TopSpeedLabel.Name = "TopSpeedLabel";
+            this.TopSpeedLabel.Size = new System.Drawing.Size(236, 48);
+            this.TopSpeedLabel.TabIndex = 73;
+            this.TopSpeedLabel.Text = "Top-Speed";
+            // 
+            // KilometrosLabel
+            // 
+            this.KilometrosLabel.AutoSize = true;
+            this.KilometrosLabel.Font = new System.Drawing.Font("Unispace", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KilometrosLabel.Location = new System.Drawing.Point(1256, 463);
+            this.KilometrosLabel.Name = "KilometrosLabel";
+            this.KilometrosLabel.Size = new System.Drawing.Size(228, 41);
+            this.KilometrosLabel.TabIndex = 74;
+            this.KilometrosLabel.Text = "Kilometros";
+            // 
+            // CategoriaLabel
+            // 
+            this.CategoriaLabel.AutoSize = true;
+            this.CategoriaLabel.Font = new System.Drawing.Font("Unispace", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoriaLabel.Location = new System.Drawing.Point(1528, 465);
+            this.CategoriaLabel.Name = "CategoriaLabel";
+            this.CategoriaLabel.Size = new System.Drawing.Size(207, 41);
+            this.CategoriaLabel.TabIndex = 75;
+            this.CategoriaLabel.Text = "Categoria";
+            // 
+            // PilotoLabel
+            // 
+            this.PilotoLabel.AutoSize = true;
+            this.PilotoLabel.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PilotoLabel.Location = new System.Drawing.Point(1421, 602);
+            this.PilotoLabel.Name = "PilotoLabel";
+            this.PilotoLabel.Size = new System.Drawing.Size(164, 48);
+            this.PilotoLabel.TabIndex = 76;
+            this.PilotoLabel.Text = "Piloto";
+            // 
+            // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.PilotoLabel);
+            this.Controls.Add(this.CategoriaLabel);
+            this.Controls.Add(this.KilometrosLabel);
+            this.Controls.Add(this.TopSpeedLabel);
+            this.Controls.Add(this.TorqueLabel);
+            this.Controls.Add(this.PesoPotenciaLabel);
+            this.Controls.Add(this.PesoLabel);
+            this.Controls.Add(this.HPlabel);
+            this.Controls.Add(this.AnioLabel);
+            this.Controls.Add(this.MarcaPictureBox);
+            this.Controls.Add(this.BackAuto);
+            this.Controls.Add(this.NextAuto);
+            this.Controls.Add(this.NombreAutoTextbox);
+            this.Controls.Add(this.FichaTecnicaTextBox);
+            this.Controls.Add(this.BanderasPictureBox);
+            this.Controls.Add(this.AutosPictureBox);
+            this.Controls.Add(this.EdadTextBox);
+            this.Controls.Add(this.RivalTextBox);
+            this.Controls.Add(this.TotalTextBox);
+            this.Controls.Add(this.WinRateTextBox);
+            this.Controls.Add(this.DerrotaTextBox);
+            this.Controls.Add(this.VictoriaTextBox);
+            this.Controls.Add(this.PesoTextBox);
+            this.Controls.Add(this.AlturaTextBox);
+            this.Controls.Add(this.NextDriver);
+            this.Controls.Add(this.BackDriver);
+            this.Controls.Add(this.ApodoTextBox);
+            this.Controls.Add(this.EquipoTextBox);
+            this.Controls.Add(this.NombrePilotoTextBox);
+            this.Controls.Add(this.Overall);
+            this.Controls.Add(this.Defending);
+            this.Controls.Add(this.Rain);
+            this.Controls.Add(this.Concentration);
+            this.Controls.Add(this.Overtaking);
+            this.Controls.Add(this.Agressiveness);
+            this.Controls.Add(this.Tyres);
+            this.Controls.Add(this.Pace);
+            this.Controls.Add(this.Experience);
+            this.Controls.Add(this.Pressure);
+            this.Controls.Add(this.Reflexes);
+            this.Controls.Add(this.Braking);
+            this.Controls.Add(this.Cornering);
+            this.Controls.Add(this.VolumenControl);
+            this.Controls.Add(this.PaisPictureBox);
+            this.Controls.Add(this.AutoPilotoPictureBox);
+            this.Controls.Add(this.BiografiaPilotosTextBox);
+            this.Controls.Add(this.PilotosPictureBox);
             this.Controls.Add(this.SiguientePistaBoton);
             this.Controls.Add(this.AnteriorPistaBoton);
             this.Controls.Add(this.DistanciaTextbox);
@@ -424,7 +1223,6 @@ namespace Touge_App
             this.Controls.Add(this.BackBoton);
             this.Controls.Add(this.ConfiguracionBoton);
             this.Controls.Add(this.EconomiaBoton);
-            this.Controls.Add(this.VolumenControl);
             this.Controls.Add(this.CloseBoton);
             this.Controls.Add(this.BotonPistas);
             this.Controls.Add(this.HistorialBoton);
@@ -436,14 +1234,19 @@ namespace Touge_App
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "TougeForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Touge-App";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VolumenControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PilotosPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutoPilotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PaisPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AutosPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BanderasPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +1262,6 @@ namespace Touge_App
         private System.Windows.Forms.Button ReglasBoton;
         private System.Windows.Forms.Button BotonPistas;
         private System.Windows.Forms.Button CloseBoton;
-        private System.Windows.Forms.TrackBar VolumenControl;
         private System.Windows.Forms.Button EconomiaBoton;
         private System.Windows.Forms.Button ConfiguracionBoton;
         private System.Windows.Forms.Button NextBoton;
@@ -473,6 +1275,53 @@ namespace Touge_App
         private ZBobb.AlphaBlendTextBox NombreCircuito;
         private System.Windows.Forms.Button SiguientePistaBoton;
         private System.Windows.Forms.Button AnteriorPistaBoton;
+        private System.Windows.Forms.PictureBox AutoPilotoPictureBox;
+        private ZBobb.AlphaBlendTextBox BiografiaPilotosTextBox;
+        private System.Windows.Forms.PictureBox PilotosPictureBox;
+        private System.Windows.Forms.PictureBox PaisPictureBox;
+        private Winamp.Components.WinampTrackBar VolumenControl;
+        private System.Windows.Forms.Label Cornering;
+        private System.Windows.Forms.Label Defending;
+        private System.Windows.Forms.Label Rain;
+        private System.Windows.Forms.Label Concentration;
+        private System.Windows.Forms.Label Overtaking;
+        private System.Windows.Forms.Label Agressiveness;
+        private System.Windows.Forms.Label Tyres;
+        private System.Windows.Forms.Label Pace;
+        private System.Windows.Forms.Label Experience;
+        private System.Windows.Forms.Label Pressure;
+        private System.Windows.Forms.Label Reflexes;
+        private System.Windows.Forms.Label Braking;
+        private System.Windows.Forms.Label Overall;
+        private ZBobb.AlphaBlendTextBox NombrePilotoTextBox;
+        private ZBobb.AlphaBlendTextBox EquipoTextBox;
+        private ZBobb.AlphaBlendTextBox ApodoTextBox;
+        private System.Windows.Forms.Button BackDriver;
+        private System.Windows.Forms.Button NextDriver;
+        private ZBobb.AlphaBlendTextBox TotalTextBox;
+        private ZBobb.AlphaBlendTextBox WinRateTextBox;
+        private ZBobb.AlphaBlendTextBox DerrotaTextBox;
+        private ZBobb.AlphaBlendTextBox VictoriaTextBox;
+        private ZBobb.AlphaBlendTextBox PesoTextBox;
+        private ZBobb.AlphaBlendTextBox AlturaTextBox;
+        private ZBobb.AlphaBlendTextBox RivalTextBox;
+        private ZBobb.AlphaBlendTextBox EdadTextBox;
+        private ZBobb.AlphaBlendTextBox FichaTecnicaTextBox;
+        private System.Windows.Forms.PictureBox BanderasPictureBox;
+        private System.Windows.Forms.PictureBox AutosPictureBox;
+        private ZBobb.AlphaBlendTextBox NombreAutoTextbox;
+        private System.Windows.Forms.Button BackAuto;
+        private System.Windows.Forms.Button NextAuto;
+        private System.Windows.Forms.PictureBox MarcaPictureBox;
+        private System.Windows.Forms.Label PilotoLabel;
+        private System.Windows.Forms.Label CategoriaLabel;
+        private System.Windows.Forms.Label KilometrosLabel;
+        private System.Windows.Forms.Label TopSpeedLabel;
+        private System.Windows.Forms.Label TorqueLabel;
+        private System.Windows.Forms.Label PesoPotenciaLabel;
+        private System.Windows.Forms.Label PesoLabel;
+        private System.Windows.Forms.Label HPlabel;
+        private System.Windows.Forms.Label AnioLabel;
     }
 }
 

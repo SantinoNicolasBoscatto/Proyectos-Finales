@@ -10,18 +10,54 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo_Clases;
 using Negocio_Base_Datos;
+using System.Threading;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
+
 namespace Touge_App
 {
-    public partial class Form1 : Form
+    public partial class TougeForms : Form
     {
         private WaveOutEvent waveOutDevice = new WaveOutEvent();
         private AudioFileReader audioFile;
         NegocioBaseDatos negocioBD = new NegocioBaseDatos();
         List<Musica> listaCanciones;
+        private Size initialSize;
 
-        public Form1()
+        public TougeForms()
         {
             InitializeComponent();
+            initialSize = this.ClientSize;
+            this.Resize += TougeForms_Resize;
+        }
+        bool banderaSize = false;
+        private void TougeForms_Resize(object sender, EventArgs e)
+        {
+            // Obtener el tamaño actual del formulario
+            Size currentSize = this.ClientSize;
+
+            // Comparar el tamaño actual con el tamaño inicial
+            if (currentSize.Width > initialSize.Width || currentSize.Height > initialSize.Height)
+            {
+                banderaSize = true;
+            }
+            else
+            {
+                Cornering.Location = new Point(48, 42);
+                Braking.Location = new Point(155, 42);
+                Reflexes.Location = new Point(262, 42);
+                Pressure.Location = new Point(43, 149);
+                Experience.Location = new Point(155, 149);
+                Pace.Location = new Point(262, 149);
+                Tyres.Location = new Point(43, 255);
+                Agressiveness.Location = new Point(155, 255);
+                Overtaking.Location = new Point(262, 255);
+                Concentration.Location = new Point(45, 354);
+                Rain.Location = new Point(155, 354);
+                Defending.Location = new Point(262, 354);
+                Overall.Location = new Point(465, 308);
+                banderaSize = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,20 +74,29 @@ namespace Touge_App
             //Suscribo al evento del cambio de valor del volumen
             VolumenControl.ValueChanged += VolumenControl_ValueChanged;
             //Trasparento Botones
-            Trasparentado(CloseBoton, ConfiguracionBoton, VolumenControl);
+            Trasparentado(CloseBoton, ConfiguracionBoton);
             //Pido un Fondo Random
             RandomFondo();
             //Inicio en Segunda pantalla si hay
             Screen secondScreen = Screen.AllScreens.Length > 1 ? Screen.AllScreens[1] : Screen.PrimaryScreen;
             Location = secondScreen.Bounds.Location;
         }
+
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            Size newResolution = this.ClientSize;
+            
+        }
+
         //Aca se Valida mediante un bool cuando el Mouse entra o sale de los botones y el evento de repintado
 
         bool HoverBotonBD = false;
         private void HoverBoton_MouseEnter(object sender, EventArgs e)
-        { HoverBotonBD = true; }
+        { HoverBotonBD = true;
+        }
         private void HoverBoton_MouseLeave(object sender, EventArgs e)
-        { HoverBotonBD = false; }
+        { HoverBotonBD = false;
+        }
         private void BotonPistas_Paint(object sender, PaintEventArgs e)
         { RepintadoBotones(HoverBotonBD, e, BotonPistas); }
 
@@ -125,6 +170,7 @@ namespace Touge_App
         private void HistorialBoton_MouseEnter(object sender, EventArgs e)
         {
             HoverHistorialBD = true;
+            
         }
         private void HistorialBoton_MouseLeave(object sender, EventArgs e)
         {
@@ -224,7 +270,7 @@ namespace Touge_App
         }
 
         // Trasparentar Los Botones
-        private void Trasparentado(Button Boton, Button Boton2, TrackBar Barra)
+        private void Trasparentado(Button Boton, Button Boton2)
         {
             Boton.BackColor = Color.Transparent;
             Boton.Parent = PictureBoxBack;
@@ -232,9 +278,10 @@ namespace Touge_App
             Boton2.BackColor = Color.Transparent;
             Boton2.Parent = PictureBoxBack;
             Boton2.Visible = true;
-            Barra.BackColor = Color.Black;
-            Barra.Parent = PictureBoxBack;
-            Barra.Visible = false;
+            NextDriver.BackColor = Color.Transparent;
+            NextDriver.Parent = PictureBoxBack;
+            BackDriver.BackColor = Color.Transparent;
+            BackDriver.Parent = PictureBoxBack;
             BotonPistas.Parent = PictureBoxBack;
             AutosBoton.Parent = PictureBoxBack;
             EconomiaBoton.Parent = PictureBoxBack;
@@ -268,12 +315,96 @@ namespace Touge_App
             SiguientePistaBoton.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
             AnteriorPistaBoton.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
             AnteriorPistaBoton.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            PilotosPictureBox.Parent = PictureBoxBack;
+            AutoPilotoPictureBox.Parent = PictureBoxBack;
+            PaisPictureBox.Parent = PictureBoxBack;
+            BiografiaPilotosTextBox.Parent = PictureBoxBack;
+            VolumenControl.Parent = PictureBoxBack;
+            Cornering.BackColor = Color.Transparent;
+            Cornering.Parent = PilotosPictureBox;
+            Cornering.Location = new Point(48, 42);
+            Braking.BackColor = Color.Transparent;
+            Braking.Parent = PilotosPictureBox;
+            Braking.Location = new Point(155, 42);
+            Reflexes.BackColor = Color.Transparent;
+            Reflexes.Parent = PilotosPictureBox;
+            Reflexes.Location = new Point(262, 42);
+            Pressure.BackColor = Color.Transparent;
+            Pressure.Parent = PilotosPictureBox;
+            Pressure.Location = new Point(43, 149);
+            Experience.BackColor = Color.Transparent;
+            Experience.Parent = PilotosPictureBox;
+            Experience.Location = new Point(155, 149);
+            Pace.BackColor = Color.Transparent;
+            Pace.Parent = PilotosPictureBox;
+            Pace.Location = new Point(262, 149);
+            Tyres.BackColor = Color.Transparent;
+            Tyres.Parent = PilotosPictureBox;
+            Tyres.Location = new Point(43, 255);
+            Agressiveness.BackColor = Color.Transparent;
+            Agressiveness.Parent = PilotosPictureBox;
+            Agressiveness.Location = new Point(155, 255);
+            Overtaking.BackColor = Color.Transparent;
+            Overtaking.Parent = PilotosPictureBox;
+            Overtaking.Location = new Point(262, 255);
+            Concentration.BackColor = Color.Transparent;
+            Concentration.Parent = PilotosPictureBox;
+            Concentration.Location = new Point(45, 354);
+            Rain.BackColor = Color.Transparent;
+            Rain.Parent = PilotosPictureBox;
+            Rain.Location = new Point(155, 354);
+            Defending.BackColor = Color.Transparent;
+            Defending.Parent = PilotosPictureBox;
+            Defending.Location = new Point(262, 354);
+            Overall.BackColor = Color.Transparent;
+            Overall.Parent = PilotosPictureBox;
+            Overall.Location = new Point(465, 308);
+            NombrePilotoTextBox.Parent = PilotosPictureBox;
+            NombrePilotoTextBox.Location = new Point(118, 490);
+            ApodoTextBox.Parent = PilotosPictureBox;
+            ApodoTextBox.Location = new Point(118, 525);
+            EquipoTextBox.Parent = PilotosPictureBox;
+            EquipoTextBox.Location = new Point(118, 560);
+            RivalTextBox.Parent = PilotosPictureBox;
+            RivalTextBox.Location = new Point(118, 590);
+            EdadTextBox.Parent = PilotosPictureBox;
+            EdadTextBox.Location = new Point(433, 488);
+            AlturaTextBox.Parent = PilotosPictureBox;
+            AlturaTextBox.Location = new Point(430, 527);
+            PesoTextBox.Parent = PilotosPictureBox;
+            PesoTextBox.Location = new Point(430, 562);
+            VictoriaTextBox.Parent = PilotosPictureBox;
+            VictoriaTextBox.Location = new Point(612, 492);
+            DerrotaTextBox.Parent = PilotosPictureBox;
+            DerrotaTextBox.Location = new Point(612, 525);
+            WinRateTextBox.Parent = PilotosPictureBox;
+            WinRateTextBox.Location = new Point(612, 558);
+            TotalTextBox.Parent = PilotosPictureBox;
+            TotalTextBox.Location = new Point(612, 590);
+            BanderasPictureBox.Parent = PictureBoxBack;
+            FichaTecnicaTextBox.Parent = BanderasPictureBox;
+            FichaTecnicaTextBox.Location = new Point(0, 0);
+            AutosPictureBox.Parent = PictureBoxBack;
+            NombreAutoTextbox.Parent = PictureBoxBack;
+            BackAuto.BackColor = Color.Transparent;
+            BackAuto.Parent = PictureBoxBack;
+            NextAuto.BackColor = Color.Transparent;
+            NextAuto.Parent = PictureBoxBack;
+            BackAuto.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            BackAuto.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            NextAuto.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            NextAuto.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            VolverBoton.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            VolverBoton.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            MarcaPictureBox.BackColor = Color.Transparent;
+            MarcaPictureBox.Parent = AutosPictureBox;
+            MarcaPictureBox.Location = new Point(810, 20);
         }
 
 
         //Dispara la Primera pista de Musica
 
-        float Volumen = 0.5f;
+        float Volumen = 0.1f;
         int indexMusica = 0;
         bool primeraVuelta = true;
         private void IniciarMusica(ref AudioFileReader Musica, bool ValueBD = true)
@@ -285,8 +416,9 @@ namespace Touge_App
                 if (primeraVuelta)
                 {
                     VolumenControl.Minimum = 0;
-                    VolumenControl.Maximum = 100;
-                    VolumenControl.Value = 5;
+                    VolumenControl.Maximum = 25;
+                    VolumenControl.Value = 10;
+                    Musica.Volume = Volumen;
                     primeraVuelta = false;
                 }
                 else
@@ -432,18 +564,23 @@ namespace Touge_App
 
         int indexPistas = 0;
         List<Pistas> listaPistas = new List<Pistas>();
+        private void Ocultar ()
+        {
+            BotonPistas.Visible = false;
+            PilotosBoton.Visible = false;
+            ReglasBoton.Visible = false;
+            EconomiaBoton.Visible = false;
+            HistorialBoton.Visible = false;
+            AutosBoton.Visible = false;
+            CloseBoton.Visible = false;
+            VolverBoton.Visible = true;
+        }
+
         private void BotonPistas_Click(object sender, EventArgs e)
         {
             if (true)
             {
-                BotonPistas.Visible = false;
-                PilotosBoton.Visible = false;
-                ReglasBoton.Visible = false;
-                EconomiaBoton.Visible = false;
-                HistorialBoton.Visible = false;
-                AutosBoton.Visible = false;
-                CloseBoton.Visible = false;
-                VolverBoton.Visible = true;
+                Ocultar();
                 PistaPictureBox.Visible = true;
                 NombreCircuito.Visible = true;
                 DistanciaTextbox.Visible = true;
@@ -453,6 +590,7 @@ namespace Touge_App
                 DistanciaTextbox.Visible = true;
                 SiguientePistaBoton.Visible = true;
                 AnteriorPistaBoton.Visible = true;
+               
             }
             CargaBasePistas();
             
@@ -473,6 +611,42 @@ namespace Touge_App
 
         private void VolverBoton_Click(object sender, EventArgs e)
         {
+            if (PistaPictureBox.Visible == true)
+            {
+                VolverBoton.Visible = false;
+                PistaPictureBox.Visible = false;
+                NombreCircuito.Visible = false;
+                DistanciaTextbox.Visible = false;
+                PaisTextBox.Visible = false;
+                PistasBiografia.Visible = false;
+                ModalidadTextBox.Visible = false;
+                DistanciaTextbox.Visible = false;
+                SiguientePistaBoton.Visible = false;
+                AnteriorPistaBoton.Visible = false;
+                imagen = true;
+            }
+            else if(PilotosPictureBox.Visible == true)
+            {
+                PilotosPictureBox.Visible = false;
+                BiografiaPilotosTextBox.Visible = false;
+                AutoPilotoPictureBox.Visible = false;
+                PaisPictureBox.Visible = false;
+                NombrePilotoTextBox.Visible = false;
+                ApodoTextBox.Visible = false;
+                EquipoTextBox.Visible = false;
+                RivalTextBox.Visible = false;
+                BackDriver.Visible = false;
+                NextDriver.Visible = false;
+            }
+            else if (FichaTecnicaTextBox.Visible == true)
+            {
+                FichaTecnicaTextBox.Visible = false;
+                NombreAutoTextbox.Visible = false;
+                BanderasPictureBox.Visible = false;
+                AutosPictureBox.Visible = false;
+                NextAuto.Visible = false;
+                BackAuto.Visible = false;
+            }
             BotonPistas.Visible = true;
             PilotosBoton.Visible = true;
             ReglasBoton.Visible = true;
@@ -480,17 +654,8 @@ namespace Touge_App
             HistorialBoton.Visible = true;
             AutosBoton.Visible = true;
             CloseBoton.Visible = true;
-            imagen = true;
-            VolverBoton.Visible = false;
-            PistaPictureBox.Visible = false;
-            NombreCircuito.Visible = false;
-            DistanciaTextbox.Visible = false;
-            PaisTextBox.Visible = false;
-            PistasBiografia.Visible = false;
-            ModalidadTextBox.Visible = false;
-            DistanciaTextbox.Visible = false;
-            SiguientePistaBoton.Visible = false;
-            AnteriorPistaBoton.Visible = false;
+            
+           
             
         }
 
@@ -527,6 +692,224 @@ namespace Touge_App
                 CargaBasePistas();
             }
             imagen = true;
+        }
+
+            NegocioBaseDatos negocioBDPilotos = new NegocioBaseDatos();
+            List<Pilotos> listaPilotos = new List<Pilotos>();
+            int indexPilotos = 0;
+        private void PilotosBoton_Click(object sender, EventArgs e)
+        {
+            
+            Ocultar();
+            Cornering.Visible = true;
+            PilotosPictureBox.Visible = true;
+            AutoPilotoPictureBox.Visible = true;
+            BiografiaPilotosTextBox.Visible = true;
+            PaisPictureBox.Visible = true;
+            Cornering.Visible = true;
+            NombrePilotoTextBox.Visible = true;
+            ApodoTextBox.Visible = true;
+            EquipoTextBox.Visible = true;
+            RivalTextBox.Visible = true;
+            NextDriver.Visible = true;
+            BackDriver.Visible = true;
+            EdadTextBox.Visible = true;
+            AlturaTextBox.Visible = true;
+            PesoTextBox.Visible = true;
+            VictoriaTextBox.Visible = true;
+            DerrotaTextBox.Visible = true;
+            WinRateTextBox.Visible = true;
+            TotalTextBox.Visible = true;
+            
+            CargaPilotos();
+
+        }
+
+        private void CargaPilotos()
+        {
+            listaPilotos = negocioBDPilotos.DevolverPilotos();
+            PilotosPictureBox.Load(listaPilotos[indexPilotos].Foto);
+            BiografiaPilotosTextBox.Text = listaPilotos[indexPilotos].Biografia;
+            AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].Auto);
+            PaisPictureBox.Load(listaPilotos[indexPilotos].Nacionalidad);
+            if (listaPilotos[indexPilotos].Cornering < 10)
+                Cornering.Location = new Point(53, 42);
+            Cornering.Text = listaPilotos[indexPilotos].Cornering.ToString();
+            if (listaPilotos[indexPilotos].Braking < 10)
+                Braking.Location = new Point(163, 42);
+            Braking.Text = listaPilotos[0].Braking.ToString();
+            if (listaPilotos[indexPilotos].Reflexes < 10)
+                Reflexes.Location = new Point(270, 42);
+            Reflexes.Text = listaPilotos[indexPilotos].Reflexes.ToString();
+            if (listaPilotos[indexPilotos].ManejoPresion < 10)
+                Pressure.Location = new Point(53, 149);
+            Pressure.Text = listaPilotos[indexPilotos].ManejoPresion.ToString();
+            if (listaPilotos[indexPilotos].Experiencia < 10)
+                Experience.Location = new Point(163, 149);
+            Experience.Text = listaPilotos[indexPilotos].Experiencia.ToString();
+            if (listaPilotos[indexPilotos].Pace < 10)
+                Pace.Location = new Point(270, 149);
+            Pace.Text = listaPilotos[indexPilotos].Pace.ToString();
+            if (listaPilotos[indexPilotos].TyresManagement < 10)
+                Tyres.Location = new Point(55, 255);
+            Tyres.Text = listaPilotos[indexPilotos].TyresManagement.ToString();
+            if (listaPilotos[indexPilotos].Agresividad < 10)
+                Agressiveness.Location = new Point(163, 255);
+            Agressiveness.Text = listaPilotos[indexPilotos].Agresividad.ToString();
+            if (listaPilotos[indexPilotos].Overtaking < 10)
+                Overtaking.Location = new Point(270, 255);
+            Overtaking.Text = listaPilotos[indexPilotos].Overtaking.ToString();
+            if (listaPilotos[indexPilotos].Concentracion < 10)
+                Concentration.Location = new Point(53, 354);
+            Concentration.Text = listaPilotos[indexPilotos].Concentracion.ToString();
+            if (listaPilotos[indexPilotos].RainHability < 10)
+                Rain.Location = new Point(166, 354);
+            Rain.Text = listaPilotos[indexPilotos].RainHability.ToString();
+            if (listaPilotos[indexPilotos].Defending < 10)
+                Defending.Location = new Point(270, 354);
+            Defending.Text = listaPilotos[indexPilotos].Defending.ToString();
+            if (banderaSize)
+            {
+                Cornering.Location = new Point(48, 43);
+                Braking.Location = new Point(155, 43);
+                Reflexes.Location = new Point(262, 43);
+                Pressure.Location = new Point(43, 159);
+                Experience.Location = new Point(155, 159);
+                Pace.Location = new Point(262, 159);
+                Tyres.Location = new Point(43, 274);
+                Agressiveness.Location = new Point(155, 274);
+                Overtaking.Location = new Point(262, 274);
+                Concentration.Location = new Point(45, 380);
+                Rain.Location = new Point(165, 380);
+                Defending.Location = new Point(262, 380);
+                Overall.Location = new Point(465, 336);
+                NombrePilotoTextBox.Location = new Point(118, 528);
+                ApodoTextBox.Location = new Point(118, 565);
+                EquipoTextBox.Location = new Point(118, 600);
+                RivalTextBox.Location = new Point(118, 635);
+
+                EdadTextBox.Location = new Point(433, 528);
+
+                AlturaTextBox.Location = new Point(430, 570);
+
+                PesoTextBox.Location = new Point(430, 603);
+
+                VictoriaTextBox.Location = new Point(612, 530);
+
+                DerrotaTextBox.Location = new Point(612, 565);
+
+                WinRateTextBox.Location = new Point(612, 602);
+
+                TotalTextBox.Location = new Point(612, 636);
+            }
+            NombrePilotoTextBox.Text = listaPilotos[indexPilotos].NombrePiloto;
+            ApodoTextBox.Text = listaPilotos[indexPilotos].Apodo;
+            EquipoTextBox.Text = listaPilotos[indexPilotos].Equipo;
+            RivalTextBox.Text = listaPilotos[indexPilotos].Rival;
+            EdadTextBox.Text = listaPilotos[indexPilotos].Edad.ToString();
+            AlturaTextBox.Text = listaPilotos[indexPilotos].Altura;
+            PesoTextBox.Text = listaPilotos[indexPilotos].Peso;
+            VictoriaTextBox.Text = listaPilotos[indexPilotos].Victorias.ToString();
+            DerrotaTextBox.Text = listaPilotos[indexPilotos].Derrotas.ToString();
+            WinRateTextBox.Text = listaPilotos[indexPilotos].PorcentajeCarrerasGanadas.ToString()+"%";
+            TotalTextBox.Text = listaPilotos[indexPilotos].CantidadDeCarreras.ToString();
+        }
+
+        int contadorImagenes = 0;
+        private void AutoPilotoPictureBox_Click(object sender, EventArgs e)
+        {
+            contadorImagenes++;
+            switch (contadorImagenes)
+            {
+                case 1:
+                    AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].AutoAtras);
+                    break;
+                case 2:
+                    AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].AutoFrontal);
+                    break;
+                case 3:
+                    AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].AutoDriving);
+                    break;
+                default:
+                    contadorImagenes = 0;
+                    AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].Auto);
+                    break;
+            }
+        }
+
+        private void NextDriver_Click(object sender, EventArgs e)
+        {
+            indexPilotos++;
+            contadorImagenes = 0;
+            if (!(indexPilotos>=listaPilotos.Count()))
+            {
+                CargaPilotos();
+            }
+            else
+            {
+                indexPilotos = 0;
+                CargaPilotos();
+            }
+        }
+
+        private void BackDriver_Click(object sender, EventArgs e)
+        {
+            indexPilotos--;
+            contadorImagenes = 0;
+            if (!(indexPilotos < 0))
+            {
+                CargaPilotos();
+            }
+            else
+            {
+                indexPilotos = listaPilotos.Count()-1;
+                CargaPilotos();
+            }
+        }
+
+        NegocioBaseDatos negocioBDAutos;
+        List<Autos> listaAutos = new List<Autos>();
+        int indexAutos = 0;
+        private void AutosBoton_Click(object sender, EventArgs e)
+        {
+            Ocultar();
+            AutosPictureBox.Visible = true;
+            FichaTecnicaTextBox.Visible = true;
+            BanderasPictureBox.Visible = true;
+            NombreAutoTextbox.Visible = true;
+            BackAuto.Visible = true;
+            NextAuto.Visible = true;
+            negocioBDAutos = new NegocioBaseDatos();
+            listaAutos = negocioBDAutos.DevolverAutos();
+            NombreAutoTextbox.Text = listaAutos[indexAutos].NombreModelo;
+            AutosPictureBox.Load(listaAutos[indexAutos].ImagenAuto);
+            MarcaPictureBox.Load(listaAutos[indexAutos].MarcaAuto.ImagenMarca);
+            BanderasPictureBox.Load(listaAutos[indexAutos].PaisFabricacion);
+        }
+
+        int contadorImagenAuto = 0;
+        private void AutosPictureBox_Click(object sender, EventArgs e)
+        {
+            contadorImagenAuto++;
+            switch (contadorImagenAuto)
+            {
+                case 1:
+                    AutosPictureBox.Load(listaAutos[indexAutos].ImagenAutoSecundaria);
+                    break;
+                case 2:
+                    AutosPictureBox.Load(listaAutos[indexAutos].ImagenAutoTres);
+                    break;
+                case 3:
+                    AutosPictureBox.Load(listaAutos[indexAutos].ImagenAutoCuatro);
+                    break;
+                case 4:
+                    AutosPictureBox.Load(listaAutos[indexAutos].ImagenAutoCinco);
+                    break;
+                default:
+                    contadorImagenAuto = 0;
+                    AutosPictureBox.Load(listaAutos[indexAutos].ImagenAuto);
+                    break;
+            }
         }
     }
 }

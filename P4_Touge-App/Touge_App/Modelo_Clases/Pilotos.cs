@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace Modelo_Clases
 {
-    class Pilotos
+    public class Pilotos
     {
         public string NombrePiloto { get; set; }
         public string Apodo { get; set; }
         public string Auto { get; set; }
+        public string AutoAtras { get; set; }
+        public string AutoFrontal { get; set; }
+        public string AutoDriving { get; set; }
         public string Equipo { get; set; }
         public string Categoria { get; set; }
         public string Rival { get; set; }
@@ -19,7 +22,7 @@ namespace Modelo_Clases
         public int Victorias { get; set; }
         public int Derrotas { get; set; }
         public int CantidadDeCarreras { get; set; }
-        public float PorcentajeCarrerasGanadas { get; set; }
+        public double PorcentajeCarrerasGanadas { get; set; }
         public int Edad { get; set; }
         public string Nacionalidad { get; set; }
         public string Biografia { get; set; }
@@ -39,6 +42,8 @@ namespace Modelo_Clases
         public int ManejoPresion { get; set; }
         public int Experiencia { get; set; }
         public int Agresividad { get; set; }
-        public string HabilidadesEspeciales { get; set; }
+        public int IdPiloto { get; set; }
+        public string Ranking { get; set; }
+
     }
 }

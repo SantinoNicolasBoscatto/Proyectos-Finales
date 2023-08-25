@@ -14,16 +14,9 @@ namespace Touge_App
         [STAThread]
         static void Main()
       {
-            try
-            {
-                Application.EnableVisualStyles();
+                //Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
-            }
-            catch (Exception)
-            {
-            }
-            
+                Application.Run(new TougeForms());     
         }
     }
 }

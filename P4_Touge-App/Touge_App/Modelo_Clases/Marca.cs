@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modelo_Clases
 {
-    class Marca
+    public class Marca
     {
         public int IdMarca { get; set; }
         public string NombreMarca { get; set; }
         public string ImagenMarca { get; set; }
+
+
     }
 }
