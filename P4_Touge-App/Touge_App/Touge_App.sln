@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Touge_App", "Touge_App\Touge_App.csproj", "{C8B1B94C-9AFF-4A6E-A482-EDF715631159}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio_Base_Datos", "Negocio_Base_Datos\Negocio_Base_Datos.csproj", "{D3875F88-C335-4E1D-9276-15CFF12FF02D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo_Clases", "Modelo_Clases\Modelo_Clases.csproj", "{4AF56B84-0BCC-4DCD-AF45-6804951755EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Touge_App", "Touge_App\Touge_App.csproj", "{64A1666E-57E6-4899-B370-F0A4559A2D96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C8B1B94C-9AFF-4A6E-A482-EDF715631159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8B1B94C-9AFF-4A6E-A482-EDF715631159}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8B1B94C-9AFF-4A6E-A482-EDF715631159}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8B1B94C-9AFF-4A6E-A482-EDF715631159}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3875F88-C335-4E1D-9276-15CFF12FF02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3875F88-C335-4E1D-9276-15CFF12FF02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3875F88-C335-4E1D-9276-15CFF12FF02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{4AF56B84-0BCC-4DCD-AF45-6804951755EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF56B84-0BCC-4DCD-AF45-6804951755EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF56B84-0BCC-4DCD-AF45-6804951755EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A1666E-57E6-4899-B370-F0A4559A2D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A1666E-57E6-4899-B370-F0A4559A2D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A1666E-57E6-4899-B370-F0A4559A2D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A1666E-57E6-4899-B370-F0A4559A2D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -144,7 +144,7 @@ namespace Negocio_Base_Datos
                     auxiliar.Torque = (int)negocioBD.Guardador["Torque"];
                     auxiliar.Peso = (int)negocioBD.Guardador["Peso"];
                     auxiliar.RelacionPesoPotencia = (double)negocioBD.Guardador["PP"];
-                    auxiliar.TopSpeed = (double)negocioBD.Guardador["PP"];
+                    auxiliar.TopSpeed = (double)negocioBD.Guardador["TS"];
                     auxiliar.Categoria = (string)negocioBD.Guardador["Cat"];
                     auxiliar.Kilometraje = (double)negocioBD.Guardador["K"];
                     auxiliar.ImagenAuto = (string)negocioBD.Guardador["f1"];
