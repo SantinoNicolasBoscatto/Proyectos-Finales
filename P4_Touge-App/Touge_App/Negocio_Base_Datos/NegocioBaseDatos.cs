@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Modelo_Clases;
 
 namespace Negocio_Base_Datos
@@ -164,6 +165,94 @@ namespace Negocio_Base_Datos
 
                 throw;
             }    
+        }
+
+        public void NombrePiloto(ComboBox combo)
+        {
+            FuncionesNegocio negocioBD = new FuncionesNegocio();
+            try
+            {
+                negocioBD.SQLQuery("select Nombre from Pilotos");
+                negocioBD.LecturaBase();
+                while (negocioBD.Guardador.Read())
+                {
+                    string nombre;
+                    nombre = (string)negocioBD.Guardador["Nombre"];
+                    combo.Items.Add(nombre);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public List<Historial> DevolverHistorial() 
+        {
+            FuncionesNegocio negocioBD = new FuncionesNegocio();
+            List<Historial> listaHistorial = new List<Historial>();
+            try
+            {
+                negocioBD.SQLQuery("select Circuito, DriverA, DriverB, PilotoGanador, AutoA, AutoB, Promocion, Tiempo, Clase, Clima, Modalidad from Historial");
+                negocioBD.LecturaBase();
+                while (negocioBD.Guardador.Read())
+                {
+                    Historial auxiliar = new Historial();
+                    auxiliar.Circuito = (string)negocioBD.Guardador["Circuito"];
+                    auxiliar.PilotoA = (string)negocioBD.Guardador["DriverA"];
+                    auxiliar.PilotoB = (string)negocioBD.Guardador["DriverB"];
+                    auxiliar.Ganador = (string)negocioBD.Guardador["PilotoGanador"];
+                    auxiliar.Ganador = (string)negocioBD.Guardador["PilotoGanador"];
+                    auxiliar.AutoA = (string)negocioBD.Guardador["AutoA"];
+                    auxiliar.AutoB = (string)negocioBD.Guardador["AutoB"];
+                    auxiliar.Modalidad = (string)negocioBD.Guardador["Modalidad"];
+                    auxiliar.Promocion = (string)negocioBD.Guardador["Promocion"];
+                    auxiliar.Tiempo = (string)negocioBD.Guardador["Tiempo"];
+                    auxiliar.Clase = (string)negocioBD.Guardador["Clase"];
+                    auxiliar.Clima = (string)negocioBD.Guardador["Clima"];                 
+                    listaHistorial.Add(auxiliar);
+                }
+                return listaHistorial;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public void InsertarRegistro(Historial aux)
+        {
+            FuncionesNegocio negociobd = new FuncionesNegocio();
+            try
+            {
+                negociobd.SQLQuery("Insert Into Historial (Circuito, DriverA, DriverB, PilotoGanador, PilotoPerdedor, AutoA, AutoB, Tiempo, Clase, Clima, Modalidad, Promocion) values (@Circuito ,@DriverA, @DriverB, @PilotoGanador, @PilotoPerdedor, @AutoA, @AutoB, @Tiempo,@Clase,@Clima,@Modalidad, @Promocion)");
+                negociobd.SetearParametros("@Circuito", aux.Circuito);
+                negociobd.SetearParametros("@DriverA", aux.PilotoA);
+                negociobd.SetearParametros("@DriverB", aux.PilotoB);
+                negociobd.SetearParametros("@PilotoGanador",aux.Ganador);
+                negociobd.SetearParametros("@PilotoPerdedor", aux.Perdedor);
+                negociobd.SetearParametros("@AutoA", aux.AutoA);
+                negociobd.SetearParametros("@AutoB", aux.AutoB);
+                negociobd.SetearParametros("@Tiempo", aux.Tiempo);
+                negociobd.SetearParametros("@Clase", aux.Clase);
+                negociobd.SetearParametros("@Clima", aux.Clima);
+                negociobd.SetearParametros("@Modalidad", aux.Modalidad);
+                negociobd.SetearParametros("@Promocion", aux.Promocion);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                negociobd.CerrarConexion();
+            }
         }
     }
 }

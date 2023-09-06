@@ -1,18 +1,11 @@
 ﻿using System;
 using NAudio.Wave;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo_Clases;
 using Negocio_Base_Datos;
-using System.Threading;
-using System.Runtime.InteropServices;
-using Microsoft.Win32;
 
 namespace Touge_App
 {
@@ -24,11 +17,13 @@ namespace Touge_App
         List<Musica> listaCanciones;
         private Size initialSize;
 
+
         public TougeForms()
         {
             InitializeComponent();
             initialSize = this.ClientSize;
             this.Resize += TougeForms_Resize;
+            //Bunifu.Utils.ScrollbarBinder.BindDatagridView(historialDGV, );
         }
         bool banderaSize = false;
         private void TougeForms_Resize(object sender, EventArgs e)
@@ -83,12 +78,20 @@ namespace Touge_App
             //Inicio en Segunda pantalla si hay
             Screen secondScreen = Screen.AllScreens.Length > 1 ? Screen.AllScreens[1] : Screen.PrimaryScreen;
             Location = secondScreen.Bounds.Location;
+            //DAY
+            string valorSQL = "2023-09-04 14:30:45";
+            string formatoEntrada = "yyyy-MM-dd HH:mm:ss";
+            if (DateTime.TryParseExact(valorSQL, formatoEntrada, null, System.Globalization.DateTimeStyles.None, out DateTime fechaResultado))
+            {
+                // Ahora 'fechaResultado' contiene la fecha en formato 'DD/MM/YYYY'
+                string fechaFormateada = fechaResultado.ToString("dd/MM/yyyy");
+                MessageBox.Show("Fecha formateada: " + fechaFormateada);
+            }
         }
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {
-            Size newResolution = this.ClientSize;
-            
+            Size newResolution = this.ClientSize;          
         }
 
         //Aca se Valida mediante un bool cuando el Mouse entra o sale de los botones y el evento de repintado
@@ -515,6 +518,10 @@ namespace Touge_App
             HigienePictureBox.Parent = PictureBoxBack;
             GarajePictureBox.Parent = PictureBoxBack;
             AhorrosPictureBox.Parent = PictureBoxBack;
+            FiltrosLabel.Parent = PictureBoxBack;
+            CampoLabel.Parent = PictureBoxBack;
+            CriterioLabel.Parent = PictureBoxBack;
+            FiltroBusquedaLabel.Parent = PictureBoxBack;
         }
 
 
@@ -606,6 +613,10 @@ namespace Touge_App
             {
                 case 0:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/1_Fondo.gif");
+                    FiltrosLabel.ForeColor = Color.Black;
+                    CampoLabel.ForeColor = Color.Black;
+                    CriterioLabel.ForeColor = Color.Black;
+                    FiltroBusquedaLabel.ForeColor = Color.Black;
                     PistasBiografia.BackAlpha = 20;
                     break;
                 case 1:
@@ -858,6 +869,19 @@ namespace Touge_App
                 AhorrosPictureBox.Visible = false;
                 BackEconomia.Visible = false;
                 NextEconomia.Visible = false;
+            }
+            else if (historialDGV.Visible == true)
+            {
+                historialDGV.Visible = false;
+                FiltrosLabel.Visible = false;
+                CampoCombo.Visible = false;
+                CampoLabel.Visible = false;
+                CriterioCombo.Visible = false;
+                CriterioLabel.Visible = false;
+                FiltroBusquedaLabel.Visible = false;
+                FiltroTextBox.Visible = false;
+                AgregarRegistroBoton.Visible = false;
+                BuscarRegistroBoton.Visible = false;
             }
 
             if (banderaVolverReglas)
@@ -1519,6 +1543,46 @@ namespace Touge_App
         private void CarDealerPictureBox_Click(object sender, EventArgs e)
         {
 
+        }
+        NegocioBaseDatos negocioHistorial = new NegocioBaseDatos();
+        List<Historial> listaHistorial;
+        private void HistorialBoton_Click(object sender, EventArgs e)
+        {
+            listaHistorial = negocioHistorial.DevolverHistorial();
+            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
+            headerStyle.BackColor = Color.MidnightBlue;
+            headerStyle.ForeColor = Color.White;
+            headerStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
+            historialDGV.DataSource = listaHistorial;
+            historialDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            historialDGV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn columna in historialDGV.Columns)
+            {
+                columna.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            }
+            historialDGV.RowHeadersWidth = 4;
+            historialDGV.Columns["Perdedor"].Visible = false;
+            Ocultar();
+            historialDGV.Visible = true;
+            FiltrosLabel.Visible = true;
+            CampoCombo.Visible = true;
+            CampoLabel.Visible = true;
+            CriterioCombo.Visible = true;
+            CriterioLabel.Visible = true;
+            FiltroBusquedaLabel.Visible = true;
+            FiltroTextBox.Visible = true;
+            AgregarRegistroBoton.Visible = true;
+            BuscarRegistroBoton.Visible = true;
+        }
+
+        private void AgregarRegistroBoton_Click(object sender, EventArgs e)
+        {
+            HistorialForms registroVenatana = new HistorialForms();
+            registroVenatana.ShowDialog();
+            listaHistorial = negocioHistorial.DevolverHistorial();
+            historialDGV.DataSource = listaHistorial;
         }
     }
 }
