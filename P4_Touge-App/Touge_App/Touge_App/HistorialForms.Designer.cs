@@ -31,6 +31,10 @@ namespace Touge_App
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistorialForms));
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.AutoRivalComboBox = new System.Windows.Forms.ComboBox();
+            this.AutoComboBox = new System.Windows.Forms.ComboBox();
+            this.CircuitoComboBox = new System.Windows.Forms.ComboBox();
+            this.ClimaComboBox = new System.Windows.Forms.ComboBox();
             this.ClaseComboBox = new System.Windows.Forms.ComboBox();
             this.ModalidadBox = new System.Windows.Forms.ComboBox();
             this.PerdedorCombobox = new System.Windows.Forms.ComboBox();
@@ -47,23 +51,22 @@ namespace Touge_App
             this.Claselabel = new System.Windows.Forms.Label();
             this.TiempoTextBox = new ZBobb.AlphaBlendTextBox();
             this.TiempoLabel = new System.Windows.Forms.Label();
-            this.AutoRivalTextBox = new ZBobb.AlphaBlendTextBox();
             this.AutoRival = new System.Windows.Forms.Label();
-            this.AutoTextBox = new ZBobb.AlphaBlendTextBox();
             this.AutoLabel = new System.Windows.Forms.Label();
             this.PerdedorLabel = new System.Windows.Forms.Label();
             this.GanadorLabel = new System.Windows.Forms.Label();
             this.RivalLabel = new System.Windows.Forms.Label();
             this.PilotoLabel = new System.Windows.Forms.Label();
-            this.CircuitoTextBox = new ZBobb.AlphaBlendTextBox();
             this.CircuitoLabel = new System.Windows.Forms.Label();
-            this.ClimaComboBox = new System.Windows.Forms.ComboBox();
             this.PanelFondo.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelFondo
             // 
             this.PanelFondo.BackColor = System.Drawing.Color.Black;
+            this.PanelFondo.Controls.Add(this.AutoRivalComboBox);
+            this.PanelFondo.Controls.Add(this.AutoComboBox);
+            this.PanelFondo.Controls.Add(this.CircuitoComboBox);
             this.PanelFondo.Controls.Add(this.ClimaComboBox);
             this.PanelFondo.Controls.Add(this.ClaseComboBox);
             this.PanelFondo.Controls.Add(this.ModalidadBox);
@@ -81,22 +84,94 @@ namespace Touge_App
             this.PanelFondo.Controls.Add(this.Claselabel);
             this.PanelFondo.Controls.Add(this.TiempoTextBox);
             this.PanelFondo.Controls.Add(this.TiempoLabel);
-            this.PanelFondo.Controls.Add(this.AutoRivalTextBox);
             this.PanelFondo.Controls.Add(this.AutoRival);
-            this.PanelFondo.Controls.Add(this.AutoTextBox);
             this.PanelFondo.Controls.Add(this.AutoLabel);
             this.PanelFondo.Controls.Add(this.PerdedorLabel);
             this.PanelFondo.Controls.Add(this.GanadorLabel);
             this.PanelFondo.Controls.Add(this.RivalLabel);
             this.PanelFondo.Controls.Add(this.PilotoLabel);
-            this.PanelFondo.Controls.Add(this.CircuitoTextBox);
             this.PanelFondo.Controls.Add(this.CircuitoLabel);
             this.PanelFondo.Location = new System.Drawing.Point(0, -2);
             this.PanelFondo.Name = "PanelFondo";
-            this.PanelFondo.Size = new System.Drawing.Size(591, 865);
+            this.PanelFondo.Size = new System.Drawing.Size(590, 865);
             this.PanelFondo.TabIndex = 0;
             this.PanelFondo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.PanelFondo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // AutoRivalComboBox
+            // 
+            this.AutoRivalComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AutoRivalComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AutoRivalComboBox.BackColor = System.Drawing.Color.Gold;
+            this.AutoRivalComboBox.DropDownHeight = 100;
+            this.AutoRivalComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AutoRivalComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoRivalComboBox.ForeColor = System.Drawing.Color.Black;
+            this.AutoRivalComboBox.FormattingEnabled = true;
+            this.AutoRivalComboBox.IntegralHeight = false;
+            this.AutoRivalComboBox.ItemHeight = 25;
+            this.AutoRivalComboBox.Location = new System.Drawing.Point(193, 450);
+            this.AutoRivalComboBox.MaxDropDownItems = 20;
+            this.AutoRivalComboBox.Name = "AutoRivalComboBox";
+            this.AutoRivalComboBox.Size = new System.Drawing.Size(348, 33);
+            this.AutoRivalComboBox.TabIndex = 39;
+            // 
+            // AutoComboBox
+            // 
+            this.AutoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AutoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AutoComboBox.BackColor = System.Drawing.Color.SpringGreen;
+            this.AutoComboBox.DropDownHeight = 100;
+            this.AutoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AutoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoComboBox.ForeColor = System.Drawing.Color.Black;
+            this.AutoComboBox.FormattingEnabled = true;
+            this.AutoComboBox.IntegralHeight = false;
+            this.AutoComboBox.ItemHeight = 25;
+            this.AutoComboBox.Location = new System.Drawing.Point(193, 380);
+            this.AutoComboBox.MaxDropDownItems = 20;
+            this.AutoComboBox.Name = "AutoComboBox";
+            this.AutoComboBox.Size = new System.Drawing.Size(348, 33);
+            this.AutoComboBox.TabIndex = 38;
+            // 
+            // CircuitoComboBox
+            // 
+            this.CircuitoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.CircuitoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CircuitoComboBox.BackColor = System.Drawing.Color.DimGray;
+            this.CircuitoComboBox.DropDownHeight = 100;
+            this.CircuitoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CircuitoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CircuitoComboBox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CircuitoComboBox.FormattingEnabled = true;
+            this.CircuitoComboBox.IntegralHeight = false;
+            this.CircuitoComboBox.ItemHeight = 25;
+            this.CircuitoComboBox.Location = new System.Drawing.Point(193, 30);
+            this.CircuitoComboBox.MaxDropDownItems = 20;
+            this.CircuitoComboBox.Name = "CircuitoComboBox";
+            this.CircuitoComboBox.Size = new System.Drawing.Size(348, 33);
+            this.CircuitoComboBox.TabIndex = 37;
+            this.CircuitoComboBox.Leave += new System.EventHandler(this.CircuitoComboBox_Leave);
+            // 
+            // ClimaComboBox
+            // 
+            this.ClimaComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.ClimaComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ClimaComboBox.BackColor = System.Drawing.Color.Orange;
+            this.ClimaComboBox.DropDownHeight = 200;
+            this.ClimaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ClimaComboBox.DropDownWidth = 100;
+            this.ClimaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClimaComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClimaComboBox.ForeColor = System.Drawing.Color.Black;
+            this.ClimaComboBox.FormattingEnabled = true;
+            this.ClimaComboBox.IntegralHeight = false;
+            this.ClimaComboBox.ItemHeight = 25;
+            this.ClimaComboBox.Location = new System.Drawing.Point(196, 586);
+            this.ClimaComboBox.MaxDropDownItems = 20;
+            this.ClimaComboBox.Name = "ClimaComboBox";
+            this.ClimaComboBox.Size = new System.Drawing.Size(348, 33);
+            this.ClimaComboBox.TabIndex = 36;
             // 
             // ClaseComboBox
             // 
@@ -122,7 +197,7 @@ namespace Touge_App
             // 
             this.ModalidadBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.ModalidadBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ModalidadBox.BackColor = System.Drawing.Color.Gold;
+            this.ModalidadBox.BackColor = System.Drawing.Color.DarkSalmon;
             this.ModalidadBox.DropDownHeight = 100;
             this.ModalidadBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ModalidadBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -197,7 +272,7 @@ namespace Touge_App
             this.RivalComboBox.Size = new System.Drawing.Size(348, 33);
             this.RivalComboBox.TabIndex = 31;
             this.RivalComboBox.Enter += new System.EventHandler(this.PilotoComboBox_Enter);
-            this.RivalComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.PilotoComboBox_Validating);
+            this.RivalComboBox.Leave += new System.EventHandler(this.RivalComboBox_Leave);
             // 
             // PilotoComboBox
             // 
@@ -217,7 +292,7 @@ namespace Touge_App
             this.PilotoComboBox.Size = new System.Drawing.Size(348, 33);
             this.PilotoComboBox.TabIndex = 30;
             this.PilotoComboBox.Enter += new System.EventHandler(this.PilotoComboBox_Enter);
-            this.PilotoComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.PilotoComboBox_Validating);
+            this.PilotoComboBox.Leave += new System.EventHandler(this.PilotoComboBox_Leave);
             // 
             // CancelarBoton
             // 
@@ -236,6 +311,7 @@ namespace Touge_App
             this.CancelarBoton.Text = "Cancelar";
             this.CancelarBoton.UseVisualStyleBackColor = false;
             this.CancelarBoton.Click += new System.EventHandler(this.CancelarBoton_Click);
+            this.CancelarBoton.MouseEnter += new System.EventHandler(this.CancelarBoton_MouseEnter);
             // 
             // AgregarBoton
             // 
@@ -359,18 +435,6 @@ namespace Touge_App
             this.TiempoLabel.TabIndex = 14;
             this.TiempoLabel.Text = "Tiempo";
             // 
-            // AutoRivalTextBox
-            // 
-            this.AutoRivalTextBox.BackAlpha = 50;
-            this.AutoRivalTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.AutoRivalTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoRivalTextBox.ForeColor = System.Drawing.Color.Black;
-            this.AutoRivalTextBox.Location = new System.Drawing.Point(191, 452);
-            this.AutoRivalTextBox.Multiline = true;
-            this.AutoRivalTextBox.Name = "AutoRivalTextBox";
-            this.AutoRivalTextBox.Size = new System.Drawing.Size(346, 31);
-            this.AutoRivalTextBox.TabIndex = 13;
-            // 
             // AutoRival
             // 
             this.AutoRival.AutoSize = true;
@@ -382,18 +446,6 @@ namespace Touge_App
             this.AutoRival.Size = new System.Drawing.Size(143, 37);
             this.AutoRival.TabIndex = 12;
             this.AutoRival.Text = "Auto Rival";
-            // 
-            // AutoTextBox
-            // 
-            this.AutoTextBox.BackAlpha = 50;
-            this.AutoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.AutoTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AutoTextBox.ForeColor = System.Drawing.Color.Black;
-            this.AutoTextBox.Location = new System.Drawing.Point(191, 381);
-            this.AutoTextBox.Multiline = true;
-            this.AutoTextBox.Name = "AutoTextBox";
-            this.AutoTextBox.Size = new System.Drawing.Size(346, 31);
-            this.AutoTextBox.TabIndex = 11;
             // 
             // AutoLabel
             // 
@@ -455,18 +507,6 @@ namespace Touge_App
             this.PilotoLabel.TabIndex = 2;
             this.PilotoLabel.Text = "Piloto";
             // 
-            // CircuitoTextBox
-            // 
-            this.CircuitoTextBox.BackAlpha = 50;
-            this.CircuitoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.CircuitoTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CircuitoTextBox.ForeColor = System.Drawing.Color.Black;
-            this.CircuitoTextBox.Location = new System.Drawing.Point(191, 27);
-            this.CircuitoTextBox.Multiline = true;
-            this.CircuitoTextBox.Name = "CircuitoTextBox";
-            this.CircuitoTextBox.Size = new System.Drawing.Size(348, 31);
-            this.CircuitoTextBox.TabIndex = 1;
-            // 
             // CircuitoLabel
             // 
             this.CircuitoLabel.AutoSize = true;
@@ -479,26 +519,6 @@ namespace Touge_App
             this.CircuitoLabel.TabIndex = 0;
             this.CircuitoLabel.Text = "Circuito";
             // 
-            // ClimaComboBox
-            // 
-            this.ClimaComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.ClimaComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ClimaComboBox.BackColor = System.Drawing.Color.Orange;
-            this.ClimaComboBox.DropDownHeight = 200;
-            this.ClimaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ClimaComboBox.DropDownWidth = 100;
-            this.ClimaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClimaComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClimaComboBox.ForeColor = System.Drawing.Color.Black;
-            this.ClimaComboBox.FormattingEnabled = true;
-            this.ClimaComboBox.IntegralHeight = false;
-            this.ClimaComboBox.ItemHeight = 25;
-            this.ClimaComboBox.Location = new System.Drawing.Point(196, 586);
-            this.ClimaComboBox.MaxDropDownItems = 20;
-            this.ClimaComboBox.Name = "ClimaComboBox";
-            this.ClimaComboBox.Size = new System.Drawing.Size(348, 33);
-            this.ClimaComboBox.TabIndex = 36;
-            // 
             // HistorialForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -508,7 +528,6 @@ namespace Touge_App
             this.ClientSize = new System.Drawing.Size(589, 860);
             this.Controls.Add(this.PanelFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistorialForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HistorialForms";
@@ -523,14 +542,11 @@ namespace Touge_App
 
         private System.Windows.Forms.Panel PanelFondo;
         private System.Windows.Forms.Label CircuitoLabel;
-        private ZBobb.AlphaBlendTextBox CircuitoTextBox;
         private System.Windows.Forms.Label ClimaLabel;
         private System.Windows.Forms.Label Claselabel;
         private ZBobb.AlphaBlendTextBox TiempoTextBox;
         private System.Windows.Forms.Label TiempoLabel;
-        private ZBobb.AlphaBlendTextBox AutoRivalTextBox;
         private System.Windows.Forms.Label AutoRival;
-        private ZBobb.AlphaBlendTextBox AutoTextBox;
         private System.Windows.Forms.Label AutoLabel;
         private System.Windows.Forms.Label PerdedorLabel;
         private System.Windows.Forms.Label GanadorLabel;
@@ -549,5 +565,8 @@ namespace Touge_App
         private System.Windows.Forms.ComboBox ModalidadBox;
         private System.Windows.Forms.ComboBox ClaseComboBox;
         private System.Windows.Forms.ComboBox ClimaComboBox;
+        private System.Windows.Forms.ComboBox CircuitoComboBox;
+        private System.Windows.Forms.ComboBox AutoComboBox;
+        private System.Windows.Forms.ComboBox AutoRivalComboBox;
     }
 }

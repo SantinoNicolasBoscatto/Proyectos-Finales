@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Modelo_Clases;
 using Negocio_Base_Datos;
+using System.Globalization;
 
 namespace Touge_App
 {
@@ -16,14 +17,28 @@ namespace Touge_App
         NegocioBaseDatos negocioBD = new NegocioBaseDatos();
         List<Musica> listaCanciones;
         private Size initialSize;
-
+        DateTime fechaManager;
+        string Formato;
+        Fecha fechaAux;
 
         public TougeForms()
         {
             InitializeComponent();
             initialSize = this.ClientSize;
             this.Resize += TougeForms_Resize;
-            //Bunifu.Utils.ScrollbarBinder.BindDatagridView(historialDGV, );
+            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
+            headerStyle.BackColor = Color.MidnightBlue;
+            headerStyle.ForeColor = Color.White;
+            headerStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
+            historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
+            historialDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            historialDGV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (DataGridViewColumn columna in historialDGV.Columns)
+            {
+                columna.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            historialDGV.RowHeadersWidth = 4;
         }
         bool banderaSize = false;
         private void TougeForms_Resize(object sender, EventArgs e)
@@ -79,25 +94,33 @@ namespace Touge_App
             Screen secondScreen = Screen.AllScreens.Length > 1 ? Screen.AllScreens[1] : Screen.PrimaryScreen;
             Location = secondScreen.Bounds.Location;
             //DAY
-            string valorSQL = "2023-09-04 14:30:45";
-            string formatoEntrada = "yyyy-MM-dd HH:mm:ss";
-            if (DateTime.TryParseExact(valorSQL, formatoEntrada, null, System.Globalization.DateTimeStyles.None, out DateTime fechaResultado))
-            {
-                // Ahora 'fechaResultado' contiene la fecha en formato 'DD/MM/YYYY'
-                string fechaFormateada = fechaResultado.ToString("dd/MM/yyyy");
-                MessageBox.Show("Fecha formateada: " + fechaFormateada);
-            }
+            NegocioBaseDatos negocioFecha = new NegocioBaseDatos();
+            fechaAux = negocioFecha.DevolverFecha();
+            FormatearFecha(fechaAux);
+            //MessageBox.Show("" + Formato);
+            //fechaAux.FechaManager = negocioFecha.UpdatearFecha(1);
+            //FormatearFecha(fechaAux);
+            //MessageBox.Show("" + Formato);
+            //alquileres1.ImagenAlqu = Image.FromFile("C:/Users/Santino/Downloads/descargar.jpeg");
+            alquileres1.Precio = 590.ToString();
+            alquileres1.Pieza = "● 1";
+            alquileres1.Sala = "● 1";
+            alquileres1.Ducha = "● 1";
+            alquileres1.Garaje = "● 1";
+        }
+
+        private void FormatearFecha(Fecha aux)
+        {
+            fechaManager = DateTime.Parse(aux.FechaManager.ToString());
+            Formato = fechaManager.ToString("dd/MM/yy", CultureInfo.InvariantCulture);
         }
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {
-            Size newResolution = this.ClientSize;          
+            Size newResolution = ClientSize;          
         }
 
         //Aca se Valida mediante un bool cuando el Mouse entra o sale de los botones y el evento de repintado
-        
-
-
 
         bool HoverBotonBD = false;
         private void HoverBoton_MouseEnter(object sender, EventArgs e)
@@ -522,6 +545,8 @@ namespace Touge_App
             CampoLabel.Parent = PictureBoxBack;
             CriterioLabel.Parent = PictureBoxBack;
             FiltroBusquedaLabel.Parent = PictureBoxBack;
+            VolverAlquiler.Parent = PictureBoxBack;
+            SiguienteAlquiler.Parent = PictureBoxBack;
         }
 
 
@@ -613,10 +638,10 @@ namespace Touge_App
             {
                 case 0:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/1_Fondo.gif");
-                    FiltrosLabel.ForeColor = Color.Black;
-                    CampoLabel.ForeColor = Color.Black;
-                    CriterioLabel.ForeColor = Color.Black;
-                    FiltroBusquedaLabel.ForeColor = Color.Black;
+                    FiltrosLabel.ForeColor = Color.Red;
+                    CampoLabel.ForeColor = Color.Red;
+                    CriterioLabel.ForeColor = Color.Red;
+                    FiltroBusquedaLabel.ForeColor = Color.Red;
                     PistasBiografia.BackAlpha = 20;
                     break;
                 case 1:
@@ -701,6 +726,32 @@ namespace Touge_App
             AutosBoton.Visible = false;
             CloseBoton.Visible = false;
             VolverBoton.Visible = true;
+        }
+        bool EconomiaMostrar = true;
+        private void OcultarEconomia()
+        {
+            if (ComidaPictureBox.Visible==true)
+            {
+                ComidaPictureBox.Visible = false;
+                AlquilerPictureBox.Visible = false;
+                MueblesPictureBox.Visible = false;
+                RopaPictureBox.Visible = false;
+                FacturasPictureBox.Visible = false;
+                ElectroPictureBox.Visible = false;
+                EconomiaMostrar = true;
+            }
+            else
+            {
+                AhorrosPictureBox.Visible = false;
+                GastosVariosPictureBox.Visible = false;
+                HigienePictureBox.Visible = false;
+                GarajePictureBox.Visible = false;
+                CarDealerPictureBox.Visible = false;
+                MecanicoPictureBox.Visible = false;
+                EconomiaMostrar = true;
+            }
+            banderaEconomiaParaMostrar = false;
+            
         }
 
         private void BotonPistas_Click(object sender, EventArgs e)
@@ -881,10 +932,20 @@ namespace Touge_App
                 FiltroBusquedaLabel.Visible = false;
                 FiltroTextBox.Visible = false;
                 AgregarRegistroBoton.Visible = false;
+                BorrarRegistroBoton.Visible = false;
                 BuscarRegistroBoton.Visible = false;
+                CampoCombo.Items.Clear();
+                CriterioCombo.Items.Clear();
+            }
+            else if (alquileres1.Visible == true)
+            {
+                alquileres1.Visible = false;
+                alquileres2.Visible = false;
+                VolverAlquiler.Visible = false;
+                SiguienteAlquiler.Visible = false;
             }
 
-            if (banderaVolverReglas)
+            if (banderaVolverReglas && banderaEconomiaParaMostrar)
             {
                 BotonPistas.Visible = true;
                 PilotosBoton.Visible = true;
@@ -893,7 +954,35 @@ namespace Touge_App
                 HistorialBoton.Visible = true;
                 AutosBoton.Visible = true;
                 CloseBoton.Visible = true;
+                //BackEconomia.Visible = true;
+                //NextEconomia.Visible = true;
             }
+
+            else if (banderaEconomiaParaMostrar==false)
+            {
+                if (EconomiaMostrar)
+                {
+                    ComidaPictureBox.Visible = true;
+                    AlquilerPictureBox.Visible = true;
+                    FacturasPictureBox.Visible = true;
+                    RopaPictureBox.Visible = true;
+                    MueblesPictureBox.Visible = true;
+                    ElectroPictureBox.Visible = true;
+                }
+                else
+                {
+                    GastosVariosPictureBox.Visible = true;
+                    MecanicoPictureBox.Visible = true;
+                    CarDealerPictureBox.Visible = true;
+                    HigienePictureBox.Visible = true;
+                    AhorrosPictureBox.Visible = true;
+                    GarajePictureBox.Visible = true;
+                }
+                NextEconomia.Visible = true;
+                BackEconomia.Visible = true;
+                banderaEconomiaParaMostrar = true;
+            }
+
             
         }
 
@@ -1377,6 +1466,7 @@ namespace Touge_App
             }
         }
 
+        bool banderaEconomiaParaMostrar = true;
         private void EconomiaBoton_Click(object sender, EventArgs e)
         {
             Ocultar();
@@ -1463,6 +1553,7 @@ namespace Touge_App
         private void AlquilerPictureBox_Paint(object sender, PaintEventArgs e)
         {
             RepintadoBotones(HoverAutosBD, e, AlquilerPictureBox);
+
         }
 
         private void FacturasPictureBox_Paint(object sender, PaintEventArgs e)
@@ -1492,7 +1583,12 @@ namespace Touge_App
 
         private void AlquilerPictureBox_Click(object sender, EventArgs e)
         {
-
+            OcultarEconomia();
+            alquileres1.Visible = true;
+            alquileres2.Visible = true;
+            VolverAlquiler.Visible = true;
+            SiguienteAlquiler.Visible = true;
+            banderaEconomiaParaMostrar = false;
         }
 
         private void FacturasPictureBox_Click(object sender, EventArgs e)
@@ -1549,21 +1645,12 @@ namespace Touge_App
         private void HistorialBoton_Click(object sender, EventArgs e)
         {
             listaHistorial = negocioHistorial.DevolverHistorial();
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
-            headerStyle.BackColor = Color.MidnightBlue;
-            headerStyle.ForeColor = Color.White;
-            headerStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
             historialDGV.DataSource = listaHistorial;
-            historialDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            historialDGV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            foreach (DataGridViewColumn columna in historialDGV.Columns)
-            {
-                columna.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            }
-            historialDGV.RowHeadersWidth = 4;
             historialDGV.Columns["Perdedor"].Visible = false;
+            historialDGV.Columns["Id"].Visible = false;
+            int ultimaColumna = historialDGV.Columns.Count - 1;
+            historialDGV.Columns[ultimaColumna].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            historialDGV.Columns[ultimaColumna].FillWeight = 1;
             Ocultar();
             historialDGV.Visible = true;
             FiltrosLabel.Visible = true;
@@ -1574,15 +1661,76 @@ namespace Touge_App
             FiltroBusquedaLabel.Visible = true;
             FiltroTextBox.Visible = true;
             AgregarRegistroBoton.Visible = true;
+            BorrarRegistroBoton.Visible = true;
             BuscarRegistroBoton.Visible = true;
+            CampoCombo.Items.Add("Circuito");
+            CampoCombo.Items.Add("Piloto");
+            CampoCombo.Items.Add("Rival");
+            CampoCombo.Items.Add("AutoPiloto");
+            CampoCombo.Items.Add("AutoRival");
+            CampoCombo.Items.Add("Ganador");          
+            CampoCombo.Items.Add("Perdedor");          
+            CampoCombo.Items.Add("Clase");
+            CampoCombo.Items.Add("Clima");
+            CampoCombo.Items.Add("Tiempo");
+            CampoCombo.Items.Add("Modalidad");
+            CampoCombo.Items.Add("Promocion");
         }
 
         private void AgregarRegistroBoton_Click(object sender, EventArgs e)
         {
+            int filas = historialDGV.Rows.Count;
             HistorialForms registroVenatana = new HistorialForms();
             registroVenatana.ShowDialog();
             listaHistorial = negocioHistorial.DevolverHistorial();
             historialDGV.DataSource = listaHistorial;
+            if (historialDGV.Rows.Count>filas)
+            {
+                NegocioBaseDatos negocioUpFecha = new NegocioBaseDatos();
+                fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+            }
+        }
+
+        private void BorrarRegistroBoton_Click(object sender, EventArgs e)
+        {
+            if (historialDGV.CurrentRow.DataBoundItem != null)
+            {
+               DialogResult resultado = MessageBox.Show("Seguro que desea eliminar","",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    NegocioBaseDatos negocioEliminar = new NegocioBaseDatos();
+                    Historial aux = (Historial)historialDGV.CurrentRow.DataBoundItem;
+                    negocioEliminar.EliminarRegistro(aux.Id);
+                    listaHistorial = negocioHistorial.DevolverHistorial();
+                    historialDGV.DataSource = listaHistorial;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No selecciono ningun registro a eliminar", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CampoCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CriterioCombo.Items.Count==0)
+            {
+                CriterioCombo.Items.Add("Empieza Por");
+                CriterioCombo.Items.Add("Contiene");
+                CriterioCombo.Items.Add("Termina Por");
+            }
+        }
+
+        private void BuscarRegistroBoton_Click(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioFiltro = new NegocioBaseDatos();
+            listaHistorial = negocioFiltro.FiltrarDatosHistorial(CampoCombo.Text, CriterioCombo.Text, FiltroTextBox.Text);
+            historialDGV.DataSource = listaHistorial;
+            //historialDGV.Columns["Promocion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //historialDGV.Columns["Promocion"].FillWeight = 1;
         }
     }
 }

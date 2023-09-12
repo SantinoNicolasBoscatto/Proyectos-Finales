@@ -29,9 +29,9 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
             this.AutosBoton = new System.Windows.Forms.Button();
@@ -173,8 +173,6 @@ namespace Touge_App
             this.CarDealerPictureBox = new System.Windows.Forms.Button();
             this.GastosVariosPictureBox = new System.Windows.Forms.Button();
             this.MecanicoPictureBox = new System.Windows.Forms.Button();
-            this.CampoCombo = new System.Windows.Forms.ComboBox();
-            this.CriterioCombo = new System.Windows.Forms.ComboBox();
             this.historialDGV = new System.Windows.Forms.DataGridView();
             this.FiltrosLabel = new System.Windows.Forms.Label();
             this.FiltroTextBox = new System.Windows.Forms.TextBox();
@@ -183,6 +181,13 @@ namespace Touge_App
             this.FiltroBusquedaLabel = new System.Windows.Forms.Label();
             this.AgregarRegistroBoton = new System.Windows.Forms.Button();
             this.BuscarRegistroBoton = new System.Windows.Forms.Button();
+            this.BorrarRegistroBoton = new System.Windows.Forms.Button();
+            this.CampoCombo = new System.Windows.Forms.ComboBox();
+            this.CriterioCombo = new System.Windows.Forms.ComboBox();
+            this.SiguienteAlquiler = new System.Windows.Forms.Button();
+            this.VolverAlquiler = new System.Windows.Forms.Button();
+            this.alquileres2 = new Touge_App.Alquileres();
+            this.alquileres1 = new Touge_App.Alquileres();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -2547,52 +2552,28 @@ namespace Touge_App
             this.MecanicoPictureBox.MouseEnter += new System.EventHandler(this.PilotosBoton_MouseEnter);
             this.MecanicoPictureBox.MouseLeave += new System.EventHandler(this.PilotosBoton_MouseLeave);
             // 
-            // CampoCombo
-            // 
-            this.CampoCombo.BackColor = System.Drawing.Color.Gainsboro;
-            this.CampoCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CampoCombo.FormattingEnabled = true;
-            this.CampoCombo.Location = new System.Drawing.Point(1463, 143);
-            this.CampoCombo.Margin = new System.Windows.Forms.Padding(4);
-            this.CampoCombo.Name = "CampoCombo";
-            this.CampoCombo.Size = new System.Drawing.Size(340, 24);
-            this.CampoCombo.TabIndex = 228;
-            this.CampoCombo.Visible = false;
-            // 
-            // CriterioCombo
-            // 
-            this.CriterioCombo.BackColor = System.Drawing.Color.Gainsboro;
-            this.CriterioCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CriterioCombo.FormattingEnabled = true;
-            this.CriterioCombo.Location = new System.Drawing.Point(1463, 298);
-            this.CriterioCombo.Margin = new System.Windows.Forms.Padding(4);
-            this.CriterioCombo.Name = "CriterioCombo";
-            this.CriterioCombo.Size = new System.Drawing.Size(340, 24);
-            this.CriterioCombo.TabIndex = 229;
-            this.CriterioCombo.Visible = false;
-            // 
             // historialDGV
             // 
-            this.historialDGV.BackgroundColor = System.Drawing.Color.DarkRed;
+            this.historialDGV.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
             this.historialDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.historialDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.historialDGV.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.historialDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.historialDGV.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.historialDGV.GridColor = System.Drawing.SystemColors.HotTrack;
-            this.historialDGV.Location = new System.Drawing.Point(13, 32);
+            this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2601,7 +2582,7 @@ namespace Touge_App
             this.historialDGV.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.historialDGV.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.historialDGV.RowTemplate.Height = 24;
-            this.historialDGV.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.historialDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.historialDGV.Size = new System.Drawing.Size(1323, 679);
             this.historialDGV.TabIndex = 230;
             this.historialDGV.Visible = false;
@@ -2612,7 +2593,7 @@ namespace Touge_App
             this.FiltrosLabel.BackColor = System.Drawing.Color.Transparent;
             this.FiltrosLabel.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltrosLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.FiltrosLabel.Location = new System.Drawing.Point(1526, 42);
+            this.FiltrosLabel.Location = new System.Drawing.Point(1526, 31);
             this.FiltrosLabel.Name = "FiltrosLabel";
             this.FiltrosLabel.Size = new System.Drawing.Size(134, 51);
             this.FiltrosLabel.TabIndex = 231;
@@ -2621,7 +2602,7 @@ namespace Touge_App
             // 
             // FiltroTextBox
             // 
-            this.FiltroTextBox.Location = new System.Drawing.Point(1463, 468);
+            this.FiltroTextBox.Location = new System.Drawing.Point(1463, 457);
             this.FiltroTextBox.Multiline = true;
             this.FiltroTextBox.Name = "FiltroTextBox";
             this.FiltroTextBox.Size = new System.Drawing.Size(338, 27);
@@ -2634,7 +2615,7 @@ namespace Touge_App
             this.CampoLabel.BackColor = System.Drawing.Color.Transparent;
             this.CampoLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CampoLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.CampoLabel.Location = new System.Drawing.Point(1341, 137);
+            this.CampoLabel.Location = new System.Drawing.Point(1341, 126);
             this.CampoLabel.Name = "CampoLabel";
             this.CampoLabel.Size = new System.Drawing.Size(109, 38);
             this.CampoLabel.TabIndex = 233;
@@ -2647,7 +2628,7 @@ namespace Touge_App
             this.CriterioLabel.BackColor = System.Drawing.Color.Transparent;
             this.CriterioLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriterioLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.CriterioLabel.Location = new System.Drawing.Point(1338, 292);
+            this.CriterioLabel.Location = new System.Drawing.Point(1338, 281);
             this.CriterioLabel.Name = "CriterioLabel";
             this.CriterioLabel.Size = new System.Drawing.Size(115, 38);
             this.CriterioLabel.TabIndex = 234;
@@ -2660,7 +2641,7 @@ namespace Touge_App
             this.FiltroBusquedaLabel.BackColor = System.Drawing.Color.Transparent;
             this.FiltroBusquedaLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltroBusquedaLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.FiltroBusquedaLabel.Location = new System.Drawing.Point(1344, 462);
+            this.FiltroBusquedaLabel.Location = new System.Drawing.Point(1344, 451);
             this.FiltroBusquedaLabel.Name = "FiltroBusquedaLabel";
             this.FiltroBusquedaLabel.Size = new System.Drawing.Size(87, 38);
             this.FiltroBusquedaLabel.TabIndex = 235;
@@ -2679,7 +2660,7 @@ namespace Touge_App
             this.AgregarRegistroBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AgregarRegistroBoton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgregarRegistroBoton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.AgregarRegistroBoton.Location = new System.Drawing.Point(511, 720);
+            this.AgregarRegistroBoton.Location = new System.Drawing.Point(255, 713);
             this.AgregarRegistroBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AgregarRegistroBoton.Name = "AgregarRegistroBoton";
             this.AgregarRegistroBoton.Size = new System.Drawing.Size(325, 99);
@@ -2701,7 +2682,7 @@ namespace Touge_App
             this.BuscarRegistroBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarRegistroBoton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuscarRegistroBoton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BuscarRegistroBoton.Location = new System.Drawing.Point(1463, 619);
+            this.BuscarRegistroBoton.Location = new System.Drawing.Point(1463, 608);
             this.BuscarRegistroBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BuscarRegistroBoton.Name = "BuscarRegistroBoton";
             this.BuscarRegistroBoton.Size = new System.Drawing.Size(260, 84);
@@ -2709,12 +2690,150 @@ namespace Touge_App
             this.BuscarRegistroBoton.Text = "Buscar Registro";
             this.BuscarRegistroBoton.UseVisualStyleBackColor = false;
             this.BuscarRegistroBoton.Visible = false;
+            this.BuscarRegistroBoton.Click += new System.EventHandler(this.BuscarRegistroBoton_Click);
+            // 
+            // BorrarRegistroBoton
+            // 
+            this.BorrarRegistroBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BorrarRegistroBoton.BackColor = System.Drawing.Color.DarkRed;
+            this.BorrarRegistroBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BorrarRegistroBoton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.BorrarRegistroBoton.FlatAppearance.BorderSize = 2;
+            this.BorrarRegistroBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BorrarRegistroBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
+            this.BorrarRegistroBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BorrarRegistroBoton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BorrarRegistroBoton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BorrarRegistroBoton.Location = new System.Drawing.Point(771, 713);
+            this.BorrarRegistroBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BorrarRegistroBoton.Name = "BorrarRegistroBoton";
+            this.BorrarRegistroBoton.Size = new System.Drawing.Size(325, 99);
+            this.BorrarRegistroBoton.TabIndex = 238;
+            this.BorrarRegistroBoton.Text = "Borrar Registro";
+            this.BorrarRegistroBoton.UseVisualStyleBackColor = false;
+            this.BorrarRegistroBoton.Visible = false;
+            this.BorrarRegistroBoton.Click += new System.EventHandler(this.BorrarRegistroBoton_Click);
+            // 
+            // CampoCombo
+            // 
+            this.CampoCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.CampoCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CampoCombo.BackColor = System.Drawing.Color.Orange;
+            this.CampoCombo.DropDownHeight = 200;
+            this.CampoCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CampoCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CampoCombo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CampoCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CampoCombo.FormattingEnabled = true;
+            this.CampoCombo.IntegralHeight = false;
+            this.CampoCombo.ItemHeight = 25;
+            this.CampoCombo.Location = new System.Drawing.Point(1457, 129);
+            this.CampoCombo.MaxDropDownItems = 20;
+            this.CampoCombo.Name = "CampoCombo";
+            this.CampoCombo.Size = new System.Drawing.Size(348, 33);
+            this.CampoCombo.TabIndex = 239;
+            this.CampoCombo.Visible = false;
+            this.CampoCombo.SelectedIndexChanged += new System.EventHandler(this.CampoCombo_SelectedIndexChanged);
+            // 
+            // CriterioCombo
+            // 
+            this.CriterioCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.CriterioCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CriterioCombo.BackColor = System.Drawing.Color.DarkOrange;
+            this.CriterioCombo.DropDownHeight = 200;
+            this.CriterioCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CriterioCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CriterioCombo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CriterioCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CriterioCombo.FormattingEnabled = true;
+            this.CriterioCombo.IntegralHeight = false;
+            this.CriterioCombo.ItemHeight = 25;
+            this.CriterioCombo.Location = new System.Drawing.Point(1457, 283);
+            this.CriterioCombo.MaxDropDownItems = 20;
+            this.CriterioCombo.Name = "CriterioCombo";
+            this.CriterioCombo.Size = new System.Drawing.Size(348, 33);
+            this.CriterioCombo.TabIndex = 240;
+            this.CriterioCombo.Visible = false;
+            this.CriterioCombo.SelectedIndexChanged += new System.EventHandler(this.CampoCombo_SelectedIndexChanged);
+            // 
+            // SiguienteAlquiler
+            // 
+            this.SiguienteAlquiler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SiguienteAlquiler.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SiguienteAlquiler.BackColor = System.Drawing.Color.Transparent;
+            this.SiguienteAlquiler.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SiguienteAlquiler.BackgroundImage")));
+            this.SiguienteAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SiguienteAlquiler.FlatAppearance.BorderSize = 0;
+            this.SiguienteAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SiguienteAlquiler.Location = new System.Drawing.Point(1744, 381);
+            this.SiguienteAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SiguienteAlquiler.Name = "SiguienteAlquiler";
+            this.SiguienteAlquiler.Size = new System.Drawing.Size(67, 57);
+            this.SiguienteAlquiler.TabIndex = 244;
+            this.SiguienteAlquiler.UseVisualStyleBackColor = false;
+            this.SiguienteAlquiler.Visible = false;
+            // 
+            // VolverAlquiler
+            // 
+            this.VolverAlquiler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolverAlquiler.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.VolverAlquiler.BackColor = System.Drawing.Color.Transparent;
+            this.VolverAlquiler.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverAlquiler.BackgroundImage")));
+            this.VolverAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.VolverAlquiler.FlatAppearance.BorderSize = 0;
+            this.VolverAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VolverAlquiler.Location = new System.Drawing.Point(-1, 381);
+            this.VolverAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.VolverAlquiler.Name = "VolverAlquiler";
+            this.VolverAlquiler.Size = new System.Drawing.Size(67, 57);
+            this.VolverAlquiler.TabIndex = 245;
+            this.VolverAlquiler.UseVisualStyleBackColor = false;
+            this.VolverAlquiler.Visible = false;
+            // 
+            // alquileres2
+            // 
+            this.alquileres2.BackColor = System.Drawing.Color.LightGray;
+            this.alquileres2.Ducha = " ●  ●  ●  ● 1";
+            this.alquileres2.Garaje = " ●  ●  ●  ● 1";
+            this.alquileres2.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres2.ImagenAlqu")));
+            this.alquileres2.Location = new System.Drawing.Point(910, 123);
+            this.alquileres2.Name = "alquileres2";
+            this.alquileres2.Pieza = "           ●  ●  ●  ● 1";
+            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ 9999.99";
+            this.alquileres2.Sala = " ●  ●  ●  ● 1";
+            this.alquileres2.Size = new System.Drawing.Size(830, 573);
+            this.alquileres2.TabIndex = 243;
+            this.alquileres2.TituloDepa = "ALQUILERES EN AKINA";
+            this.alquileres2.Visible = false;
+            // 
+            // alquileres1
+            // 
+            this.alquileres1.BackColor = System.Drawing.Color.LightGray;
+            this.alquileres1.Ducha = " ●  ●  ●  ● 1";
+            this.alquileres1.Garaje = " ●  ●  ●  ● 1";
+            this.alquileres1.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres1.ImagenAlqu")));
+            this.alquileres1.Location = new System.Drawing.Point(72, 122);
+            this.alquileres1.Name = "alquileres1";
+            this.alquileres1.Pieza = "           ●  ●  ●  ● 1";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ 9999.99";
+            this.alquileres1.Sala = " ●  ●  ●  ● 1";
+            this.alquileres1.Size = new System.Drawing.Size(830, 573);
+            this.alquileres1.TabIndex = 242;
+            this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
+            this.alquileres1.Visible = false;
             // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.VolverAlquiler);
+            this.Controls.Add(this.SiguienteAlquiler);
+            this.Controls.Add(this.alquileres2);
+            this.Controls.Add(this.alquileres1);
+            this.Controls.Add(this.CriterioCombo);
+            this.Controls.Add(this.CampoCombo);
+            this.Controls.Add(this.BorrarRegistroBoton);
             this.Controls.Add(this.BuscarRegistroBoton);
             this.Controls.Add(this.AgregarRegistroBoton);
             this.Controls.Add(this.FiltroBusquedaLabel);
@@ -2723,8 +2842,6 @@ namespace Touge_App
             this.Controls.Add(this.FiltroTextBox);
             this.Controls.Add(this.FiltrosLabel);
             this.Controls.Add(this.historialDGV);
-            this.Controls.Add(this.CriterioCombo);
-            this.Controls.Add(this.CampoCombo);
             this.Controls.Add(this.AhorrosPictureBox);
             this.Controls.Add(this.GarajePictureBox);
             this.Controls.Add(this.HigienePictureBox);
@@ -3032,8 +3149,6 @@ namespace Touge_App
         private System.Windows.Forms.Button CarDealerPictureBox;
         private System.Windows.Forms.Button GastosVariosPictureBox;
         private System.Windows.Forms.Button MecanicoPictureBox;
-        private System.Windows.Forms.ComboBox CriterioCombo;
-        private System.Windows.Forms.ComboBox CampoCombo;
         private System.Windows.Forms.DataGridView historialDGV;
         private System.Windows.Forms.TextBox FiltroTextBox;
         private System.Windows.Forms.Label FiltrosLabel;
@@ -3042,6 +3157,13 @@ namespace Touge_App
         private System.Windows.Forms.Label CriterioLabel;
         private System.Windows.Forms.Label CampoLabel;
         private System.Windows.Forms.Button BuscarRegistroBoton;
+        private System.Windows.Forms.Button BorrarRegistroBoton;
+        private System.Windows.Forms.ComboBox CriterioCombo;
+        private System.Windows.Forms.ComboBox CampoCombo;
+        private Alquileres alquileres1;
+        private System.Windows.Forms.Button VolverAlquiler;
+        private System.Windows.Forms.Button SiguienteAlquiler;
+        private Alquileres alquileres2;
     }
 }
 
