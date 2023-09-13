@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alquiler.cs" />
     <Compile Include="Autos.cs" />
     <Compile Include="Economia.cs" />
     <Compile Include="Fecha.cs" />

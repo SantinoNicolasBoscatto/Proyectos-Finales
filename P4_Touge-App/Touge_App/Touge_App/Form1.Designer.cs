@@ -186,6 +186,7 @@ namespace Touge_App
             this.CriterioCombo = new System.Windows.Forms.ComboBox();
             this.SiguienteAlquiler = new System.Windows.Forms.Button();
             this.VolverAlquiler = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
@@ -2765,13 +2766,14 @@ namespace Touge_App
             this.SiguienteAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SiguienteAlquiler.FlatAppearance.BorderSize = 0;
             this.SiguienteAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SiguienteAlquiler.Location = new System.Drawing.Point(1744, 381);
+            this.SiguienteAlquiler.Location = new System.Drawing.Point(1744, 401);
             this.SiguienteAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SiguienteAlquiler.Name = "SiguienteAlquiler";
             this.SiguienteAlquiler.Size = new System.Drawing.Size(67, 57);
             this.SiguienteAlquiler.TabIndex = 244;
             this.SiguienteAlquiler.UseVisualStyleBackColor = false;
             this.SiguienteAlquiler.Visible = false;
+            this.SiguienteAlquiler.Click += new System.EventHandler(this.SiguienteAlquiler_Click);
             // 
             // VolverAlquiler
             // 
@@ -2782,25 +2784,36 @@ namespace Touge_App
             this.VolverAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.VolverAlquiler.FlatAppearance.BorderSize = 0;
             this.VolverAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolverAlquiler.Location = new System.Drawing.Point(-1, 381);
+            this.VolverAlquiler.Location = new System.Drawing.Point(-1, 401);
             this.VolverAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VolverAlquiler.Name = "VolverAlquiler";
             this.VolverAlquiler.Size = new System.Drawing.Size(67, 57);
             this.VolverAlquiler.TabIndex = 245;
             this.VolverAlquiler.UseVisualStyleBackColor = false;
             this.VolverAlquiler.Visible = false;
+            this.VolverAlquiler.Click += new System.EventHandler(this.VolverAlquiler_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(772, 840);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 246;
+            this.dateTimePicker1.Visible = false;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = " ●  ●  ●  ● 1";
-            this.alquileres2.Garaje = " ●  ●  ●  ● 1";
-            this.alquileres2.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres2.ImagenAlqu")));
-            this.alquileres2.Location = new System.Drawing.Point(910, 123);
+            this.alquileres2.Ducha = "";
+            this.alquileres2.Garaje = "";
+            this.alquileres2.Id = 0;
+            //this.alquileres2.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres2.ImagenAlqu")));
+            this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
-            this.alquileres2.Pieza = "           ●  ●  ●  ● 1";
-            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ 9999.99";
-            this.alquileres2.Sala = " ●  ●  ●  ● 1";
+            this.alquileres2.Pieza = "";
+            this.alquileres2.Precio = "";
+            this.alquileres2.Sala = "";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
             this.alquileres2.TituloDepa = "ALQUILERES EN AKINA";
@@ -2809,14 +2822,15 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = " ●  ●  ●  ● 1";
-            this.alquileres1.Garaje = " ●  ●  ●  ● 1";
-            this.alquileres1.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres1.ImagenAlqu")));
-            this.alquileres1.Location = new System.Drawing.Point(72, 122);
+            this.alquileres1.Ducha = "";
+            this.alquileres1.Garaje = "";
+            this.alquileres1.Id = 0;
+            //this.alquileres1.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres1.ImagenAlqu")));
+            this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
-            this.alquileres1.Pieza = "           ●  ●  ●  ● 1";
-            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ 9999.99";
-            this.alquileres1.Sala = " ●  ●  ●  ● 1";
+            this.alquileres1.Pieza = "";
+            this.alquileres1.Precio = "";
+            this.alquileres1.Sala = "";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
@@ -2827,6 +2841,7 @@ namespace Touge_App
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.VolverAlquiler);
             this.Controls.Add(this.SiguienteAlquiler);
             this.Controls.Add(this.alquileres2);
@@ -3164,6 +3179,7 @@ namespace Touge_App
         private System.Windows.Forms.Button VolverAlquiler;
         private System.Windows.Forms.Button SiguienteAlquiler;
         private Alquileres alquileres2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

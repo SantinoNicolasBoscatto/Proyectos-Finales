@@ -57,13 +57,7 @@ namespace Modelo_Clases
         public int SuperAlta { get { return 1500; } }
         public int Yerba { get { return 150; } }
     }
-    public class Alquiler {
-        public int SuperBasico { get; set; }
-        public int Basico { get; set; }
-        public int Medio { get; set; }
-        public int Alta { get; set; }
-        public int SuperAlta { get; set; }
-    }
+
     public class Facturas {
         public int SuperBasico { get { return 105; } }
         public int Basico { get { return 130; } }

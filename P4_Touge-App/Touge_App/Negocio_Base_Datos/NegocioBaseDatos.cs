@@ -472,5 +472,110 @@ namespace Negocio_Base_Datos
             }
             return aux;
         }
+
+        public List<Alquiler> DevolverAlquiler(bool EstadoAlquiler, int numeroAlquiler = 0)
+        {
+            List<Alquiler> listaAlquiler = new List<Alquiler>();
+            FuncionesNegocio negocioBaseAlquiler = new FuncionesNegocio();
+            List<int> listaNumerosRandoms = new List<int>();
+            int listado = 0;
+            try
+            {
+                if (EstadoAlquiler)
+                {
+                    //numeroAlquiler = 1;
+                    negocioBaseAlquiler.SQLQuery("SELECT NumeroRegistro from alquileres where NumeroRegistro != @Alquilado");
+                    negocioBaseAlquiler.SetearParametros("@Alquilado", numeroAlquiler);
+                    negocioBaseAlquiler.LecturaBase();
+                    while (negocioBaseAlquiler.Guardador.Read())
+                    {
+                        listado++;
+                    }
+                    listado++;
+                    negocioBaseAlquiler.Guardador.Close();
+                    listaNumerosRandoms = RandomNumeros(EstadoAlquiler, listado, numeroAlquiler);
+                }
+                if (numeroAlquiler != 0)
+                {
+                    negocioBaseAlquiler.SQLQuery("SELECT NumeroRegistro, Precio, Dormitorios, SalasDeEstar, Garajes, Duchas, NombreAlquiler, ImagenAlquiler, Estado from alquileres where NumeroRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @Seis)");
+                    negocioBaseAlquiler.SetearParametros("@Uno", listaNumerosRandoms[0]);
+                    negocioBaseAlquiler.SetearParametros("@Dos", listaNumerosRandoms[1]);
+                    negocioBaseAlquiler.SetearParametros("@Tres", listaNumerosRandoms[2]);
+                    negocioBaseAlquiler.SetearParametros("@Cuatro", listaNumerosRandoms[3]);
+                    negocioBaseAlquiler.SetearParametros("@Cinco", listaNumerosRandoms[4]);
+                    negocioBaseAlquiler.SetearParametros("@Seis", listaNumerosRandoms[5]);
+                    negocioBaseAlquiler.LecturaBase();
+                    while (negocioBaseAlquiler.Guardador.Read())
+                    {
+                        Alquiler aux = new Alquiler();
+                        aux.NumeroRegistro = (int)negocioBaseAlquiler.Guardador["NumeroRegistro"];
+                        aux.CantidadDormitorios = (int)negocioBaseAlquiler.Guardador["Dormitorios"];
+                        aux.CantidadDuchas = (int)negocioBaseAlquiler.Guardador["Duchas"];
+                        aux.CantidadGarajes = (int)negocioBaseAlquiler.Guardador["Garajes"];
+                        aux.CantidadSalasEstar = (int)negocioBaseAlquiler.Guardador["SalasDeEstar"];
+                        aux.PrecioDepartamento = (int)negocioBaseAlquiler.Guardador["Precio"];
+                        aux.Estado = (bool)negocioBaseAlquiler.Guardador["Estado"];
+                        aux.NombreAlquiler = (string)negocioBaseAlquiler.Guardador["NombreAlquiler"];
+                        aux.ImagenAlquiler = (string)negocioBaseAlquiler.Guardador["ImagenAlquiler"];
+                        listaAlquiler.Add(aux);
+                    }
+                }
+                return listaAlquiler;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public List<int> RandomNumeros(bool EstadoAlquiler, int lista, int numeroAlquiler=0)
+        {
+            List<int> listaNumeros = new List<int>();
+            Random numerosRandom = new Random();
+            if (EstadoAlquiler)
+            {
+                listaNumeros.Add(numeroAlquiler);
+                int x = 0;
+                int y=0;
+                int[] listaRepetidos = new int[5];
+                bool Norepetido = true;
+                for (int i = 0; i < 5; i++)
+                {
+                    listaRepetidos[i] = -1;
+                }
+                while (x!=5)
+                { 
+                    y = (int)numerosRandom.Next(1, lista);
+                    
+                    if ( y!=numeroAlquiler && numeroAlquiler!=0)
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            if (y== listaRepetidos[i])
+                            {
+                                Norepetido = false;
+                                break;
+                            }
+                        }
+                        if (Norepetido)
+                        {
+                            listaRepetidos[x] = y;
+                            listaNumeros.Add(y);
+                            x++;
+                        }
+                        else
+                        {
+                            Norepetido = true;
+                        }
+                        
+
+                    }
+                    
+                } 
+            }
+            return listaNumeros;
+        }
     }
 }

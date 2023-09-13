@@ -30,9 +30,20 @@ namespace Touge_App
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
         }
 
-        public Image ImagenAlqu 
-           { get{ return ImagenAlquiler.Image; } 
-            set { ImagenAlquiler.Image = value; }
+        //public Image ImagenAlqu 
+           //{ get{ return ImagenAlquiler.Image; } set { ImagenAlquiler.Image = value; }  }
+
+        public void CargarImagenes(string imagen)
+        {
+            try
+            {
+                ImagenAlquiler.Load(imagen);
+            }
+            catch (Exception)
+            {
+                ImagenAlquiler.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=2000");
+            }
+            
         }
 
         public string TituloDepa
@@ -50,27 +61,27 @@ namespace Touge_App
         public string Pieza
         {
             get { return DormitorioLabel.Text; }
-            set { DormitorioLabel.Text = "" + value; }
+            set { DormitorioLabel.Text = "● " + value; }
         }
 
         public string Sala
         {
             get { return SalaLabel.Text; }
-            set { SalaLabel.Text = "" + value; }
+            set { SalaLabel.Text = "● " + value; }
         }
 
         public string Ducha
         {
             get { return Duchalabel.Text; }
-            set { Duchalabel.Text = "" + value; }
+            set { Duchalabel.Text = "● " + value; }
         }
 
         public string Garaje
         {
             get { return GarajeLabel.Text; }
-            set { GarajeLabel.Text = "" + value; }
+            set { GarajeLabel.Text = "● " + value; }
         }
-
+        public int Id { get; set; }
         private void BotonAlquilar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Desea Alquilar en este lugar por un Mes?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
