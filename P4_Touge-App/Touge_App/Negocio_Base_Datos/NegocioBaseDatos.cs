@@ -493,7 +493,7 @@ namespace Negocio_Base_Datos
                     }
                     listado++;
                     negocioBaseAlquiler.Guardador.Close();
-                    listaNumerosRandoms = RandomNumeros(EstadoAlquiler, listado, numeroAlquiler);
+                    listaNumerosRandoms = RandomNumeros(listado, numeroAlquiler);
                 }
                 if (numeroAlquiler != 0)
                 {
@@ -530,17 +530,15 @@ namespace Negocio_Base_Datos
             
         }
 
-        public List<int> RandomNumeros(bool EstadoAlquiler, int lista, int numeroAlquiler=0)
+        public List<int> RandomNumeros(int lista, int numeroAlquiler=0)
         {
             List<int> listaNumeros = new List<int>();
             Random numerosRandom = new Random();
-            if (EstadoAlquiler)
-            {
-                listaNumeros.Add(numeroAlquiler);
-                int x = 0;
-                int y=0;
-                int[] listaRepetidos = new int[5];
-                bool Norepetido = true;
+            listaNumeros.Add(numeroAlquiler);
+            int x = 0;
+            int y=0;
+            int[] listaRepetidos = new int[5];
+            bool Norepetido = true;
                 for (int i = 0; i < 5; i++)
                 {
                     listaRepetidos[i] = -1;
@@ -574,8 +572,144 @@ namespace Negocio_Base_Datos
                     }
                     
                 } 
-            }
+
             return listaNumeros;
+        }
+
+        public int DevolverDinero()
+        {
+            FuncionesNegocio negocioMoney = new FuncionesNegocio();
+            int dinero = 0;
+            try
+            {
+                negocioMoney.SQLQuery("select Dinero from Economia");
+                negocioMoney.LecturaBase();
+                if (negocioMoney.Guardador.Read())
+                {
+                    dinero = (int)negocioMoney.Guardador["Dinero"];
+                }
+                return dinero;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int PagoAlquiler(int Id)
+        {
+            FuncionesNegocio negocioMoney = new FuncionesNegocio();
+            try
+            {
+                negocioMoney.SQLQuery("select Precio from Alquileres where NumeroRegistro = @MyId");
+                negocioMoney.SetearParametros("@MyId", Id);
+                negocioMoney.LecturaBase();
+                int pago = 0;
+                if (negocioMoney.Guardador.Read())
+                {
+                    pago = (int)negocioMoney.Guardador["Precio"];
+                }
+                return pago;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void ActualizarDinero(int Dinero)
+        {
+            FuncionesNegocio negocioDinero = new FuncionesNegocio();
+            try
+            {
+                negocioDinero.SQLQuery("UPDATE Economia SET Dinero = @Dinero");
+                negocioDinero.SetearParametros("@Dinero", Dinero);
+                negocioDinero.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public int LeerCasaAlquilada()
+        {
+            FuncionesNegocio negocioAlquiler = new FuncionesNegocio();
+            try
+            {
+                negocioAlquiler.SQLQuery("select CasaAlquilada from AlquilerManager");
+                negocioAlquiler.LecturaBase();
+                int devolver = 0;
+                if (negocioAlquiler.Guardador.Read())
+                {
+                    devolver = (int)negocioAlquiler.Guardador["CasaAlquilada"];
+                }
+                return devolver;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool LeerBanderaAlquiler()
+        {
+            FuncionesNegocio negocioAlquiler = new FuncionesNegocio();
+            try
+            {
+                negocioAlquiler.SQLQuery("select alquilando from AlquilerManager");
+                negocioAlquiler.LecturaBase();
+                bool devolver = false;
+                if (negocioAlquiler.Guardador.Read())
+                {
+                    devolver = (bool)negocioAlquiler.Guardador["alquilando"];
+                }
+                return devolver;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int ActualizarCasaAlquilada(int CasaAlquilada)
+        {
+            FuncionesNegocio negocioAlquiler = new FuncionesNegocio();
+            try
+            {
+                negocioAlquiler.SQLQuery("UPDATE AlquilerManager SET CasaAlquilada = @CasaParametro");
+                negocioAlquiler.SetearParametros("@CasaParametro", CasaAlquilada);
+                negocioAlquiler.EjecutarAccion();
+                return CasaAlquilada;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool ActualizarAlquilando(bool alquilando)
+        {
+            FuncionesNegocio negocioDinero = new FuncionesNegocio();
+            try
+            {
+                negocioDinero.SQLQuery("UPDATE AlquilerManager SET alquilando = @Estado");
+                negocioDinero.SetearParametros("@Estado", alquilando);
+                negocioDinero.EjecutarAccion();
+                return alquilando;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

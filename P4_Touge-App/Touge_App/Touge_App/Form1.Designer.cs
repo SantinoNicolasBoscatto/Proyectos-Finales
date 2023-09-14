@@ -2805,15 +2805,14 @@ namespace Touge_App
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "";
-            this.alquileres2.Garaje = "";
+            this.alquileres2.Ducha = "● ";
+            this.alquileres2.Garaje = "● ";
             this.alquileres2.Id = 0;
-            //this.alquileres2.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres2.ImagenAlqu")));
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
-            this.alquileres2.Pieza = "";
-            this.alquileres2.Precio = "";
-            this.alquileres2.Sala = "";
+            this.alquileres2.Pieza = "● ";
+            this.alquileres2.Precio = "$";
+            this.alquileres2.Sala = "● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
             this.alquileres2.TituloDepa = "ALQUILERES EN AKINA";
@@ -2822,15 +2821,14 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "";
-            this.alquileres1.Garaje = "";
+            this.alquileres1.Ducha = "● ";
+            this.alquileres1.Garaje = "● ";
             this.alquileres1.Id = 0;
-            //this.alquileres1.ImagenAlqu = ((System.Drawing.Image)(resources.GetObject("alquileres1.ImagenAlqu")));
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
-            this.alquileres1.Pieza = "";
-            this.alquileres1.Precio = "";
-            this.alquileres1.Sala = "";
+            this.alquileres1.Pieza = "● ";
+            this.alquileres1.Precio = "$";
+            this.alquileres1.Sala = "● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";

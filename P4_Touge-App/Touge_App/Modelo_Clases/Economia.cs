@@ -8,7 +8,7 @@ namespace Modelo_Clases
 {
     public class Economia
     {
-        public int CantidadDeDinero { get; set; }
+        public int MiDinero { get; set; }
         public int CambioDeAceite { get { return 50; } }
         public int Mantenimiento { get { return 50; } }
         public int Gomas { get { return 50; } }
@@ -21,11 +21,8 @@ namespace Modelo_Clases
         public Alquiler Alquiler { get; }
         public Facturas Facturas { get; }
         public Muebles Muebles { get; }
-        public Casa Casa { get; }
         public SeguroAuto Seguro { get; }
         public Tecnologia Tecnologia { get; }
-        public Higiene Higiene { get; }
-        public CarDealer CarDealer { get; set; }
     }
     public class Ropa {
         public int RemeraBasica { get { return 25; } }
@@ -88,13 +85,7 @@ namespace Modelo_Clases
         public int Cafetera { get { return 110; } }
         public int Almohada { get { return 25; } }
     }
-    public class Casa {
-        public int SuperBasico { get { return 200000; } }
-        public int Basico { get { return 250000; } }
-        public int Medio { get { return 310000; } }
-        public int Alta { get { return 400000; } }
-        public int SuperAlta { get { return 650000; } }
-    }
+
     public class SeguroAuto {
         //Devuelve un 10% del total del Auto
         public int SeguroBasico { get{ return 250; } }
@@ -128,12 +119,5 @@ namespace Modelo_Clases
         public int Juegos3ds { get { return 20; } }
         public int JuegosDS { get { return 50; } }
     }
-    public class Higiene {
-        public int Basico { get { return 40; } }
-        public int Medio { get { return 65; } }
-        public int Alto { get { return 80; } }
-    }
-    public class CarDealer {
         //Sitio =   https://www.beforward.jp/
-    }
 }

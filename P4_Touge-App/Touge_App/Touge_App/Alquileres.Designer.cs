@@ -200,6 +200,7 @@ namespace Touge_App
             this.Controls.Add(this.TituloAlquiler);
             this.Name = "Alquileres";
             this.Size = new System.Drawing.Size(830, 573);
+            this.Click += new System.EventHandler(this.Alquileres_Click);
             ((System.ComponentModel.ISupportInitialize)(this.ImagenAlquiler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -21,13 +21,18 @@ namespace Touge_App
         string Formato;
         Fecha fechaAux;
         DateTime CambioMes;
-        bool Alquilando = false;
+        bool Alquilando;
+        int CasaAlquilada;
         NegocioBaseDatos negocioAlquiler = new NegocioBaseDatos();
-        
+        NegocioBaseDatos Dinero = new NegocioBaseDatos();
+        Economia miDinero = new Economia(); 
+        List<Alquiler> listaAlquiler = new List<Alquiler>();
+        string Player = "Santino Boscatto";
 
         public TougeForms()
         {
             InitializeComponent();
+            
             initialSize = this.ClientSize;
             this.Resize += TougeForms_Resize;
             DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
@@ -79,6 +84,7 @@ namespace Touge_App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             //Cargo La base de datos de canciones
             listaCanciones = negocioBD.DevolverCanciones();
             //Pido Un numero Random para reproducir alguna Cancion
@@ -105,7 +111,22 @@ namespace Touge_App
             //MessageBox.Show("" + Formato);
             //FormatearFecha(fechaAux);
             //MessageBox.Show("" + Formato);
-            listaAlquiler = negocioAlquiler.DevolverAlquiler(true, 1);
+            NegocioBaseDatos alquilerBDManager = new NegocioBaseDatos();
+            Alquilando = alquilerBDManager.LeerBanderaAlquiler();
+            CasaAlquilada = alquilerBDManager.LeerCasaAlquilada();
+            listaAlquiler = negocioAlquiler.DevolverAlquiler(true, CasaAlquilada);
+            miDinero.MiDinero = Dinero.DevolverDinero();
+            MessageBox.Show("Tu Dinero es: " + miDinero.MiDinero);
+            alquileres1.ButtonClick += MiUserControl_ButtonClick;
+            alquileres2.ButtonClick += MiUserControl2_ButtonClick;
+            if (!Alquilando)
+            {
+                Ocultar();
+                MessageBox.Show("Debe Pagar el Alquiler Moroso!");
+                PaginaUnoAlquiler();
+                VolverBoton.Visible = false;
+            }
+
         }
 
         private void FormatearFecha(Fecha aux)
@@ -113,6 +134,7 @@ namespace Touge_App
             fechaManager = DateTime.Parse(aux.FechaManager.ToString());
             Formato = fechaManager.ToString("dd/MM/yy", CultureInfo.InvariantCulture);
             dateTimePicker1.Value = fechaAux.FechaManager;
+
         }
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
@@ -726,6 +748,7 @@ namespace Touge_App
             AutosBoton.Visible = false;
             CloseBoton.Visible = false;
             VolverBoton.Visible = true;
+            
         }
         bool EconomiaMostrar = true;
         private void OcultarEconomia()
@@ -739,6 +762,7 @@ namespace Touge_App
                 FacturasPictureBox.Visible = false;
                 ElectroPictureBox.Visible = false;
                 EconomiaMostrar = true;
+
             }
             else
             {
@@ -1584,36 +1608,14 @@ namespace Touge_App
 
         }
 
-        List<Alquiler> listaAlquiler = new List<Alquiler>();
+        
         
         private void AlquilerPictureBox_Click(object sender, EventArgs e)
         {
             try
             {
                 OcultarEconomia();
-                alquileres1.Visible = true;
-                alquileres2.Visible = true;
-                VolverAlquiler.Visible = true;
-                SiguienteAlquiler.Visible = true;
-                banderaEconomiaParaMostrar = false;
-                alquileres1.TituloDepa = listaAlquiler[0].NombreAlquiler;
-                alquileres1.CargarImagenes(listaAlquiler[0].ImagenAlquiler);
-                alquileres1.Pieza = listaAlquiler[0].CantidadDormitorios.ToString();
-                alquileres1.Ducha = listaAlquiler[0].CantidadDuchas.ToString();
-                alquileres1.Garaje = listaAlquiler[0].CantidadGarajes.ToString();
-                alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
-                alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
-                alquileres1.Precio = listaAlquiler[0].PrecioDepartamento.ToString();
-                alquileres1.Id = listaAlquiler[0].NumeroRegistro;
-                alquileres2.TituloDepa = listaAlquiler[1].NombreAlquiler;
-                alquileres2.CargarImagenes(listaAlquiler[1].ImagenAlquiler);
-                alquileres2.Pieza = listaAlquiler[1].CantidadDormitorios.ToString();
-                alquileres2.Ducha = listaAlquiler[1].CantidadDuchas.ToString();
-                alquileres2.Garaje = listaAlquiler[1].CantidadGarajes.ToString();
-                alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
-                alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
-                alquileres2.Precio = listaAlquiler[1].PrecioDepartamento.ToString();
-                alquileres2.Id = listaAlquiler[1].NumeroRegistro;
+                PaginaUnoAlquiler();               
             }
             catch (Exception)
             {
@@ -1712,7 +1714,7 @@ namespace Touge_App
         private void AgregarRegistroBoton_Click(object sender, EventArgs e)
         {
             int filas = historialDGV.Rows.Count;
-            HistorialForms registroVenatana = new HistorialForms();
+            HistorialForms registroVenatana = new HistorialForms(Player);
             registroVenatana.ShowDialog();
             listaHistorial = negocioHistorial.DevolverHistorial();
             historialDGV.DataSource = listaHistorial;
@@ -1769,9 +1771,33 @@ namespace Touge_App
         {
             if (fechaAux.FechaManager.Month != CambioMes.Month)
             {
+                Alquilando = false;
+                NegocioBaseDatos negocioAlquilerManager = new NegocioBaseDatos();
+                negocioAlquilerManager.ActualizarAlquilando(Alquilando);
                 CambioMes = fechaAux.FechaManager;
-                MessageBox.Show("Cambio El Mes");
+                MessageBox.Show("Cambio El Mes, Necesitas renovar el Alquiler");
+                listaAlquiler = negocioAlquiler.DevolverAlquiler(true, CasaAlquilada);
+                Ocultar();
+                OcultarEconomia();
+                OcultarHistorial();
+                VolverBoton.Visible = false;
+                BuscarRegistroBoton.Visible = false;
+                PaginaUnoAlquiler();    
             }
+        }
+
+        private void OcultarHistorial()
+        {
+            historialDGV.Visible = false;
+            FiltroBusquedaLabel.Visible = false;
+            FiltrosLabel.Visible = false;
+            FiltroTextBox.Visible = false;
+            CampoCombo.Visible = false;
+            CampoLabel.Visible = false;
+            CriterioLabel.Visible = false;
+            CriterioCombo.Visible = false;
+            AgregarRegistroBoton.Visible = false;
+            BorrarRegistroBoton.Visible = false;
         }
 
         int paginaAlquiler = 0;
@@ -1780,45 +1806,11 @@ namespace Touge_App
             paginaAlquiler++;
             if (paginaAlquiler==1)
             {
-                alquileres1.TituloDepa = listaAlquiler[2].NombreAlquiler;
-                alquileres1.CargarImagenes(listaAlquiler[2].ImagenAlquiler);
-                alquileres1.Pieza = listaAlquiler[2].CantidadDormitorios.ToString();
-                alquileres1.Ducha = listaAlquiler[2].CantidadDuchas.ToString();
-                alquileres1.Garaje = listaAlquiler[2].CantidadGarajes.ToString();
-                alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
-                alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
-                alquileres1.Precio = listaAlquiler[2].PrecioDepartamento.ToString();
-                alquileres1.Id = listaAlquiler[2].NumeroRegistro;
-                alquileres2.TituloDepa = listaAlquiler[3].NombreAlquiler;
-                alquileres2.CargarImagenes(listaAlquiler[3].ImagenAlquiler);
-                alquileres2.Pieza = listaAlquiler[3].CantidadDormitorios.ToString();
-                alquileres2.Ducha = listaAlquiler[3].CantidadDuchas.ToString();
-                alquileres2.Garaje = listaAlquiler[3].CantidadGarajes.ToString();
-                alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
-                alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
-                alquileres2.Precio = listaAlquiler[3].PrecioDepartamento.ToString();
-                alquileres2.Id = listaAlquiler[3].NumeroRegistro;
+                PaginaDosAlquiler();
             }
             if (paginaAlquiler == 2)
             {
-                alquileres1.TituloDepa = listaAlquiler[4].NombreAlquiler;
-                alquileres1.CargarImagenes(listaAlquiler[4].ImagenAlquiler);
-                alquileres1.Pieza = listaAlquiler[4].CantidadDormitorios.ToString();
-                alquileres1.Ducha = listaAlquiler[4].CantidadDuchas.ToString();
-                alquileres1.Garaje = listaAlquiler[4].CantidadGarajes.ToString();
-                alquileres1.Sala = listaAlquiler[4].CantidadSalasEstar.ToString();
-                alquileres1.Sala = listaAlquiler[4].CantidadSalasEstar.ToString();
-                alquileres1.Precio = listaAlquiler[4].PrecioDepartamento.ToString();
-                alquileres1.Id = listaAlquiler[4].NumeroRegistro;
-                alquileres2.TituloDepa = listaAlquiler[5].NombreAlquiler;
-                alquileres2.CargarImagenes(listaAlquiler[5].ImagenAlquiler);
-                alquileres2.Pieza = listaAlquiler[5].CantidadDormitorios.ToString();
-                alquileres2.Ducha = listaAlquiler[5].CantidadDuchas.ToString();
-                alquileres2.Garaje = listaAlquiler[5].CantidadGarajes.ToString();
-                alquileres2.Sala = listaAlquiler[5].CantidadSalasEstar.ToString();
-                alquileres2.Sala = listaAlquiler[5].CantidadSalasEstar.ToString();
-                alquileres2.Precio = listaAlquiler[5].PrecioDepartamento.ToString();
-                alquileres2.Id = listaAlquiler[5].NumeroRegistro;
+                PaginaTresAlquiler();
             }
             if (paginaAlquiler==3)
             {
@@ -1831,51 +1823,119 @@ namespace Touge_App
             paginaAlquiler--;
             if (paginaAlquiler == 1)
             {
-                alquileres1.TituloDepa = listaAlquiler[2].NombreAlquiler;
-                alquileres1.CargarImagenes(listaAlquiler[2].ImagenAlquiler);
-                alquileres1.Pieza = listaAlquiler[2].CantidadDormitorios.ToString();
-                alquileres1.Ducha = listaAlquiler[2].CantidadDuchas.ToString();
-                alquileres1.Garaje = listaAlquiler[2].CantidadGarajes.ToString();
-                alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
-                alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
-                alquileres1.Precio = listaAlquiler[2].PrecioDepartamento.ToString();
-                alquileres1.Id = listaAlquiler[2].NumeroRegistro;
-                alquileres2.TituloDepa = listaAlquiler[3].NombreAlquiler;
-                alquileres2.CargarImagenes(listaAlquiler[3].ImagenAlquiler);
-                alquileres2.Pieza = listaAlquiler[3].CantidadDormitorios.ToString();
-                alquileres2.Ducha = listaAlquiler[3].CantidadDuchas.ToString();
-                alquileres2.Garaje = listaAlquiler[3].CantidadGarajes.ToString();
-                alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
-                alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
-                alquileres2.Precio = listaAlquiler[3].PrecioDepartamento.ToString();
-                alquileres2.Id = listaAlquiler[3].NumeroRegistro;
+                PaginaDosAlquiler();
             }
             else if (paginaAlquiler == 0)
             {
-                alquileres1.TituloDepa = listaAlquiler[0].NombreAlquiler;
-                alquileres1.CargarImagenes(listaAlquiler[0].ImagenAlquiler);
-                alquileres1.Pieza = listaAlquiler[0].CantidadDormitorios.ToString();
-                alquileres1.Ducha = listaAlquiler[0].CantidadDuchas.ToString();
-                alquileres1.Garaje = listaAlquiler[0].CantidadGarajes.ToString();
-                alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
-                alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
-                alquileres1.Precio = listaAlquiler[0].PrecioDepartamento.ToString();
-                alquileres1.Id = listaAlquiler[0].NumeroRegistro;
-                alquileres2.TituloDepa = listaAlquiler[1].NombreAlquiler;
-                alquileres2.CargarImagenes(listaAlquiler[1].ImagenAlquiler);
-                alquileres2.Pieza = listaAlquiler[1].CantidadDormitorios.ToString();
-                alquileres2.Ducha = listaAlquiler[1].CantidadDuchas.ToString();
-                alquileres2.Garaje = listaAlquiler[1].CantidadGarajes.ToString();
-                alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
-                alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
-                alquileres2.Precio = listaAlquiler[1].PrecioDepartamento.ToString();
-                alquileres2.Id = listaAlquiler[1].NumeroRegistro;
+                PaginaUnoAlquiler();
             }
             else if (paginaAlquiler == -1)
             {
                 paginaAlquiler = 0;
             }
         }
+
+        private void PaginaUnoAlquiler()
+        {
+            alquileres1.Visible = true;
+            alquileres2.Visible = true;
+            VolverAlquiler.Visible = true;
+            SiguienteAlquiler.Visible = true;
+            banderaEconomiaParaMostrar = false;
+            alquileres1.TituloDepa = listaAlquiler[0].NombreAlquiler;
+            alquileres1.CargarImagenes(listaAlquiler[0].ImagenAlquiler);
+            alquileres1.Pieza = listaAlquiler[0].CantidadDormitorios.ToString();
+            alquileres1.Ducha = listaAlquiler[0].CantidadDuchas.ToString();
+            alquileres1.Garaje = listaAlquiler[0].CantidadGarajes.ToString();
+            alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
+            alquileres1.Sala = listaAlquiler[0].CantidadSalasEstar.ToString();
+            alquileres1.Precio = listaAlquiler[0].PrecioDepartamento.ToString();
+            alquileres1.Id = listaAlquiler[0].NumeroRegistro;
+            alquileres2.TituloDepa = listaAlquiler[1].NombreAlquiler;
+            alquileres2.CargarImagenes(listaAlquiler[1].ImagenAlquiler);
+            alquileres2.Pieza = listaAlquiler[1].CantidadDormitorios.ToString();
+            alquileres2.Ducha = listaAlquiler[1].CantidadDuchas.ToString();
+            alquileres2.Garaje = listaAlquiler[1].CantidadGarajes.ToString();
+            alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
+            alquileres2.Sala = listaAlquiler[1].CantidadSalasEstar.ToString();
+            alquileres2.Precio = listaAlquiler[1].PrecioDepartamento.ToString();
+            alquileres2.Id = listaAlquiler[1].NumeroRegistro;
+        }
+        private void PaginaDosAlquiler()
+        {
+            alquileres1.TituloDepa = listaAlquiler[2].NombreAlquiler;
+            alquileres1.CargarImagenes(listaAlquiler[2].ImagenAlquiler);
+            alquileres1.Pieza = listaAlquiler[2].CantidadDormitorios.ToString();
+            alquileres1.Ducha = listaAlquiler[2].CantidadDuchas.ToString();
+            alquileres1.Garaje = listaAlquiler[2].CantidadGarajes.ToString();
+            alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
+            alquileres1.Sala = listaAlquiler[2].CantidadSalasEstar.ToString();
+            alquileres1.Precio = listaAlquiler[2].PrecioDepartamento.ToString();
+            alquileres1.Id = listaAlquiler[2].NumeroRegistro;
+            alquileres2.TituloDepa = listaAlquiler[3].NombreAlquiler;
+            alquileres2.CargarImagenes(listaAlquiler[3].ImagenAlquiler);
+            alquileres2.Pieza = listaAlquiler[3].CantidadDormitorios.ToString();
+            alquileres2.Ducha = listaAlquiler[3].CantidadDuchas.ToString();
+            alquileres2.Garaje = listaAlquiler[3].CantidadGarajes.ToString();
+            alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
+            alquileres2.Sala = listaAlquiler[3].CantidadSalasEstar.ToString();
+            alquileres2.Precio = listaAlquiler[3].PrecioDepartamento.ToString();
+            alquileres2.Id = listaAlquiler[3].NumeroRegistro;
+        }
+        private void PaginaTresAlquiler()
+        {
+            alquileres1.TituloDepa = listaAlquiler[4].NombreAlquiler;
+            alquileres1.CargarImagenes(listaAlquiler[4].ImagenAlquiler);
+            alquileres1.Pieza = listaAlquiler[4].CantidadDormitorios.ToString();
+            alquileres1.Ducha = listaAlquiler[4].CantidadDuchas.ToString();
+            alquileres1.Garaje = listaAlquiler[4].CantidadGarajes.ToString();
+            alquileres1.Sala = listaAlquiler[4].CantidadSalasEstar.ToString();
+            alquileres1.Sala = listaAlquiler[4].CantidadSalasEstar.ToString();
+            alquileres1.Precio = listaAlquiler[4].PrecioDepartamento.ToString();
+            alquileres1.Id = listaAlquiler[4].NumeroRegistro;
+            alquileres2.TituloDepa = listaAlquiler[5].NombreAlquiler;
+            alquileres2.CargarImagenes(listaAlquiler[5].ImagenAlquiler);
+            alquileres2.Pieza = listaAlquiler[5].CantidadDormitorios.ToString();
+            alquileres2.Ducha = listaAlquiler[5].CantidadDuchas.ToString();
+            alquileres2.Garaje = listaAlquiler[5].CantidadGarajes.ToString();
+            alquileres2.Sala = listaAlquiler[5].CantidadSalasEstar.ToString();
+            alquileres2.Sala = listaAlquiler[5].CantidadSalasEstar.ToString();
+            alquileres2.Precio = listaAlquiler[5].PrecioDepartamento.ToString();
+            alquileres2.Id = listaAlquiler[5].NumeroRegistro;
+        }
+
+
+        private void MiUserControl_ButtonClick(object sender, EventArgs e)
+        {
+            Alquileres verificar = new Alquileres();
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres1.Id);     
+            negocioPago.ActualizarDinero(miDinero.MiDinero);
+            MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: "+miDinero.MiDinero+" USD");
+            VolverBoton.Visible = true;
+            Alquilando = true;
+            Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
+            CasaAlquilada = alquileres1.Id;
+            CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+            
+            
+        }
+
+        private void MiUserControl2_ButtonClick(object sender, EventArgs e)
+        {
+            Alquileres verificar = new Alquileres();
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres2.Id);
+            CasaAlquilada = alquileres2.Id;
+            negocioPago.ActualizarDinero(miDinero.MiDinero);
+            MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
+            VolverBoton.Visible = true;
+            Alquilando = true;
+            Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
+            CasaAlquilada = alquileres2.Id;
+            CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+        }
+
     }
 
 }

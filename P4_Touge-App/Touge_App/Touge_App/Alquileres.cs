@@ -8,11 +8,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio_Base_Datos;
 
 namespace Touge_App
 {
     public partial class Alquileres : UserControl
     {
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -55,7 +57,7 @@ namespace Touge_App
         public string Precio
         {
             get { return Preciolabel.Text; }
-            set { Preciolabel.Text = "$ " + value; }
+            set { Preciolabel.Text = "$" + value; }
         }
 
         public string Pieza
@@ -82,9 +84,26 @@ namespace Touge_App
             set { GarajeLabel.Text = "● " + value; }
         }
         public int Id { get; set; }
+
+        DialogResult Dialogo;
+        public event EventHandler ButtonClick;
         private void BotonAlquilar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Desea Alquilar en este lugar por un Mes?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            Dialogo = MessageBox.Show("Desea Alquilar aca? Cada Mes se pedira renovar el Alquiler", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Dialogo == DialogResult.Yes)
+            {
+                ButtonClick?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public DialogResult DevolverSi()
+        {
+            return DialogResult.Yes;
+        }
+
+        private void Alquileres_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -14,11 +14,13 @@ namespace Touge_App
 {
     public partial class HistorialForms : Form
     {
-        public HistorialForms()
+        string Player;
+        public HistorialForms(string jugador)
         {
             InitializeComponent();
             TiempoTextBox.KeyPress += TiempoTextbox_KeyPress;
             CargarCombos();
+            Player = jugador;
         }
         private void HistorialForms_Load(object sender, EventArgs e)
         {     
@@ -128,6 +130,82 @@ namespace Touge_App
                 if (banderaGanador==true && banderaPerdedor==true)
                 {
                     negocioDeBaseDatos.ActualizarEstadisticas(aux.Ganador, aux.Perdedor);
+                }
+                if (aux.Ganador == Player)
+                {
+                    int dineroGanador = 0;
+                    switch (aux.Clase)
+                    {
+                        case "F":
+                            dineroGanador = 250;
+                            break;
+                        case "E":
+                            dineroGanador = 500;
+                            break;
+                        case "D":
+                            dineroGanador = 750;
+                            break;
+                        case "C":
+                            dineroGanador = 1250;
+                            break;
+                        case "B":
+                            dineroGanador = 2250;
+                            break;
+                        case "A":
+                            dineroGanador = 4000;
+                            break;
+                        case "S":
+                            dineroGanador = 10000;
+                            break;
+                        case "S++":
+                            dineroGanador = 20000;
+                            break;
+                        default:
+                            dineroGanador = 0;
+                            break;
+                    }
+                    NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();
+                    dineroGanador += dineroNegocio.DevolverDinero();
+                    dineroNegocio.ActualizarDinero(dineroGanador);
+                    MessageBox.Show("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
+                }
+                else if (aux.Perdedor == Player)
+                {
+                    int dineroPerdedor = 0;
+                    switch (aux.Clase)
+                    {
+                        case "F":
+                            dineroPerdedor = 250;
+                            break;
+                        case "E":
+                            dineroPerdedor = 500;
+                            break;
+                        case "D":
+                            dineroPerdedor = 750;
+                            break;
+                        case "C":
+                            dineroPerdedor = 1250;
+                            break;
+                        case "B":
+                            dineroPerdedor = 2250;
+                            break;
+                        case "A":
+                            dineroPerdedor = 4000;
+                            break;
+                        case "S":
+                            dineroPerdedor = 10000;
+                            break;
+                        case "S++":
+                            dineroPerdedor = 20000;
+                            break;
+                        default:
+                            dineroPerdedor = 0;
+                            break;
+                    }
+                    NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();
+                    dineroPerdedor += dineroNegocio.DevolverDinero();
+                    dineroNegocio.ActualizarDinero(dineroPerdedor);
+                    MessageBox.Show("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
                 }
                 MessageBox.Show("Registro Agregado con exito");
                 this.Close();
