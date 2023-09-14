@@ -353,6 +353,12 @@
     <Compile Include="Alquileres.Designer.cs">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="eShopPanels.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="eShopPanels.Designer.cs">
+      <DependentUpon>eShopPanels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alquileres.resx">
       <DependentUpon>Alquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eShopPanels.resx">
+      <DependentUpon>eShopPanels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

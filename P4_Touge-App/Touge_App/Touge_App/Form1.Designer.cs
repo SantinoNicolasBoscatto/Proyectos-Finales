@@ -187,8 +187,17 @@ namespace Touge_App
             this.SiguienteAlquiler = new System.Windows.Forms.Button();
             this.VolverAlquiler = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
+            this.eShopPanels4 = new Touge_App.eShopPanels();
+            this.eShopPanels2 = new Touge_App.eShopPanels();
+            this.eShopPanels3 = new Touge_App.eShopPanels();
+            this.eShopPanels5 = new Touge_App.eShopPanels();
+            this.eShopPanels1 = new Touge_App.eShopPanels();
+            this.eShopPanels6 = new Touge_App.eShopPanels();
+            this.eShopPanels7 = new Touge_App.eShopPanels();
+            this.eShopPanels8 = new Touge_App.eShopPanels();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -200,6 +209,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -2802,17 +2812,33 @@ namespace Touge_App
             this.dateTimePicker1.Visible = false;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1812, 818);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 247;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ";
-            this.alquileres2.Garaje = "● ";
+            this.alquileres2.Ducha = "● ● ● ● ● ";
+            this.alquileres2.Garaje = "● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
-            this.alquileres2.Pieza = "● ";
-            this.alquileres2.Precio = "$";
-            this.alquileres2.Sala = "● ";
+            this.alquileres2.Pieza = "● ● ● ● ● ";
+            this.alquileres2.Precio = "$$$$$";
+            this.alquileres2.Sala = "● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
             this.alquileres2.TituloDepa = "ALQUILERES EN AKINA";
@@ -2821,24 +2847,105 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ";
-            this.alquileres1.Garaje = "● ";
+            this.alquileres1.Ducha = "● ● ● ● ● ";
+            this.alquileres1.Garaje = "● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
-            this.alquileres1.Pieza = "● ";
-            this.alquileres1.Precio = "$";
-            this.alquileres1.Sala = "● ";
+            this.alquileres1.Pieza = "● ● ● ● ● ";
+            this.alquileres1.Precio = "$$$$$";
+            this.alquileres1.Sala = "● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
+            // 
+            // eShopPanels4
+            // 
+            this.eShopPanels4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels4.Location = new System.Drawing.Point(506, 423);
+            this.eShopPanels4.Name = "eShopPanels4";
+            this.eShopPanels4.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels4.TabIndex = 254;
+            this.eShopPanels4.Visible = false;
+            // 
+            // eShopPanels2
+            // 
+            this.eShopPanels2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels2.Location = new System.Drawing.Point(77, 423);
+            this.eShopPanels2.Name = "eShopPanels2";
+            this.eShopPanels2.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels2.TabIndex = 255;
+            this.eShopPanels2.Visible = false;
+            // 
+            // eShopPanels3
+            // 
+            this.eShopPanels3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels3.Location = new System.Drawing.Point(935, 423);
+            this.eShopPanels3.Name = "eShopPanels3";
+            this.eShopPanels3.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels3.TabIndex = 256;
+            this.eShopPanels3.Visible = false;
+            // 
+            // eShopPanels5
+            // 
+            this.eShopPanels5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels5.Location = new System.Drawing.Point(1364, 423);
+            this.eShopPanels5.Name = "eShopPanels5";
+            this.eShopPanels5.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels5.TabIndex = 257;
+            this.eShopPanels5.Visible = false;
+            // 
+            // eShopPanels1
+            // 
+            this.eShopPanels1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels1.Location = new System.Drawing.Point(1362, 26);
+            this.eShopPanels1.Name = "eShopPanels1";
+            this.eShopPanels1.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels1.TabIndex = 261;
+            this.eShopPanels1.Visible = false;
+            // 
+            // eShopPanels6
+            // 
+            this.eShopPanels6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels6.Location = new System.Drawing.Point(933, 26);
+            this.eShopPanels6.Name = "eShopPanels6";
+            this.eShopPanels6.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels6.TabIndex = 260;
+            this.eShopPanels6.Visible = false;
+            // 
+            // eShopPanels7
+            // 
+            this.eShopPanels7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels7.Location = new System.Drawing.Point(75, 26);
+            this.eShopPanels7.Name = "eShopPanels7";
+            this.eShopPanels7.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels7.TabIndex = 259;
+            this.eShopPanels7.Visible = false;
+            // 
+            // eShopPanels8
+            // 
+            this.eShopPanels8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
+            this.eShopPanels8.Location = new System.Drawing.Point(504, 26);
+            this.eShopPanels8.Name = "eShopPanels8";
+            this.eShopPanels8.Size = new System.Drawing.Size(383, 378);
+            this.eShopPanels8.TabIndex = 258;
+            this.eShopPanels8.Visible = false;
             // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.eShopPanels1);
+            this.Controls.Add(this.eShopPanels6);
+            this.Controls.Add(this.eShopPanels7);
+            this.Controls.Add(this.eShopPanels8);
+            this.Controls.Add(this.eShopPanels5);
+            this.Controls.Add(this.eShopPanels3);
+            this.Controls.Add(this.eShopPanels2);
+            this.Controls.Add(this.eShopPanels4);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.VolverAlquiler);
             this.Controls.Add(this.SiguienteAlquiler);
@@ -3014,6 +3121,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3178,6 +3286,15 @@ namespace Touge_App
         private System.Windows.Forms.Button SiguienteAlquiler;
         private Alquileres alquileres2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private eShopPanels eShopPanels5;
+        private eShopPanels eShopPanels3;
+        private eShopPanels eShopPanels2;
+        private eShopPanels eShopPanels4;
+        private eShopPanels eShopPanels1;
+        private eShopPanels eShopPanels6;
+        private eShopPanels eShopPanels7;
+        private eShopPanels eShopPanels8;
     }
 }
 

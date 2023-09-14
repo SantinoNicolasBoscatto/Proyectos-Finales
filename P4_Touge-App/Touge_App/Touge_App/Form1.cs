@@ -1763,8 +1763,7 @@ namespace Touge_App
             NegocioBaseDatos negocioFiltro = new NegocioBaseDatos();
             listaHistorial = negocioFiltro.FiltrarDatosHistorial(CampoCombo.Text, CriterioCombo.Text, FiltroTextBox.Text);
             historialDGV.DataSource = listaHistorial;
-            //historialDGV.Columns["Promocion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //historialDGV.Columns["Promocion"].FillWeight = 1;
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -1907,33 +1906,47 @@ namespace Touge_App
 
         private void MiUserControl_ButtonClick(object sender, EventArgs e)
         {
-            Alquileres verificar = new Alquileres();
             NegocioBaseDatos negocioPago = new NegocioBaseDatos();
-            miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres1.Id);     
-            negocioPago.ActualizarDinero(miDinero.MiDinero);
-            MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: "+miDinero.MiDinero+" USD");
-            VolverBoton.Visible = true;
-            Alquilando = true;
-            Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
-            CasaAlquilada = alquileres1.Id;
-            CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+            if (miDinero.MiDinero - negocioPago.PagoAlquiler(alquileres1.Id)>0)
+            {
+                Alquileres verificar = new Alquileres();
+                miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres1.Id);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
+                VolverBoton.Visible = true;
+                Alquilando = true;
+                Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
+                CasaAlquilada = alquileres1.Id;
+                CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+            }
+            else
+            {
+                MessageBox.Show("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
+            }
             
             
         }
 
         private void MiUserControl2_ButtonClick(object sender, EventArgs e)
         {
-            Alquileres verificar = new Alquileres();
             NegocioBaseDatos negocioPago = new NegocioBaseDatos();
-            miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres2.Id);
-            CasaAlquilada = alquileres2.Id;
-            negocioPago.ActualizarDinero(miDinero.MiDinero);
-            MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
-            VolverBoton.Visible = true;
-            Alquilando = true;
-            Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
-            CasaAlquilada = alquileres2.Id;
-            CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+            if (miDinero.MiDinero - negocioPago.PagoAlquiler(alquileres1.Id) > 0)
+            {
+                Alquileres verificar = new Alquileres();
+                miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres2.Id);
+                CasaAlquilada = alquileres2.Id;
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
+                VolverBoton.Visible = true;
+                Alquilando = true;
+                Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
+                CasaAlquilada = alquileres2.Id;
+                CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+            }
+            else
+            {
+                MessageBox.Show("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
+            }
         }
 
     }
