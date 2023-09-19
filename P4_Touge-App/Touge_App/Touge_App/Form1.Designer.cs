@@ -188,16 +188,18 @@ namespace Touge_App
             this.VolverAlquiler = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BackRopaMuebleTecno = new System.Windows.Forms.Button();
+            this.NextRopaMuebleTecno = new System.Windows.Forms.Button();
+            this.ShopPanel1 = new Touge_App.eShopPanels();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
-            this.eShopPanels4 = new Touge_App.eShopPanels();
-            this.eShopPanels2 = new Touge_App.eShopPanels();
-            this.eShopPanels3 = new Touge_App.eShopPanels();
-            this.eShopPanels5 = new Touge_App.eShopPanels();
-            this.eShopPanels1 = new Touge_App.eShopPanels();
-            this.eShopPanels6 = new Touge_App.eShopPanels();
-            this.eShopPanels7 = new Touge_App.eShopPanels();
-            this.eShopPanels8 = new Touge_App.eShopPanels();
+            this.ShopPanel2 = new Touge_App.eShopPanels();
+            this.ShopPanel4 = new Touge_App.eShopPanels();
+            this.ShopPanel3 = new Touge_App.eShopPanels();
+            this.ShopPanel8 = new Touge_App.eShopPanels();
+            this.ShopPanel7 = new Touge_App.eShopPanels();
+            this.ShopPanel6 = new Touge_App.eShopPanels();
+            this.ShopPanel5 = new Touge_App.eShopPanels();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -2805,7 +2807,7 @@ namespace Touge_App
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(772, 840);
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 246;
@@ -2819,26 +2821,72 @@ namespace Touge_App
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1812, 818);
+            this.pictureBox1.Size = new System.Drawing.Size(1671, 818);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 247;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // BackRopaMuebleTecno
+            // 
+            this.BackRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackRopaMuebleTecno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackRopaMuebleTecno.BackColor = System.Drawing.Color.Transparent;
+            this.BackRopaMuebleTecno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackRopaMuebleTecno.BackgroundImage")));
+            this.BackRopaMuebleTecno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackRopaMuebleTecno.FlatAppearance.BorderSize = 0;
+            this.BackRopaMuebleTecno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackRopaMuebleTecno.Location = new System.Drawing.Point(-1, 401);
+            this.BackRopaMuebleTecno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackRopaMuebleTecno.Name = "BackRopaMuebleTecno";
+            this.BackRopaMuebleTecno.Size = new System.Drawing.Size(67, 57);
+            this.BackRopaMuebleTecno.TabIndex = 275;
+            this.BackRopaMuebleTecno.UseVisualStyleBackColor = false;
+            this.BackRopaMuebleTecno.Visible = false;
+            // 
+            // NextRopaMuebleTecno
+            // 
+            this.NextRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextRopaMuebleTecno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextRopaMuebleTecno.BackColor = System.Drawing.Color.Transparent;
+            this.NextRopaMuebleTecno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextRopaMuebleTecno.BackgroundImage")));
+            this.NextRopaMuebleTecno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextRopaMuebleTecno.FlatAppearance.BorderSize = 0;
+            this.NextRopaMuebleTecno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextRopaMuebleTecno.Location = new System.Drawing.Point(1744, 401);
+            this.NextRopaMuebleTecno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NextRopaMuebleTecno.Name = "NextRopaMuebleTecno";
+            this.NextRopaMuebleTecno.Size = new System.Drawing.Size(67, 57);
+            this.NextRopaMuebleTecno.TabIndex = 274;
+            this.NextRopaMuebleTecno.UseVisualStyleBackColor = false;
+            this.NextRopaMuebleTecno.Visible = false;
+            // 
+            // ShopPanel1
+            // 
+            this.ShopPanel1.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel1.Id = 0;
+            this.ShopPanel1.Location = new System.Drawing.Point(81, 27);
+            this.ShopPanel1.Name = "ShopPanel1";
+            this.ShopPanel1.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel1.Precio = "$ 9999.99";
+            this.ShopPanel1.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel1.TabIndex = 276;
+            this.ShopPanel1.Visible = false;
+            // 
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ● ● ● ● ";
-            this.alquileres2.Garaje = "● ● ● ● ● ";
+            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
-            this.alquileres2.Pieza = "● ● ● ● ● ";
-            this.alquileres2.Precio = "$$$$$";
-            this.alquileres2.Sala = "● ● ● ● ● ";
+            this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
+            this.alquileres2.Precio = "$ $ $ $$$$$$$$";
+            this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
             this.alquileres2.TituloDepa = "ALQUILERES EN AKINA";
@@ -2847,104 +2895,118 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ● ● ● ● ";
-            this.alquileres1.Garaje = "● ● ● ● ● ";
+            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
-            this.alquileres1.Pieza = "● ● ● ● ● ";
-            this.alquileres1.Precio = "$$$$$";
-            this.alquileres1.Sala = "● ● ● ● ● ";
+            this.alquileres1.Pieza = "● ● ● ● ● ● ● ● ";
+            this.alquileres1.Precio = "$ $ $ $$$$$$$$";
+            this.alquileres1.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
             // 
-            // eShopPanels4
+            // ShopPanel2
             // 
-            this.eShopPanels4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels4.Location = new System.Drawing.Point(506, 423);
-            this.eShopPanels4.Name = "eShopPanels4";
-            this.eShopPanels4.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels4.TabIndex = 254;
-            this.eShopPanels4.Visible = false;
+            this.ShopPanel2.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel2.Id = 0;
+            this.ShopPanel2.Location = new System.Drawing.Point(506, 27);
+            this.ShopPanel2.Name = "ShopPanel2";
+            this.ShopPanel2.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel2.Precio = "$ 9999.99";
+            this.ShopPanel2.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel2.TabIndex = 277;
+            this.ShopPanel2.Visible = false;
             // 
-            // eShopPanels2
+            // ShopPanel4
             // 
-            this.eShopPanels2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels2.Location = new System.Drawing.Point(77, 423);
-            this.eShopPanels2.Name = "eShopPanels2";
-            this.eShopPanels2.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels2.TabIndex = 255;
-            this.eShopPanels2.Visible = false;
+            this.ShopPanel4.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel4.Id = 0;
+            this.ShopPanel4.Location = new System.Drawing.Point(1350, 27);
+            this.ShopPanel4.Name = "ShopPanel4";
+            this.ShopPanel4.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel4.Precio = "$ 9999.99";
+            this.ShopPanel4.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel4.TabIndex = 279;
+            this.ShopPanel4.Visible = false;
             // 
-            // eShopPanels3
+            // ShopPanel3
             // 
-            this.eShopPanels3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels3.Location = new System.Drawing.Point(935, 423);
-            this.eShopPanels3.Name = "eShopPanels3";
-            this.eShopPanels3.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels3.TabIndex = 256;
-            this.eShopPanels3.Visible = false;
+            this.ShopPanel3.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel3.Id = 0;
+            this.ShopPanel3.Location = new System.Drawing.Point(925, 27);
+            this.ShopPanel3.Name = "ShopPanel3";
+            this.ShopPanel3.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel3.Precio = "$ 9999.99";
+            this.ShopPanel3.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel3.TabIndex = 278;
+            this.ShopPanel3.Visible = false;
             // 
-            // eShopPanels5
+            // ShopPanel8
             // 
-            this.eShopPanels5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels5.Location = new System.Drawing.Point(1364, 423);
-            this.eShopPanels5.Name = "eShopPanels5";
-            this.eShopPanels5.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels5.TabIndex = 257;
-            this.eShopPanels5.Visible = false;
+            this.ShopPanel8.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel8.Id = 0;
+            this.ShopPanel8.Location = new System.Drawing.Point(1350, 427);
+            this.ShopPanel8.Name = "ShopPanel8";
+            this.ShopPanel8.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel8.Precio = "$ 9999.99";
+            this.ShopPanel8.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel8.TabIndex = 283;
+            this.ShopPanel8.Visible = false;
             // 
-            // eShopPanels1
+            // ShopPanel7
             // 
-            this.eShopPanels1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels1.Location = new System.Drawing.Point(1362, 26);
-            this.eShopPanels1.Name = "eShopPanels1";
-            this.eShopPanels1.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels1.TabIndex = 261;
-            this.eShopPanels1.Visible = false;
+            this.ShopPanel7.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel7.Id = 0;
+            this.ShopPanel7.Location = new System.Drawing.Point(925, 427);
+            this.ShopPanel7.Name = "ShopPanel7";
+            this.ShopPanel7.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel7.Precio = "$ 9999.99";
+            this.ShopPanel7.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel7.TabIndex = 282;
+            this.ShopPanel7.Visible = false;
             // 
-            // eShopPanels6
+            // ShopPanel6
             // 
-            this.eShopPanels6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels6.Location = new System.Drawing.Point(933, 26);
-            this.eShopPanels6.Name = "eShopPanels6";
-            this.eShopPanels6.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels6.TabIndex = 260;
-            this.eShopPanels6.Visible = false;
+            this.ShopPanel6.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel6.Id = 0;
+            this.ShopPanel6.Location = new System.Drawing.Point(506, 427);
+            this.ShopPanel6.Name = "ShopPanel6";
+            this.ShopPanel6.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel6.Precio = "$ 9999.99";
+            this.ShopPanel6.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel6.TabIndex = 281;
+            this.ShopPanel6.Visible = false;
             // 
-            // eShopPanels7
+            // ShopPanel5
             // 
-            this.eShopPanels7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels7.Location = new System.Drawing.Point(75, 26);
-            this.eShopPanels7.Name = "eShopPanels7";
-            this.eShopPanels7.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels7.TabIndex = 259;
-            this.eShopPanels7.Visible = false;
-            // 
-            // eShopPanels8
-            // 
-            this.eShopPanels8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(255)))));
-            this.eShopPanels8.Location = new System.Drawing.Point(504, 26);
-            this.eShopPanels8.Name = "eShopPanels8";
-            this.eShopPanels8.Size = new System.Drawing.Size(383, 378);
-            this.eShopPanels8.TabIndex = 258;
-            this.eShopPanels8.Visible = false;
+            this.ShopPanel5.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel5.Id = 0;
+            this.ShopPanel5.Location = new System.Drawing.Point(81, 427);
+            this.ShopPanel5.Name = "ShopPanel5";
+            this.ShopPanel5.NombreProducto = "Remera Anime Initial D Trueno \r\nAe86 Panda";
+            this.ShopPanel5.Precio = "$ 9999.99";
+            this.ShopPanel5.Size = new System.Drawing.Size(379, 376);
+            this.ShopPanel5.TabIndex = 280;
+            this.ShopPanel5.Visible = false;
             // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
-            this.Controls.Add(this.eShopPanels1);
-            this.Controls.Add(this.eShopPanels6);
-            this.Controls.Add(this.eShopPanels7);
-            this.Controls.Add(this.eShopPanels8);
-            this.Controls.Add(this.eShopPanels5);
-            this.Controls.Add(this.eShopPanels3);
-            this.Controls.Add(this.eShopPanels2);
-            this.Controls.Add(this.eShopPanels4);
+            this.Controls.Add(this.ShopPanel8);
+            this.Controls.Add(this.ShopPanel7);
+            this.Controls.Add(this.ShopPanel6);
+            this.Controls.Add(this.ShopPanel5);
+            this.Controls.Add(this.ShopPanel4);
+            this.Controls.Add(this.ShopPanel3);
+            this.Controls.Add(this.ShopPanel2);
+            this.Controls.Add(this.ShopPanel1);
+            this.Controls.Add(this.BackRopaMuebleTecno);
+            this.Controls.Add(this.NextRopaMuebleTecno);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.VolverAlquiler);
@@ -3287,14 +3349,16 @@ namespace Touge_App
         private Alquileres alquileres2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private eShopPanels eShopPanels5;
-        private eShopPanels eShopPanels3;
-        private eShopPanels eShopPanels2;
-        private eShopPanels eShopPanels4;
-        private eShopPanels eShopPanels1;
-        private eShopPanels eShopPanels6;
-        private eShopPanels eShopPanels7;
-        private eShopPanels eShopPanels8;
+        private System.Windows.Forms.Button BackRopaMuebleTecno;
+        private System.Windows.Forms.Button NextRopaMuebleTecno;
+        private eShopPanels ShopPanel1;
+        private eShopPanels ShopPanel8;
+        private eShopPanels ShopPanel7;
+        private eShopPanels ShopPanel6;
+        private eShopPanels ShopPanel5;
+        private eShopPanels ShopPanel4;
+        private eShopPanels ShopPanel3;
+        private eShopPanels ShopPanel2;
     }
 }
 

@@ -56,32 +56,32 @@ namespace Touge_App
 
         public string Precio
         {
-            get { return Preciolabel.Text; }
-            set { Preciolabel.Text = "$" + value; }
+            get { return "$ " + Preciolabel.Text; }
+            set { Preciolabel.Text =  value; }
         }
 
         public string Pieza
         {
             get { return DormitorioLabel.Text; }
-            set { DormitorioLabel.Text = "● " + value; }
+            set { DormitorioLabel.Text =value; }
         }
 
         public string Sala
         {
             get { return SalaLabel.Text; }
-            set { SalaLabel.Text = "● " + value; }
+            set { SalaLabel.Text =value; }
         }
 
         public string Ducha
         {
-            get { return Duchalabel.Text; }
-            set { Duchalabel.Text = "● " + value; }
+            get { return "● " + Duchalabel.Text; }
+            set { Duchalabel.Text = value; }
         }
 
         public string Garaje
         {
             get { return GarajeLabel.Text; }
-            set { GarajeLabel.Text = "● " + value; }
+            set { GarajeLabel.Text = value; }
         }
         public int Id { get; set; }
 

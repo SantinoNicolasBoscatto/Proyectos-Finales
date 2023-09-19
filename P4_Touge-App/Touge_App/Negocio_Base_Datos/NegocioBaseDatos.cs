@@ -483,7 +483,6 @@ namespace Negocio_Base_Datos
             {
                 if (EstadoAlquiler)
                 {
-                    //numeroAlquiler = 1;
                     negocioBaseAlquiler.SQLQuery("SELECT NumeroRegistro from alquileres where NumeroRegistro != @Alquilado");
                     negocioBaseAlquiler.SetearParametros("@Alquilado", numeroAlquiler);
                     negocioBaseAlquiler.LecturaBase();
@@ -710,6 +709,95 @@ namespace Negocio_Base_Datos
 
                 throw;
             }
+        }
+
+        public List<Ropa> DevolverRopa()
+        {
+            List<Ropa> listaRopa = new List<Ropa>();
+            FuncionesNegocio negocioRopa = new FuncionesNegocio();
+            List<int> ropaId;
+            int contadorLista = 0;
+            try
+            {
+                negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where Comprado !=0");
+                negocioRopa.LecturaBase();
+                while (negocioRopa.Guardador.Read())
+                {
+                    contadorLista++;
+                }
+                contadorLista++;
+                negocioRopa.Guardador.Close();
+                ropaId = PoolObjetos(contadorLista);
+                negocioRopa.SetearParametros("@Uno", ropaId[0]);
+                negocioRopa.SetearParametros("@Dos", ropaId[1]);
+                negocioRopa.SetearParametros("@Tres", ropaId[2]);
+                negocioRopa.SetearParametros("@Cuatro", ropaId[3]);
+                negocioRopa.SetearParametros("@Cinco", ropaId[4]);
+                negocioRopa.SetearParametros("@6", ropaId[5]);
+                negocioRopa.SetearParametros("@7", ropaId[6]);
+                negocioRopa.SetearParametros("@8", ropaId[7]);
+                negocioRopa.SetearParametros("@9", ropaId[8]);
+                negocioRopa.SetearParametros("@10", ropaId[9]);
+                negocioRopa.SetearParametros("@11", ropaId[10]);
+                negocioRopa.SetearParametros("@12", ropaId[11]);
+                negocioRopa.SetearParametros("@13", ropaId[12]);
+                negocioRopa.SetearParametros("@14", ropaId[13]);
+                negocioRopa.SetearParametros("@15", ropaId[14]);
+                negocioRopa.SetearParametros("@16", ropaId[15]);
+                negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)");
+                negocioRopa.LecturaBase();
+                while (negocioRopa.Guardador.Read())
+                {
+                    Ropa aux = new Ropa();
+                    aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
+                    aux.Precio = (int)negocioRopa.Guardador["Precio"];
+                    aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
+                    aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
+                    aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
+                    listaRopa.Add(aux);
+                }
+                return listaRopa;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<int> PoolObjetos(int ContadorLista)
+        {
+            List<int> listaNumeros = new List<int>();
+            Random numerosRandom = new Random();
+            int x = 0;
+            int y = 0;
+            int[] listaRepetidos = new int[16];
+            bool Norepetido = true;
+
+            while (x != 16)
+            {
+                y = (int)numerosRandom.Next(1, ContadorLista);
+
+                    for (int i = 0; i < x; i++)
+                    {
+                        if (y == listaRepetidos[i])
+                        {
+                            Norepetido = false;
+                            break;
+                        }
+                    }
+                    if (Norepetido)
+                    {
+                        listaRepetidos[x] = y;
+                        listaNumeros.Add(y);
+                        x++;
+                    }
+                    else
+                    {
+                        Norepetido = true;
+                    }
+            }
+            return listaNumeros;
         }
     }
 }

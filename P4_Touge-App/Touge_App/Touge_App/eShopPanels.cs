@@ -26,7 +26,46 @@ namespace Touge_App
         public eShopPanels()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 100, 100));
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 85, 85));
         }
+
+        public void CargarImagenes(string imagen)
+        {
+            try
+            {
+                ProductoImagen.Load(imagen);
+            }
+            catch (Exception)
+            {
+                ProductoImagen.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=2000");
+            }
+
+        }
+
+        DialogResult Dialogo;
+        public event EventHandler ButtonClick;
+        private void BotonComprar_Click(object sender, EventArgs e)
+        {
+            Dialogo = MessageBox.Show("¿Desea Comprar Este Articulo?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Dialogo == DialogResult.Yes)
+            {
+                ButtonClick?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public string Precio 
+        {
+            get { return PrecioLabel.Text; } 
+          set { PrecioLabel.Text = value; }
+        }
+
+        public string NombreProducto
+        {
+            get { return NombreDelProducto.Text; }
+            set { NombreDelProducto.Text = value; }
+        }
+
+        public int Id { get; set; }
+
     }
 }
