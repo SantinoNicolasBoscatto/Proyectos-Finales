@@ -19,5 +19,23 @@ namespace Modelo_Clases
         public string Imagen { get; set; }
         public bool Comprado { get; set; }
     }
-        //Sitio =   https://www.beforward.jp/
+
+    public class Mueble
+    {
+        public int Id { get; set; }
+        public int Precio { get; set; }
+        public string NombreMueble { get; set; }
+        public string Imagen { get; set; }
+        public bool Comprado { get; set; }
+    }
+
+    public class Electronicos
+    {
+        public int Id { get; set; }
+        public int Precio { get; set; }
+        public string NombreElectronicos { get; set; }
+        public string Imagen { get; set; }
+        public bool Comprado { get; set; }
+    }
+    //Sitio =   https://www.beforward.jp/
 }

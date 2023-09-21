@@ -34,14 +34,16 @@ namespace Touge_App
             this.ProductoImagen = new System.Windows.Forms.PictureBox();
             this.PrecioLabel = new System.Windows.Forms.Label();
             this.BotonComprar = new System.Windows.Forms.Button();
+            this.Sold = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sold)).BeginInit();
             this.SuspendLayout();
             // 
             // NombreDelProducto
             // 
-            this.NombreDelProducto.BackColor = System.Drawing.Color.Khaki;
+            this.NombreDelProducto.BackColor = System.Drawing.Color.Transparent;
             this.NombreDelProducto.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreDelProducto.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.NombreDelProducto.ForeColor = System.Drawing.SystemColors.Desktop;
             this.NombreDelProducto.Location = new System.Drawing.Point(30, 0);
             this.NombreDelProducto.Name = "NombreDelProducto";
             this.NombreDelProducto.Size = new System.Drawing.Size(317, 59);
@@ -51,16 +53,18 @@ namespace Touge_App
             // 
             // ProductoImagen
             // 
+            this.ProductoImagen.BackColor = System.Drawing.Color.Black;
             this.ProductoImagen.Image = ((System.Drawing.Image)(resources.GetObject("ProductoImagen.Image")));
-            this.ProductoImagen.Location = new System.Drawing.Point(39, 60);
+            this.ProductoImagen.Location = new System.Drawing.Point(45, 60);
             this.ProductoImagen.Name = "ProductoImagen";
-            this.ProductoImagen.Size = new System.Drawing.Size(302, 260);
+            this.ProductoImagen.Size = new System.Drawing.Size(286, 260);
             this.ProductoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProductoImagen.TabIndex = 1;
             this.ProductoImagen.TabStop = false;
             // 
             // PrecioLabel
             // 
+            this.PrecioLabel.BackColor = System.Drawing.Color.Transparent;
             this.PrecioLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrecioLabel.ForeColor = System.Drawing.Color.LimeGreen;
             this.PrecioLabel.Location = new System.Drawing.Point(58, 323);
@@ -72,6 +76,7 @@ namespace Touge_App
             // 
             // BotonComprar
             // 
+            this.BotonComprar.BackColor = System.Drawing.Color.Transparent;
             this.BotonComprar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BotonComprar.BackgroundImage")));
             this.BotonComprar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BotonComprar.FlatAppearance.BorderSize = 0;
@@ -80,14 +85,30 @@ namespace Touge_App
             this.BotonComprar.Name = "BotonComprar";
             this.BotonComprar.Size = new System.Drawing.Size(54, 51);
             this.BotonComprar.TabIndex = 3;
-            this.BotonComprar.UseVisualStyleBackColor = true;
+            this.BotonComprar.UseVisualStyleBackColor = false;
             this.BotonComprar.Click += new System.EventHandler(this.BotonComprar_Click);
+            // 
+            // Sold
+            // 
+            this.Sold.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Sold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Sold.Image = ((System.Drawing.Image)(resources.GetObject("Sold.Image")));
+            this.Sold.Location = new System.Drawing.Point(45, 60);
+            this.Sold.Name = "Sold";
+            this.Sold.Size = new System.Drawing.Size(286, 260);
+            this.Sold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Sold.TabIndex = 4;
+            this.Sold.TabStop = false;
+            this.Sold.Visible = false;
             // 
             // eShopPanels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
+            this.Controls.Add(this.Sold);
             this.Controls.Add(this.BotonComprar);
             this.Controls.Add(this.PrecioLabel);
             this.Controls.Add(this.ProductoImagen);
@@ -95,6 +116,7 @@ namespace Touge_App
             this.Name = "eShopPanels";
             this.Size = new System.Drawing.Size(379, 376);
             ((System.ComponentModel.ISupportInitialize)(this.ProductoImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sold)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +127,6 @@ namespace Touge_App
         private System.Windows.Forms.PictureBox ProductoImagen;
         private System.Windows.Forms.Label PrecioLabel;
         private System.Windows.Forms.Button BotonComprar;
+        private System.Windows.Forms.PictureBox Sold;
     }
 }

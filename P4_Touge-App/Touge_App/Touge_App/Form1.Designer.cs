@@ -29,8 +29,8 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
@@ -187,7 +187,6 @@ namespace Touge_App
             this.SiguienteAlquiler = new System.Windows.Forms.Button();
             this.VolverAlquiler = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BackRopaMuebleTecno = new System.Windows.Forms.Button();
             this.NextRopaMuebleTecno = new System.Windows.Forms.Button();
             this.ShopPanel1 = new Touge_App.eShopPanels();
@@ -200,6 +199,14 @@ namespace Touge_App
             this.ShopPanel7 = new Touge_App.eShopPanels();
             this.ShopPanel6 = new Touge_App.eShopPanels();
             this.ShopPanel5 = new Touge_App.eShopPanels();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Servicios1 = new System.Windows.Forms.RadioButton();
+            this.Servicios2 = new System.Windows.Forms.RadioButton();
+            this.Servicios3 = new System.Windows.Forms.RadioButton();
+            this.Servicios4 = new System.Windows.Forms.RadioButton();
+            this.Servicios5 = new System.Windows.Forms.RadioButton();
+            this.PagoLabel = new System.Windows.Forms.Label();
+            this.AbonarFacturas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -2576,17 +2583,17 @@ namespace Touge_App
             this.historialDGV.GridColor = System.Drawing.SystemColors.HotTrack;
             this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2814,22 +2821,6 @@ namespace Touge_App
             this.dateTimePicker1.Visible = false;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(73, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1671, 818);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 247;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // BackRopaMuebleTecno
             // 
             this.BackRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -2846,6 +2837,7 @@ namespace Touge_App
             this.BackRopaMuebleTecno.TabIndex = 275;
             this.BackRopaMuebleTecno.UseVisualStyleBackColor = false;
             this.BackRopaMuebleTecno.Visible = false;
+            this.BackRopaMuebleTecno.Click += new System.EventHandler(this.BackRopaMuebleTecno_Click);
             // 
             // NextRopaMuebleTecno
             // 
@@ -2863,10 +2855,12 @@ namespace Touge_App
             this.NextRopaMuebleTecno.TabIndex = 274;
             this.NextRopaMuebleTecno.UseVisualStyleBackColor = false;
             this.NextRopaMuebleTecno.Visible = false;
+            this.NextRopaMuebleTecno.Click += new System.EventHandler(this.NextRopaMuebleTecno_Click);
             // 
             // ShopPanel1
             // 
             this.ShopPanel1.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel1.Comprado = false;
             this.ShopPanel1.Id = 0;
             this.ShopPanel1.Location = new System.Drawing.Point(81, 27);
             this.ShopPanel1.Name = "ShopPanel1";
@@ -2879,13 +2873,13 @@ namespace Touge_App
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
             this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres2.Precio = "$ $ $ $$$$$$$$";
+            this.alquileres2.Precio = "$ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
@@ -2895,13 +2889,13 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres1.Precio = "$ $ $ $$$$$$$$";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres1.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
@@ -2911,6 +2905,7 @@ namespace Touge_App
             // ShopPanel2
             // 
             this.ShopPanel2.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel2.Comprado = false;
             this.ShopPanel2.Id = 0;
             this.ShopPanel2.Location = new System.Drawing.Point(506, 27);
             this.ShopPanel2.Name = "ShopPanel2";
@@ -2923,6 +2918,7 @@ namespace Touge_App
             // ShopPanel4
             // 
             this.ShopPanel4.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel4.Comprado = false;
             this.ShopPanel4.Id = 0;
             this.ShopPanel4.Location = new System.Drawing.Point(1350, 27);
             this.ShopPanel4.Name = "ShopPanel4";
@@ -2935,6 +2931,7 @@ namespace Touge_App
             // ShopPanel3
             // 
             this.ShopPanel3.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel3.Comprado = false;
             this.ShopPanel3.Id = 0;
             this.ShopPanel3.Location = new System.Drawing.Point(925, 27);
             this.ShopPanel3.Name = "ShopPanel3";
@@ -2947,6 +2944,7 @@ namespace Touge_App
             // ShopPanel8
             // 
             this.ShopPanel8.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel8.Comprado = false;
             this.ShopPanel8.Id = 0;
             this.ShopPanel8.Location = new System.Drawing.Point(1350, 427);
             this.ShopPanel8.Name = "ShopPanel8";
@@ -2959,6 +2957,7 @@ namespace Touge_App
             // ShopPanel7
             // 
             this.ShopPanel7.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel7.Comprado = false;
             this.ShopPanel7.Id = 0;
             this.ShopPanel7.Location = new System.Drawing.Point(925, 427);
             this.ShopPanel7.Name = "ShopPanel7";
@@ -2971,6 +2970,7 @@ namespace Touge_App
             // ShopPanel6
             // 
             this.ShopPanel6.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel6.Comprado = false;
             this.ShopPanel6.Id = 0;
             this.ShopPanel6.Location = new System.Drawing.Point(506, 427);
             this.ShopPanel6.Name = "ShopPanel6";
@@ -2983,6 +2983,7 @@ namespace Touge_App
             // ShopPanel5
             // 
             this.ShopPanel5.BackColor = System.Drawing.Color.Khaki;
+            this.ShopPanel5.Comprado = false;
             this.ShopPanel5.Id = 0;
             this.ShopPanel5.Location = new System.Drawing.Point(81, 427);
             this.ShopPanel5.Name = "ShopPanel5";
@@ -2992,11 +2993,158 @@ namespace Touge_App
             this.ShopPanel5.TabIndex = 280;
             this.ShopPanel5.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1811, 819);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 284;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // Servicios1
+            // 
+            this.Servicios1.AutoSize = true;
+            this.Servicios1.BackColor = System.Drawing.Color.Transparent;
+            this.Servicios1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Servicios1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Servicios1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Servicios1.Location = new System.Drawing.Point(49, 125);
+            this.Servicios1.Name = "Servicios1";
+            this.Servicios1.Size = new System.Drawing.Size(607, 39);
+            this.Servicios1.TabIndex = 285;
+            this.Servicios1.TabStop = true;
+            this.Servicios1.Text = "Servicios Basicos (Agua, Luz, Gas). Precio: 75USD";
+            this.Servicios1.UseVisualStyleBackColor = false;
+            this.Servicios1.Visible = false;
+            this.Servicios1.CheckedChanged += new System.EventHandler(this.Servicios1_CheckedChanged);
+            // 
+            // Servicios2
+            // 
+            this.Servicios2.AutoSize = true;
+            this.Servicios2.BackColor = System.Drawing.Color.Transparent;
+            this.Servicios2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Servicios2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Servicios2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Servicios2.Location = new System.Drawing.Point(49, 238);
+            this.Servicios2.Name = "Servicios2";
+            this.Servicios2.Size = new System.Drawing.Size(879, 39);
+            this.Servicios2.TabIndex = 286;
+            this.Servicios2.TabStop = true;
+            this.Servicios2.Text = "Servicios Basicos (Agua, Luz, Gas), Conexion a Internet.- Precio: 100USD";
+            this.Servicios2.UseVisualStyleBackColor = false;
+            this.Servicios2.Visible = false;
+            this.Servicios2.CheckedChanged += new System.EventHandler(this.Servicios1_CheckedChanged);
+            // 
+            // Servicios3
+            // 
+            this.Servicios3.AutoSize = true;
+            this.Servicios3.BackColor = System.Drawing.Color.Transparent;
+            this.Servicios3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Servicios3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Servicios3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Servicios3.Location = new System.Drawing.Point(49, 362);
+            this.Servicios3.Name = "Servicios3";
+            this.Servicios3.Size = new System.Drawing.Size(1184, 39);
+            this.Servicios3.TabIndex = 287;
+            this.Servicios3.TabStop = true;
+            this.Servicios3.Text = "Servicios Basicos (Agua, Luz, Gas), Conexion a Internet, Plan Prepago para Celula" +
+    "r. Precio: 125USD";
+            this.Servicios3.UseVisualStyleBackColor = false;
+            this.Servicios3.Visible = false;
+            this.Servicios3.CheckedChanged += new System.EventHandler(this.Servicios1_CheckedChanged);
+            // 
+            // Servicios4
+            // 
+            this.Servicios4.AutoSize = true;
+            this.Servicios4.BackColor = System.Drawing.Color.Transparent;
+            this.Servicios4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Servicios4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Servicios4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Servicios4.Location = new System.Drawing.Point(49, 486);
+            this.Servicios4.Name = "Servicios4";
+            this.Servicios4.Size = new System.Drawing.Size(1385, 39);
+            this.Servicios4.TabIndex = 288;
+            this.Servicios4.TabStop = true;
+            this.Servicios4.Text = "Servicios Basicos (Agua, Luz, Gas), Conexion a Internet, Plan Prepago para Celula" +
+    "r, Disney+ y Star+. Precio: 150USD";
+            this.Servicios4.UseVisualStyleBackColor = false;
+            this.Servicios4.Visible = false;
+            this.Servicios4.CheckedChanged += new System.EventHandler(this.Servicios1_CheckedChanged);
+            // 
+            // Servicios5
+            // 
+            this.Servicios5.AutoSize = true;
+            this.Servicios5.BackColor = System.Drawing.Color.Transparent;
+            this.Servicios5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Servicios5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Servicios5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Servicios5.Location = new System.Drawing.Point(49, 594);
+            this.Servicios5.Name = "Servicios5";
+            this.Servicios5.Size = new System.Drawing.Size(1572, 74);
+            this.Servicios5.TabIndex = 289;
+            this.Servicios5.TabStop = true;
+            this.Servicios5.Text = "Servicios Basicos (Agua, Luz, Gas), Conexion a Internet, Plan Prepago para Celula" +
+    "r, Disney+, Star+, Xbox Game Pass y Playstation+. \r\nPrecio: 180USD";
+            this.Servicios5.UseVisualStyleBackColor = false;
+            this.Servicios5.Visible = false;
+            this.Servicios5.CheckedChanged += new System.EventHandler(this.Servicios1_CheckedChanged);
+            // 
+            // PagoLabel
+            // 
+            this.PagoLabel.AutoSize = true;
+            this.PagoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PagoLabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PagoLabel.ForeColor = System.Drawing.Color.OliveDrab;
+            this.PagoLabel.Location = new System.Drawing.Point(716, 30);
+            this.PagoLabel.Name = "PagoLabel";
+            this.PagoLabel.Size = new System.Drawing.Size(359, 54);
+            this.PagoLabel.TabIndex = 290;
+            this.PagoLabel.Text = "Pago De Servicios";
+            this.PagoLabel.Visible = false;
+            // 
+            // AbonarFacturas
+            // 
+            this.AbonarFacturas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AbonarFacturas.BackColor = System.Drawing.Color.DarkGreen;
+            this.AbonarFacturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AbonarFacturas.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
+            this.AbonarFacturas.FlatAppearance.BorderSize = 2;
+            this.AbonarFacturas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleGreen;
+            this.AbonarFacturas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.AbonarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AbonarFacturas.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbonarFacturas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AbonarFacturas.Location = new System.Drawing.Point(751, 717);
+            this.AbonarFacturas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AbonarFacturas.Name = "AbonarFacturas";
+            this.AbonarFacturas.Size = new System.Drawing.Size(325, 99);
+            this.AbonarFacturas.TabIndex = 291;
+            this.AbonarFacturas.Text = "Abonar Servicio";
+            this.AbonarFacturas.UseVisualStyleBackColor = false;
+            this.AbonarFacturas.Visible = false;
+            this.AbonarFacturas.Click += new System.EventHandler(this.AbonarFacturas_Click);
+            // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.AbonarFacturas);
+            this.Controls.Add(this.PagoLabel);
+            this.Controls.Add(this.Servicios5);
+            this.Controls.Add(this.Servicios4);
+            this.Controls.Add(this.Servicios3);
+            this.Controls.Add(this.Servicios2);
+            this.Controls.Add(this.Servicios1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ShopPanel8);
             this.Controls.Add(this.ShopPanel7);
             this.Controls.Add(this.ShopPanel6);
@@ -3007,7 +3155,6 @@ namespace Touge_App
             this.Controls.Add(this.ShopPanel1);
             this.Controls.Add(this.BackRopaMuebleTecno);
             this.Controls.Add(this.NextRopaMuebleTecno);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.VolverAlquiler);
             this.Controls.Add(this.SiguienteAlquiler);
@@ -3348,7 +3495,6 @@ namespace Touge_App
         private System.Windows.Forms.Button SiguienteAlquiler;
         private Alquileres alquileres2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BackRopaMuebleTecno;
         private System.Windows.Forms.Button NextRopaMuebleTecno;
         private eShopPanels ShopPanel1;
@@ -3359,6 +3505,14 @@ namespace Touge_App
         private eShopPanels ShopPanel4;
         private eShopPanels ShopPanel3;
         private eShopPanels ShopPanel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton Servicios1;
+        private System.Windows.Forms.Button AbonarFacturas;
+        private System.Windows.Forms.Label PagoLabel;
+        private System.Windows.Forms.RadioButton Servicios5;
+        private System.Windows.Forms.RadioButton Servicios4;
+        private System.Windows.Forms.RadioButton Servicios3;
+        private System.Windows.Forms.RadioButton Servicios2;
     }
 }
 

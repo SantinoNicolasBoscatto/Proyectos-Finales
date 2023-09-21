@@ -27,6 +27,8 @@ namespace Touge_App
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 85, 85));
+            Sold.BackColor = Color.FromArgb(128, 60, 60, 60);
+            Sold.Parent = ProductoImagen;
         }
 
         public void CargarImagenes(string imagen)
@@ -64,8 +66,31 @@ namespace Touge_App
             get { return NombreDelProducto.Text; }
             set { NombreDelProducto.Text = value; }
         }
-
         public int Id { get; set; }
+
+        public bool Comprado { get; set; }
+
+        public void SoldOut()
+        {
+            Sold.Visible = true;
+            Sold.Location = new Point(0, 0);
+            BotonComprar.Visible = false;
+            PrecioLabel.Text = "Sin Stock";
+            PrecioLabel.ForeColor = Color.IndianRed;
+            Comprado = true;
+        }
+
+        public void OcultarSold()
+        {
+            Sold.Visible = false;
+            BotonComprar.Visible = true;
+            PrecioLabel.ForeColor = Color.LimeGreen;      
+        }
+
+        public void Letras(Color Fore)
+        {
+            NombreDelProducto.ForeColor = Fore;
+        }
 
     }
 }

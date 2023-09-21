@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo_Clases;
@@ -711,50 +709,77 @@ namespace Negocio_Base_Datos
             }
         }
 
+        List<int> bolsaEnterosRopa = new List<int>();
         public List<Ropa> DevolverRopa()
         {
             List<Ropa> listaRopa = new List<Ropa>();
             FuncionesNegocio negocioRopa = new FuncionesNegocio();
             List<int> ropaId;
-            int contadorLista = 0;
+            int auxiliar = 0;    
             try
             {
-                negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where Comprado !=0");
+                negocioRopa.SQLQuery("select NumeroDeRegistro, Comprado from Ropa where Comprado !=0");
                 negocioRopa.LecturaBase();
                 while (negocioRopa.Guardador.Read())
                 {
-                    contadorLista++;
+                    auxiliar = (int)negocioRopa.Guardador["NumeroDeRegistro"];
+                    bolsaEnterosRopa.Add(auxiliar);
                 }
-                contadorLista++;
                 negocioRopa.Guardador.Close();
-                ropaId = PoolObjetos(contadorLista);
-                negocioRopa.SetearParametros("@Uno", ropaId[0]);
-                negocioRopa.SetearParametros("@Dos", ropaId[1]);
-                negocioRopa.SetearParametros("@Tres", ropaId[2]);
-                negocioRopa.SetearParametros("@Cuatro", ropaId[3]);
-                negocioRopa.SetearParametros("@Cinco", ropaId[4]);
-                negocioRopa.SetearParametros("@6", ropaId[5]);
-                negocioRopa.SetearParametros("@7", ropaId[6]);
-                negocioRopa.SetearParametros("@8", ropaId[7]);
-                negocioRopa.SetearParametros("@9", ropaId[8]);
-                negocioRopa.SetearParametros("@10", ropaId[9]);
-                negocioRopa.SetearParametros("@11", ropaId[10]);
-                negocioRopa.SetearParametros("@12", ropaId[11]);
-                negocioRopa.SetearParametros("@13", ropaId[12]);
-                negocioRopa.SetearParametros("@14", ropaId[13]);
-                negocioRopa.SetearParametros("@15", ropaId[14]);
-                negocioRopa.SetearParametros("@16", ropaId[15]);
-                negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)");
-                negocioRopa.LecturaBase();
-                while (negocioRopa.Guardador.Read())
+                ropaId = PoolObjetos(bolsaEnterosRopa.Count, bolsaEnterosRopa);
+                if (ropaId.Count>=16)
                 {
-                    Ropa aux = new Ropa();
-                    aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
-                    aux.Precio = (int)negocioRopa.Guardador["Precio"];
-                    aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
-                    aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
-                    aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
-                    listaRopa.Add(aux);
+                    negocioRopa.SetearParametros("@Uno", ropaId[0]);
+                    negocioRopa.SetearParametros("@Dos", ropaId[1]);
+                    negocioRopa.SetearParametros("@Tres", ropaId[2]);
+                    negocioRopa.SetearParametros("@Cuatro", ropaId[3]);
+                    negocioRopa.SetearParametros("@Cinco", ropaId[4]);
+                    negocioRopa.SetearParametros("@6", ropaId[5]);
+                    negocioRopa.SetearParametros("@7", ropaId[6]);
+                    negocioRopa.SetearParametros("@8", ropaId[7]);
+                    negocioRopa.SetearParametros("@9", ropaId[8]);
+                    negocioRopa.SetearParametros("@10", ropaId[9]);
+                    negocioRopa.SetearParametros("@11", ropaId[10]);
+                    negocioRopa.SetearParametros("@12", ropaId[11]);
+                    negocioRopa.SetearParametros("@13", ropaId[12]);
+                    negocioRopa.SetearParametros("@14", ropaId[13]);
+                    negocioRopa.SetearParametros("@15", ropaId[14]);
+                    negocioRopa.SetearParametros("@16", ropaId[15]);
+                    negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)");
+                    negocioRopa.LecturaBase();
+                    while (negocioRopa.Guardador.Read())
+                    {
+                        Ropa aux = new Ropa();
+                        aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioRopa.Guardador["Precio"];
+                        aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
+                        aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
+                        aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
+                        listaRopa.Add(aux);
+                    }
+                }
+                else if (ropaId.Count>=8)
+                {
+                    negocioRopa.SetearParametros("@Uno", ropaId[0]);
+                    negocioRopa.SetearParametros("@Dos", ropaId[1]);
+                    negocioRopa.SetearParametros("@Tres", ropaId[2]);
+                    negocioRopa.SetearParametros("@Cuatro", ropaId[3]);
+                    negocioRopa.SetearParametros("@Cinco", ropaId[4]);
+                    negocioRopa.SetearParametros("@6", ropaId[5]);
+                    negocioRopa.SetearParametros("@7", ropaId[6]);
+                    negocioRopa.SetearParametros("@8", ropaId[7]);
+                    negocioRopa.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8)");
+                    negocioRopa.LecturaBase();
+                    while (negocioRopa.Guardador.Read())
+                    {
+                        Ropa aux = new Ropa();
+                        aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioRopa.Guardador["Precio"];
+                        aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
+                        aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
+                        aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
+                        listaRopa.Add(aux);
+                    }
                 }
                 return listaRopa;
             }
@@ -765,39 +790,272 @@ namespace Negocio_Base_Datos
             }
         }
 
-        public List<int> PoolObjetos(int ContadorLista)
+        public List<int> PoolObjetos(int tamanioBolsa, List<int> bolsaObjetos)
         {
             List<int> listaNumeros = new List<int>();
             Random numerosRandom = new Random();
             int x = 0;
             int y = 0;
-            int[] listaRepetidos = new int[16];
-            bool Norepetido = true;
-
-            while (x != 16)
+            while (x != 16 && tamanioBolsa>0)
             {
-                y = (int)numerosRandom.Next(1, ContadorLista);
-
-                    for (int i = 0; i < x; i++)
-                    {
-                        if (y == listaRepetidos[i])
-                        {
-                            Norepetido = false;
-                            break;
-                        }
-                    }
-                    if (Norepetido)
-                    {
-                        listaRepetidos[x] = y;
-                        listaNumeros.Add(y);
-                        x++;
-                    }
-                    else
-                    {
-                        Norepetido = true;
-                    }
+                y = (int)numerosRandom.Next(0, tamanioBolsa);
+                listaNumeros.Add(bolsaObjetos[y]);
+                bolsaObjetos.Remove(bolsaObjetos[y]);
+                tamanioBolsa = bolsaObjetos.Count;
+                x++;
             }
             return listaNumeros;
+        }
+
+        List<int> bolsaEnterosMuebles = new List<int>();
+        public List<Mueble> DevolverMuebles()
+        {
+            List<Mueble> listaMueble = new List<Mueble>();
+            FuncionesNegocio negocioMueble = new FuncionesNegocio();
+            List<int> muebleId;
+            int auxiliar = 0;
+            try
+            {
+                negocioMueble.SQLQuery("select NumeroDeRegistro, Comprado from Muebles where Comprado !=0");
+                negocioMueble.LecturaBase();
+                while (negocioMueble.Guardador.Read())
+                {
+                    auxiliar = (int)negocioMueble.Guardador["NumeroDeRegistro"];
+                    bolsaEnterosMuebles.Add(auxiliar);
+                }
+                negocioMueble.Guardador.Close();
+                muebleId = PoolObjetos(bolsaEnterosMuebles.Count, bolsaEnterosMuebles);
+                if (muebleId.Count >= 16)
+                {
+                    negocioMueble.SetearParametros("@Uno", muebleId[0]);
+                    negocioMueble.SetearParametros("@Dos", muebleId[1]);
+                    negocioMueble.SetearParametros("@Tres", muebleId[2]);
+                    negocioMueble.SetearParametros("@Cuatro", muebleId[3]);
+                    negocioMueble.SetearParametros("@Cinco", muebleId[4]);
+                    negocioMueble.SetearParametros("@6", muebleId[5]);
+                    negocioMueble.SetearParametros("@7", muebleId[6]);
+                    negocioMueble.SetearParametros("@8", muebleId[7]);
+                    negocioMueble.SetearParametros("@9", muebleId[8]);
+                    negocioMueble.SetearParametros("@10", muebleId[9]);
+                    negocioMueble.SetearParametros("@11", muebleId[10]);
+                    negocioMueble.SetearParametros("@12", muebleId[11]);
+                    negocioMueble.SetearParametros("@13", muebleId[12]);
+                    negocioMueble.SetearParametros("@14", muebleId[13]);
+                    negocioMueble.SetearParametros("@15", muebleId[14]);
+                    negocioMueble.SetearParametros("@16", muebleId[15]);
+                    negocioMueble.SQLQuery("select NumeroDeRegistro, Precio, NombreMueble, ImagenMueble, Comprado from Muebles where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)");
+                    negocioMueble.LecturaBase();
+                    while (negocioMueble.Guardador.Read())
+                    {
+                        Mueble aux = new Mueble();
+                        aux.Id = (int)negocioMueble.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioMueble.Guardador["Precio"];
+                        aux.NombreMueble = (string)negocioMueble.Guardador["NombreMueble"];
+                        aux.Imagen = (string)negocioMueble.Guardador["ImagenMueble"];
+                        aux.Comprado = (bool)negocioMueble.Guardador["Comprado"];
+                        listaMueble.Add(aux);
+                    }
+                }
+                else if (muebleId.Count >= 8)
+                {
+                    negocioMueble.SetearParametros("@Uno", muebleId[0]);
+                    negocioMueble.SetearParametros("@Dos", muebleId[1]);
+                    negocioMueble.SetearParametros("@Tres", muebleId[2]);
+                    negocioMueble.SetearParametros("@Cuatro", muebleId[3]);
+                    negocioMueble.SetearParametros("@Cinco", muebleId[4]);
+                    negocioMueble.SetearParametros("@6", muebleId[5]);
+                    negocioMueble.SetearParametros("@7", muebleId[6]);
+                    negocioMueble.SetearParametros("@8", muebleId[7]);
+                    negocioMueble.SQLQuery("select NumeroDeRegistro, Precio, NombreMueble, ImagenMueble, Comprado from Muebles where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8)");
+                    negocioMueble.LecturaBase();
+                    while (negocioMueble.Guardador.Read())
+                    {
+                        Mueble aux = new Mueble();
+                        aux.Id = (int)negocioMueble.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioMueble.Guardador["Precio"];
+                        aux.NombreMueble = (string)negocioMueble.Guardador["NombreMueble"];
+                        aux.Imagen = (string)negocioMueble.Guardador["ImagenMueble"];
+                        aux.Comprado = (bool)negocioMueble.Guardador["Comprado"];
+                        listaMueble.Add(aux);
+                    }
+                }
+                return listaMueble;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        List<int> bolsaEnterosElectros = new List<int>();
+        public List<Electronicos> DevolverElectros()
+        {
+            List<Electronicos> listaElectro = new List<Electronicos>();
+            FuncionesNegocio negocioElectro = new FuncionesNegocio();
+            List<int> ElectroId;
+            int auxiliar = 0;
+            try
+            {
+                negocioElectro.SQLQuery("select NumeroDeRegistro, Comprado from Electronicos where Comprado !=0");
+                negocioElectro.LecturaBase();
+                while (negocioElectro.Guardador.Read())
+                {
+                    auxiliar = (int)negocioElectro.Guardador["NumeroDeRegistro"];
+                    bolsaEnterosElectros.Add(auxiliar);
+                }
+                negocioElectro.Guardador.Close();
+                ElectroId = PoolObjetos(bolsaEnterosElectros.Count, bolsaEnterosElectros);
+                if (ElectroId.Count >= 16)
+                {
+                    negocioElectro.SetearParametros("@Uno", ElectroId[0]);
+                    negocioElectro.SetearParametros("@Dos", ElectroId[1]);
+                    negocioElectro.SetearParametros("@Tres", ElectroId[2]);
+                    negocioElectro.SetearParametros("@Cuatro", ElectroId[3]);
+                    negocioElectro.SetearParametros("@Cinco", ElectroId[4]);
+                    negocioElectro.SetearParametros("@6", ElectroId[5]);
+                    negocioElectro.SetearParametros("@7", ElectroId[6]);
+                    negocioElectro.SetearParametros("@8", ElectroId[7]);
+                    negocioElectro.SetearParametros("@9", ElectroId[8]);
+                    negocioElectro.SetearParametros("@10", ElectroId[9]);
+                    negocioElectro.SetearParametros("@11", ElectroId[10]);
+                    negocioElectro.SetearParametros("@12", ElectroId[11]);
+                    negocioElectro.SetearParametros("@13", ElectroId[12]);
+                    negocioElectro.SetearParametros("@14", ElectroId[13]);
+                    negocioElectro.SetearParametros("@15", ElectroId[14]);
+                    negocioElectro.SetearParametros("@16", ElectroId[15]);
+                    negocioElectro.SQLQuery("select NumeroDeRegistro, Precio, NombreElectronico, ImagenElectronico, Comprado from Electronicos where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16)");
+                    negocioElectro.LecturaBase();
+                    while (negocioElectro.Guardador.Read())
+                    {
+                        Electronicos aux = new Electronicos();
+                        aux.Id = (int)negocioElectro.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioElectro.Guardador["Precio"];
+                        aux.NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"];
+                        aux.Imagen = (string)negocioElectro.Guardador["ImagenElectronico"];
+                        aux.Comprado = (bool)negocioElectro.Guardador["Comprado"];
+                        listaElectro.Add(aux);
+                    }
+                }
+                else if (ElectroId.Count >= 8)
+                {
+                    negocioElectro.SetearParametros("@Uno", ElectroId[0]);
+                    negocioElectro.SetearParametros("@Dos", ElectroId[1]);
+                    negocioElectro.SetearParametros("@Tres", ElectroId[2]);
+                    negocioElectro.SetearParametros("@Cuatro", ElectroId[3]);
+                    negocioElectro.SetearParametros("@Cinco", ElectroId[4]);
+                    negocioElectro.SetearParametros("@6", ElectroId[5]);
+                    negocioElectro.SetearParametros("@7", ElectroId[6]);
+                    negocioElectro.SetearParametros("@8", ElectroId[7]);
+                    negocioElectro.SQLQuery("select NumeroDeRegistro, Precio, NombreElectronico, ImagenElectronico, Comprado from Electronicos where NumeroDeRegistro IN (@Uno, @Dos, @Tres, @Cuatro, @Cinco, @6, @7, @8)");
+                    negocioElectro.LecturaBase();
+                    while (negocioElectro.Guardador.Read())
+                    {
+                        Electronicos aux = new Electronicos();
+                        aux.Id = (int)negocioElectro.Guardador["NumeroDeRegistro"];
+                        aux.Precio = (int)negocioElectro.Guardador["Precio"];
+                        aux.NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"];
+                        aux.Imagen = (string)negocioElectro.Guardador["ImagenElectronico"];
+                        aux.Comprado = (bool)negocioElectro.Guardador["Comprado"];
+                        listaElectro.Add(aux);
+                    }
+                }
+                return listaElectro;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int PagoArticulos(int Id, int Panel) //1 Ropa, 2 Muebles, 3 Electro
+        {
+            FuncionesNegocio negocioMoney = new FuncionesNegocio();
+            string inyectarQuery;
+            switch (Panel)
+            {
+                case 1:
+                    inyectarQuery = "select Precio from Ropa where NumeroDeRegistro = @MyId";
+                    break;
+                case 2:
+                    inyectarQuery = "select Precio from Muebles where NumeroDeRegistro = @MyId";
+                    break;
+                case 3:
+                    inyectarQuery = "select Precio from Electronicos where NumeroDeRegistro = @MyId";
+                    break;
+                default:
+                    inyectarQuery = "select Precio from Ropa where NumeroDeRegistro = @MyId";
+                    break;
+            }
+            try
+            {
+                negocioMoney.SQLQuery(inyectarQuery);
+                negocioMoney.SetearParametros("@MyId", Id);
+                negocioMoney.LecturaBase();
+                int pago = 0;
+                if (negocioMoney.Guardador.Read())
+                {
+                    pago = (int)negocioMoney.Guardador["Precio"];
+                }
+                return pago;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void DeshabilitarArticulo(int id, int Panel)
+        {
+            FuncionesNegocio negocioMoney = new FuncionesNegocio();
+            string inyectarQuery;
+            switch (Panel)
+            {
+                case 1:
+                    inyectarQuery = "update Ropa Set Comprado = 0 where NumeroDeRegistro = @MyId";
+                    break;
+                case 2:
+                    inyectarQuery = "update Muebles Set Comprado = 0 where NumeroDeRegistro = @MyId";
+                    break;
+                case 3:
+                    inyectarQuery = "update Electronicos Set Comprado = 0 where NumeroDeRegistro = @MyId";
+                    break;
+                default:
+                    inyectarQuery = "select Precio from Ropa where NumeroDeRegistro = @MyId";
+                    break;
+            }
+            try
+            {
+                negocioMoney.SQLQuery(inyectarQuery);
+                negocioMoney.SetearParametros("@MyId", id);
+                negocioMoney.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public bool LeerBanderaFacturas()
+        {
+            FuncionesNegocio negocioFacturas = new FuncionesNegocio();
+            try
+            {
+                negocioFacturas.SQLQuery("select EstadoFactura from factura");
+                negocioFacturas.LecturaBase();
+                bool devolver = false;
+                if (negocioFacturas.Guardador.Read())
+                {
+                    devolver = (bool)negocioFacturas.Guardador["EstadoFactura"];
+                }
+                return devolver;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

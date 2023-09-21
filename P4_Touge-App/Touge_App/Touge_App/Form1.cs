@@ -108,17 +108,19 @@ namespace Touge_App
             fechaAux = negocioFecha.DevolverFecha();
             CambioMes = fechaAux.FechaManager;
             FormatearFecha(fechaAux);
-            //MessageBox.Show("" + Formato);
-            //FormatearFecha(fechaAux);
-            //MessageBox.Show("" + Formato);
             NegocioBaseDatos alquilerBDManager = new NegocioBaseDatos();
             Alquilando = alquilerBDManager.LeerBanderaAlquiler();
             CasaAlquilada = alquilerBDManager.LeerCasaAlquilada();
+            estadoFacturas = alquilerBDManager.LeerBanderaFacturas();
             listaAlquiler = negocioAlquiler.DevolverAlquiler(true, CasaAlquilada);
             miDinero.MiDinero = Dinero.DevolverDinero();
             MessageBox.Show("Tu Dinero es: " + miDinero.MiDinero);
             alquileres1.ButtonClick += MiUserControl_ButtonClick;
             alquileres2.ButtonClick += MiUserControl2_ButtonClick;
+            ShopPanel1.ButtonClick += ShopPanel1_ButtonClick; ShopPanel2.ButtonClick += ShopPanel2_ButtonClick; ShopPanel3.ButtonClick += ShopPanel3_ButtonClick; ShopPanel4.ButtonClick += ShopPanel4_ButtonClick; ShopPanel5.ButtonClick += ShopPanel5_ButtonClick; ShopPanel6.ButtonClick += ShopPanel6_ButtonClick; ShopPanel7.ButtonClick += ShopPanel7_ButtonClick;ShopPanel8.ButtonClick += ShopPanel8_ButtonClick;
+            listaRopa = negocioRopa.DevolverRopa();
+            listaMuebles = negocioMuebles.DevolverMuebles();
+            listaElectro = negocioElectro.DevolverElectros();
             if (!Alquilando)
             {
                 Ocultar();
@@ -126,18 +128,19 @@ namespace Touge_App
                 PaginaUnoAlquiler();
                 VolverBoton.Visible = false;
             }
-            ShopPanel1.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel2.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel3.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel4.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel5.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel6.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel7.ButtonClick += ShopPanel1_ButtonClick;
-            ShopPanel8.ButtonClick += ShopPanel1_ButtonClick;            
-
+            if (!estadoFacturas)
+            {
+                Ocultar();
+                MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                MostrarFacturas();
+                VolverBoton.Visible = false;
+            }
+            PictureBox pb = new PictureBox();
+           // pb.Size = PictureBoxBack.Size;
+            //pb.Visible = true;
+            //pb.Parent = PictureBoxBack;
+            //pb.Location = new Point (0, 0);
         }
-
-        
 
         private void FormatearFecha(Fecha aux)
         {
@@ -408,11 +411,9 @@ namespace Touge_App
             Agressiveness.BackColor = Color.Transparent;
             Agressiveness.Parent = PilotosPictureBox;
             Agressiveness.Location = new Point(155, 255);
-
             Overtaking.BackColor = Color.Transparent;
             Overtaking.Parent = PilotosPictureBox;
             Overtaking.Location = new Point(262, 255);
-
             Concentration.BackColor = Color.Transparent;
             Concentration.Parent = PilotosPictureBox;
             Concentration.Location = new Point(45, 354);
@@ -463,7 +464,6 @@ namespace Touge_App
             MarcaPictureBox.BackColor = Color.Transparent;
             MarcaPictureBox.Parent = AutosPictureBox;
             MarcaPictureBox.Location = new Point(810, 20);
-
             TorqueLabel.Parent = FichaTecnicaPb;
             TorqueLabel.Location = new Point(240, 10);
             NmLabel.Parent = FichaTecnicaPb;
@@ -579,8 +579,26 @@ namespace Touge_App
             FiltroBusquedaLabel.Parent = PictureBoxBack;
             VolverAlquiler.Parent = PictureBoxBack;
             SiguienteAlquiler.Parent = PictureBoxBack;
+            NextRopaMuebleTecno.Parent = PictureBoxBack;
+            BackRopaMuebleTecno.Parent = PictureBoxBack;
+            BackRopaMuebleTecno.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            BackRopaMuebleTecno.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            NextRopaMuebleTecno.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            NextRopaMuebleTecno.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            Servicios1.Parent = PictureBoxBack;
+            Servicios2.Parent = PictureBoxBack;
+            Servicios3.Parent = PictureBoxBack;
+            Servicios4.Parent = PictureBoxBack;
+            Servicios5.Parent = PictureBoxBack;
+            PagoLabel.Parent = PictureBoxBack;
+            AbonarFacturas.Parent = PictureBoxBack;
+            Servicios1.BackColor = Color.FromArgb(135, 30, 30, 30);
+            Servicios2.BackColor = Color.FromArgb(135, 30, 30, 30);
+            Servicios3.BackColor = Color.FromArgb(135, 30, 30, 30);
+            Servicios4.BackColor = Color.FromArgb(135, 30, 30, 30);
+            Servicios5.BackColor = Color.FromArgb(135, 30, 30, 30);
+            PagoLabel.BackColor = Color.FromArgb(135, 30, 30, 30);
         }
-
 
         //Dispara la Primera pista de Musica
 
@@ -994,11 +1012,20 @@ namespace Touge_App
                 ShopPanel8.Visible = false;
                 NextRopaMuebleTecno.Visible = false;
                 BackRopaMuebleTecno.Visible = false;
+                bdCargaRopa = false;
+                bdCargaMueble = false;
+                bdCargaElectro = false;
             }
 
-            else if (true)
+            else if (PagoLabel.Visible == true)
             {
-
+                Servicios1.Visible = false;
+                Servicios2.Visible = false;
+                Servicios3.Visible = false;
+                Servicios4.Visible = false;
+                Servicios5.Visible = false;
+                AbonarFacturas.Visible = false;
+                PagoLabel.Visible = false;
             }
 
             if (banderaVolverReglas && banderaEconomiaParaMostrar)
@@ -1652,9 +1679,28 @@ namespace Touge_App
             
         }
 
+        private void MostrarFacturas()
+        {
+            PagoLabel.Visible = true;
+            Servicios1.Visible = true;
+            Servicios2.Visible = true;
+            Servicios3.Visible = true;
+            Servicios4.Visible = true;
+            Servicios5.Visible = true;
+        }
+
         private void FacturasPictureBox_Click(object sender, EventArgs e)
         {
+            try
+            {
+                OcultarEconomia();
+                MostrarFacturas();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
         private void MecanicoPictureBox_Click(object sender, EventArgs e)
@@ -1672,9 +1718,48 @@ namespace Touge_App
 
         }
 
+        NegocioBaseDatos negocioHistorial = new NegocioBaseDatos();
+        List<Historial> listaHistorial;
         private void RopaPictureBox_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (listaRopa.Count >= 8)
+                {
+                    MostrarShopPanels(Color.Khaki, Color.FromArgb(255, 54, 54, 54));
+                    PaginaUnoRopa();
+                }
+                else
+                {
+                    MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
+        }
+
+        private void MostrarShopPanels(Color Back, Color Fore)
+        {
             OcultarEconomia();
+            ShopPanel1.BackColor = Back;
+            ShopPanel1.Letras(Fore);
+            ShopPanel2.BackColor = Back;
+            ShopPanel2.Letras(Fore);
+            ShopPanel3.BackColor = Back;
+            ShopPanel3.Letras(Fore);
+            ShopPanel4.BackColor = Back;
+            ShopPanel4.Letras(Fore);
+            ShopPanel5.BackColor = Back;
+            ShopPanel5.Letras(Fore);
+            ShopPanel6.BackColor = Back;
+            ShopPanel6.Letras(Fore);
+            ShopPanel7.BackColor = Back;
+            ShopPanel7.Letras(Fore);
+            ShopPanel8.BackColor = Back;
+            ShopPanel8.Letras(Fore);
             banderaEconomiaParaMostrar = false;
             ShopPanel1.Visible = true;
             ShopPanel2.Visible = true;
@@ -1687,13 +1772,6 @@ namespace Touge_App
             ShopPanel8.Visible = true;
             NextRopaMuebleTecno.Visible = true;
             BackRopaMuebleTecno.Visible = true;
-            NegocioBaseDatos negocioRopa = new NegocioBaseDatos();
-            List<Ropa> listaRopa;
-            listaRopa = negocioRopa.DevolverRopa();
-            ShopPanel1.Precio = "$ " + (listaRopa[0].Precio-1).ToString() +".99";
-            ShopPanel1.CargarImagenes(listaRopa[0].Imagen);
-            ShopPanel1.NombreProducto = listaRopa[0].NombreRopa;
-            ShopPanel1.Id = listaRopa[0].Id;
         }
 
         private void GastosVariosPictureBox_Click(object sender, EventArgs e)
@@ -1703,25 +1781,40 @@ namespace Touge_App
 
         private void MueblesPictureBox_Click(object sender, EventArgs e)
         {
-
+            if (listaMuebles.Count >= 8)
+            {
+                MostrarShopPanels(Color.FromArgb(240, 160, 82, 45), Color.GhostWhite);
+                PaginaUnoMuebles();
+            }
+            else
+            {
+                MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+            }
         }
 
         private void GarajePictureBox_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ElectroPictureBox_Click(object sender, EventArgs e)
         {
-
+            if (listaElectro.Count >= 8)
+            {
+                MostrarShopPanels(Color.FromArgb(255, 40, 89, 255), Color.GhostWhite);
+                PaginaUnoElectros();
+            }
+            else
+            {
+                MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+            }
         }
 
         private void CarDealerPictureBox_Click(object sender, EventArgs e)
         {
 
         }
-        NegocioBaseDatos negocioHistorial = new NegocioBaseDatos();
-        List<Historial> listaHistorial;
+        
         private void HistorialBoton_Click(object sender, EventArgs e)
         {
             listaHistorial = negocioHistorial.DevolverHistorial();
@@ -1812,6 +1905,7 @@ namespace Touge_App
 
         }
 
+        bool estadoFacturas;
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             if (fechaAux.FechaManager.Month != CambioMes.Month)
@@ -1825,10 +1919,27 @@ namespace Touge_App
                 Ocultar();
                 OcultarEconomia();
                 OcultarHistorial();
+                OcultarPaneles();
                 VolverBoton.Visible = false;
                 BuscarRegistroBoton.Visible = false;
+                estadoFacturas = false;
                 PaginaUnoAlquiler();    
             }
+        }
+
+
+        private void OcultarPaneles()
+        {
+            ShopPanel1.Visible = false;
+            ShopPanel2.Visible = false;
+            ShopPanel3.Visible = false;
+            ShopPanel4.Visible = false;
+            ShopPanel5.Visible = false;
+            ShopPanel6.Visible = false;
+            ShopPanel7.Visible = false;
+            ShopPanel8.Visible = false;
+            BackRopaMuebleTecno.Visible = false;
+            NextRopaMuebleTecno.Visible = false;
         }
 
         private void OcultarHistorial()
@@ -1953,11 +2064,23 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres1.Id);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
-                VolverBoton.Visible = true;
+                //VolverBoton.Visible = true;
                 Alquilando = true;
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres1.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(5);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                if (!estadoFacturas)
+                {
+                    alquileres1.Visible = false;
+                    alquileres2.Visible = false;
+                    VolverAlquiler.Visible = false;
+                    SiguienteAlquiler.Visible = false;
+                    MostrarFacturas();
+                    MessageBox.Show("Necesita abonar los servicios del mes!");
+                }
             }
             else
             {
@@ -1982,6 +2105,18 @@ namespace Touge_App
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres2.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(5);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                if (!estadoFacturas)
+                {
+                    alquileres1.Visible = false;
+                    alquileres2.Visible = false;
+                    VolverAlquiler.Visible = false;
+                    SiguienteAlquiler.Visible = false;
+                    MostrarFacturas();
+                    MessageBox.Show("Necesita abonar los servicios del mes!");
+                }
             }
             else
             {
@@ -1989,11 +2124,922 @@ namespace Touge_App
             }
         }
 
+        int eShopmanager = 0;
         private void ShopPanel1_ButtonClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola");
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel1.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel1.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+
+                negocioPago.DeshabilitarArticulo(ShopPanel1.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel1.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[0].Comprado = false;
+                        else
+                            listaRopa[8].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[0].Comprado = false;
+                        else
+                            listaMuebles[8].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[0].Comprado = false;
+                        else
+                            listaElectro[8].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
         }
 
+
+        private void ShopPanel2_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel2.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel2.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel2.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel2.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[1].Comprado = false;
+                        else
+                            listaRopa[9].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[1].Comprado = false;
+                        else
+                            listaMuebles[9].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[1].Comprado = false;
+                        else
+                            listaElectro[9].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+        private void ShopPanel3_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel3.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel3.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel3.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel3.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[2].Comprado = false;
+                        else
+                            listaRopa[10].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[2].Comprado = false;
+                        else
+                            listaMuebles[10].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[2].Comprado = false;
+                        else
+                            listaElectro[10].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+        private void ShopPanel4_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel4.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel4.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel4.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel4.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[3].Comprado = false;
+                        else
+                            listaRopa[11].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[3].Comprado = false;
+                        else
+                            listaMuebles[11].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[3].Comprado = false;
+                        else
+                            listaElectro[11].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+        private void ShopPanel5_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel5.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel5.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel5.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel5.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[4].Comprado = false;
+                        else
+                            listaRopa[12].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[4].Comprado = false;
+                        else
+                            listaMuebles[12].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[4].Comprado = false;
+                        else
+                            listaElectro[12].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+        
+        private void ShopPanel6_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel6.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel6.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel6.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel6.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[5].Comprado = false;
+                        else
+                            listaRopa[13].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[5].Comprado = false;
+                        else
+                            listaMuebles[13].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[5].Comprado = false;
+                        else
+                            listaElectro[13].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+        private void ShopPanel7_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel7.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel7.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel7.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel7.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[6].Comprado = false;
+                        else
+                            listaRopa[14].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[6].Comprado = false;
+                        else
+                            listaMuebles[14].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[6].Comprado = false;
+                        else
+                            listaElectro[14].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+        private void ShopPanel8_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (miDinero.MiDinero - negocioPago.PagoArticulos(ShopPanel8.Id, eShopmanager) > 0)
+            {
+                miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel8.Id, eShopmanager);
+                negocioPago.ActualizarDinero(miDinero.MiDinero);
+                negocioPago.DeshabilitarArticulo(ShopPanel8.Id, eShopmanager);
+                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                FormatearFecha(fechaAux);
+                MessageBox.Show("" + Formato);
+                ShopPanel8.SoldOut();
+                switch (eShopmanager)
+                {
+                    case 1:
+                        if (!bdCargaRopa)
+                            listaRopa[7].Comprado = false;
+                        else
+                            listaRopa[15].Comprado = false;
+                        break;
+                    case 2:
+                        if (!bdCargaMueble)
+                            listaMuebles[7].Comprado = false;
+                        else
+                            listaMuebles[15].Comprado = false;
+                        break;
+                    case 3:
+                        if (!bdCargaElectro)
+                            listaElectro[7].Comprado = false;
+                        else
+                            listaElectro[15].Comprado = false;
+                        break;
+                    default:
+                        break;
+                }
+                
+
+            }
+            else
+                MessageBox.Show("No tiene dinero para Comprar este producto.");
+        }
+
+
+        NegocioBaseDatos negocioMuebles = new NegocioBaseDatos();
+        List<Mueble> listaMuebles;
+        
+
+        bool bdCargaRopa = false;
+        bool bdCargaMueble = false;
+        bool bdCargaElectro = false;
+        private void BackRopaMuebleTecno_Click(object sender, EventArgs e)
+        {
+            if (ShopPanel1.BackColor == Color.Khaki)
+            {
+                if (bdCargaRopa)
+                {
+                    PaginaUnoRopa();
+                    bdCargaRopa = false;
+                }
+            }
+            else if (ShopPanel1.BackColor == Color.FromArgb(240, 160, 82, 45))
+            {
+                if (bdCargaMueble)
+                {
+                    PaginaUnoMuebles();
+                    bdCargaMueble = false;
+                }
+            }
+            else if (ShopPanel1.BackColor == Color.FromArgb(255, 40, 89, 255))
+            {
+                if (bdCargaElectro)
+                {
+                    PaginaUnoElectros();
+                    bdCargaElectro = false;
+                }
+            }
+            
+        }
+        private void NextRopaMuebleTecno_Click(object sender, EventArgs e)
+        {
+            if (ShopPanel1.BackColor == Color.Khaki)
+            {
+                if (!bdCargaRopa)
+                {
+                   if (listaRopa.Count >= 16)
+                   {
+                       PaginaDosRopa();
+                       bdCargaRopa = true;
+                   }
+                    else
+                       MessageBox.Show("No hay mas articulos que comprar!");
+                } 
+            }
+            else if (ShopPanel1.BackColor == Color.FromArgb(240, 160, 82, 45))
+            {
+                if (!bdCargaMueble)
+                {
+                    if (listaMuebles.Count >= 16)
+                    {
+                        PaginaDosMuebles();
+                        bdCargaMueble = true;
+                    }
+                    else
+                        MessageBox.Show("No hay mas articulos que comprar!");
+                }
+            }
+            else if (ShopPanel1.BackColor == Color.FromArgb(255, 40, 89, 255))
+            {
+                if (!bdCargaElectro)
+                {
+                    if (listaElectro.Count >= 16)
+                    {
+                        PaginaDosElectros();
+                        bdCargaElectro = true;
+                    }
+                    else
+                        MessageBox.Show("No hay mas articulos que comprar!");
+                }
+            }
+
+        }
+
+        NegocioBaseDatos negocioRopa = new NegocioBaseDatos();
+        List<Ropa> listaRopa;
+        private void PaginaUnoRopa()
+        {
+            eShopmanager = 1;
+            ShopPanel1.Precio = "$ " + (listaRopa[0].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaRopa[0].Imagen);
+            ShopPanel1.NombreProducto = listaRopa[0].NombreRopa;
+            ShopPanel1.Id = listaRopa[0].Id;
+            if (!listaRopa[0].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaRopa[1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaRopa[1].Imagen);
+            ShopPanel2.NombreProducto = listaRopa[1].NombreRopa;
+            ShopPanel2.Id = listaRopa[1].Id;
+            if (!listaRopa[1].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaRopa[2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaRopa[2].Imagen);
+            ShopPanel3.NombreProducto = listaRopa[2].NombreRopa;
+            ShopPanel3.Id = listaRopa[2].Id;
+            if (!listaRopa[2].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaRopa[3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaRopa[3].Imagen);
+            ShopPanel4.NombreProducto = listaRopa[3].NombreRopa;
+            ShopPanel4.Id = listaRopa[3].Id;
+            if (!listaRopa[3].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaRopa[4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaRopa[4].Imagen);
+            ShopPanel5.NombreProducto = listaRopa[4].NombreRopa;
+            ShopPanel5.Id = listaRopa[4].Id;
+            if (!listaRopa[4].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaRopa[5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaRopa[5].Imagen);
+            ShopPanel6.NombreProducto = listaRopa[5].NombreRopa;
+            ShopPanel6.Id = listaRopa[5].Id;
+            if (!listaRopa[5].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaRopa[6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaRopa[6].Imagen);
+            ShopPanel7.NombreProducto = listaRopa[6].NombreRopa;
+            ShopPanel7.Id = listaRopa[6].Id;
+            if (!listaRopa[6].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaRopa[7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaRopa[7].Imagen);
+            ShopPanel8.NombreProducto = listaRopa[7].NombreRopa;
+            ShopPanel8.Id = listaRopa[7].Id;
+            if (!listaRopa[7].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        private void PaginaDosRopa()
+        {
+            eShopmanager = 1;
+            ShopPanel1.Precio = "$ " + (listaRopa[8].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaRopa[8].Imagen);
+            ShopPanel1.NombreProducto = listaRopa[8].NombreRopa;
+            ShopPanel1.Id = listaRopa[8].Id;
+            if (!listaRopa[8].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaRopa[9].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaRopa[9].Imagen);
+            ShopPanel2.NombreProducto = listaRopa[9].NombreRopa;
+            ShopPanel2.Id = listaRopa[9].Id;
+            if (!listaRopa[9].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaRopa[10].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaRopa[10].Imagen);
+            ShopPanel3.NombreProducto = listaRopa[10].NombreRopa;
+            ShopPanel3.Id = listaRopa[10].Id;
+            if (!listaRopa[10].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaRopa[11].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaRopa[11].Imagen);
+            ShopPanel4.NombreProducto = listaRopa[11].NombreRopa;
+            ShopPanel4.Id = listaRopa[11].Id;
+            if (!listaRopa[11].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaRopa[12].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaRopa[12].Imagen);
+            ShopPanel5.NombreProducto = listaRopa[12].NombreRopa;
+            ShopPanel5.Id = listaRopa[12].Id;
+            if (!listaRopa[12].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaRopa[13].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaRopa[13].Imagen);
+            ShopPanel6.NombreProducto = listaRopa[13].NombreRopa;
+            ShopPanel6.Id = listaRopa[13].Id;
+            if (!listaRopa[13].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaRopa[14].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaRopa[14].Imagen);
+            ShopPanel7.NombreProducto = listaRopa[14].NombreRopa;
+            ShopPanel7.Id = listaRopa[14].Id;
+            if (!listaRopa[14].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaRopa[15].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaRopa[15].Imagen);
+            ShopPanel8.NombreProducto = listaRopa[15].NombreRopa;
+            ShopPanel8.Id = listaRopa[15].Id;
+            if (!listaRopa[15].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        private void PaginaUnoMuebles()
+        {
+            eShopmanager = 2;
+            ShopPanel1.Precio = "$ " + (listaMuebles[0].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaMuebles[0].Imagen);
+            ShopPanel1.NombreProducto = listaMuebles[0].NombreMueble;
+            ShopPanel1.Id = listaMuebles[0].Id;
+            if (!listaMuebles[0].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaMuebles[1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaMuebles[1].Imagen);
+            ShopPanel2.NombreProducto = listaMuebles[1].NombreMueble;
+            ShopPanel2.Id = listaMuebles[1].Id;
+            if (!listaMuebles[1].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaMuebles[2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaMuebles[2].Imagen);
+            ShopPanel3.NombreProducto = listaMuebles[2].NombreMueble;
+            ShopPanel3.Id = listaMuebles[2].Id;
+            if (!listaMuebles[2].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaMuebles[3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaMuebles[3].Imagen);
+            ShopPanel4.NombreProducto = listaMuebles[3].NombreMueble;
+            ShopPanel4.Id = listaMuebles[3].Id;
+            if (!listaMuebles[3].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaMuebles[4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaMuebles[4].Imagen);
+            ShopPanel5.NombreProducto = listaMuebles[4].NombreMueble;
+            ShopPanel5.Id = listaMuebles[4].Id;
+            if (!listaMuebles[4].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaMuebles[5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaMuebles[5].Imagen);
+            ShopPanel6.NombreProducto = listaMuebles[5].NombreMueble;
+            ShopPanel6.Id = listaMuebles[5].Id;
+            if (!listaMuebles[5].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaMuebles[6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaMuebles[6].Imagen);
+            ShopPanel7.NombreProducto = listaMuebles[6].NombreMueble;
+            ShopPanel7.Id = listaMuebles[6].Id;
+            if (!listaMuebles[6].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaMuebles[7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaMuebles[7].Imagen);
+            ShopPanel8.NombreProducto = listaMuebles[7].NombreMueble;
+            ShopPanel8.Id = listaMuebles[7].Id;
+            if (!listaMuebles[7].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        private void PaginaDosMuebles()
+        {
+            eShopmanager = 2;
+            ShopPanel1.Precio = "$ " + (listaMuebles[8].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaMuebles[8].Imagen);
+            ShopPanel1.NombreProducto = listaMuebles[8].NombreMueble;
+            ShopPanel1.Id = listaMuebles[8].Id;
+            if (!listaMuebles[8].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaMuebles[9].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaMuebles[9].Imagen);
+            ShopPanel2.NombreProducto = listaMuebles[9].NombreMueble;
+            ShopPanel2.Id = listaMuebles[9].Id;
+            if (!listaMuebles[9].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaMuebles[10].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaMuebles[10].Imagen);
+            ShopPanel3.NombreProducto = listaMuebles[10].NombreMueble;
+            ShopPanel3.Id = listaMuebles[10].Id;
+            if (!listaMuebles[10].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaMuebles[11].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaMuebles[11].Imagen);
+            ShopPanel4.NombreProducto = listaMuebles[11].NombreMueble;
+            ShopPanel4.Id = listaMuebles[11].Id;
+            if (!listaMuebles[11].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaMuebles[12].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaMuebles[12].Imagen);
+            ShopPanel5.NombreProducto = listaMuebles[12].NombreMueble;
+            ShopPanel5.Id = listaMuebles[12].Id;
+            if (!listaMuebles[12].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaMuebles[13].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaMuebles[13].Imagen);
+            ShopPanel6.NombreProducto = listaMuebles[13].NombreMueble;
+            ShopPanel6.Id = listaMuebles[13].Id;
+            if (!listaMuebles[13].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaMuebles[14].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaMuebles[14].Imagen);
+            ShopPanel7.NombreProducto = listaMuebles[14].NombreMueble;
+            ShopPanel7.Id = listaMuebles[14].Id;
+            if (!listaMuebles[14].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaMuebles[15].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaMuebles[15].Imagen);
+            ShopPanel8.NombreProducto = listaMuebles[15].NombreMueble;
+            ShopPanel8.Id = listaMuebles[15].Id;
+            if (!listaMuebles[15].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        List<Electronicos> listaElectro = new List<Electronicos>();
+        NegocioBaseDatos negocioElectro = new NegocioBaseDatos();
+        private void PaginaUnoElectros()
+        {
+            eShopmanager = 3;
+            ShopPanel1.Precio = "$ " + (listaElectro[0].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaElectro[0].Imagen);
+            ShopPanel1.NombreProducto = listaElectro[0].NombreElectronicos;
+            ShopPanel1.Id = listaElectro[0].Id;
+            if (!listaElectro[0].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaElectro[1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaElectro[1].Imagen);
+            ShopPanel2.NombreProducto = listaElectro[1].NombreElectronicos;
+            ShopPanel2.Id = listaElectro[1].Id;
+            if (!listaElectro[1].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaElectro[2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaElectro[2].Imagen);
+            ShopPanel3.NombreProducto = listaElectro[2].NombreElectronicos;
+            ShopPanel3.Id = listaElectro[2].Id;
+            if (!listaElectro[2].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaElectro[3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaElectro[3].Imagen);
+            ShopPanel4.NombreProducto = listaElectro[3].NombreElectronicos;
+            ShopPanel4.Id = listaElectro[3].Id;
+            if (!listaElectro[3].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaElectro[4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaElectro[4].Imagen);
+            ShopPanel5.NombreProducto = listaElectro[4].NombreElectronicos;
+            ShopPanel5.Id = listaElectro[4].Id;
+            if (!listaElectro[4].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaElectro[5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaElectro[5].Imagen);
+            ShopPanel6.NombreProducto = listaElectro[5].NombreElectronicos;
+            ShopPanel6.Id = listaElectro[5].Id;
+            if (!listaElectro[5].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaElectro[6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaElectro[6].Imagen);
+            ShopPanel7.NombreProducto = listaElectro[6].NombreElectronicos;
+            ShopPanel7.Id = listaElectro[6].Id;
+            if (!listaElectro[6].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaElectro[7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaElectro[7].Imagen);
+            ShopPanel8.NombreProducto = listaElectro[7].NombreElectronicos;
+            ShopPanel8.Id = listaElectro[7].Id;
+            if (!listaElectro[7].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        private void PaginaDosElectros()
+        {
+            eShopmanager = 3;
+            ShopPanel1.Precio = "$ " + (listaElectro[8].Precio - 1).ToString() + ".99";
+            ShopPanel1.CargarImagenes(listaElectro[8].Imagen);
+            ShopPanel1.NombreProducto = listaElectro[8].NombreElectronicos;
+            ShopPanel1.Id = listaElectro[8].Id;
+            if (!listaElectro[8].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            ShopPanel2.Precio = "$ " + (listaElectro[9].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaElectro[9].Imagen);
+            ShopPanel2.NombreProducto = listaElectro[9].NombreElectronicos;
+            ShopPanel2.Id = listaElectro[9].Id;
+            if (!listaElectro[9].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            ShopPanel3.Precio = "$ " + (listaElectro[10].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaElectro[10].Imagen);
+            ShopPanel3.NombreProducto = listaElectro[10].NombreElectronicos;
+            ShopPanel3.Id = listaElectro[10].Id;
+            if (!listaElectro[10].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            ShopPanel4.Precio = "$ " + (listaElectro[11].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaElectro[11].Imagen);
+            ShopPanel4.NombreProducto = listaElectro[11].NombreElectronicos;
+            ShopPanel4.Id = listaElectro[11].Id;
+            if (!listaElectro[11].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+            ShopPanel5.Precio = "$ " + (listaElectro[12].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaElectro[12].Imagen);
+            ShopPanel5.NombreProducto = listaElectro[12].NombreElectronicos;
+            ShopPanel5.Id = listaElectro[12].Id;
+            if (!listaElectro[12].Comprado)
+                ShopPanel5.SoldOut();
+            else
+                ShopPanel5.OcultarSold();
+            ShopPanel6.Precio = "$ " + (listaElectro[13].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaElectro[13].Imagen);
+            ShopPanel6.NombreProducto = listaElectro[13].NombreElectronicos;
+            ShopPanel6.Id = listaElectro[13].Id;
+            if (!listaElectro[13].Comprado)
+                ShopPanel6.SoldOut();
+            else
+                ShopPanel6.OcultarSold();
+            ShopPanel7.Precio = "$ " + (listaElectro[14].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaElectro[14].Imagen);
+            ShopPanel7.NombreProducto = listaElectro[14].NombreElectronicos;
+            ShopPanel7.Id = listaElectro[14].Id;
+            if (!listaElectro[14].Comprado)
+                ShopPanel7.SoldOut();
+            else
+                ShopPanel7.OcultarSold();
+            ShopPanel8.Precio = "$ " + (listaElectro[15].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaElectro[15].Imagen);
+            ShopPanel8.NombreProducto = listaElectro[15].NombreElectronicos;
+            ShopPanel8.Id = listaElectro[15].Id;
+            if (!listaElectro[15].Comprado)
+                ShopPanel8.SoldOut();
+            else
+                ShopPanel8.OcultarSold();
+        }
+
+        private void Servicios1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AbonarFacturas.Visible == false)
+                AbonarFacturas.Visible = true;
+        }
+
+        private void AbonarFacturas_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Desea Pagar estos servicios?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult.Yes == resultado)
+            {
+                NegocioBaseDatos negocioPagarfacturas = new NegocioBaseDatos();
+                if (Servicios1.Checked == true)
+                {
+                    if (miDinero.MiDinero-75>=0)
+                    {
+                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 75);
+                        estadoFacturas = true;
+                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero para abonar el servicio basico, GameOver");
+                    }
+                }
+                else if (Servicios2.Checked == true)
+                {
+                    if (miDinero.MiDinero - 100 >= 0)
+                    {
+                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 100);
+                        estadoFacturas = true;
+                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                    }
+                }
+                else if (Servicios3.Checked == true)
+                {
+                    if (miDinero.MiDinero - 125 >= 0)
+                    {
+                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 125);
+                        estadoFacturas = true;
+                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                    }
+                }
+                else if (Servicios4.Checked == true)
+                {
+                    if (miDinero.MiDinero - 150 >= 0)
+                    {
+                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 150);
+                        estadoFacturas = true;
+                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                    }
+                }
+                else
+                {
+                    if (miDinero.MiDinero - 180 >= 0)
+                    {
+                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 180);
+                        estadoFacturas = true;
+                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                    }
+                }
+            }
+        }
     }
 
 }
