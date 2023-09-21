@@ -1057,5 +1057,21 @@ namespace Negocio_Base_Datos
                 throw;
             }
         }
+
+        public bool ActualizarFactura(bool factura)
+        {
+            FuncionesNegocio negocioDinero = new FuncionesNegocio();
+            try
+            {
+                negocioDinero.SQLQuery("UPDATE Factura SET EstadoFactura = @Factura");
+                negocioDinero.SetearParametros("@Factura", factura);
+                negocioDinero.EjecutarAccion();
+                return factura;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -1923,6 +1923,7 @@ namespace Touge_App
                 VolverBoton.Visible = false;
                 BuscarRegistroBoton.Visible = false;
                 estadoFacturas = false;
+                negocioAlquilerManager.ActualizarFactura(estadoFacturas);
                 PaginaUnoAlquiler();    
             }
         }
@@ -2069,15 +2070,17 @@ namespace Touge_App
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres1.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
-                fechaAux.FechaManager = negocioPago.UpdatearFecha(5);
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
+                VolverBoton.Visible = true;
                 if (!estadoFacturas)
                 {
                     alquileres1.Visible = false;
                     alquileres2.Visible = false;
                     VolverAlquiler.Visible = false;
                     SiguienteAlquiler.Visible = false;
+                    VolverBoton.Visible = false;
                     MostrarFacturas();
                     MessageBox.Show("Necesita abonar los servicios del mes!");
                 }
@@ -2105,7 +2108,7 @@ namespace Touge_App
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres2.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
-                fechaAux.FechaManager = negocioPago.UpdatearFecha(5);
+                fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 if (!estadoFacturas)
@@ -2114,6 +2117,7 @@ namespace Touge_App
                     alquileres2.Visible = false;
                     VolverAlquiler.Visible = false;
                     SiguienteAlquiler.Visible = false;
+                    VolverBoton.Visible = false;
                     MostrarFacturas();
                     MessageBox.Show("Necesita abonar los servicios del mes!");
                 }
