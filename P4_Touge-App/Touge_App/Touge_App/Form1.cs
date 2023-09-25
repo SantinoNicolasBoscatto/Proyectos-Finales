@@ -2983,6 +2983,7 @@ namespace Touge_App
                     {
                         negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 75);
                         estadoFacturas = true;
+                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
                         MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
                     }
                     else
@@ -2996,6 +2997,7 @@ namespace Touge_App
                     {
                         negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 100);
                         estadoFacturas = true;
+                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
                         MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
                     }
                     else
@@ -3009,6 +3011,7 @@ namespace Touge_App
                     {
                         negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 125);
                         estadoFacturas = true;
+                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
                         MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
                     }
                     else
@@ -3022,6 +3025,7 @@ namespace Touge_App
                     {
                         negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 150);
                         estadoFacturas = true;
+                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
                         MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
                     }
                     else
@@ -3035,6 +3039,7 @@ namespace Touge_App
                     {
                         negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 180);
                         estadoFacturas = true;
+                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
                         MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
                     }
                     else

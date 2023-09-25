@@ -1,0 +1,21 @@
+Quiero Crear una Base de datos en SQL SERVER, Con las Tablas: Musica, Autos, Pilotos, Pistas, Economia e Historial. 
+
+Musica debe tener las siguientes columnas: Nombre (No mas de 150 Caracteres), URL (No mas de 2500 Caracteres), Tapa-Imagen (No mas de 2500 Caracteres).
+
+Autos debe tener las siguientes columnas:  Nombre(No mas de 250 caracteres), Año(Int), Traccion (No mas de 10 caracteres), Pais De Fabricacion(No mas de 30 caracteres), Marca(No mas de 30 Caracteres) ,HP (Int), Torque (Int), Peso(Int), Peso/Potencia(Float), Top-Speed(Float), Imagen (No mas de 2500 Caracteres), Imagen-Secundaria (No mas de 2500 Caracteres) y Categoria (no mas de 10 Caracteres) *KILOMETRAJE AGREGAR*
+
+Pilotos debe tener las siguientes columnas: Nombre (No mas de 100 caracteres), Apodo (No mas de 200 caracteres) , Auto (No mas de 100 caracteres), Equipo (No mas de 100 caracteres), Ranking (No mas 25 caracteres), Victorias (Int), Derrotas (Int), Porcentaje de carreras Ganadas (Float), Mayor Rival (No mas de 100 caracteres), Altura (No mas de 15 caracteres), Peso (No mas de 15 caracteres), Edad (int), Nacionalidad (No mas de 30 Caracteres),Bio (No mas de 10000 Caracteres), Rango de Equipo (No mas de 100 caracteres), Foto (No mas de 2500 caracteres), Cornering (int), Braking(int), Reflexes(int), Tyres-Management (Int), Overtaking (Int),  Defending (Int), Rain(Int), Snow(Int), PACE*AGREGAR* y OVERALL(int)
+
+Pistas debe tener las siguientes columnas: Nombre (No mas de 150 caracteres), Bio (No mas de 3200 caracteres), Distancia (No mas de 20 Caracteres), Pais (No mas de 30 caracteres), Modalidad Preferida (No mas de 100 caracteres) y Imagenes (No mas de 2500 caracteres)
+
+Economia debe tener las siguientes columnas: Dinero (Int), Aceite (int), Mantenimiento (Int), Gomas (Int), Combustible (Float), Motor Nuevo (Int), Reduccion de Peso (Int), Lavado (Int), Comida  (Int), Alquiler  (Int), Facturas  (Int), Ropa  (Int), Muebles  (Int), Casa  (Int), Seguro Auto  (Int), Tecnologia  (Int), Higiene  (Int) y Car Dealear (Float)
+
+Historial debe tener las siguientes columnas: Circuito (No mas de de 100 caracteres), Driver-A (No mas de 100 Caracteres), Driver-B (No mas de 100 Caracteres),Tiempo (No mas de 50 caracteres), Piloto Ganador (No mas de 100 caracteres), Piloto Perdedor (No mas de 100 Caracteres) Auto-A (No mas de 100 Caracteres), Auto-B (No mas de 100 Caracteres), Monto (Int), Promocion( 15 caracteres).
+
+Pressure Management (Reemplaza a Adaptability)
+
+1 == ROPA/Muebles/Tecnologia/Cambio Aceite/Comida/Higiene (1 Dia)
+2 == Mantenimiento Motor/Reduccion Peso (2 Dias)
+3 == Mantenimiento(3 Dias)
+5 == CARRERA (5Dias)
+6 == Car deler (14 Dias)
