@@ -27,7 +27,7 @@ namespace Touge_App
         public ComidaUserControl()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 85, 85));
+            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
         }
 
         public string NombrePack { get{ return NombrePack;}  set{ NombrePack = value; } }

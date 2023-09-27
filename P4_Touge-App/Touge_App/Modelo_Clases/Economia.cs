@@ -37,5 +37,13 @@ namespace Modelo_Clases
         public string Imagen { get; set; }
         public bool Comprado { get; set; }
     }
+    public class Comida
+    {
+        public int Id { get; set; }
+        public int Precio { get; set; }
+        public string NombrePack { get; set; }
+        public string Imagen { get; set; }
+        public bool Comprado { get; set; }
+    }
     //Sitio =   https://www.beforward.jp/
 }

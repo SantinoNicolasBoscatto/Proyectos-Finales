@@ -29,8 +29,8 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
@@ -38,13 +38,11 @@ namespace Touge_App
             this.HistorialBoton = new System.Windows.Forms.Button();
             this.ReglasBoton = new System.Windows.Forms.Button();
             this.BotonPistas = new System.Windows.Forms.Button();
-            this.CloseBoton = new System.Windows.Forms.Button();
             this.PictureBoxBack = new System.Windows.Forms.PictureBox();
             this.EconomiaBoton = new System.Windows.Forms.Button();
             this.ConfiguracionBoton = new System.Windows.Forms.Button();
             this.BackBoton = new System.Windows.Forms.Button();
             this.NextBoton = new System.Windows.Forms.Button();
-            this.VolverBoton = new System.Windows.Forms.Button();
             this.PistaPictureBox = new System.Windows.Forms.PictureBox();
             this.NombreCircuito = new ZBobb.AlphaBlendTextBox();
             this.PaisTextBox = new ZBobb.AlphaBlendTextBox();
@@ -167,7 +165,7 @@ namespace Touge_App
             this.ElectroPictureBox = new System.Windows.Forms.Button();
             this.MueblesPictureBox = new System.Windows.Forms.Button();
             this.RopaPictureBox = new System.Windows.Forms.Button();
-            this.AhorrosPictureBox = new System.Windows.Forms.Button();
+            this.MisCosasPictureBox = new System.Windows.Forms.Button();
             this.GarajePictureBox = new System.Windows.Forms.Button();
             this.HigienePictureBox = new System.Windows.Forms.Button();
             this.CarDealerPictureBox = new System.Windows.Forms.Button();
@@ -196,16 +194,26 @@ namespace Touge_App
             this.Servicios5 = new System.Windows.Forms.RadioButton();
             this.PagoLabel = new System.Windows.Forms.Label();
             this.AbonarFacturas = new System.Windows.Forms.Button();
-            this.ShopPanel8 = new Touge_App.eShopPanels();
-            this.ShopPanel7 = new Touge_App.eShopPanels();
-            this.ShopPanel6 = new Touge_App.eShopPanels();
-            this.ShopPanel5 = new Touge_App.eShopPanels();
-            this.ShopPanel4 = new Touge_App.eShopPanels();
-            this.ShopPanel3 = new Touge_App.eShopPanels();
-            this.ShopPanel2 = new Touge_App.eShopPanels();
-            this.ShopPanel1 = new Touge_App.eShopPanels();
+            this.NextComida = new System.Windows.Forms.Button();
+            this.BackComida = new System.Windows.Forms.Button();
+            this.PanelComida4 = new Touge_App.Comida();
+            this.PanelComida3 = new Touge_App.Comida();
+            this.PanelComida2 = new Touge_App.Comida();
+            this.PanelComida1 = new Touge_App.Comida();
+            this.ShopPanel8 = new Touge_App.EShopPanels();
+            this.ShopPanel7 = new Touge_App.EShopPanels();
+            this.ShopPanel6 = new Touge_App.EShopPanels();
+            this.ShopPanel5 = new Touge_App.EShopPanels();
+            this.ShopPanel4 = new Touge_App.EShopPanels();
+            this.ShopPanel3 = new Touge_App.EShopPanels();
+            this.ShopPanel2 = new Touge_App.EShopPanels();
+            this.ShopPanel1 = new Touge_App.EShopPanels();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
+            this.DineroPb = new System.Windows.Forms.PictureBox();
+            this.DineroMostrarLabel = new System.Windows.Forms.Label();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.VolverBoton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -217,6 +225,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -317,26 +326,6 @@ namespace Touge_App
             this.BotonPistas.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
             this.BotonPistas.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
-            // CloseBoton
-            // 
-            this.CloseBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CloseBoton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseBoton.BackgroundImage")));
-            this.CloseBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseBoton.FlatAppearance.BorderSize = 0;
-            this.CloseBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseBoton.Location = new System.Drawing.Point(1729, 825);
-            this.CloseBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CloseBoton.Name = "CloseBoton";
-            this.CloseBoton.Size = new System.Drawing.Size(64, 57);
-            this.CloseBoton.TabIndex = 9;
-            this.CloseBoton.UseVisualStyleBackColor = false;
-            this.CloseBoton.Click += new System.EventHandler(this.CloseBoton_Click);
-            this.CloseBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.CloseBoton_Paint);
-            this.CloseBoton.MouseEnter += new System.EventHandler(this.CloseBoton_MouseEnter);
-            this.CloseBoton.MouseLeave += new System.EventHandler(this.CloseBoton_MouseLeave);
-            // 
             // PictureBoxBack
             // 
             this.PictureBoxBack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -347,7 +336,7 @@ namespace Touge_App
             this.PictureBoxBack.Location = new System.Drawing.Point(0, 0);
             this.PictureBoxBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxBack.Name = "PictureBoxBack";
-            this.PictureBoxBack.Size = new System.Drawing.Size(1811, 884);
+            this.PictureBoxBack.Size = new System.Drawing.Size(1810, 884);
             this.PictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxBack.TabIndex = 0;
             this.PictureBoxBack.TabStop = false;
@@ -425,23 +414,6 @@ namespace Touge_App
             this.NextBoton.TabIndex = 14;
             this.NextBoton.UseVisualStyleBackColor = false;
             this.NextBoton.Click += new System.EventHandler(this.NextBoton_Click);
-            // 
-            // VolverBoton
-            // 
-            this.VolverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolverBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.VolverBoton.BackColor = System.Drawing.Color.Transparent;
-            this.VolverBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverBoton.BackgroundImage")));
-            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.VolverBoton.FlatAppearance.BorderSize = 0;
-            this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolverBoton.Location = new System.Drawing.Point(1729, 825);
-            this.VolverBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.VolverBoton.Name = "VolverBoton";
-            this.VolverBoton.Size = new System.Drawing.Size(64, 57);
-            this.VolverBoton.TabIndex = 15;
-            this.VolverBoton.UseVisualStyleBackColor = false;
-            this.VolverBoton.Click += new System.EventHandler(this.VolverBoton_Click);
             // 
             // PistaPictureBox
             // 
@@ -2301,14 +2273,14 @@ namespace Touge_App
             this.ProfesionalTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProfesionalTextbox.Multiline = true;
             this.ProfesionalTextbox.Name = "ProfesionalTextbox";
-            this.ProfesionalTextbox.Size = new System.Drawing.Size(795, 248);
+            this.ProfesionalTextbox.Size = new System.Drawing.Size(799, 250);
             this.ProfesionalTextbox.TabIndex = 197;
             this.ProfesionalTextbox.Text = resources.GetString("ProfesionalTextbox.Text");
             this.ProfesionalTextbox.Visible = false;
             // 
             // NextEconomia
             // 
-            this.NextEconomia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextEconomia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.NextEconomia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NextEconomia.BackColor = System.Drawing.Color.Transparent;
             this.NextEconomia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextEconomia.BackgroundImage")));
@@ -2326,7 +2298,6 @@ namespace Touge_App
             // 
             // BackEconomia
             // 
-            this.BackEconomia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BackEconomia.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackEconomia.BackColor = System.Drawing.Color.Transparent;
             this.BackEconomia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackEconomia.BackgroundImage")));
@@ -2344,8 +2315,6 @@ namespace Touge_App
             // 
             // ComidaPictureBox
             // 
-            this.ComidaPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ComidaPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ComidaPictureBox.BackgroundImage")));
             this.ComidaPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ComidaPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2363,12 +2332,10 @@ namespace Touge_App
             // 
             // AlquilerPictureBox
             // 
-            this.AlquilerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.AlquilerPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AlquilerPictureBox.BackgroundImage")));
             this.AlquilerPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AlquilerPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AlquilerPictureBox.Location = new System.Drawing.Point(635, 66);
+            this.AlquilerPictureBox.Location = new System.Drawing.Point(634, 66);
             this.AlquilerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AlquilerPictureBox.Name = "AlquilerPictureBox";
             this.AlquilerPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -2382,8 +2349,7 @@ namespace Touge_App
             // 
             // FacturasPictureBox
             // 
-            this.FacturasPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FacturasPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FacturasPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FacturasPictureBox.BackgroundImage")));
             this.FacturasPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FacturasPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2401,8 +2367,7 @@ namespace Touge_App
             // 
             // ElectroPictureBox
             // 
-            this.ElectroPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ElectroPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ElectroPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ElectroPictureBox.BackgroundImage")));
             this.ElectroPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ElectroPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2420,8 +2385,7 @@ namespace Touge_App
             // 
             // MueblesPictureBox
             // 
-            this.MueblesPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MueblesPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.MueblesPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MueblesPictureBox.BackgroundImage")));
             this.MueblesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MueblesPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2439,8 +2403,7 @@ namespace Touge_App
             // 
             // RopaPictureBox
             // 
-            this.RopaPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RopaPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RopaPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RopaPictureBox.BackgroundImage")));
             this.RopaPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RopaPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2456,29 +2419,26 @@ namespace Touge_App
             this.RopaPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
             this.RopaPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
-            // AhorrosPictureBox
+            // MisCosasPictureBox
             // 
-            this.AhorrosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AhorrosPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AhorrosPictureBox.BackgroundImage")));
-            this.AhorrosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AhorrosPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AhorrosPictureBox.Location = new System.Drawing.Point(635, 66);
-            this.AhorrosPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AhorrosPictureBox.Name = "AhorrosPictureBox";
-            this.AhorrosPictureBox.Size = new System.Drawing.Size(540, 316);
-            this.AhorrosPictureBox.TabIndex = 219;
-            this.AhorrosPictureBox.UseVisualStyleBackColor = true;
-            this.AhorrosPictureBox.Visible = false;
-            this.AhorrosPictureBox.Click += new System.EventHandler(this.AhorrosPictureBox_Click);
-            this.AhorrosPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AhorrosPictureBox_Paint);
-            this.AhorrosPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
-            this.AhorrosPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
+            this.MisCosasPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MisCosasPictureBox.BackgroundImage")));
+            this.MisCosasPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MisCosasPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MisCosasPictureBox.Location = new System.Drawing.Point(635, 66);
+            this.MisCosasPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MisCosasPictureBox.Name = "MisCosasPictureBox";
+            this.MisCosasPictureBox.Size = new System.Drawing.Size(540, 316);
+            this.MisCosasPictureBox.TabIndex = 219;
+            this.MisCosasPictureBox.UseVisualStyleBackColor = true;
+            this.MisCosasPictureBox.Visible = false;
+            this.MisCosasPictureBox.Click += new System.EventHandler(this.AhorrosPictureBox_Click);
+            this.MisCosasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AhorrosPictureBox_Paint);
+            this.MisCosasPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
+            this.MisCosasPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
             // GarajePictureBox
             // 
-            this.GarajePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GarajePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GarajePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GarajePictureBox.BackgroundImage")));
             this.GarajePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GarajePictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2496,8 +2456,6 @@ namespace Touge_App
             // 
             // HigienePictureBox
             // 
-            this.HigienePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.HigienePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HigienePictureBox.BackgroundImage")));
             this.HigienePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.HigienePictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2515,8 +2473,7 @@ namespace Touge_App
             // 
             // CarDealerPictureBox
             // 
-            this.CarDealerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CarDealerPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CarDealerPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CarDealerPictureBox.BackgroundImage")));
             this.CarDealerPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CarDealerPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2534,8 +2491,7 @@ namespace Touge_App
             // 
             // GastosVariosPictureBox
             // 
-            this.GastosVariosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GastosVariosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GastosVariosPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GastosVariosPictureBox.BackgroundImage")));
             this.GastosVariosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GastosVariosPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2553,8 +2509,7 @@ namespace Touge_App
             // 
             // MecanicoPictureBox
             // 
-            this.MecanicoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MecanicoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MecanicoPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MecanicoPictureBox.BackgroundImage")));
             this.MecanicoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MecanicoPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2581,17 +2536,17 @@ namespace Touge_App
             this.historialDGV.GridColor = System.Drawing.SystemColors.HotTrack;
             this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2817,11 +2772,10 @@ namespace Touge_App
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 246;
             this.dateTimePicker1.Visible = false;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
             // BackRopaMuebleTecno
             // 
-            this.BackRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BackRopaMuebleTecno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackRopaMuebleTecno.BackColor = System.Drawing.Color.Transparent;
             this.BackRopaMuebleTecno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackRopaMuebleTecno.BackgroundImage")));
@@ -2839,7 +2793,7 @@ namespace Touge_App
             // 
             // NextRopaMuebleTecno
             // 
-            this.NextRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextRopaMuebleTecno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.NextRopaMuebleTecno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.NextRopaMuebleTecno.BackColor = System.Drawing.Color.Transparent;
             this.NextRopaMuebleTecno.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextRopaMuebleTecno.BackgroundImage")));
@@ -2978,6 +2932,106 @@ namespace Touge_App
             this.AbonarFacturas.Visible = false;
             this.AbonarFacturas.Click += new System.EventHandler(this.AbonarFacturas_Click);
             // 
+            // NextComida
+            // 
+            this.NextComida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextComida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextComida.BackColor = System.Drawing.Color.Transparent;
+            this.NextComida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextComida.BackgroundImage")));
+            this.NextComida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextComida.FlatAppearance.BorderSize = 0;
+            this.NextComida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextComida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NextComida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextComida.Location = new System.Drawing.Point(801, 440);
+            this.NextComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NextComida.Name = "NextComida";
+            this.NextComida.Size = new System.Drawing.Size(197, 57);
+            this.NextComida.TabIndex = 298;
+            this.NextComida.UseVisualStyleBackColor = false;
+            this.NextComida.Visible = false;
+            this.NextComida.Click += new System.EventHandler(this.NextComida_Click);
+            // 
+            // BackComida
+            // 
+            this.BackComida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackComida.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackComida.BackColor = System.Drawing.Color.Transparent;
+            this.BackComida.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackComida.BackgroundImage")));
+            this.BackComida.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackComida.FlatAppearance.BorderSize = 0;
+            this.BackComida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.BackComida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackComida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackComida.Location = new System.Drawing.Point(802, 364);
+            this.BackComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackComida.Name = "BackComida";
+            this.BackComida.Size = new System.Drawing.Size(196, 57);
+            this.BackComida.TabIndex = 297;
+            this.BackComida.UseVisualStyleBackColor = false;
+            this.BackComida.Visible = false;
+            this.BackComida.Click += new System.EventHandler(this.BackComida_Click);
+            // 
+            // PanelComida4
+            // 
+            this.PanelComida4.BackColor = System.Drawing.Color.Coral;
+            this.PanelComida4.Comprado = false;
+            this.PanelComida4.Id = 0;
+            this.PanelComida4.Location = new System.Drawing.Point(1048, 442);
+            this.PanelComida4.Name = "PanelComida4";
+            this.PanelComida4.Precio = "$ 9999.99";
+            this.PanelComida4.Size = new System.Drawing.Size(608, 377);
+            this.PanelComida4.TabIndex = 296;
+            this.PanelComida4.Titulo = "TEXT TEXT TEXT TEXT TEXT TEXT  TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    " ";
+            this.PanelComida4.Visible = false;
+            // 
+            // PanelComida3
+            // 
+            this.PanelComida3.BackColor = System.Drawing.Color.Coral;
+            this.PanelComida3.Comprado = false;
+            this.PanelComida3.Id = 0;
+            this.PanelComida3.Location = new System.Drawing.Point(142, 442);
+            this.PanelComida3.Name = "PanelComida3";
+            this.PanelComida3.Precio = "$ 9999.99";
+            this.PanelComida3.Size = new System.Drawing.Size(608, 377);
+            this.PanelComida3.TabIndex = 295;
+            this.PanelComida3.Titulo = "TEXT TEXT TEXT TEXT TEXT TEXT  TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    " ";
+            this.PanelComida3.Visible = false;
+            // 
+            // PanelComida2
+            // 
+            this.PanelComida2.BackColor = System.Drawing.Color.Coral;
+            this.PanelComida2.Comprado = false;
+            this.PanelComida2.Id = 0;
+            this.PanelComida2.Location = new System.Drawing.Point(1048, 44);
+            this.PanelComida2.Name = "PanelComida2";
+            this.PanelComida2.Precio = "$ 9999.99";
+            this.PanelComida2.Size = new System.Drawing.Size(608, 377);
+            this.PanelComida2.TabIndex = 294;
+            this.PanelComida2.Titulo = "TEXT TEXT TEXT TEXT TEXT TEXT  TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    " ";
+            this.PanelComida2.Visible = false;
+            // 
+            // PanelComida1
+            // 
+            this.PanelComida1.BackColor = System.Drawing.Color.Coral;
+            this.PanelComida1.Comprado = false;
+            this.PanelComida1.Id = 0;
+            this.PanelComida1.Location = new System.Drawing.Point(142, 44);
+            this.PanelComida1.Name = "PanelComida1";
+            this.PanelComida1.Precio = "$ 9999.99";
+            this.PanelComida1.Size = new System.Drawing.Size(608, 377);
+            this.PanelComida1.TabIndex = 293;
+            this.PanelComida1.Titulo = "TEXT TEXT TEXT TEXT TEXT TEXT  TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " +
+    " ";
+            this.PanelComida1.Visible = false;
+            // 
             // ShopPanel8
             // 
             this.ShopPanel8.BackColor = System.Drawing.Color.Khaki;
@@ -3085,13 +3139,13 @@ namespace Touge_App
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
             this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $$$$$$$$";
+            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
@@ -3101,24 +3155,97 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $$$$$$$$";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres1.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
             // 
+            // DineroPb
+            // 
+            this.DineroPb.BackColor = System.Drawing.Color.Transparent;
+            this.DineroPb.Image = ((System.Drawing.Image)(resources.GetObject("DineroPb.Image")));
+            this.DineroPb.Location = new System.Drawing.Point(887, 831);
+            this.DineroPb.Name = "DineroPb";
+            this.DineroPb.Size = new System.Drawing.Size(41, 41);
+            this.DineroPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DineroPb.TabIndex = 299;
+            this.DineroPb.TabStop = false;
+            this.DineroPb.Click += new System.EventHandler(this.DineroPb_Click);
+            // 
+            // DineroMostrarLabel
+            // 
+            this.DineroMostrarLabel.AutoSize = true;
+            this.DineroMostrarLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DineroMostrarLabel.Font = new System.Drawing.Font("Segoe UI", 15.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DineroMostrarLabel.ForeColor = System.Drawing.Color.Green;
+            this.DineroMostrarLabel.Location = new System.Drawing.Point(843, 831);
+            this.DineroMostrarLabel.Name = "DineroMostrarLabel";
+            this.DineroMostrarLabel.Size = new System.Drawing.Size(166, 37);
+            this.DineroMostrarLabel.TabIndex = 300;
+            this.DineroMostrarLabel.Text = "$ 9.999.999";
+            this.DineroMostrarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DineroMostrarLabel.Visible = false;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Location = new System.Drawing.Point(1714, 825);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(64, 57);
+            this.CloseButton.TabIndex = 301;
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseBoton_Click);
+            this.CloseButton.MouseEnter += new System.EventHandler(this.CloseBoton_MouseEnter);
+            this.CloseButton.MouseLeave += new System.EventHandler(this.CloseBoton_MouseLeave);
+            // 
+            // VolverBoton
+            // 
+            this.VolverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolverBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.VolverBoton.BackColor = System.Drawing.Color.Transparent;
+            this.VolverBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverBoton.BackgroundImage")));
+            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.VolverBoton.FlatAppearance.BorderSize = 0;
+            this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VolverBoton.Location = new System.Drawing.Point(1714, 825);
+            this.VolverBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.VolverBoton.Name = "VolverBoton";
+            this.VolverBoton.Size = new System.Drawing.Size(64, 57);
+            this.VolverBoton.TabIndex = 302;
+            this.VolverBoton.UseVisualStyleBackColor = false;
+            this.VolverBoton.Visible = false;
+            this.VolverBoton.Click += new System.EventHandler(this.VolverBoton_Click);
+            // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.VolverBoton);
+            this.Controls.Add(this.CloseButton);
+            this.Controls.Add(this.DineroMostrarLabel);
+            this.Controls.Add(this.DineroPb);
+            this.Controls.Add(this.NextComida);
+            this.Controls.Add(this.BackComida);
+            this.Controls.Add(this.PanelComida4);
+            this.Controls.Add(this.PanelComida3);
+            this.Controls.Add(this.PanelComida2);
+            this.Controls.Add(this.PanelComida1);
             this.Controls.Add(this.AbonarFacturas);
             this.Controls.Add(this.PagoLabel);
             this.Controls.Add(this.Servicios5);
@@ -3152,7 +3279,7 @@ namespace Touge_App
             this.Controls.Add(this.FiltroTextBox);
             this.Controls.Add(this.FiltrosLabel);
             this.Controls.Add(this.historialDGV);
-            this.Controls.Add(this.AhorrosPictureBox);
+            this.Controls.Add(this.MisCosasPictureBox);
             this.Controls.Add(this.GarajePictureBox);
             this.Controls.Add(this.HigienePictureBox);
             this.Controls.Add(this.CarDealerPictureBox);
@@ -3280,12 +3407,10 @@ namespace Touge_App
             this.Controls.Add(this.PaisTextBox);
             this.Controls.Add(this.NombreCircuito);
             this.Controls.Add(this.PistaPictureBox);
-            this.Controls.Add(this.VolverBoton);
             this.Controls.Add(this.NextBoton);
             this.Controls.Add(this.BackBoton);
             this.Controls.Add(this.ConfiguracionBoton);
             this.Controls.Add(this.EconomiaBoton);
-            this.Controls.Add(this.CloseBoton);
             this.Controls.Add(this.BotonPistas);
             this.Controls.Add(this.HistorialBoton);
             this.Controls.Add(this.ReglasBoton);
@@ -3311,6 +3436,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.MarcaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3325,12 +3451,10 @@ namespace Touge_App
         private System.Windows.Forms.Button HistorialBoton;
         private System.Windows.Forms.Button ReglasBoton;
         private System.Windows.Forms.Button BotonPistas;
-        private System.Windows.Forms.Button CloseBoton;
         private System.Windows.Forms.Button EconomiaBoton;
         private System.Windows.Forms.Button ConfiguracionBoton;
         private System.Windows.Forms.Button NextBoton;
         private System.Windows.Forms.Button BackBoton;
-        private System.Windows.Forms.Button VolverBoton;
         private System.Windows.Forms.PictureBox PistaPictureBox;
         private ZBobb.AlphaBlendTextBox DistanciaTextbox;
         private ZBobb.AlphaBlendTextBox PistasBiografia;
@@ -3453,7 +3577,7 @@ namespace Touge_App
         private System.Windows.Forms.Button FacturasPictureBox;
         private System.Windows.Forms.Button AlquilerPictureBox;
         private System.Windows.Forms.Button ComidaPictureBox;
-        private System.Windows.Forms.Button AhorrosPictureBox;
+        private System.Windows.Forms.Button MisCosasPictureBox;
         private System.Windows.Forms.Button GarajePictureBox;
         private System.Windows.Forms.Button HigienePictureBox;
         private System.Windows.Forms.Button CarDealerPictureBox;
@@ -3477,14 +3601,14 @@ namespace Touge_App
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button BackRopaMuebleTecno;
         private System.Windows.Forms.Button NextRopaMuebleTecno;
-        private eShopPanels ShopPanel1;
-        private eShopPanels ShopPanel8;
-        private eShopPanels ShopPanel7;
-        private eShopPanels ShopPanel6;
-        private eShopPanels ShopPanel5;
-        private eShopPanels ShopPanel4;
-        private eShopPanels ShopPanel3;
-        private eShopPanels ShopPanel2;
+        private EShopPanels ShopPanel1;
+        private EShopPanels ShopPanel8;
+        private EShopPanels ShopPanel7;
+        private EShopPanels ShopPanel6;
+        private EShopPanels ShopPanel5;
+        private EShopPanels ShopPanel4;
+        private EShopPanels ShopPanel3;
+        private EShopPanels ShopPanel2;
         private System.Windows.Forms.RadioButton Servicios1;
         private System.Windows.Forms.Button AbonarFacturas;
         private System.Windows.Forms.Label PagoLabel;
@@ -3492,6 +3616,16 @@ namespace Touge_App
         private System.Windows.Forms.RadioButton Servicios4;
         private System.Windows.Forms.RadioButton Servicios3;
         private System.Windows.Forms.RadioButton Servicios2;
+        private Comida PanelComida1;
+        private System.Windows.Forms.Button NextComida;
+        private System.Windows.Forms.Button BackComida;
+        private Comida PanelComida4;
+        private Comida PanelComida3;
+        private Comida PanelComida2;
+        private System.Windows.Forms.Label DineroMostrarLabel;
+        private System.Windows.Forms.PictureBox DineroPb;
+        private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Button VolverBoton;
     }
 }
 

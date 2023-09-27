@@ -9,8 +9,8 @@ namespace Negocio_Base_Datos
 {
     public class FuncionesNegocio
     {
-        SqlConnection ConexionBaseDatos;
-        SqlCommand ComandoDeBaseDatos;
+        readonly  SqlConnection ConexionBaseDatos;
+        readonly SqlCommand ComandoDeBaseDatos;
         private SqlDataReader GuardadorDatos;
         public SqlDataReader Guardador { get { return GuardadorDatos; } }
         public FuncionesNegocio()

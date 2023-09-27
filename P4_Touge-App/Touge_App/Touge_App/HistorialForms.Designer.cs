@@ -95,8 +95,8 @@ namespace Touge_App
             this.PanelFondo.Name = "PanelFondo";
             this.PanelFondo.Size = new System.Drawing.Size(590, 865);
             this.PanelFondo.TabIndex = 0;
-            this.PanelFondo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.PanelFondo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.PanelFondo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            this.PanelFondo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             // 
             // AutoRivalComboBox
             // 

@@ -1,7 +1,7 @@
 ﻿
 namespace Touge_App
 {
-    partial class eShopPanels
+    partial class EShopPanels
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eShopPanels));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EShopPanels));
             this.NombreDelProducto = new System.Windows.Forms.Label();
             this.ProductoImagen = new System.Windows.Forms.PictureBox();
             this.PrecioLabel = new System.Windows.Forms.Label();
@@ -54,7 +54,6 @@ namespace Touge_App
             // ProductoImagen
             // 
             this.ProductoImagen.BackColor = System.Drawing.Color.Black;
-            this.ProductoImagen.Image = ((System.Drawing.Image)(resources.GetObject("ProductoImagen.Image")));
             this.ProductoImagen.Location = new System.Drawing.Point(45, 60);
             this.ProductoImagen.Name = "ProductoImagen";
             this.ProductoImagen.Size = new System.Drawing.Size(286, 260);

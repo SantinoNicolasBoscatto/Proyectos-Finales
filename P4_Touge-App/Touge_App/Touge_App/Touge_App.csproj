@@ -251,11 +251,11 @@
     <Compile Include="Alquileres.Designer.cs">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComidaUserControl.cs">
+    <Compile Include="Comida.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ComidaUserControl.Designer.cs">
-      <DependentUpon>ComidaUserControl.cs</DependentUpon>
+    <Compile Include="Comida.Designer.cs">
+      <DependentUpon>Comida.cs</DependentUpon>
     </Compile>
     <Compile Include="eShopPanels.cs">
       <SubType>UserControl</SubType>
@@ -269,6 +269,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Higiene.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Higiene.Designer.cs">
+      <DependentUpon>Higiene.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistorialForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,14 +286,17 @@
     <EmbeddedResource Include="Alquileres.resx">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComidaUserControl.resx">
-      <DependentUpon>ComidaUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="Comida.resx">
+      <DependentUpon>Comida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eShopPanels.resx">
       <DependentUpon>eShopPanels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Higiene.resx">
+      <DependentUpon>Higiene.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialForms.resx">
       <DependentUpon>HistorialForms.cs</DependentUpon>

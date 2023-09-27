@@ -103,19 +103,26 @@ select FechaManager from Fecha
 
 delete from Fecha
 
-UPDATE Fecha SET FechaManager = DATEADD(day, -5, FechaManager)
+UPDATE Fecha SET FechaManager = DATEADD(day, -6, FechaManager)
 
 select Precio from Alquileres where NumeroRegistro =5
 
 insert Economia (Dinero) values (13535)
 
-UPDATE Economia SET Dinero = 13535
+UPDATE Economia SET Dinero = 999999
 
-select * from AlquilerManager
+select * from Fecha
 
-insert AlquilerManager values (1, 1)
+insert into ComidaManager values (1)
 
-CREATE TABLE AlquilerManager (
-    alquilando bit,
-    CasaAlquilada int
+CREATE TABLE ComidaManager (
+	CompraMensual bit
 );
+
+select NumeroDeRegistro, NombrePack, ImagenPack, Precio, PackComprado from Comida
+
+insert into Comida values ('Ejemplo 12', 'Imagen', 9999, 12, 1)
+
+Update Comida Set ImagenPack = 'C:\Users\Santino\Downloads\descargar.jpeg'
+
+select CompraMensual from ComidaManager

@@ -59,7 +59,7 @@ namespace Touge_App
             ClimaComboBox.Items.Add("Lluvia Fuerte");
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -71,7 +71,7 @@ namespace Touge_App
             }
         }
         Point mouseLoc;
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mouseLoc = e.Location;
         }
@@ -110,18 +110,20 @@ namespace Touge_App
                 ClimaComboBox.Text != "" && ModalidadBox.Text != "" && TiempoTextBox.TextLength == 9 &&(RadioButtonSi.Checked || RadioButtonNo.Checked))
             {
                 NegocioBaseDatos negocioDeBaseDatos = new NegocioBaseDatos();
-                Historial aux = new Historial();
-                aux.Circuito = CircuitoComboBox.Text;
-                aux.PilotoA = PilotoComboBox.Text; 
-                aux.PilotoB = RivalComboBox.Text; //Combo Box Modificable, si no existe el Piloto se preguntara si desea generar UNO
-                aux.AutoA = AutoComboBox.Text;
-                aux.AutoB = AutoRivalComboBox.Text;
-                aux.Ganador = GanadorComboBox.Text;
-                aux.Perdedor = PerdedorCombobox.Text; 
-                aux.Clima = ClimaComboBox.Text;
-                aux.Clase = ClaseComboBox.Text;
-                aux.Modalidad = ModalidadBox.Text; //ComboBox de 4 Elecciones
-                aux.Tiempo = TiempoTextBox.Text; // Corregir
+                Historial aux = new Historial
+                {
+                    Circuito = CircuitoComboBox.Text,
+                    PilotoA = PilotoComboBox.Text,
+                    PilotoB = RivalComboBox.Text, //Combo Box Modificable, si no existe el Piloto se preguntara si desea generar UNO
+                    AutoA = AutoComboBox.Text,
+                    AutoB = AutoRivalComboBox.Text,
+                    Ganador = GanadorComboBox.Text,
+                    Perdedor = PerdedorCombobox.Text,
+                    Clima = ClimaComboBox.Text,
+                    Clase = ClaseComboBox.Text,
+                    Modalidad = ModalidadBox.Text, //ComboBox de 4 Elecciones
+                    Tiempo = TiempoTextBox.Text // Corregir
+                };
                 if (RadioButtonNo.Checked)
                     aux.Promocion = "No";
                 else
@@ -133,7 +135,7 @@ namespace Touge_App
                 }
                 if (aux.Ganador == Player)
                 {
-                    int dineroGanador = 0;
+                    int dineroGanador;
                     switch (aux.Clase)
                     {
                         case "F":
@@ -171,7 +173,7 @@ namespace Touge_App
                 }
                 else if (aux.Perdedor == Player)
                 {
-                    int dineroPerdedor = 0;
+                    int dineroPerdedor;
                     switch (aux.Clase)
                     {
                         case "F":

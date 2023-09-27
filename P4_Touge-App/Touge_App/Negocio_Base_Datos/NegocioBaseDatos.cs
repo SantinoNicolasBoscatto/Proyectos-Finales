@@ -21,12 +21,15 @@ namespace Negocio_Base_Datos
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
-                    Musica auxiliar = new Musica();
-                    auxiliar.IdMusica = (int)negocioBD.Guardador["MusicaID"];
-                    auxiliar.NombreCancion = (string)negocioBD.Guardador["Cancion"];
-                    auxiliar.CancionURL = (string)negocioBD.Guardador["Archivo"];
+                    Musica auxiliar = new Musica
+                    {
+                        IdMusica = (int)negocioBD.Guardador["MusicaID"],
+                        NombreCancion = (string)negocioBD.Guardador["Cancion"],
+                        CancionURL = (string)negocioBD.Guardador["Archivo"]
+                    };
                     listaDeCanciones.Add(auxiliar); 
                 }
+                negocioBD.Guardador.Close();
                 return listaDeCanciones;
             }
             catch (Exception)
@@ -47,15 +50,17 @@ namespace Negocio_Base_Datos
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
-                    Pistas auxiliar = new Pistas();
-                    auxiliar.NombrePista = (string)negocioBD.Guardador["Nombre"];
-                    auxiliar.BiografiaPista = (string)negocioBD.Guardador["Biografia"];
-                    auxiliar.Distancia = (string)negocioBD.Guardador["Distancia"];
-                    auxiliar.Pais = (string)negocioBD.Guardador["Pais"];
-                    auxiliar.ModalidadPreferida = (string)negocioBD.Guardador["ModalidadPreferida"];
-                    auxiliar.Record = (string)negocioBD.Guardador["Record"];
-                    auxiliar.Imagenes = (string)negocioBD.Guardador["Imagenes"];
-                    auxiliar.Imagenes2 = (string)negocioBD.Guardador["Imagen2"];
+                    Pistas auxiliar = new Pistas
+                    {
+                        NombrePista = (string)negocioBD.Guardador["Nombre"],
+                        BiografiaPista = (string)negocioBD.Guardador["Biografia"],
+                        Distancia = (string)negocioBD.Guardador["Distancia"],
+                        Pais = (string)negocioBD.Guardador["Pais"],
+                        ModalidadPreferida = (string)negocioBD.Guardador["ModalidadPreferida"],
+                        Record = (string)negocioBD.Guardador["Record"],
+                        Imagenes = (string)negocioBD.Guardador["Imagenes"],
+                        Imagenes2 = (string)negocioBD.Guardador["Imagen2"]
+                    };
                     listaPistas.Add(auxiliar);
                 }
                 return listaPistas;
@@ -78,40 +83,41 @@ namespace Negocio_Base_Datos
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
-                    Pilotos auxiliar = new Pilotos();
-                    auxiliar.NombrePiloto = (string)negocioBD.Guardador["Nombre"];
-                    auxiliar.Apodo = (string)negocioBD.Guardador["Apodo"];
-                    auxiliar.Equipo = (string)negocioBD.Guardador["Equipo"];
-                    auxiliar.Ranking = (string)negocioBD.Guardador["Ranking"];
-                    auxiliar.Victorias = (int)negocioBD.Guardador["Victorias"];
-                    auxiliar.Derrotas = (int)negocioBD.Guardador["Derrotas"];
-                    auxiliar.PorcentajeCarrerasGanadas = (double)negocioBD.Guardador["WinRate"];
-                    auxiliar.Rival = (string)negocioBD.Guardador["MayorRival"];
-                    auxiliar.Altura = (string)negocioBD.Guardador["Altura"];
-                    auxiliar.Peso = (string)negocioBD.Guardador["Peso"];
-                    auxiliar.Edad = (int)negocioBD.Guardador["Edad"];
-                    auxiliar.Biografia = (string)negocioBD.Guardador["Biografia"];
-                    auxiliar.Foto = (string)negocioBD.Guardador["FotoPiloto"];
-                    auxiliar.Cornering = (int)negocioBD.Guardador["Cornering"];
-                    auxiliar.Braking = (int)negocioBD.Guardador["Braking"];
-                    auxiliar.Reflexes = (int)negocioBD.Guardador["Reflexes"];
-                    auxiliar.TyresManagement = (int)negocioBD.Guardador["TyresManagement"];
-                    auxiliar.Overtaking = (int)negocioBD.Guardador["Overtaking"];
-                    auxiliar.Defending = (int)negocioBD.Guardador["Defending"];
-                    auxiliar.RainHability = (int)negocioBD.Guardador["Rain"];
-                    auxiliar.Concentracion = (int)negocioBD.Guardador["Concentration"];
-                    auxiliar.ManejoPresion = (int)negocioBD.Guardador["Presure"];
-                    auxiliar.Experiencia = (int)negocioBD.Guardador["Experience"];
-                    auxiliar.Agresividad = (int)negocioBD.Guardador["Agressive"];
-                    auxiliar.Pace = (int)negocioBD.Guardador["Pace"];
-                    auxiliar.Overall = (int)negocioBD.Guardador["Overall"];
-                    auxiliar.Nacionalidad = (string)negocioBD.Guardador["Nacionalidad"];
-                    auxiliar.Auto = (string)negocioBD.Guardador["Auto"];
-                    auxiliar.AutoAtras = (string)negocioBD.Guardador["AutoAtras"];
-                    auxiliar.AutoFrontal = (string)negocioBD.Guardador["AutoDetalle"];
-                    auxiliar.AutoDriving = (string)negocioBD.Guardador["AutoMovimiento"];
-                    auxiliar.IdPiloto = (int)negocioBD.Guardador["PilotoID"];
-
+                    Pilotos auxiliar = new Pilotos
+                    {
+                        NombrePiloto = (string)negocioBD.Guardador["Nombre"],
+                        Apodo = (string)negocioBD.Guardador["Apodo"],
+                        Equipo = (string)negocioBD.Guardador["Equipo"],
+                        Ranking = (string)negocioBD.Guardador["Ranking"],
+                        Victorias = (int)negocioBD.Guardador["Victorias"],
+                        Derrotas = (int)negocioBD.Guardador["Derrotas"],
+                        PorcentajeCarrerasGanadas = (double)negocioBD.Guardador["WinRate"],
+                        Rival = (string)negocioBD.Guardador["MayorRival"],
+                        Altura = (string)negocioBD.Guardador["Altura"],
+                        Peso = (string)negocioBD.Guardador["Peso"],
+                        Edad = (int)negocioBD.Guardador["Edad"],
+                        Biografia = (string)negocioBD.Guardador["Biografia"],
+                        Foto = (string)negocioBD.Guardador["FotoPiloto"],
+                        Cornering = (int)negocioBD.Guardador["Cornering"],
+                        Braking = (int)negocioBD.Guardador["Braking"],
+                        Reflexes = (int)negocioBD.Guardador["Reflexes"],
+                        TyresManagement = (int)negocioBD.Guardador["TyresManagement"],
+                        Overtaking = (int)negocioBD.Guardador["Overtaking"],
+                        Defending = (int)negocioBD.Guardador["Defending"],
+                        RainHability = (int)negocioBD.Guardador["Rain"],
+                        Concentracion = (int)negocioBD.Guardador["Concentration"],
+                        ManejoPresion = (int)negocioBD.Guardador["Presure"],
+                        Experiencia = (int)negocioBD.Guardador["Experience"],
+                        Agresividad = (int)negocioBD.Guardador["Agressive"],
+                        Pace = (int)negocioBD.Guardador["Pace"],
+                        Overall = (int)negocioBD.Guardador["Overall"],
+                        Nacionalidad = (string)negocioBD.Guardador["Nacionalidad"],
+                        Auto = (string)negocioBD.Guardador["Auto"],
+                        AutoAtras = (string)negocioBD.Guardador["AutoAtras"],
+                        AutoFrontal = (string)negocioBD.Guardador["AutoDetalle"],
+                        AutoDriving = (string)negocioBD.Guardador["AutoMovimiento"],
+                        IdPiloto = (int)negocioBD.Guardador["PilotoID"]
+                    };
                     listaPilotos.Add(auxiliar);
                 }
                 return listaPilotos;
@@ -134,23 +140,25 @@ namespace Negocio_Base_Datos
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
-                    Autos auxiliar = new Autos();
-                    auxiliar.NombreModelo = (string)negocioBD.Guardador["Nom"];
-                    auxiliar.Anio = (int)negocioBD.Guardador["An"];
-                    auxiliar.Traccion = (string)negocioBD.Guardador["Trac"];
-                    auxiliar.PaisFabricacion = (string)negocioBD.Guardador["Pais"];
-                    auxiliar.HP = (int)negocioBD.Guardador["HP"];
-                    auxiliar.Torque = (int)negocioBD.Guardador["Torque"];
-                    auxiliar.Peso = (int)negocioBD.Guardador["Peso"];
-                    auxiliar.RelacionPesoPotencia = (double)negocioBD.Guardador["PP"];
-                    auxiliar.TopSpeed = (double)negocioBD.Guardador["TS"];
-                    auxiliar.Categoria = (string)negocioBD.Guardador["Cat"];
-                    auxiliar.Kilometraje = (double)negocioBD.Guardador["K"];
-                    auxiliar.ImagenAuto = (string)negocioBD.Guardador["f1"];
-                    auxiliar.ImagenAutoSecundaria = (string)negocioBD.Guardador["f2"];
-                    auxiliar.ImagenAutoTres = (string)negocioBD.Guardador["f3"];
-                    auxiliar.ImagenAutoCuatro = (string)negocioBD.Guardador["f4"];
-                    auxiliar.ImagenAutoCinco = (string)negocioBD.Guardador["f5"];
+                    Autos auxiliar = new Autos
+                    {
+                        NombreModelo = (string)negocioBD.Guardador["Nom"],
+                        Anio = (int)negocioBD.Guardador["An"],
+                        Traccion = (string)negocioBD.Guardador["Trac"],
+                        PaisFabricacion = (string)negocioBD.Guardador["Pais"],
+                        HP = (int)negocioBD.Guardador["HP"],
+                        Torque = (int)negocioBD.Guardador["Torque"],
+                        Peso = (int)negocioBD.Guardador["Peso"],
+                        RelacionPesoPotencia = (double)negocioBD.Guardador["PP"],
+                        TopSpeed = (double)negocioBD.Guardador["TS"],
+                        Categoria = (string)negocioBD.Guardador["Cat"],
+                        Kilometraje = (double)negocioBD.Guardador["K"],
+                        ImagenAuto = (string)negocioBD.Guardador["f1"],
+                        ImagenAutoSecundaria = (string)negocioBD.Guardador["f2"],
+                        ImagenAutoTres = (string)negocioBD.Guardador["f3"],
+                        ImagenAutoCuatro = (string)negocioBD.Guardador["f4"],
+                        ImagenAutoCinco = (string)negocioBD.Guardador["f5"]
+                    };
                     auxiliar.MarcaAuto.NombreMarca = (string)negocioBD.Guardador["NM"];
                     auxiliar.MarcaAuto.ImagenMarca = (string)negocioBD.Guardador["IM"];
                     listaAutos.Add(auxiliar);
@@ -241,11 +249,13 @@ namespace Negocio_Base_Datos
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
-                    Historial auxiliar = new Historial();
-                    auxiliar.Circuito = (string)negocioBD.Guardador["Circuito"];
-                    auxiliar.PilotoA = (string)negocioBD.Guardador["DriverA"];
-                    auxiliar.PilotoB = (string)negocioBD.Guardador["DriverB"];
-                    auxiliar.Ganador = (string)negocioBD.Guardador["PilotoGanador"];
+                    Historial auxiliar = new Historial
+                    {
+                        Circuito = (string)negocioBD.Guardador["Circuito"],
+                        PilotoA = (string)negocioBD.Guardador["DriverA"],
+                        PilotoB = (string)negocioBD.Guardador["DriverB"],
+                        Ganador = (string)negocioBD.Guardador["PilotoGanador"]
+                    };
                     auxiliar.Ganador = (string)negocioBD.Guardador["PilotoGanador"];
                     auxiliar.AutoA = (string)negocioBD.Guardador["AutoA"];
                     auxiliar.AutoB = (string)negocioBD.Guardador["AutoB"];
@@ -387,20 +397,23 @@ namespace Negocio_Base_Datos
                 negocioFiltros.LecturaBase();
                 while (negocioFiltros.Guardador.Read())
                 {
-                    Historial auxiliar = new Historial();
-                    auxiliar.Circuito = (string)negocioFiltros.Guardador["Circuito"];
-                    auxiliar.PilotoA = (string)negocioFiltros.Guardador["Piloto"];
-                    auxiliar.PilotoB = (string)negocioFiltros.Guardador["Rival"];
-                    auxiliar.Ganador = (string)negocioFiltros.Guardador["Ganador"];
-                    auxiliar.Ganador = (string)negocioFiltros.Guardador["Perdedor"];
-                    auxiliar.AutoA = (string)negocioFiltros.Guardador["AutoPiloto"];
-                    auxiliar.AutoB = (string)negocioFiltros.Guardador["AutoRival"];
-                    auxiliar.Modalidad = (string)negocioFiltros.Guardador["Modalidad"];
-                    auxiliar.Promocion = (string)negocioFiltros.Guardador["Promocion"];
-                    auxiliar.Tiempo = (string)negocioFiltros.Guardador["Tiempo"];
-                    auxiliar.Clase = (string)negocioFiltros.Guardador["Clase"];
-                    auxiliar.Clima = (string)negocioFiltros.Guardador["Clima"];
-                    auxiliar.Id = (int)negocioFiltros.Guardador["ID"];
+                    Historial auxiliar = new Historial
+                    {
+                        Circuito = (string)negocioFiltros.Guardador["Circuito"],
+                        PilotoA = (string)negocioFiltros.Guardador["Piloto"],
+                        PilotoB = (string)negocioFiltros.Guardador["Rival"],
+                        Ganador = (string)negocioFiltros.Guardador["Ganador"],
+                        Perdedor = (string)negocioFiltros.Guardador["Perdedor"],
+                        AutoA = (string)negocioFiltros.Guardador["AutoPiloto"],
+                        AutoB = (string)negocioFiltros.Guardador["AutoRival"],
+                        Modalidad = (string)negocioFiltros.Guardador["Modalidad"],
+                        Promocion = (string)negocioFiltros.Guardador["Promocion"],
+                        Tiempo = (string)negocioFiltros.Guardador["Tiempo"],
+                        Clase = (string)negocioFiltros.Guardador["Clase"],
+                        Clima = (string)negocioFiltros.Guardador["Clima"],
+                        Id = (int)negocioFiltros.Guardador["ID"]
+                        //Revisar
+                    };
                     listaFiltradaHistorial.Add(auxiliar);
                 }
                 return listaFiltradaHistorial;
@@ -504,16 +517,18 @@ namespace Negocio_Base_Datos
                     negocioBaseAlquiler.LecturaBase();
                     while (negocioBaseAlquiler.Guardador.Read())
                     {
-                        Alquiler aux = new Alquiler();
-                        aux.NumeroRegistro = (int)negocioBaseAlquiler.Guardador["NumeroRegistro"];
-                        aux.CantidadDormitorios = (int)negocioBaseAlquiler.Guardador["Dormitorios"];
-                        aux.CantidadDuchas = (int)negocioBaseAlquiler.Guardador["Duchas"];
-                        aux.CantidadGarajes = (int)negocioBaseAlquiler.Guardador["Garajes"];
-                        aux.CantidadSalasEstar = (int)negocioBaseAlquiler.Guardador["SalasDeEstar"];
-                        aux.PrecioDepartamento = (int)negocioBaseAlquiler.Guardador["Precio"];
-                        aux.Estado = (bool)negocioBaseAlquiler.Guardador["Estado"];
-                        aux.NombreAlquiler = (string)negocioBaseAlquiler.Guardador["NombreAlquiler"];
-                        aux.ImagenAlquiler = (string)negocioBaseAlquiler.Guardador["ImagenAlquiler"];
+                        Alquiler aux = new Alquiler
+                        {
+                            NumeroRegistro = (int)negocioBaseAlquiler.Guardador["NumeroRegistro"],
+                            CantidadDormitorios = (int)negocioBaseAlquiler.Guardador["Dormitorios"],
+                            CantidadDuchas = (int)negocioBaseAlquiler.Guardador["Duchas"],
+                            CantidadGarajes = (int)negocioBaseAlquiler.Guardador["Garajes"],
+                            CantidadSalasEstar = (int)negocioBaseAlquiler.Guardador["SalasDeEstar"],
+                            PrecioDepartamento = (int)negocioBaseAlquiler.Guardador["Precio"],
+                            Estado = (bool)negocioBaseAlquiler.Guardador["Estado"],
+                            NombreAlquiler = (string)negocioBaseAlquiler.Guardador["NombreAlquiler"],
+                            ImagenAlquiler = (string)negocioBaseAlquiler.Guardador["ImagenAlquiler"]
+                        };
                         listaAlquiler.Add(aux);
                     }
                 }
@@ -533,7 +548,7 @@ namespace Negocio_Base_Datos
             Random numerosRandom = new Random();
             listaNumeros.Add(numeroAlquiler);
             int x = 0;
-            int y=0;
+            int y;
             int[] listaRepetidos = new int[5];
             bool Norepetido = true;
                 for (int i = 0; i < 5; i++)
@@ -709,13 +724,13 @@ namespace Negocio_Base_Datos
             }
         }
 
-        List<int> bolsaEnterosRopa = new List<int>();
+        readonly List<int> bolsaEnterosRopa = new List<int>(); //Revisar
         public List<Ropa> DevolverRopa()
         {
             List<Ropa> listaRopa = new List<Ropa>();
             FuncionesNegocio negocioRopa = new FuncionesNegocio();
             List<int> ropaId;
-            int auxiliar = 0;    
+            int auxiliar;    
             try
             {
                 negocioRopa.SQLQuery("select NumeroDeRegistro, Comprado from Ropa where Comprado !=0");
@@ -749,12 +764,14 @@ namespace Negocio_Base_Datos
                     negocioRopa.LecturaBase();
                     while (negocioRopa.Guardador.Read())
                     {
-                        Ropa aux = new Ropa();
-                        aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioRopa.Guardador["Precio"];
-                        aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
-                        aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
-                        aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
+                        Ropa aux = new Ropa
+                        {
+                            Id = (int)negocioRopa.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioRopa.Guardador["Precio"],
+                            NombreRopa = (string)negocioRopa.Guardador["NombreRopa"],
+                            Imagen = (string)negocioRopa.Guardador["ImagenRopa"],
+                            Comprado = (bool)negocioRopa.Guardador["Comprado"]
+                        };
                         listaRopa.Add(aux);
                     }
                 }
@@ -772,12 +789,14 @@ namespace Negocio_Base_Datos
                     negocioRopa.LecturaBase();
                     while (negocioRopa.Guardador.Read())
                     {
-                        Ropa aux = new Ropa();
-                        aux.Id = (int)negocioRopa.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioRopa.Guardador["Precio"];
-                        aux.NombreRopa = (string)negocioRopa.Guardador["NombreRopa"];
-                        aux.Imagen = (string)negocioRopa.Guardador["ImagenRopa"];
-                        aux.Comprado = (bool)negocioRopa.Guardador["Comprado"];
+                        Ropa aux = new Ropa
+                        {
+                            Id = (int)negocioRopa.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioRopa.Guardador["Precio"],
+                            NombreRopa = (string)negocioRopa.Guardador["NombreRopa"],
+                            Imagen = (string)negocioRopa.Guardador["ImagenRopa"],
+                            Comprado = (bool)negocioRopa.Guardador["Comprado"]
+                        };
                         listaRopa.Add(aux);
                     }
                 }
@@ -795,7 +814,7 @@ namespace Negocio_Base_Datos
             List<int> listaNumeros = new List<int>();
             Random numerosRandom = new Random();
             int x = 0;
-            int y = 0;
+            int y;
             while (x != 16 && tamanioBolsa>0)
             {
                 y = (int)numerosRandom.Next(0, tamanioBolsa);
@@ -807,13 +826,13 @@ namespace Negocio_Base_Datos
             return listaNumeros;
         }
 
-        List<int> bolsaEnterosMuebles = new List<int>();
+        readonly List<int> bolsaEnterosMuebles = new List<int>(); //Asignacion
         public List<Mueble> DevolverMuebles()
         {
             List<Mueble> listaMueble = new List<Mueble>();
             FuncionesNegocio negocioMueble = new FuncionesNegocio();
             List<int> muebleId;
-            int auxiliar = 0;
+            int auxiliar; //AsignacionCorreccion
             try
             {
                 negocioMueble.SQLQuery("select NumeroDeRegistro, Comprado from Muebles where Comprado !=0");
@@ -847,12 +866,14 @@ namespace Negocio_Base_Datos
                     negocioMueble.LecturaBase();
                     while (negocioMueble.Guardador.Read())
                     {
-                        Mueble aux = new Mueble();
-                        aux.Id = (int)negocioMueble.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioMueble.Guardador["Precio"];
-                        aux.NombreMueble = (string)negocioMueble.Guardador["NombreMueble"];
-                        aux.Imagen = (string)negocioMueble.Guardador["ImagenMueble"];
-                        aux.Comprado = (bool)negocioMueble.Guardador["Comprado"];
+                        Mueble aux = new Mueble
+                        {
+                            Id = (int)negocioMueble.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioMueble.Guardador["Precio"],
+                            NombreMueble = (string)negocioMueble.Guardador["NombreMueble"],
+                            Imagen = (string)negocioMueble.Guardador["ImagenMueble"],
+                            Comprado = (bool)negocioMueble.Guardador["Comprado"]
+                        };
                         listaMueble.Add(aux);
                     }
                 }
@@ -870,12 +891,14 @@ namespace Negocio_Base_Datos
                     negocioMueble.LecturaBase();
                     while (negocioMueble.Guardador.Read())
                     {
-                        Mueble aux = new Mueble();
-                        aux.Id = (int)negocioMueble.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioMueble.Guardador["Precio"];
-                        aux.NombreMueble = (string)negocioMueble.Guardador["NombreMueble"];
-                        aux.Imagen = (string)negocioMueble.Guardador["ImagenMueble"];
-                        aux.Comprado = (bool)negocioMueble.Guardador["Comprado"];
+                        Mueble aux = new Mueble
+                        {
+                            Id = (int)negocioMueble.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioMueble.Guardador["Precio"],
+                            NombreMueble = (string)negocioMueble.Guardador["NombreMueble"],
+                            Imagen = (string)negocioMueble.Guardador["ImagenMueble"],
+                            Comprado = (bool)negocioMueble.Guardador["Comprado"]
+                        };
                         listaMueble.Add(aux);
                     }
                 }
@@ -888,13 +911,13 @@ namespace Negocio_Base_Datos
             }
         }
 
-        List<int> bolsaEnterosElectros = new List<int>();
+        readonly List<int> bolsaEnterosElectros = new List<int>();
         public List<Electronicos> DevolverElectros()
         {
             List<Electronicos> listaElectro = new List<Electronicos>();
             FuncionesNegocio negocioElectro = new FuncionesNegocio();
             List<int> ElectroId;
-            int auxiliar = 0;
+            int auxiliar; //AsignacionCorreccion
             try
             {
                 negocioElectro.SQLQuery("select NumeroDeRegistro, Comprado from Electronicos where Comprado !=0");
@@ -928,12 +951,14 @@ namespace Negocio_Base_Datos
                     negocioElectro.LecturaBase();
                     while (negocioElectro.Guardador.Read())
                     {
-                        Electronicos aux = new Electronicos();
-                        aux.Id = (int)negocioElectro.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioElectro.Guardador["Precio"];
-                        aux.NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"];
-                        aux.Imagen = (string)negocioElectro.Guardador["ImagenElectronico"];
-                        aux.Comprado = (bool)negocioElectro.Guardador["Comprado"];
+                        Electronicos aux = new Electronicos
+                        {
+                            Id = (int)negocioElectro.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioElectro.Guardador["Precio"],
+                            NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"],
+                            Imagen = (string)negocioElectro.Guardador["ImagenElectronico"],
+                            Comprado = (bool)negocioElectro.Guardador["Comprado"]
+                        };
                         listaElectro.Add(aux);
                     }
                 }
@@ -951,12 +976,14 @@ namespace Negocio_Base_Datos
                     negocioElectro.LecturaBase();
                     while (negocioElectro.Guardador.Read())
                     {
-                        Electronicos aux = new Electronicos();
-                        aux.Id = (int)negocioElectro.Guardador["NumeroDeRegistro"];
-                        aux.Precio = (int)negocioElectro.Guardador["Precio"];
-                        aux.NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"];
-                        aux.Imagen = (string)negocioElectro.Guardador["ImagenElectronico"];
-                        aux.Comprado = (bool)negocioElectro.Guardador["Comprado"];
+                        Electronicos aux = new Electronicos
+                        {
+                            Id = (int)negocioElectro.Guardador["NumeroDeRegistro"],
+                            Precio = (int)negocioElectro.Guardador["Precio"],
+                            NombreElectronicos = (string)negocioElectro.Guardador["NombreElectronico"],
+                            Imagen = (string)negocioElectro.Guardador["ImagenElectronico"],
+                            Comprado = (bool)negocioElectro.Guardador["Comprado"]
+                        };
                         listaElectro.Add(aux);
                     }
                 }
@@ -985,7 +1012,7 @@ namespace Negocio_Base_Datos
                     inyectarQuery = "select Precio from Electronicos where NumeroDeRegistro = @MyId";
                     break;
                 default:
-                    inyectarQuery = "select Precio from Ropa where NumeroDeRegistro = @MyId";
+                    inyectarQuery = "select Precio from Comida where NumeroDeRegistro = @MyId";
                     break;
             }
             try
@@ -1064,6 +1091,70 @@ namespace Negocio_Base_Datos
             try
             {
                 negocioDinero.SQLQuery("UPDATE Factura SET EstadoFactura = @Factura");
+                negocioDinero.SetearParametros("@Factura", factura);
+                negocioDinero.EjecutarAccion();
+                return factura;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Comida> DevolverComida()
+        {
+            FuncionesNegocio negocioComida = new FuncionesNegocio();
+            List<Comida> listaComida = new List<Comida>();
+            try
+            {
+                negocioComida.SQLQuery("select NumeroDeRegistro, NombrePack, ImagenPack, Precio, PackComprado from Comida");
+                negocioComida.LecturaBase();
+                while (negocioComida.Guardador.Read())
+                {
+                    Comida auxComida = new Comida
+                    {
+                        Id = (int)negocioComida.Guardador["NumeroDeRegistro"],
+                        NombrePack = (string)negocioComida.Guardador["NombrePack"],
+                        Imagen = (string)negocioComida.Guardador["ImagenPack"],
+                        Precio = (int)negocioComida.Guardador["Precio"],
+                        Comprado = (bool)negocioComida.Guardador["PackComprado"]
+                    };
+                    listaComida.Add(auxComida);
+                }
+                return listaComida;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public bool LeerBanderaComida()
+        {
+            FuncionesNegocio negocioComida = new FuncionesNegocio();
+            try
+            {
+                negocioComida.SQLQuery("select CompraMensual from ComidaManager");
+                negocioComida.LecturaBase();
+                bool devolver = false;
+                if (negocioComida.Guardador.Read())
+                {
+                    devolver = (bool)negocioComida.Guardador["CompraMensual"];
+                }
+                return devolver;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool ActualizarComida(bool factura)
+        {
+            FuncionesNegocio negocioDinero = new FuncionesNegocio();
+            try
+            {
+                negocioDinero.SQLQuery("UPDATE ComidaManager SET CompraMensual = @Factura");
                 negocioDinero.SetearParametros("@Factura", factura);
                 negocioDinero.EjecutarAccion();
                 return factura;

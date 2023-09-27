@@ -7,14 +7,16 @@ using System.Windows.Forms;
 using Modelo_Clases;
 using Negocio_Base_Datos;
 using System.Globalization;
+using System.Media;
 
 namespace Touge_App
 {
     public partial class TougeForms : Form
     {
-        private WaveOutEvent waveOutDevice = new WaveOutEvent();
+        private readonly WaveOutEvent waveOutDevice = new WaveOutEvent();
+        private SoundPlayer sonidos = new SoundPlayer("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/Musica/Mp3Sounds/Buying.wav");
         private AudioFileReader audioFile;
-        NegocioBaseDatos negocioBD = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioBD = new NegocioBaseDatos();
         List<Musica> listaCanciones;
         private Size initialSize;
         DateTime fechaManager;
@@ -23,10 +25,11 @@ namespace Touge_App
         DateTime CambioMes;
         bool Alquilando;
         int CasaAlquilada;
-        NegocioBaseDatos negocioAlquiler = new NegocioBaseDatos();
-        NegocioBaseDatos Dinero = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioAlquiler = new NegocioBaseDatos();
+        readonly NegocioBaseDatos Dinero = new NegocioBaseDatos();
         Economia miDinero = new Economia(); 
         List<Alquiler> listaAlquiler = new List<Alquiler>();
+        readonly NegocioBaseDatos negocioComida = new NegocioBaseDatos();
         string Player = "Santino Boscatto";
 
         public TougeForms()
@@ -35,10 +38,12 @@ namespace Touge_App
             
             initialSize = this.ClientSize;
             this.Resize += TougeForms_Resize;
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle();
-            headerStyle.BackColor = Color.MidnightBlue;
-            headerStyle.ForeColor = Color.White;
-            headerStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+            {
+                BackColor = Color.MidnightBlue,
+                ForeColor = Color.White,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold)
+            };
             historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
             historialDGV.ColumnHeadersDefaultCellStyle = headerStyle;
             historialDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -62,6 +67,9 @@ namespace Touge_App
                 PilotoLabel.Location = new Point(145, 480);
                 NombrePilotoLabel.Parent = FichaTecnicaPb;
                 NombrePilotoLabel.Location = new Point(8, 535);
+                DineroPb.Location = new Point(670, 722);
+                BackEconomia.Location = new Point(0, 338);
+                NextEconomia.Location = new Point(1311, 338);
             }
             else
             {
@@ -79,6 +87,7 @@ namespace Touge_App
                 Defending.Location = new Point(262, 354);
                 Overall.Location = new Point(465, 308);
                 banderaSize = false;
+
             }
         }
 
@@ -97,7 +106,7 @@ namespace Touge_App
             //Suscribo al evento del cambio de valor del volumen
             VolumenControl.ValueChanged += VolumenControl_ValueChanged;
             //Trasparento Botones
-            Trasparentado(CloseBoton, ConfiguracionBoton);
+            Trasparentado(CloseButton, ConfiguracionBoton);
             //Pido un Fondo Random
             RandomFondo();
             //Inicio en Segunda pantalla si hay
@@ -112,15 +121,23 @@ namespace Touge_App
             Alquilando = alquilerBDManager.LeerBanderaAlquiler();
             CasaAlquilada = alquilerBDManager.LeerCasaAlquilada();
             estadoFacturas = alquilerBDManager.LeerBanderaFacturas();
+            estadoComida = alquilerBDManager.LeerBanderaComida();
             listaAlquiler = negocioAlquiler.DevolverAlquiler(true, CasaAlquilada);
             miDinero.MiDinero = Dinero.DevolverDinero();
-            MessageBox.Show("Tu Dinero es: " + miDinero.MiDinero);
+            //MessageBox.Show("Tu Dinero es: " + miDinero.MiDinero);
             alquileres1.ButtonClick += MiUserControl_ButtonClick;
             alquileres2.ButtonClick += MiUserControl2_ButtonClick;
             ShopPanel1.ButtonClick += ShopPanel1_ButtonClick; ShopPanel2.ButtonClick += ShopPanel2_ButtonClick; ShopPanel3.ButtonClick += ShopPanel3_ButtonClick; ShopPanel4.ButtonClick += ShopPanel4_ButtonClick; ShopPanel5.ButtonClick += ShopPanel5_ButtonClick; ShopPanel6.ButtonClick += ShopPanel6_ButtonClick; ShopPanel7.ButtonClick += ShopPanel7_ButtonClick;ShopPanel8.ButtonClick += ShopPanel8_ButtonClick;
+            PanelComida1.ButtonClick += PanelComida1_ButtonClick;
+            PanelComida2.ButtonClick += PanelComida2_ButtonClick;
+            PanelComida3.ButtonClick += PanelComida3_ButtonClick;
+            PanelComida4.ButtonClick += PanelComida4_ButtonClick;
             listaRopa = negocioRopa.DevolverRopa();
             listaMuebles = negocioMuebles.DevolverMuebles();
             listaElectro = negocioElectro.DevolverElectros();
+            ListaComida = negocioComida.DevolverComida();
+            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+            DineroMostrarLabel.Text = plataFormato;
             if (!Alquilando)
             {
                 Ocultar();
@@ -128,19 +145,30 @@ namespace Touge_App
                 PaginaUnoAlquiler();
                 VolverBoton.Visible = false;
             }
-            if (!estadoFacturas)
+            else if (!estadoFacturas)
             {
                 Ocultar();
                 MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
                 MostrarFacturas();
                 VolverBoton.Visible = false;
             }
-            PictureBox pb = new PictureBox();
-           // pb.Size = PictureBoxBack.Size;
-            //pb.Visible = true;
-            //pb.Parent = PictureBoxBack;
-            //pb.Location = new Point (0, 0);
+            else if(!estadoComida)
+            {
+                Ocultar();
+                ComidaPaginaUno();
+                MessageBox.Show("Debe Hacer las Compras!");
+                PanelComida1.Visible = true;
+                PanelComida2.Visible = true;
+                PanelComida3.Visible = true;
+                PanelComida4.Visible = true;
+                BackComida.Visible = true;
+                NextComida.Visible = true;
+                VolverBoton.Visible = false;
+            }
+
         }
+
+        
 
         private void FormatearFecha(Fecha aux)
         {
@@ -152,7 +180,7 @@ namespace Touge_App
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {
-            Size newResolution = ClientSize;          
+            //Size newResolution = ClientSize; //AsignacionCorreccion         
         }
 
         //Aca se Valida mediante un bool cuando el Mouse entra o sale de los botones y el evento de repintado
@@ -212,7 +240,7 @@ namespace Touge_App
         }
         private void CloseBoton_Paint(object sender, PaintEventArgs e)
         {
-            RepintadoBotones(HoverClose, e, CloseBoton);
+            RepintadoBotones(HoverClose, e, CloseButton);
         }
 
         // Lo mismo Con el boton Reglas
@@ -339,6 +367,8 @@ namespace Touge_App
         // Trasparentar Los Botones
         private void Trasparentado(Button Boton, Button Boton2)
         {
+            DineroPb.Parent = PictureBoxBack;
+            DineroMostrarLabel.Parent = PictureBoxBack;
             Boton.BackColor = Color.Transparent;
             Boton.Parent = PictureBoxBack;
             Boton.Visible = true;
@@ -572,7 +602,7 @@ namespace Touge_App
             CarDealerPictureBox.Parent = PictureBoxBack;
             HigienePictureBox.Parent = PictureBoxBack;
             GarajePictureBox.Parent = PictureBoxBack;
-            AhorrosPictureBox.Parent = PictureBoxBack;
+            MisCosasPictureBox.Parent = PictureBoxBack;
             FiltrosLabel.Parent = PictureBoxBack;
             CampoLabel.Parent = PictureBoxBack;
             CriterioLabel.Parent = PictureBoxBack;
@@ -591,6 +621,8 @@ namespace Touge_App
             Servicios4.Parent = PictureBoxBack;
             Servicios5.Parent = PictureBoxBack;
             PagoLabel.Parent = PictureBoxBack;
+            BackComida.Parent = PictureBoxBack;
+            NextComida.Parent = PictureBoxBack;
             AbonarFacturas.Parent = PictureBoxBack;
             Servicios1.BackColor = Color.FromArgb(135, 30, 30, 30);
             Servicios2.BackColor = Color.FromArgb(135, 30, 30, 30);
@@ -598,6 +630,11 @@ namespace Touge_App
             Servicios4.BackColor = Color.FromArgb(135, 30, 30, 30);
             Servicios5.BackColor = Color.FromArgb(135, 30, 30, 30);
             PagoLabel.BackColor = Color.FromArgb(135, 30, 30, 30);
+            BackComida.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            BackComida.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            NextComida.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
+            NextComida.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
+            DineroMostrarLabel.BackColor = Color.FromArgb(135, 30, 30, 30);
         }
 
         //Dispara la Primera pista de Musica
@@ -605,7 +642,7 @@ namespace Touge_App
         float Volumen = 0.1f;
         int indexMusica = 0;
         bool primeraVuelta = true;
-        private void IniciarMusica(ref AudioFileReader Musica, bool ValueBD = true)
+        private void IniciarMusica(ref AudioFileReader Musica)
         {
             try
             {
@@ -672,14 +709,14 @@ namespace Touge_App
             audioFile.Volume = Volumen;
         }
 
-        Random randomCancion = new Random();
+        readonly Random randomCancion = new Random();
         private int RandomNumero()
         {
             int RandomNumero = randomCancion.Next(listaCanciones.Count());
             return RandomNumero;
         }
 
-        Random randomFondo = new Random();
+        readonly Random randomFondo = new Random();
         private void RandomFondo()
         {
             int RandomNumero = randomFondo.Next(8);
@@ -774,7 +811,7 @@ namespace Touge_App
             EconomiaBoton.Visible = false;
             HistorialBoton.Visible = false;
             AutosBoton.Visible = false;
-            CloseBoton.Visible = false;
+            CloseButton.Visible = false;
             VolverBoton.Visible = true;
             
         }
@@ -794,7 +831,7 @@ namespace Touge_App
             }
             else
             {
-                AhorrosPictureBox.Visible = false;
+                MisCosasPictureBox.Visible = false;
                 GastosVariosPictureBox.Visible = false;
                 HigienePictureBox.Visible = false;
                 GarajePictureBox.Visible = false;
@@ -830,7 +867,7 @@ namespace Touge_App
 
         private void CargaBasePistas()
         {
-            NegocioBaseDatos negocioBd = new NegocioBaseDatos();
+            //NegocioBaseDatos negocioBd; //AsignacionCorreccion
             listaPistas = negocioBD.DevolverPistas();
             PistaPictureBox.Load(listaPistas[indexPistas].Imagenes);
             PistasBiografia.Text = listaPistas[indexPistas].BiografiaPista;
@@ -971,7 +1008,7 @@ namespace Touge_App
                 CarDealerPictureBox.Visible = false;
                 HigienePictureBox.Visible = false;
                 GarajePictureBox.Visible = false;
-                AhorrosPictureBox.Visible = false;
+                MisCosasPictureBox.Visible = false;
                 BackEconomia.Visible = false;
                 NextEconomia.Visible = false;
             }
@@ -1028,6 +1065,17 @@ namespace Touge_App
                 PagoLabel.Visible = false;
             }
 
+            else if (PanelComida1.Visible == true)
+            {
+                PanelComida1.Visible = false;
+                PanelComida2.Visible = false;
+                PanelComida4.Visible = false;
+                PanelComida3.Visible = false;
+                BackComida.Visible = false;
+                NextComida.Visible = false;
+            }
+
+
             if (banderaVolverReglas && banderaEconomiaParaMostrar)
             {
                 BotonPistas.Visible = true;
@@ -1036,7 +1084,7 @@ namespace Touge_App
                 EconomiaBoton.Visible = true;
                 HistorialBoton.Visible = true;
                 AutosBoton.Visible = true;
-                CloseBoton.Visible = true;
+                CloseButton.Visible = true;
             }
 
             else if (banderaEconomiaParaMostrar==false)
@@ -1056,7 +1104,7 @@ namespace Touge_App
                     MecanicoPictureBox.Visible = true;
                     CarDealerPictureBox.Visible = true;
                     HigienePictureBox.Visible = true;
-                    AhorrosPictureBox.Visible = true;
+                    MisCosasPictureBox.Visible = true;
                     GarajePictureBox.Visible = true;
                 }
                 NextEconomia.Visible = true;
@@ -1102,7 +1150,7 @@ namespace Touge_App
             imagen = true;
         }
 
-            NegocioBaseDatos negocioBDPilotos = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioBDPilotos = new NegocioBaseDatos();
             List<Pilotos> listaPilotos = new List<Pilotos>();
             int indexPilotos = 0;
         private void PilotosBoton_Click(object sender, EventArgs e)
@@ -1576,7 +1624,7 @@ namespace Touge_App
                 CarDealerPictureBox.Visible = true;
                 HigienePictureBox.Visible = true;
                 GarajePictureBox.Visible = true;
-                AhorrosPictureBox.Visible = true;
+                MisCosasPictureBox.Visible = true;
             }
         }
 
@@ -1595,7 +1643,7 @@ namespace Touge_App
                 CarDealerPictureBox.Visible = false;
                 HigienePictureBox.Visible = false;
                 GarajePictureBox.Visible = false;
-                AhorrosPictureBox.Visible = false;
+                MisCosasPictureBox.Visible = false;
             }
         }
 
@@ -1659,11 +1707,145 @@ namespace Touge_App
 
         private void ComidaPictureBox_Click(object sender, EventArgs e)
         {
+            try
+            {
+                OcultarEconomia();
+                ComidaPaginaUno();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
         }
 
-        
-        
+        int comidaManager;
+        private void ComidaPaginaUno()
+        {
+            comidaManager = 1;
+            PanelComida1.Visible = true;
+            PanelComida2.Visible = true;
+            PanelComida3.Visible = true;
+            PanelComida4.Visible = true;
+            BackComida.Visible = true;
+            NextComida.Visible = true;
+            PanelComida1.Titulo = ListaComida[0].NombrePack;
+            PanelComida2.Titulo = ListaComida[1].NombrePack;
+            PanelComida3.Titulo = ListaComida[2].NombrePack;
+            PanelComida4.Titulo = ListaComida[3].NombrePack;
+            PanelComida1.Id = ListaComida[0].Id;
+            PanelComida2.Id = ListaComida[1].Id;
+            PanelComida3.Id = ListaComida[2].Id;
+            PanelComida4.Id = ListaComida[3].Id;
+            PanelComida1.Comprado = ListaComida[0].Comprado;
+            PanelComida2.Comprado = ListaComida[1].Comprado;
+            PanelComida3.Comprado = ListaComida[2].Comprado;
+            PanelComida4.Comprado = ListaComida[3].Comprado;
+            PanelComida1.Precio = "$ "+ (ListaComida[0].Precio-1).ToString() +".99";
+            PanelComida2.Precio = "$ " + (ListaComida[1].Precio - 1).ToString() + ".99";
+            PanelComida3.Precio = "$ " + (ListaComida[2].Precio - 1).ToString() + ".99";
+            PanelComida4.Precio = "$ " + (ListaComida[3].Precio - 1).ToString() + ".99";
+            PanelComida1.CargarImagenes(ListaComida[0].Imagen);
+            PanelComida2.CargarImagenes(ListaComida[1].Imagen);
+            PanelComida3.CargarImagenes(ListaComida[2].Imagen);
+            PanelComida4.CargarImagenes(ListaComida[3].Imagen);
+            if (!ListaComida[0].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            if (!ListaComida[1].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            if (!ListaComida[2].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            if (!ListaComida[3].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();            
+        }
+        private void ComidaPaginaDos()
+        {
+            comidaManager = 2;
+            PanelComida1.Titulo = ListaComida[4].NombrePack;
+            PanelComida2.Titulo = ListaComida[5].NombrePack;
+            PanelComida3.Titulo = ListaComida[6].NombrePack;
+            PanelComida4.Titulo = ListaComida[7].NombrePack;
+            PanelComida1.Id = ListaComida[4].Id;
+            PanelComida2.Id = ListaComida[5].Id;
+            PanelComida3.Id = ListaComida[6].Id;
+            PanelComida4.Id = ListaComida[7].Id;
+            PanelComida1.Comprado = ListaComida[4].Comprado;
+            PanelComida2.Comprado = ListaComida[5].Comprado;
+            PanelComida3.Comprado = ListaComida[6].Comprado;
+            PanelComida4.Comprado = ListaComida[7].Comprado;
+            PanelComida1.Precio = "$ " + (ListaComida[4].Precio - 1).ToString() + ".99";
+            PanelComida2.Precio = "$ " + (ListaComida[5].Precio - 1).ToString() + ".99";
+            PanelComida3.Precio = "$ " + (ListaComida[6].Precio - 1).ToString() + ".99";
+            PanelComida4.Precio = "$ " + (ListaComida[7].Precio - 1).ToString() + ".99";
+            PanelComida1.CargarImagenes(ListaComida[4].Imagen);
+            PanelComida2.CargarImagenes(ListaComida[5].Imagen);
+            PanelComida3.CargarImagenes(ListaComida[6].Imagen);
+            PanelComida4.CargarImagenes(ListaComida[7].Imagen);
+            if (!ListaComida[4].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            if (!ListaComida[5].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            if (!ListaComida[6].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            if (!ListaComida[7].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+        }
+        private void ComidaPaginaTres()
+        {
+            comidaManager = 3;
+            PanelComida1.Titulo = ListaComida[8].NombrePack;
+            PanelComida2.Titulo = ListaComida[9].NombrePack;
+            PanelComida3.Titulo = ListaComida[10].NombrePack;
+            PanelComida4.Titulo = ListaComida[11].NombrePack;
+            PanelComida1.Id = ListaComida[8].Id;
+            PanelComida2.Id = ListaComida[9].Id;
+            PanelComida3.Id = ListaComida[10].Id;
+            PanelComida4.Id = ListaComida[11].Id;
+            PanelComida1.Comprado = ListaComida[8].Comprado;
+            PanelComida2.Comprado = ListaComida[9].Comprado;
+            PanelComida3.Comprado = ListaComida[10].Comprado;
+            PanelComida4.Comprado = ListaComida[11].Comprado;
+            PanelComida1.Precio = "$ " + (ListaComida[8].Precio - 1).ToString() + ".99";
+            PanelComida2.Precio = "$ " + (ListaComida[9].Precio - 1).ToString() + ".99";
+            PanelComida3.Precio = "$ " + (ListaComida[10].Precio - 1).ToString() + ".99";
+            PanelComida4.Precio = "$ " + (ListaComida[11].Precio - 1).ToString() + ".99";
+            PanelComida1.CargarImagenes(ListaComida[8].Imagen);
+            PanelComida2.CargarImagenes(ListaComida[9].Imagen);
+            PanelComida3.CargarImagenes(ListaComida[10].Imagen);
+            PanelComida4.CargarImagenes(ListaComida[11].Imagen);
+            if (!ListaComida[8].Comprado)
+                ShopPanel1.SoldOut();
+            else
+                ShopPanel1.OcultarSold();
+            if (!ListaComida[9].Comprado)
+                ShopPanel2.SoldOut();
+            else
+                ShopPanel2.OcultarSold();
+            if (!ListaComida[10].Comprado)
+                ShopPanel3.SoldOut();
+            else
+                ShopPanel3.OcultarSold();
+            if (!ListaComida[11].Comprado)
+                ShopPanel4.SoldOut();
+            else
+                ShopPanel4.OcultarSold();
+        }
         private void AlquilerPictureBox_Click(object sender, EventArgs e)
         {
             try
@@ -1718,7 +1900,7 @@ namespace Touge_App
 
         }
 
-        NegocioBaseDatos negocioHistorial = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioHistorial = new NegocioBaseDatos();
         List<Historial> listaHistorial;
         private void RopaPictureBox_Click(object sender, EventArgs e)
         {
@@ -1906,7 +2088,8 @@ namespace Touge_App
         }
 
         bool estadoFacturas;
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        bool estadoComida;
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             if (fechaAux.FechaManager.Month != CambioMes.Month)
             {
@@ -1923,7 +2106,9 @@ namespace Touge_App
                 VolverBoton.Visible = false;
                 BuscarRegistroBoton.Visible = false;
                 estadoFacturas = false;
+                estadoComida = false;
                 negocioAlquilerManager.ActualizarFactura(estadoFacturas);
+                negocioAlquilerManager.ActualizarComida(estadoComida);
                 PaginaUnoAlquiler();    
             }
         }
@@ -2061,12 +2246,12 @@ namespace Touge_App
             NegocioBaseDatos negocioPago = new NegocioBaseDatos();
             if (miDinero.MiDinero - negocioPago.PagoAlquiler(alquileres1.Id)>0)
             {
-                Alquileres verificar = new Alquileres();
                 miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres1.Id);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
-                MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
-                //VolverBoton.Visible = true;
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato; //Exito
                 Alquilando = true;
+                sonidos.Play();
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres1.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
@@ -2074,6 +2259,8 @@ namespace Touge_App
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 VolverBoton.Visible = true;
+                CloseButton.Visible = false;
+                sonidos.Dispose();
                 if (!estadoFacturas)
                 {
                     alquileres1.Visible = false;
@@ -2084,6 +2271,7 @@ namespace Touge_App
                     MostrarFacturas();
                     MessageBox.Show("Necesita abonar los servicios del mes!");
                 }
+
             }
             else
             {
@@ -2098,19 +2286,22 @@ namespace Touge_App
             NegocioBaseDatos negocioPago = new NegocioBaseDatos();
             if (miDinero.MiDinero - negocioPago.PagoAlquiler(alquileres2.Id) > 0)
             {
-                Alquileres verificar = new Alquileres();
                 miDinero.MiDinero -= negocioPago.PagoAlquiler(alquileres2.Id);
                 CasaAlquilada = alquileres2.Id;
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
-                MessageBox.Show("Haz Alquilado  Esta Casa! Tu Dinero es de: " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
                 VolverBoton.Visible = true;
+                CloseButton.Visible = false;
                 Alquilando = true;
+                sonidos.Play();
                 Alquilando = negocioPago.ActualizarAlquilando(Alquilando);
                 CasaAlquilada = alquileres2.Id;
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
+                sonidos.Dispose();
                 if (!estadoFacturas)
                 {
                     alquileres1.Visible = false;
@@ -2129,6 +2320,7 @@ namespace Touge_App
         }
 
         int eShopmanager = 0;
+        string plataFormato;
         private void ShopPanel1_ButtonClick(object sender, EventArgs e)
         {
             NegocioBaseDatos negocioPago = new NegocioBaseDatos();
@@ -2136,13 +2328,16 @@ namespace Touge_App
             {
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel1.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
-
+                sonidos.Play();
                 negocioPago.DeshabilitarArticulo(ShopPanel1.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                //MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel1.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2181,11 +2376,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel2.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel2.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                sonidos.Play();
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel2.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2223,11 +2421,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel3.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel3.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel3.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2265,11 +2466,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel4.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel4.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel4.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2307,11 +2511,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel5.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel5.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel5.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2349,11 +2556,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel6.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel6.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel6.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2390,11 +2600,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel7.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel7.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel7.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2432,11 +2645,14 @@ namespace Touge_App
                 miDinero.MiDinero -= negocioPago.PagoArticulos(ShopPanel8.Id, eShopmanager);
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 negocioPago.DeshabilitarArticulo(ShopPanel8.Id, eShopmanager);
-                MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                sonidos.Play();
+                DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
                 ShopPanel8.SoldOut();
+                sonidos.Dispose();
                 switch (eShopmanager)
                 {
                     case 1:
@@ -2467,8 +2683,7 @@ namespace Touge_App
                 MessageBox.Show("No tiene dinero para Comprar este producto.");
         }
 
-
-        NegocioBaseDatos negocioMuebles = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioMuebles = new NegocioBaseDatos();
         List<Mueble> listaMuebles;
         
 
@@ -2547,7 +2762,7 @@ namespace Touge_App
 
         }
 
-        NegocioBaseDatos negocioRopa = new NegocioBaseDatos();
+        readonly NegocioBaseDatos negocioRopa = new NegocioBaseDatos();
         List<Ropa> listaRopa;
         private void PaginaUnoRopa()
         {
@@ -2826,7 +3041,10 @@ namespace Touge_App
         }
 
         List<Electronicos> listaElectro = new List<Electronicos>();
-        NegocioBaseDatos negocioElectro = new NegocioBaseDatos();
+
+        public List<Modelo_Clases.Comida> ListaComida { get; private set; }
+
+        readonly NegocioBaseDatos negocioElectro = new NegocioBaseDatos();
         private void PaginaUnoElectros()
         {
             eShopmanager = 3;
@@ -2976,77 +3194,339 @@ namespace Touge_App
             DialogResult resultado = MessageBox.Show("¿Desea Pagar estos servicios?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult.Yes == resultado)
             {
-                NegocioBaseDatos negocioPagarfacturas = new NegocioBaseDatos();
-                if (Servicios1.Checked == true)
+                if (!estadoFacturas)
                 {
-                    if (miDinero.MiDinero-75>=0)
+                    NegocioBaseDatos negocioPagarfacturas = new NegocioBaseDatos();
+                    if (Servicios1.Checked == true)
                     {
-                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 75);
-                        estadoFacturas = true;
-                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
-                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
+                        if (miDinero.MiDinero - 75 >= 0)
+                        {
+                            sonidos.Play();
+                            negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 75);
+                            estadoFacturas = true;
+                            negocioPagarfacturas.ActualizarFactura(estadoFacturas);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            sonidos.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No tiene el suficiente dinero para abonar el servicio basico, GameOver");
+                        }
+                    }
+                    else if (Servicios2.Checked == true)
+                    {
+                        if (miDinero.MiDinero - 100 >= 0)
+                        {
+                            sonidos.Play();
+                            negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 100);
+                            estadoFacturas = true;
+                            negocioPagarfacturas.ActualizarFactura(estadoFacturas);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            sonidos.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        }
+                    }
+                    else if (Servicios3.Checked == true)
+                    {
+                        if (miDinero.MiDinero - 125 >= 0)
+                        {
+                            sonidos.Play();
+                            negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 125);
+                            estadoFacturas = true;
+                            negocioPagarfacturas.ActualizarFactura(estadoFacturas);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            sonidos.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        }
+                    }
+                    else if (Servicios4.Checked == true)
+                    {
+                        if (miDinero.MiDinero - 150 >= 0)
+                        {
+                            sonidos.Play();
+                            negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 150);
+                            estadoFacturas = true;
+                            negocioPagarfacturas.ActualizarFactura(estadoFacturas);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            sonidos.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("No tiene el suficiente dinero para abonar el servicio basico, GameOver");
-                    }
-                }
-                else if (Servicios2.Checked == true)
-                {
-                    if (miDinero.MiDinero - 100 >= 0)
-                    {
-                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 100);
-                        estadoFacturas = true;
-                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
-                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
-                    }
-                }
-                else if (Servicios3.Checked == true)
-                {
-                    if (miDinero.MiDinero - 125 >= 0)
-                    {
-                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 125);
-                        estadoFacturas = true;
-                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
-                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
-                    }
-                }
-                else if (Servicios4.Checked == true)
-                {
-                    if (miDinero.MiDinero - 150 >= 0)
-                    {
-                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 150);
-                        estadoFacturas = true;
-                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
-                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        if (miDinero.MiDinero - 180 >= 0)
+                        {
+                            sonidos.Play();
+                            negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 180);
+                            estadoFacturas = true;
+                            negocioPagarfacturas.ActualizarFactura(estadoFacturas);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            sonidos.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        }
                     }
                 }
                 else
+                    MessageBox.Show("Usted Ya abono los servicios este mes!");
+                
+            }
+            if (!estadoComida)
+            {
+                MessageBox.Show("Debe Realizar la compra Mensual!");
+                OcultarEconomia();
+                Servicios1.Visible = false;
+                Servicios2.Visible = false;
+                Servicios3.Visible = false;
+                Servicios4.Visible = false;
+                Servicios5.Visible = false;
+                AbonarFacturas.Visible = false;
+                PagoLabel.Visible = false;
+                ComidaPaginaUno();
+            }
+        }
+
+        int contadorPagComida = 0;
+        private void NextComida_Click(object sender, EventArgs e)
+        {
+            contadorPagComida++;
+            if (contadorPagComida==1)
+            {
+                ComidaPaginaDos();
+            }
+            else if (contadorPagComida == 2)
+            {
+                ComidaPaginaTres();
+            }
+            else if (contadorPagComida>2)
+            {
+                contadorPagComida = 2;
+            }
+        }
+
+        private void BackComida_Click(object sender, EventArgs e)
+        {
+            contadorPagComida--;
+            if (contadorPagComida == 1)
+            {
+                ComidaPaginaDos();
+            }
+            else if (contadorPagComida == 0)
+            {
+                ComidaPaginaUno();
+            }
+            else if (contadorPagComida < 0)
+            {
+                contadorPagComida = 0;
+            }
+        }
+
+        private void PanelComida1_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (!estadoComida)
+            {
+                if (miDinero.MiDinero - negocioPago.PagoArticulos(PanelComida1.Id, 4) > 0)
                 {
-                    if (miDinero.MiDinero - 180 >= 0)
+                    miDinero.MiDinero -= negocioPago.PagoArticulos(PanelComida1.Id, 4);
+                    negocioPago.ActualizarDinero(miDinero.MiDinero);
+                    negocioPago.ActualizarComida(estadoComida);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                    FormatearFecha(fechaAux);
+                    MessageBox.Show("" + Formato);
+                    VolverBoton.Visible = true;
+                    CloseButton.Visible = false;
+                    PanelComida1.SoldOut();
+                    estadoComida = true;
+                    switch (comidaManager)
                     {
-                        negocioPagarfacturas.ActualizarDinero(miDinero.MiDinero - 180);
-                        estadoFacturas = true;
-                        negocioPagarfacturas.ActualizarFactura(estadoFacturas);
-                        MessageBox.Show("Se realizo el pago correctamente! Recuerda que todos los meses debes abonar tus servicios");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                        case 1:
+                            ListaComida[0].Comprado = false;
+                            break;
+                        case 2:
+                            ListaComida[4].Comprado = false;
+                            break;
+                        case 3:
+                            ListaComida[8].Comprado = false;
+                            break;
+                        default:
+                            break;
                     }
                 }
+                else
+                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+            }
+            else
+                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+        }
+
+        private void PanelComida2_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (!estadoComida)
+            {
+                if (miDinero.MiDinero - negocioPago.PagoArticulos(PanelComida2.Id, 4) > 0)
+                {
+                    miDinero.MiDinero -= negocioPago.PagoArticulos(PanelComida2.Id, 4);
+                    negocioPago.ActualizarDinero(miDinero.MiDinero);
+                    estadoComida = true;
+                    negocioPago.ActualizarComida(estadoComida);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                    FormatearFecha(fechaAux);
+                    MessageBox.Show("" + Formato);
+                    VolverBoton.Visible = true;
+                    PanelComida2.SoldOut();
+                    switch (comidaManager)
+                    {
+                        case 1:
+                            ListaComida[1].Comprado = false;
+                            break;
+                        case 2:
+                            ListaComida[5].Comprado = false;
+                            break;
+                        case 3:
+                            ListaComida[9].Comprado = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+            }
+            else
+                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+        }
+
+        private void PanelComida3_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (!estadoComida)
+            {
+                if (miDinero.MiDinero - negocioPago.PagoArticulos(PanelComida3.Id, 4) > 0)
+                {
+                    miDinero.MiDinero -= negocioPago.PagoArticulos(PanelComida3.Id, 4);
+                    negocioPago.ActualizarDinero(miDinero.MiDinero);
+                    estadoComida = true;
+                    negocioPago.ActualizarComida(estadoComida);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato; ;
+                    fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                    FormatearFecha(fechaAux);
+                    MessageBox.Show("" + Formato);
+                    VolverBoton.Visible = true;
+                    PanelComida3.SoldOut();
+                    switch (comidaManager)
+                    {
+                        case 1:
+                            ListaComida[2].Comprado = false;
+                            break;
+                        case 2:
+                            ListaComida[6].Comprado = false;
+                            break;
+                        case 3:
+                            ListaComida[10].Comprado = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+            }
+            else
+                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+        }
+
+        private void PanelComida4_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioPago = new NegocioBaseDatos();
+            if (!estadoComida)
+            {
+                if (miDinero.MiDinero - negocioPago.PagoArticulos(PanelComida4.Id, 4) > 0)
+                {
+                    miDinero.MiDinero -= negocioPago.PagoArticulos(PanelComida4.Id, 4);
+                    negocioPago.ActualizarDinero(miDinero.MiDinero);
+                    estadoComida = true;
+                    negocioPago.ActualizarComida(estadoComida);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
+                    FormatearFecha(fechaAux);
+                    MessageBox.Show("" + Formato);
+                    VolverBoton.Visible = true;
+                    PanelComida4.SoldOut();
+                    switch (comidaManager)
+                    {
+                        case 1:
+                            ListaComida[3].Comprado = false;
+                            break;
+                        case 2:
+                            ListaComida[7].Comprado = false;
+                            break;
+                        case 3:
+                            ListaComida[11].Comprado = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+            }
+            else
+                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar..");
+
+        }
+
+        bool DineroVer = false;
+        Point originalLocation;
+        private void DineroPb_Click(object sender, EventArgs e)
+        {
+            if (!DineroVer)
+            {
+                if (!banderaSize)
+                {
+                    originalLocation = DineroPb.Location;
+                    DineroPb.Location = new Point(585, 675);
+                    DineroMostrarLabel.Visible = true;
+                    DineroVer = true;
+                }
+                else
+                {
+                    originalLocation = DineroPb.Location;
+                    DineroPb.Location = new Point(603, 720);
+                    DineroMostrarLabel.Location = new Point(640, 722);
+                    DineroMostrarLabel.Visible = true;
+                    DineroVer = true;
+                }
+                
+            }
+            else
+            {
+                DineroPb.Location = originalLocation;
+                DineroMostrarLabel.Visible = false;
+                DineroVer = false;
             }
         }
     }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Touge_App
 {
-    public partial class eShopPanels : UserControl
+    public partial class EShopPanels : UserControl
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -23,7 +23,7 @@ namespace Touge_App
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        public eShopPanels()
+        public EShopPanels()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 85, 85));
