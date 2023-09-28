@@ -57,6 +57,7 @@ namespace Touge_App
             this.HigienePictureBox.Location = new System.Drawing.Point(20, 92);
             this.HigienePictureBox.Name = "HigienePictureBox";
             this.HigienePictureBox.Size = new System.Drawing.Size(394, 338);
+            this.HigienePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.HigienePictureBox.TabIndex = 1;
             this.HigienePictureBox.TabStop = false;
             // 
@@ -81,11 +82,12 @@ namespace Touge_App
             this.ComprarBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.ComprarBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.ComprarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ComprarBoton.Location = new System.Drawing.Point(258, 438);
+            this.ComprarBoton.Location = new System.Drawing.Point(282, 438);
             this.ComprarBoton.Name = "ComprarBoton";
             this.ComprarBoton.Size = new System.Drawing.Size(113, 46);
             this.ComprarBoton.TabIndex = 3;
             this.ComprarBoton.UseVisualStyleBackColor = false;
+            this.ComprarBoton.Click += new System.EventHandler(this.BotonComprar_Click);
             // 
             // Sold
             // 
@@ -97,6 +99,7 @@ namespace Touge_App
             this.Sold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Sold.TabIndex = 4;
             this.Sold.TabStop = false;
+            this.Sold.Visible = false;
             // 
             // Higiene
             // 

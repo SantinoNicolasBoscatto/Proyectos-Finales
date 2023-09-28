@@ -996,7 +996,7 @@ namespace Negocio_Base_Datos
             }
         }
 
-        public int PagoArticulos(int Id, int Panel) //1 Ropa, 2 Muebles, 3 Electro
+        public int PagoArticulos(int Id, int Panel) //1 Ropa, 2 Muebles, 3 Electro, 4 Comida, 5 Higiene
         {
             FuncionesNegocio negocioMoney = new FuncionesNegocio();
             string inyectarQuery;
@@ -1010,6 +1010,12 @@ namespace Negocio_Base_Datos
                     break;
                 case 3:
                     inyectarQuery = "select Precio from Electronicos where NumeroDeRegistro = @MyId";
+                    break;
+                case 4:
+                    inyectarQuery = "select Precio from Comida where NumeroDeRegistro = @MyId";
+                    break;
+                case 5:
+                    inyectarQuery = "select Precio from Higiene where NumeroDeRegistro = @MyId";
                     break;
                 default:
                     inyectarQuery = "select Precio from Comida where NumeroDeRegistro = @MyId";
@@ -1149,15 +1155,80 @@ namespace Negocio_Base_Datos
             }
         }
 
-        public bool ActualizarComida(bool factura)
+        public bool ActualizarComida(bool estado)
         {
             FuncionesNegocio negocioDinero = new FuncionesNegocio();
             try
             {
-                negocioDinero.SQLQuery("UPDATE ComidaManager SET CompraMensual = @Factura");
-                negocioDinero.SetearParametros("@Factura", factura);
+                negocioDinero.SQLQuery("UPDATE ComidaManager SET CompraMensual = @estado");
+                negocioDinero.SetearParametros("@estado", estado);
                 negocioDinero.EjecutarAccion();
-                return factura;
+                return estado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Higiene> DevolverHigiene()
+        {
+            FuncionesNegocio negocioHigiene = new FuncionesNegocio();
+            List<Higiene> List = new List<Higiene>();
+            try
+            {
+                negocioHigiene.SQLQuery("select NumeroDeRegistro, NombrePackHigiene, ImagenHigiene, Precio, Comprado from Higiene");
+                negocioHigiene.LecturaBase();
+                while (negocioHigiene.Guardador.Read())
+                {
+                    Higiene auxH = new Higiene
+                    {
+                        Id = (int)negocioHigiene.Guardador["NumeroDeRegistro"],
+                        NombrePack = (string)negocioHigiene.Guardador["NombrePackHigiene"],
+                        Imagen = (string)negocioHigiene.Guardador["ImagenHigiene"],
+                        Precio = (int)negocioHigiene.Guardador["Precio"],
+                        Comprado = (bool)negocioHigiene.Guardador["Comprado"]
+                    };
+                    List.Add(auxH);
+                }
+                return List;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int LeerHigieneMes()
+        {
+            FuncionesNegocio negocioHigiene = new FuncionesNegocio();
+            int resultado=-1;
+            try
+            {
+                negocioHigiene.SQLQuery("select Estado from HigieneManager");
+                negocioHigiene.LecturaBase();
+                if (negocioHigiene.Guardador.Read())
+                {
+                     resultado = (int)negocioHigiene.Guardador["Estado"];
+                }
+                return resultado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int ActualizarHigieneManager(int numeroMes)
+        {
+            FuncionesNegocio negocioDinero = new FuncionesNegocio();
+            try
+            {
+                negocioDinero.SQLQuery("UPDATE HigieneManager SET Estado = @Estado");
+                negocioDinero.SetearParametros("@Estado", numeroMes);
+                negocioDinero.EjecutarAccion();
+                return numeroMes;
             }
             catch (Exception)
             {

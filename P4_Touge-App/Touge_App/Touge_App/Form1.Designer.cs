@@ -29,8 +29,8 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
@@ -196,6 +196,14 @@ namespace Touge_App
             this.AbonarFacturas = new System.Windows.Forms.Button();
             this.NextComida = new System.Windows.Forms.Button();
             this.BackComida = new System.Windows.Forms.Button();
+            this.DineroPb = new System.Windows.Forms.PictureBox();
+            this.DineroMostrarLabel = new System.Windows.Forms.Label();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.VolverBoton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Higiene3 = new Touge_App.Higiene();
+            this.Higiene2 = new Touge_App.Higiene();
+            this.Higiene1 = new Touge_App.Higiene();
             this.PanelComida4 = new Touge_App.Comida();
             this.PanelComida3 = new Touge_App.Comida();
             this.PanelComida2 = new Touge_App.Comida();
@@ -210,10 +218,6 @@ namespace Touge_App
             this.ShopPanel1 = new Touge_App.EShopPanels();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
-            this.DineroPb = new System.Windows.Forms.PictureBox();
-            this.DineroMostrarLabel = new System.Windows.Forms.Label();
-            this.CloseButton = new System.Windows.Forms.Button();
-            this.VolverBoton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -226,6 +230,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -2536,17 +2541,17 @@ namespace Touge_App
             this.historialDGV.GridColor = System.Drawing.SystemColors.HotTrack;
             this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2972,6 +2977,126 @@ namespace Touge_App
             this.BackComida.Visible = false;
             this.BackComida.Click += new System.EventHandler(this.BackComida_Click);
             // 
+            // DineroPb
+            // 
+            this.DineroPb.BackColor = System.Drawing.Color.Transparent;
+            this.DineroPb.Image = ((System.Drawing.Image)(resources.GetObject("DineroPb.Image")));
+            this.DineroPb.Location = new System.Drawing.Point(887, 831);
+            this.DineroPb.Name = "DineroPb";
+            this.DineroPb.Size = new System.Drawing.Size(41, 41);
+            this.DineroPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DineroPb.TabIndex = 299;
+            this.DineroPb.TabStop = false;
+            this.DineroPb.Click += new System.EventHandler(this.DineroPb_Click);
+            // 
+            // DineroMostrarLabel
+            // 
+            this.DineroMostrarLabel.AutoSize = true;
+            this.DineroMostrarLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DineroMostrarLabel.Font = new System.Drawing.Font("Segoe UI", 15.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DineroMostrarLabel.ForeColor = System.Drawing.Color.Green;
+            this.DineroMostrarLabel.Location = new System.Drawing.Point(843, 831);
+            this.DineroMostrarLabel.Name = "DineroMostrarLabel";
+            this.DineroMostrarLabel.Size = new System.Drawing.Size(166, 37);
+            this.DineroMostrarLabel.TabIndex = 300;
+            this.DineroMostrarLabel.Text = "$ 9.999.999";
+            this.DineroMostrarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DineroMostrarLabel.Visible = false;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Location = new System.Drawing.Point(1714, 825);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(64, 57);
+            this.CloseButton.TabIndex = 301;
+            this.CloseButton.UseVisualStyleBackColor = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseBoton_Click);
+            this.CloseButton.MouseEnter += new System.EventHandler(this.CloseBoton_MouseEnter);
+            this.CloseButton.MouseLeave += new System.EventHandler(this.CloseBoton_MouseLeave);
+            // 
+            // VolverBoton
+            // 
+            this.VolverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolverBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.VolverBoton.BackColor = System.Drawing.Color.Transparent;
+            this.VolverBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverBoton.BackgroundImage")));
+            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.VolverBoton.FlatAppearance.BorderSize = 0;
+            this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VolverBoton.Location = new System.Drawing.Point(1714, 825);
+            this.VolverBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.VolverBoton.Name = "VolverBoton";
+            this.VolverBoton.Size = new System.Drawing.Size(64, 57);
+            this.VolverBoton.TabIndex = 302;
+            this.VolverBoton.UseVisualStyleBackColor = false;
+            this.VolverBoton.Visible = false;
+            this.VolverBoton.Click += new System.EventHandler(this.VolverBoton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1812, 821);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 307;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Higiene3
+            // 
+            this.Higiene3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Higiene3.Comprado = false;
+            this.Higiene3.Id = 0;
+            this.Higiene3.Location = new System.Drawing.Point(1270, 212);
+            this.Higiene3.Name = "Higiene3";
+            this.Higiene3.NombreProducto = "2 Champu, 2 Cremas de enjuague, 2 Pastas de Dientes, Un Cepillo, Crema de Afeitar" +
+    " y Afeitadora.";
+            this.Higiene3.Precio = "$ 999.999";
+            this.Higiene3.Size = new System.Drawing.Size(434, 490);
+            this.Higiene3.TabIndex = 306;
+            this.Higiene3.Visible = false;
+            // 
+            // Higiene2
+            // 
+            this.Higiene2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Higiene2.Comprado = false;
+            this.Higiene2.Id = 0;
+            this.Higiene2.Location = new System.Drawing.Point(694, 212);
+            this.Higiene2.Name = "Higiene2";
+            this.Higiene2.NombreProducto = "2 Champu, 2 Cremas de enjuague, 2 Pastas de Dientes, Un Cepillo, Crema de Afeitar" +
+    " y Afeitadora.";
+            this.Higiene2.Precio = "$ 999.999";
+            this.Higiene2.Size = new System.Drawing.Size(434, 490);
+            this.Higiene2.TabIndex = 305;
+            this.Higiene2.Visible = false;
+            // 
+            // Higiene1
+            // 
+            this.Higiene1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Higiene1.Comprado = false;
+            this.Higiene1.Id = 0;
+            this.Higiene1.Location = new System.Drawing.Point(118, 212);
+            this.Higiene1.Name = "Higiene1";
+            this.Higiene1.NombreProducto = "2 Champu, 2 Cremas de enjuague, 2 Pastas de Dientes, Un Cepillo, Crema de Afeitar" +
+    " y Afeitadora.";
+            this.Higiene1.Precio = "$ 999.999";
+            this.Higiene1.Size = new System.Drawing.Size(434, 490);
+            this.Higiene1.TabIndex = 304;
+            this.Higiene1.Visible = false;
+            // 
             // PanelComida4
             // 
             this.PanelComida4.BackColor = System.Drawing.Color.Coral;
@@ -3139,13 +3264,15 @@ namespace Touge_App
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
+    " ● ● ● ● ";
             this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
             this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
+            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$" +
+    "$";
             this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
@@ -3155,87 +3282,30 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
+    " ● ● ● ● ";
             this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$" +
+    "$";
             this.alquileres1.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
             // 
-            // DineroPb
-            // 
-            this.DineroPb.BackColor = System.Drawing.Color.Transparent;
-            this.DineroPb.Image = ((System.Drawing.Image)(resources.GetObject("DineroPb.Image")));
-            this.DineroPb.Location = new System.Drawing.Point(887, 831);
-            this.DineroPb.Name = "DineroPb";
-            this.DineroPb.Size = new System.Drawing.Size(41, 41);
-            this.DineroPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.DineroPb.TabIndex = 299;
-            this.DineroPb.TabStop = false;
-            this.DineroPb.Click += new System.EventHandler(this.DineroPb_Click);
-            // 
-            // DineroMostrarLabel
-            // 
-            this.DineroMostrarLabel.AutoSize = true;
-            this.DineroMostrarLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DineroMostrarLabel.Font = new System.Drawing.Font("Segoe UI", 15.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DineroMostrarLabel.ForeColor = System.Drawing.Color.Green;
-            this.DineroMostrarLabel.Location = new System.Drawing.Point(843, 831);
-            this.DineroMostrarLabel.Name = "DineroMostrarLabel";
-            this.DineroMostrarLabel.Size = new System.Drawing.Size(166, 37);
-            this.DineroMostrarLabel.TabIndex = 300;
-            this.DineroMostrarLabel.Text = "$ 9.999.999";
-            this.DineroMostrarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DineroMostrarLabel.Visible = false;
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
-            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(1714, 825);
-            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(64, 57);
-            this.CloseButton.TabIndex = 301;
-            this.CloseButton.UseVisualStyleBackColor = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseBoton_Click);
-            this.CloseButton.MouseEnter += new System.EventHandler(this.CloseBoton_MouseEnter);
-            this.CloseButton.MouseLeave += new System.EventHandler(this.CloseBoton_MouseLeave);
-            // 
-            // VolverBoton
-            // 
-            this.VolverBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolverBoton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.VolverBoton.BackColor = System.Drawing.Color.Transparent;
-            this.VolverBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("VolverBoton.BackgroundImage")));
-            this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.VolverBoton.FlatAppearance.BorderSize = 0;
-            this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolverBoton.Location = new System.Drawing.Point(1714, 825);
-            this.VolverBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.VolverBoton.Name = "VolverBoton";
-            this.VolverBoton.Size = new System.Drawing.Size(64, 57);
-            this.VolverBoton.TabIndex = 302;
-            this.VolverBoton.UseVisualStyleBackColor = false;
-            this.VolverBoton.Visible = false;
-            this.VolverBoton.Click += new System.EventHandler(this.VolverBoton_Click);
-            // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Higiene3);
+            this.Controls.Add(this.Higiene2);
+            this.Controls.Add(this.Higiene1);
             this.Controls.Add(this.VolverBoton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.DineroMostrarLabel);
@@ -3437,6 +3507,7 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3626,6 +3697,10 @@ namespace Touge_App
         private System.Windows.Forms.PictureBox DineroPb;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button VolverBoton;
+        private Higiene Higiene3;
+        private Higiene Higiene2;
+        private Higiene Higiene1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

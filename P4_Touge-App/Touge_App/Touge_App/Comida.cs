@@ -27,6 +27,7 @@ namespace Touge_App
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+            Sold.Parent = pictureBox1;
         }
 
         public int Id { get; set; }
@@ -62,6 +63,8 @@ namespace Touge_App
         {
             Sold.Visible = true;
             Sold.Location = new Point(0, 0);
+            Sold.Size = pictureBox1.Size;
+            Sold.BackColor = Color.FromArgb(128, 60, 60, 60);
             BuyButton.Visible = false;
             PrecioLabel.Text = "Sin Stock";
             PrecioLabel.ForeColor = Color.IndianRed;

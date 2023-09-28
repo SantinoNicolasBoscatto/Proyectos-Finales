@@ -281,6 +281,12 @@
     <Compile Include="HistorialForms.Designer.cs">
       <DependentUpon>HistorialForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mecanico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mecanico.Designer.cs">
+      <DependentUpon>Mecanico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alquileres.resx">
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialForms.resx">
       <DependentUpon>HistorialForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mecanico.resx">
+      <DependentUpon>Mecanico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

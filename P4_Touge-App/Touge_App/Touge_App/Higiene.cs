@@ -41,6 +41,7 @@ namespace Touge_App
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
             Sold.BackColor = Color.FromArgb(128, 60, 60, 60);
             Sold.Parent = HigienePictureBox;
+            Sold.Location = new Point(0, 0);
         }
         public string Precio
         {
@@ -57,7 +58,7 @@ namespace Touge_App
         public void SoldOut()
         {
             Sold.Visible = true;
-            Sold.Location = new Point(0, 0);
+            
             ComprarBoton.Visible = false;
             PrecioLabel.Text = "Sin Stock";
             PrecioLabel.ForeColor = Color.IndianRed;
@@ -68,6 +69,16 @@ namespace Touge_App
             Sold.Visible = false;
             ComprarBoton.Visible = true;
             PrecioLabel.ForeColor = Color.LimeGreen;
+        }
+        DialogResult Dialogo;
+        public event EventHandler ButtonClick;
+        private void BotonComprar_Click(object sender, EventArgs e)
+        {
+            Dialogo = MessageBox.Show("¿Desea Comprar Este Articulo?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Dialogo == DialogResult.Yes)
+            {
+                ButtonClick?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
