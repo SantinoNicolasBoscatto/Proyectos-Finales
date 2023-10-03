@@ -15,6 +15,9 @@ namespace Touge_App
     {
         private readonly WaveOutEvent waveOutDevice = new WaveOutEvent();
         readonly private SoundPlayer compraSonido = new SoundPlayer("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/Musica/Mp3Sounds/Buying.wav");
+        readonly private SoundPlayer aceiteSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\AceiteSonido.wav");
+        readonly private SoundPlayer mantenimientoMotorSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\MotorMantenimiento.wav");
+        readonly private SoundPlayer TurboSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\Sutututu.wav");
         private AudioFileReader audioFile;
         readonly NegocioBaseDatos negocioBD = new NegocioBaseDatos();
         List<Musica> listaCanciones;
@@ -34,8 +37,16 @@ namespace Touge_App
         public List<Modelo_Clases.Comida> ListaComida { get; private set; }
         public List<Modelo_Clases.Higiene> ListaHigiene { get; private set; }
         int higieneManager;
+        readonly int aceite = 85;
+        readonly int manMotor = 125;
+        readonly int manAuto = 75;
+        readonly int makeAWD = 2500;
+        readonly int turbo = 5000;
+        readonly int repro = 750;
+        readonly int swapEngine = 0;
+        readonly int reduccionWeight = 235;
         string Player = "Santino Boscatto";
-
+        Autos MiAuto;
         public TougeForms()
         {
             InitializeComponent();
@@ -136,6 +147,11 @@ namespace Touge_App
             PanelComida2.ButtonClick += PanelComida2_ButtonClick;
             PanelComida3.ButtonClick += PanelComida3_ButtonClick;
             PanelComida4.ButtonClick += PanelComida4_ButtonClick;
+            mecanico1.ButtonClick += Mecanico1_ButtonClick;
+            mecanico2.ButtonClick += Mecanico2_ButtonClick;
+            mecanico3.ButtonClick += Mecanico3_ButtonClick;
+            mecanico4.ButtonClick += Mecanico4_ButtonClick;
+            timer1.Tick += timer1_Tick;
             Higiene1.ButtonClick += Higiene1_ButtonClick;
             Higiene2.ButtonClick += Higiene2_ButtonClick;
             Higiene3.ButtonClick += Higiene3_ButtonClick;
@@ -147,6 +163,22 @@ namespace Touge_App
             higieneManager = negocioHigiene.LeerHigieneMes();
             plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
             DineroMostrarLabel.Text = plataFormato;
+            timer1.Enabled = false;
+            NegocioBaseDatos negocioMiAuto = new NegocioBaseDatos();
+            estadoAceite = negocioMiAuto.DevolverEstadosAuto(1);
+            estadoMotor = negocioMiAuto.DevolverEstadosAuto(2);
+            estadoAuto = negocioMiAuto.DevolverEstadosAuto(3);
+            estadoRepro = negocioMiAuto.DevolverEstadosAuto(4);
+            estadoTurbo = negocioMiAuto.DevolverEstadosAuto(5);
+            estadoAWD = negocioMiAuto.DevolverEstadosAuto(6);  
+            List<int> auxLista;
+            auxLista = negocioMiAuto.devolverEstadoComponentes();
+            aceiteManager = auxLista[0];
+            motorManager = auxLista[1];
+            autoManager = auxLista[2];
+            gomasManager = auxLista[3];
+            timerCursor.Tick += timer2_Tick;
+            MiAuto = negocioMiAuto.DevolverMiAuto();
             if (!Alquilando)
             {
                 Ocultar();
@@ -182,8 +214,6 @@ namespace Touge_App
                 VolverBoton.Visible = false;
             }
         }
-
-        
 
         private void FormatearFecha(Fecha aux)
         {
@@ -650,6 +680,8 @@ namespace Touge_App
             NextComida.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 65, 65, 65);
             NextComida.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
             DineroMostrarLabel.BackColor = Color.FromArgb(135, 30, 30, 30);
+            BackMecanico.Parent = PictureBoxBack;
+            NextMecanico.Parent = PictureBoxBack;
         }
 
         //Dispara la Primera pista de Musica
@@ -1098,6 +1130,17 @@ namespace Touge_App
                 EconomiaMostrar = false;
             }
 
+            else if (mecanico1.Visible == true)
+            {
+                mecanico1.Visible = false;
+                mecanico2.Visible = false;
+                mecanico3.Visible = false;
+                mecanico4.Visible = false;
+                BackMecanico.Visible = false;
+                NextMecanico.Visible = false;
+                EconomiaMostrar = false;
+                banderaPaginaMecanico = false;
+            }
 
             if (banderaVolverReglas && banderaEconomiaParaMostrar)
             {
@@ -1375,7 +1418,8 @@ namespace Touge_App
             NmLabel.Text = listaAutos[indexAutos].Torque.ToString() + "  Nm";
             HpLabel.Text = listaAutos[indexAutos].HP.ToString() + "  Hp";
             KgLabel.Text = listaAutos[indexAutos].Peso.ToString() + "  Kg";
-            KgHp.Text = listaAutos[indexAutos].RelacionPesoPotencia.ToString() + "  Kg/Hp";
+            string formato = "0.00";
+            KgHp.Text = listaAutos[indexAutos].RelacionPesoPotencia.ToString(formato) + "  Kg/Hp";
             TopLabel.Text = listaAutos[indexAutos].TopSpeed.ToString() + "  Km/H";
             KmLabel.Text = listaAutos[indexAutos].Kilometraje.ToString() + "  Km";
             CatLabel.Text = listaAutos[indexAutos].Categoria;
@@ -1747,12 +1791,6 @@ namespace Touge_App
         private void ComidaPaginaUno()
         {
             comidaManager = 1;
-            PanelComida1.Visible = true;
-            PanelComida2.Visible = true;
-            PanelComida3.Visible = true;
-            PanelComida4.Visible = true;
-            BackComida.Visible = true;
-            NextComida.Visible = true;
             PanelComida1.Titulo = ListaComida[0].NombrePack;
             PanelComida2.Titulo = ListaComida[1].NombrePack;
             PanelComida3.Titulo = ListaComida[2].NombrePack;
@@ -1788,7 +1826,13 @@ namespace Touge_App
             if (!ListaComida[3].Comprado)
                 PanelComida4.SoldOut();
             else
-                PanelComida4.OcultarSold();            
+                PanelComida4.OcultarSold();
+            PanelComida1.Visible = true;
+            PanelComida2.Visible = true;
+            PanelComida3.Visible = true;
+            PanelComida4.Visible = true;
+            BackComida.Visible = true;
+            NextComida.Visible = true;
         }
         private void ComidaPaginaDos()
         {
@@ -1911,7 +1955,49 @@ namespace Touge_App
 
         private void MecanicoPictureBox_Click(object sender, EventArgs e)
         {
+            MostrarMecanicoPaginaUno();
+        }
 
+        private void MostrarMecanicoPaginaUno()
+        {
+            OcultarEconomia();
+            mecanico1.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Cambio-Aceite.jpg");
+            mecanico2.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Mantenimiento Auto.jpg");
+            mecanico3.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Motor.jpg");
+            mecanico4.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\ReduccionDePeso.jpg");
+            mecanico1.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Aceite-Boton.png");
+            mecanico2.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Car-Service-Boton.png");
+            mecanico3.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Motor.png");
+            mecanico4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Peso.png");
+            mecanico1.Precio = string.Format("$ {0:N0}", aceite);
+            mecanico2.Precio = string.Format("$ {0:N0}", manAuto);
+            mecanico3.Precio = string.Format("$ {0:N0}", manMotor);
+            mecanico4.Precio = string.Format("$ {0:N0}", reduccionWeight);
+            if (mecanico1.Visible==false)
+            {
+                mecanico1.Visible = true;
+                mecanico2.Visible = true;
+                mecanico3.Visible = true;
+                mecanico4.Visible = true;
+                BackMecanico.Visible = true;
+                NextMecanico.Visible = true;
+            }
+        }
+
+        private void MostrarMecanicoSegundaPagina()
+        {
+            mecanico1.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Repro.jpg");
+            mecanico2.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\ColocarTurbo.jpg");
+            mecanico3.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\MakeAWD.jpg");
+            mecanico4.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\EngineSwap.jpg");
+            mecanico1.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Repro.png");
+            mecanico2.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Turbo.Png");
+            mecanico3.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\AWD.png");
+            mecanico4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Swap.png");
+            mecanico1.Precio = string.Format("$ {0:N0}", repro);
+            mecanico2.Precio = string.Format("$ {0:N0}", turbo);
+            mecanico3.Precio = string.Format("$ {0:N0}", makeAWD);
+            mecanico4.Precio = string.Format("$ {0:N0}", swapEngine);
         }
 
         private void AhorrosPictureBox_Click(object sender, EventArgs e)
@@ -1940,9 +2026,9 @@ namespace Touge_App
             try
             {
                 if (listaRopa.Count >= 8)
-                {
-                    MostrarShopPanels(Color.Khaki, Color.FromArgb(255, 54, 54, 54));
+                {   
                     PaginaUnoRopa();
+                    MostrarShopPanels(Color.Khaki, Color.FromArgb(255, 54, 54, 54));
                 }
                 else
                 {
@@ -1997,9 +2083,9 @@ namespace Touge_App
         private void MueblesPictureBox_Click(object sender, EventArgs e)
         {
             if (listaMuebles.Count >= 8)
-            {
-                MostrarShopPanels(Color.FromArgb(240, 160, 82, 45), Color.GhostWhite);
+            {               
                 PaginaUnoMuebles();
+                MostrarShopPanels(Color.FromArgb(240, 160, 82, 45), Color.GhostWhite);
             }
             else
             {
@@ -2015,9 +2101,9 @@ namespace Touge_App
         private void ElectroPictureBox_Click(object sender, EventArgs e)
         {
             if (listaElectro.Count >= 8)
-            {
-                MostrarShopPanels(Color.FromArgb(255, 40, 89, 255), Color.GhostWhite);
+            {          
                 PaginaUnoElectros();
+                MostrarShopPanels(Color.FromArgb(255, 40, 89, 255), Color.GhostWhite);
             }
             else
             {
@@ -2065,11 +2151,16 @@ namespace Touge_App
             CampoCombo.Items.Add("Promocion");
         }
 
+        int aceiteManager;
+        int motorManager;
+        int autoManager;
+        int gomasManager;
+        private HistorialForms registroVentana;
         private void AgregarRegistroBoton_Click(object sender, EventArgs e)
         {
+            registroVentana = new HistorialForms(Player);
             int filas = historialDGV.Rows.Count;
-            HistorialForms registroVenatana = new HistorialForms(Player);
-            registroVenatana.ShowDialog();
+            registroVentana.ShowDialog();
             listaHistorial = negocioHistorial.DevolverHistorial();
             historialDGV.DataSource = listaHistorial;
             if (historialDGV.Rows.Count>filas)
@@ -2078,6 +2169,36 @@ namespace Touge_App
                 fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
                 FormatearFecha(fechaAux);
                 MessageBox.Show("" + Formato);
+                NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
+                if (registroVentana.playerBool)
+                {
+                    aceiteManager++;
+                    motorManager++;
+                    autoManager++;
+                    gomasManager++;            
+                    negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager,autoManager,gomasManager);
+                    registroVentana.playerBool = false;
+                }
+                
+                if (aceiteManager>=5)
+                {
+                    negocioUpdateComponentes.UpEstadoAuto(1);
+                    MessageBox.Show("Cambie Aceite");
+                }
+                if (motorManager>=4)
+                {
+                    negocioUpdateComponentes.UpEstadoAuto(2);
+                    MessageBox.Show("Cambie Motor");
+                }
+                if (autoManager >= 3)
+                {
+                    negocioUpdateComponentes.UpEstadoAuto(3);
+                    MessageBox.Show("Cambie Auto");
+                }
+                if (gomasManager >= 3)
+                {
+                    MessageBox.Show("Cambie gomas");
+                }            
             }
         }
 
@@ -2214,11 +2335,7 @@ namespace Touge_App
 
         private void PaginaUnoAlquiler()
         {
-            alquileres1.Visible = true;
-            alquileres2.Visible = true;
-            VolverAlquiler.Visible = true;
-            SiguienteAlquiler.Visible = true;
-            banderaEconomiaParaMostrar = false;
+            
             alquileres1.TituloDepa = listaAlquiler[0].NombreAlquiler;
             alquileres1.CargarImagenes(listaAlquiler[0].ImagenAlquiler);
             alquileres1.Pieza = "● " + listaAlquiler[0].CantidadDormitorios.ToString();
@@ -2235,6 +2352,11 @@ namespace Touge_App
             alquileres2.Sala = "● "+listaAlquiler[1].CantidadSalasEstar.ToString();
             alquileres2.Precio = "$ " +  listaAlquiler[1].PrecioDepartamento.ToString();
             alquileres2.Id = listaAlquiler[1].NumeroRegistro;
+            alquileres1.Visible = true;
+            alquileres2.Visible = true;
+            VolverAlquiler.Visible = true;
+            SiguienteAlquiler.Visible = true;
+            banderaEconomiaParaMostrar = false;
         }
         private void PaginaDosAlquiler()
         {
@@ -3673,9 +3795,6 @@ namespace Touge_App
 
         private void HigienePagina()
         {
-            Higiene1.Visible = true;
-            Higiene2.Visible = true;
-            Higiene3.Visible = true;
             Higiene1.NombreProducto = ListaHigiene[0].NombrePack;
             Higiene2.NombreProducto = ListaHigiene[1].NombrePack;
             Higiene3.NombreProducto = ListaHigiene[2].NombrePack;
@@ -3703,6 +3822,9 @@ namespace Touge_App
                 Higiene3.SoldOut();
             else
                 Higiene3.OcultarSold();
+            Higiene1.Visible = true;
+            Higiene2.Visible = true;
+            Higiene3.Visible = true;
         }
 
         private void Higiene1_ButtonClick(object sender, EventArgs e)
@@ -3766,6 +3888,305 @@ namespace Touge_App
                     Higiene3.SoldOut();
                 }
             }
+        }
+
+        bool banderaPaginaMecanico = false;
+        private void BackMecanico_Click(object sender, EventArgs e)
+        {
+            if (banderaPaginaMecanico)
+            {
+                MostrarMecanicoPaginaUno();
+                banderaPaginaMecanico = false;
+            }
+        }
+        private void NextMecanico_Click(object sender, EventArgs e)
+        {
+            if (!banderaPaginaMecanico)
+            {
+                MostrarMecanicoSegundaPagina();
+                banderaPaginaMecanico = true;
+            }
+        }
+
+        bool estadoAceite;
+        bool estadoMotor;
+        bool estadoAuto;
+        bool estadoRepro;
+        bool estadoTurbo;
+        bool estadoAWD;
+        private void Mecanico1_ButtonClick(object sender, EventArgs e)
+        {
+            if (!banderaPaginaMecanico)
+            {
+                if (miDinero.MiDinero - aceite > 0)
+                {
+                    compraSonido.Play();             
+                    estadoAceite = true;   
+                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                    negocioMecanico.UpEstadoAuto(7);
+                    miDinero.MiDinero -= aceite;
+                    SonidosMecanico(1);
+                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    compraSonido.Dispose();
+                    aceiteManager = 0;
+                    negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager);
+                    //MessageBox.Show("" + MiAuto.HP);
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para Hacer el cambio de Aceite");
+                }
+            }
+            else
+            {
+                if (miDinero.MiDinero - repro > 0)
+                {
+
+                        if (!estadoRepro)
+                        {
+                            estadoRepro = true;
+                            compraSonido.Play();
+                            NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                            negocioMecanico.UpEstadoAuto(4);
+                            miDinero.MiDinero -= repro;
+                            negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                            negocioMecanico.UpPesoPotencia();
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            MiAuto = negocioMecanico.DevolverMiAuto();
+                            compraSonido.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tu Vehiculo ya tiene una Repro!");
+                        }
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para Hacerle Una Repro al auto");
+                }
+            }
+            if (estadoAceite && estadoMotor && estadoAuto)
+            {
+                NegocioBaseDatos negociobase = new NegocioBaseDatos();
+                negociobase.UpEstadoAuto(10);
+            }
+        }
+
+        private void SonidosMecanico(int numero)
+        {
+            Cursor.Hide();
+            sonido = numero;
+            timer1.Enabled = true;
+            timer1.Interval = 700;
+        }
+
+        private void Mecanico2_ButtonClick(object sender, EventArgs e)
+        {
+            if (!banderaPaginaMecanico)
+            {
+                if (miDinero.MiDinero - manAuto > 0)
+                {
+                    estadoAuto = true;
+                    compraSonido.Play();
+                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                    miDinero.MiDinero -= manAuto;
+                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                    negocioMecanico.UpEstadoAuto(9);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    compraSonido.Dispose();
+                    autoManager = 0;
+                    negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager);
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para Hacer Mantenimiento del Auto");
+                }
+            }
+            else
+            {
+                    if (miDinero.MiDinero - turbo > 0)
+                    {
+                        if (!estadoTurbo && MiAuto.Aspiracion != "T")
+                        {
+                            estadoTurbo = true;
+                            compraSonido.Play();
+                            NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                            negocioMecanico.UpEstadoAuto(5);
+                            negocioMecanico.UpdateMiAuto("T", 1);
+                            SonidosMecanico(3);
+                            MiAuto = negocioMecanico.DevolverMiAuto();
+                            negocioMecanico.UpPesoPotencia();
+                            miDinero.MiDinero -= turbo;
+                            negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                            plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                            DineroMostrarLabel.Text = plataFormato;
+                            compraSonido.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Tu Vehiculo ya tiene un Turbo!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene el suficiente dinero Para Colocarle un turbo al Auto");
+                    }
+            }
+            if (estadoAceite && estadoMotor && estadoAuto)
+            {
+                NegocioBaseDatos negociobase = new NegocioBaseDatos();
+                negociobase.UpEstadoAuto(10);
+            }
+        }
+
+        private void Mecanico3_ButtonClick(object sender, EventArgs e)
+        {
+            if (!banderaPaginaMecanico)
+            {
+                if (miDinero.MiDinero - manMotor > 0)
+                {
+                    estadoMotor = true;
+                    compraSonido.Play();
+                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                    miDinero.MiDinero -= manMotor;
+                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                    negocioMecanico.UpEstadoAuto(8);
+                    SonidosMecanico(2);
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+                    MiAuto = negocioMecanico.DevolverMiAuto();
+                    compraSonido.Dispose();
+                    motorManager = 0;
+                    negocioMecanico.UpdatearComponentes(aceiteManager,motorManager,autoManager,gomasManager);
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para Hacer Mantenimiento del Motor");
+                }
+            }
+            else
+            {
+                if (miDinero.MiDinero - makeAWD > 0)
+                {
+                    if (!estadoAWD && MiAuto.Traccion!="AWD")
+                    {
+                       estadoAWD = true;
+                       compraSonido.Play();
+                       NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                       negocioMecanico.UpEstadoAuto(6);
+                       negocioMecanico.UpdateMiAuto("AWD",2);
+                       miDinero.MiDinero -= makeAWD;
+                       negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                       plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                       DineroMostrarLabel.Text = plataFormato;
+                        MiAuto = negocioMecanico.DevolverMiAuto();
+                        compraSonido.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tu Vehiculo ya Es AWD!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para realizarle la modficicacion AWD al auto");
+                }
+            }
+            if (estadoAceite && estadoMotor && estadoAuto)
+            {
+                NegocioBaseDatos negociobase = new NegocioBaseDatos();
+                negociobase.UpEstadoAuto(10);
+            }
+        }
+
+        
+        private void Mecanico4_ButtonClick(object sender, EventArgs e)
+        {
+            if (!banderaPaginaMecanico)
+            {
+                if (miDinero.MiDinero - reduccionWeight > 0)
+                {
+                    compraSonido.Play();
+                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                    miDinero.MiDinero -= reduccionWeight;
+                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                    negocioMecanico.UpEstadoAuto(11, MiAuto.Peso);
+                    negocioMecanico.UpPesoPotencia();
+                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                    DineroMostrarLabel.Text = plataFormato;
+
+                    compraSonido.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("No tiene el suficiente dinero Para Hacer una Reduccion de Peso");
+                }
+            }
+            else
+            {
+
+            }
+            if (estadoAceite && estadoMotor && estadoAuto)
+            {
+                NegocioBaseDatos negociobase = new NegocioBaseDatos();
+                negociobase.UpEstadoAuto(10);
+            }
+        }
+
+        Timer timer1 = new Timer();
+        int sonido=0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timerCursor.Enabled = true;
+            switch (sonido)
+            {
+                case 1:
+                    timerCursor.Interval = 8500;
+                    aceiteSonido.Play();
+                    aceiteSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
+                case 2:
+                    timerCursor.Interval = 6300;
+                    mantenimientoMotorSonido.Play();
+                    mantenimientoMotorSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
+                case 3:
+                    timerCursor.Interval = 2800;
+                    TurboSonido.Play();
+                    TurboSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
+            }
+            
+        }
+        Timer timerCursor = new Timer();
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Cursor.Show();
+            timerCursor.Enabled = false;
+            timerCursor.Stop();
+            switch (sonido)
+            {
+                case 1:
+                    MessageBox.Show("Aceite Cambiado con exito!");
+                    break;
+                case 2:
+                    MessageBox.Show("Mantenimiento del Motor Realizado!");
+                    break;
+                case 3:
+                    MessageBox.Show("Se Le agrego un Turbo a tu auto!");
+                    break;
+            }
+            
         }
     }
 

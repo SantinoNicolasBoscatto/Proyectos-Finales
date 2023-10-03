@@ -15,6 +15,7 @@ namespace Touge_App
     public partial class HistorialForms : Form
     {
         string Player;
+        public bool playerBool { get; set; }
         public HistorialForms(string jugador)
         {
             InitializeComponent();
@@ -136,6 +137,7 @@ namespace Touge_App
                 if (aux.Ganador == Player)
                 {
                     int dineroGanador;
+                    playerBool = true;
                     switch (aux.Clase)
                     {
                         case "F":
@@ -174,6 +176,7 @@ namespace Touge_App
                 else if (aux.Perdedor == Player)
                 {
                     int dineroPerdedor;
+                    playerBool = true;
                     switch (aux.Clase)
                     {
                         case "F":

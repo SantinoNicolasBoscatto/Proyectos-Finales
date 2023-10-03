@@ -15,6 +15,7 @@ namespace Modelo_Clases
         public int HP { get; set; }
         public int Torque { get; set; }
         public int Peso { get; set; }
+        public int Tanque { get; set; }
         public double RelacionPesoPotencia { get; set; }
         public double TopSpeed { get; set; }
         public string ImagenAuto { get; set; }
@@ -24,6 +25,7 @@ namespace Modelo_Clases
         public string ImagenAutoCinco { get; set; }
         public string Categoria { get; set; }
         public string Traccion { get; set; }
+        public string Aspiracion { get; set; }
         public double Kilometraje { get; set; }
         public string Piloto { get; set; }
 

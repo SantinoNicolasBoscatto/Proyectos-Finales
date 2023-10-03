@@ -200,7 +200,12 @@ namespace Touge_App
             this.DineroMostrarLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.VolverBoton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NextMecanico = new System.Windows.Forms.Button();
+            this.BackMecanico = new System.Windows.Forms.Button();
+            this.mecanico4 = new Touge_App.Mecanico();
+            this.mecanico3 = new Touge_App.Mecanico();
+            this.mecanico2 = new Touge_App.Mecanico();
+            this.mecanico1 = new Touge_App.Mecanico();
             this.Higiene3 = new Touge_App.Higiene();
             this.Higiene2 = new Touge_App.Higiene();
             this.Higiene1 = new Touge_App.Higiene();
@@ -230,7 +235,6 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -3040,20 +3044,93 @@ namespace Touge_App
             this.VolverBoton.Visible = false;
             this.VolverBoton.Click += new System.EventHandler(this.VolverBoton_Click);
             // 
-            // pictureBox1
+            // NextMecanico
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1812, 821);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 307;
-            this.pictureBox1.TabStop = false;
+            this.NextMecanico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextMecanico.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextMecanico.BackColor = System.Drawing.Color.Transparent;
+            this.NextMecanico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextMecanico.BackgroundImage")));
+            this.NextMecanico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextMecanico.FlatAppearance.BorderSize = 0;
+            this.NextMecanico.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.NextMecanico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.NextMecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextMecanico.Location = new System.Drawing.Point(817, 425);
+            this.NextMecanico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NextMecanico.Name = "NextMecanico";
+            this.NextMecanico.Size = new System.Drawing.Size(177, 57);
+            this.NextMecanico.TabIndex = 312;
+            this.NextMecanico.UseVisualStyleBackColor = false;
+            this.NextMecanico.Visible = false;
+            this.NextMecanico.Click += new System.EventHandler(this.NextMecanico_Click);
+            // 
+            // BackMecanico
+            // 
+            this.BackMecanico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackMecanico.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackMecanico.BackColor = System.Drawing.Color.Transparent;
+            this.BackMecanico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackMecanico.BackgroundImage")));
+            this.BackMecanico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackMecanico.FlatAppearance.BorderSize = 0;
+            this.BackMecanico.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.BackMecanico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackMecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackMecanico.Location = new System.Drawing.Point(817, 364);
+            this.BackMecanico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackMecanico.Name = "BackMecanico";
+            this.BackMecanico.Size = new System.Drawing.Size(178, 57);
+            this.BackMecanico.TabIndex = 311;
+            this.BackMecanico.UseVisualStyleBackColor = false;
+            this.BackMecanico.Visible = false;
+            this.BackMecanico.Click += new System.EventHandler(this.BackMecanico_Click);
+            // 
+            // mecanico4
+            // 
+            this.mecanico4.BackColor = System.Drawing.Color.Navy;
+            this.mecanico4.Comprado = false;
+            this.mecanico4.Id = 0;
+            this.mecanico4.Location = new System.Drawing.Point(1057, 438);
+            this.mecanico4.Name = "mecanico4";
+            this.mecanico4.Precio = "$ 999.999";
+            this.mecanico4.Size = new System.Drawing.Size(591, 378);
+            this.mecanico4.TabIndex = 310;
+            this.mecanico4.Visible = false;
+            // 
+            // mecanico3
+            // 
+            this.mecanico3.BackColor = System.Drawing.Color.Navy;
+            this.mecanico3.Comprado = false;
+            this.mecanico3.Id = 0;
+            this.mecanico3.Location = new System.Drawing.Point(1057, 25);
+            this.mecanico3.Name = "mecanico3";
+            this.mecanico3.Precio = "$ 999.999";
+            this.mecanico3.Size = new System.Drawing.Size(591, 378);
+            this.mecanico3.TabIndex = 309;
+            this.mecanico3.Visible = false;
+            // 
+            // mecanico2
+            // 
+            this.mecanico2.BackColor = System.Drawing.Color.Navy;
+            this.mecanico2.Comprado = false;
+            this.mecanico2.Id = 0;
+            this.mecanico2.Location = new System.Drawing.Point(159, 438);
+            this.mecanico2.Name = "mecanico2";
+            this.mecanico2.Precio = "$ 999.999";
+            this.mecanico2.Size = new System.Drawing.Size(591, 378);
+            this.mecanico2.TabIndex = 308;
+            this.mecanico2.Visible = false;
+            // 
+            // mecanico1
+            // 
+            this.mecanico1.BackColor = System.Drawing.Color.Navy;
+            this.mecanico1.Comprado = false;
+            this.mecanico1.Id = 0;
+            this.mecanico1.Location = new System.Drawing.Point(159, 25);
+            this.mecanico1.Name = "mecanico1";
+            this.mecanico1.Precio = "$ 999.999";
+            this.mecanico1.Size = new System.Drawing.Size(591, 378);
+            this.mecanico1.TabIndex = 307;
+            this.mecanico1.Visible = false;
             // 
             // Higiene3
             // 
@@ -3265,14 +3342,14 @@ namespace Touge_App
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
             this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
-    " ● ● ● ● ";
+    " ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(910, 144);
             this.alquileres2.Name = "alquileres2";
             this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$" +
-    "$";
+            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
+    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(830, 573);
             this.alquileres2.TabIndex = 243;
@@ -3283,14 +3360,14 @@ namespace Touge_App
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
             this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
-    " ● ● ● ● ";
+    " ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
             this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$" +
-    "$";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
+    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
             this.alquileres1.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Size = new System.Drawing.Size(830, 573);
             this.alquileres1.TabIndex = 242;
@@ -3301,8 +3378,14 @@ namespace Touge_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1811, 884);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.NextMecanico);
+            this.Controls.Add(this.BackMecanico);
+            this.Controls.Add(this.mecanico4);
+            this.Controls.Add(this.mecanico3);
+            this.Controls.Add(this.mecanico2);
+            this.Controls.Add(this.mecanico1);
             this.Controls.Add(this.Higiene3);
             this.Controls.Add(this.Higiene2);
             this.Controls.Add(this.Higiene1);
@@ -3507,7 +3590,6 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3700,7 +3782,12 @@ namespace Touge_App
         private Higiene Higiene3;
         private Higiene Higiene2;
         private Higiene Higiene1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Mecanico mecanico4;
+        private Mecanico mecanico3;
+        private Mecanico mecanico2;
+        private Mecanico mecanico1;
+        private System.Windows.Forms.Button NextMecanico;
+        private System.Windows.Forms.Button BackMecanico;
     }
 }
 

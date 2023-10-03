@@ -136,7 +136,7 @@ namespace Negocio_Base_Datos
             FuncionesNegocio negocioBD = new FuncionesNegocio();
             try
             {
-                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5   from Autos a, Marca m where a.Marca = m.ID ");
+                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP   from Autos a, Marca m where a.Marca = m.ID ");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -146,7 +146,7 @@ namespace Negocio_Base_Datos
                         Anio = (int)negocioBD.Guardador["An"],
                         Traccion = (string)negocioBD.Guardador["Trac"],
                         PaisFabricacion = (string)negocioBD.Guardador["Pais"],
-                        HP = (int)negocioBD.Guardador["HP"],
+                        HP = (int)negocioBD.Guardador["IHP"],
                         Torque = (int)negocioBD.Guardador["Torque"],
                         Peso = (int)negocioBD.Guardador["Peso"],
                         RelacionPesoPotencia = (double)negocioBD.Guardador["PP"],
@@ -157,7 +157,8 @@ namespace Negocio_Base_Datos
                         ImagenAutoSecundaria = (string)negocioBD.Guardador["f2"],
                         ImagenAutoTres = (string)negocioBD.Guardador["f3"],
                         ImagenAutoCuatro = (string)negocioBD.Guardador["f4"],
-                        ImagenAutoCinco = (string)negocioBD.Guardador["f5"]
+                        ImagenAutoCinco = (string)negocioBD.Guardador["f5"],
+                        Aspiracion = (string)negocioBD.Guardador["Asp"]
                     };
                     auxiliar.MarcaAuto.NombreMarca = (string)negocioBD.Guardador["NM"];
                     auxiliar.MarcaAuto.ImagenMarca = (string)negocioBD.Guardador["IM"];
@@ -1235,5 +1236,251 @@ namespace Negocio_Base_Datos
                 throw;
             }
         }
+
+        public Autos DevolverMiAuto()
+        {
+            FuncionesNegocio miAutoNegocio = new FuncionesNegocio();
+            miAutoNegocio.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, a.Tanque Tanq, a.Aspiracion Asp, a.IdealHp as IHP  from Autos a, Marca m where a.Marca = m.ID AND Dueno = 1 ");
+            try
+            {
+                miAutoNegocio.LecturaBase();
+                if (miAutoNegocio.Guardador.Read())
+                {
+                    Autos auxiliar = new Autos
+                    {
+                        NombreModelo = (string)miAutoNegocio.Guardador["Nom"],
+                        Anio = (int)miAutoNegocio.Guardador["An"],
+                        Tanque = (int)miAutoNegocio.Guardador["Tanq"],
+                        Traccion = (string)miAutoNegocio.Guardador["Trac"],
+                        PaisFabricacion = (string)miAutoNegocio.Guardador["Pais"],
+                        HP = (int)miAutoNegocio.Guardador["HP"],
+                        Torque = (int)miAutoNegocio.Guardador["Torque"],
+                        Peso = (int)miAutoNegocio.Guardador["Peso"],
+                        RelacionPesoPotencia = (double)miAutoNegocio.Guardador["PP"],
+                        TopSpeed = (double)miAutoNegocio.Guardador["TS"],
+                        Categoria = (string)miAutoNegocio.Guardador["Cat"],
+                        Kilometraje = (double)miAutoNegocio.Guardador["K"],
+                        ImagenAuto = (string)miAutoNegocio.Guardador["f1"],
+                        ImagenAutoSecundaria = (string)miAutoNegocio.Guardador["f2"],
+                        ImagenAutoTres = (string)miAutoNegocio.Guardador["f3"],
+                        ImagenAutoCuatro = (string)miAutoNegocio.Guardador["f4"],
+                        ImagenAutoCinco = (string)miAutoNegocio.Guardador["f5"],
+                        Aspiracion = (string)miAutoNegocio.Guardador["Asp"]
+                    };
+                    return auxiliar;
+                }
+                else
+                {
+                    Autos error = new Autos();
+                    return error;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+        }
+
+        public void UpdatearComponentes(int aceite, int Motor, int ManAuto, int Gomas)
+        {
+            FuncionesNegocio negocioComponentes = new FuncionesNegocio();
+            try
+            {
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set Aceite = @Aceite");
+                negocioComponentes.SetearParametros("@Aceite", aceite);
+                negocioComponentes.EjecutarAccion();
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set Motor = @Motor");
+                negocioComponentes.SetearParametros("@Motor", Motor);
+                negocioComponentes.EjecutarAccion();
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set ManAuto = @ManAuto");
+                negocioComponentes.SetearParametros("@ManAuto", ManAuto);
+                negocioComponentes.EjecutarAccion();
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set gomas = @gomas");
+                negocioComponentes.SetearParametros("@gomas", Gomas);
+                negocioComponentes.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        public void UpEstadoAuto(int componente, int peso=0)
+        {
+            FuncionesNegocio negocioAuto = new FuncionesNegocio();
+            string inyeccion = "";
+            string inyeccion2 = "";
+            string inyeccion3 = "";
+            try
+            {
+                switch (componente)
+                {
+                    case 1:
+                        inyeccion = "UPDATE MiAuto set Aceite = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
+                        break;
+                    case 2:
+                        inyeccion = "UPDATE MiAuto set Motor = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
+                        break;
+                    case 3:
+                        inyeccion = "UPDATE MiAuto set Mantenimiento = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.97 where dueno = 1";
+                        break;
+                    case 4:
+                        inyeccion = "UPDATE MiAuto set Repro = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.1 where dueno = 1";
+                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.1 where dueno = 1";
+                        break;
+                    case 5:
+                        inyeccion = "UPDATE MiAuto set Turbo = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.2 where dueno = 1";
+                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.2 where dueno = 1";
+                        break;
+                    case 6:
+                        inyeccion = "UPDATE MiAuto set AWD = 1";
+                        inyeccion2 = "UPDATE Autos set Traccion = @parametro where dueno = 1";
+                        negocioAuto.SetearParametros("@parametro", "AWD");
+                        break;
+                    case 7:
+                        inyeccion = "UPDATE MiAuto set Aceite = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
+                        break;
+                    case 8:
+                        inyeccion = "UPDATE MiAuto set Motor = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
+                        break;
+                    case 9:
+                        inyeccion = "UPDATE MiAuto set Mantenimiento = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0335 where dueno = 1";
+                        break;
+                    case 10:
+                        inyeccion = "UPDATE Autos set HP = IdealHp where dueno = 1";
+                        break;
+                    case 11:
+                        inyeccion = "UPDATE Autos set Peso = @Peso where dueno = 1";
+                        peso--;
+                        negocioAuto.SetearParametros("@Peso", peso);
+                        break;
+                    default:
+                        break;
+                }
+                negocioAuto.SQLQuery(inyeccion);
+                negocioAuto.EjecutarAccion();
+                if (componente!=10 && componente!= 11)
+                {
+                    negocioAuto.SQLQuery(inyeccion2);
+                    negocioAuto.EjecutarAccion();
+                }
+                if (componente==4 || componente == 5)
+                {
+                    negocioAuto.SQLQuery(inyeccion3);
+                    negocioAuto.EjecutarAccion();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<int> devolverEstadoComponentes()
+        {
+            FuncionesNegocio negociobd = new FuncionesNegocio();
+            List<int> estadoManager = new List<int>();
+            negociobd.SQLQuery("select Aceite, Motor, ManAuto, Gomas From estadoAutoManager");
+            negociobd.LecturaBase();
+            if (negociobd.Guardador.Read())
+            {
+                estadoManager.Add((int)negociobd.Guardador["Aceite"]);
+                estadoManager.Add((int)negociobd.Guardador["Motor"]);
+                estadoManager.Add((int)negociobd.Guardador["ManAuto"]);
+                estadoManager.Add((int)negociobd.Guardador["Gomas"]);
+            }
+            return estadoManager;
+        }
+
+        public bool DevolverEstadosAuto(int numero)
+        {
+            string inyeccion="";
+            bool devolver=false;
+            FuncionesNegocio funciondb = new FuncionesNegocio();
+            switch (numero)
+            {
+                case 1:
+                    inyeccion = "select Aceite as vari From MiAuto";
+                    break;
+                case 2:
+                    inyeccion = "select Motor as vari From MiAuto";
+                    break;
+                case 3:
+                    inyeccion = "select Mantenimiento as vari From MiAuto";
+                    break;
+                case 4:
+                    inyeccion = "select Repro as vari From MiAuto";
+                    break;
+                case 5:
+                    inyeccion = "select Turbo as vari From MiAuto";
+                    break;
+                case 6:
+                    inyeccion = "select AWD as vari From MiAuto";
+                    break;
+                case 7:
+                    inyeccion = "select Sucio as vari From MiAuto";
+                    break;
+            }
+            funciondb.SQLQuery(inyeccion);
+            funciondb.LecturaBase();
+            if (funciondb.Guardador.Read())
+            {
+                devolver = (bool)funciondb.Guardador["vari"];
+            }
+            return devolver;
+        }
+
+        public void UpdateMiAuto (string dato, int managerUpdate)
+        {
+            string inyeccion = "";
+            FuncionesNegocio negocioUp = new FuncionesNegocio();
+            switch (managerUpdate)
+            {
+                case 1:
+                    inyeccion = "UPDATE Autos set Aspiracion = @dato where Dueno = 1";
+                    negocioUp.SetearParametros("@dato", dato);
+                    break;
+                case 2:
+                    inyeccion = "UPDATE Autos set Traccion = @dato where Dueno = 1";
+                    negocioUp.SetearParametros("@dato", dato);
+                    break;
+            }
+            negocioUp.SQLQuery(inyeccion);
+            negocioUp.EjecutarAccion();
+        }
+
+        public void UpPesoPotencia ()
+        {
+            FuncionesNegocio negocioKg = new FuncionesNegocio();
+            int HP=0;
+            int Peso =0;
+            negocioKg.SQLQuery("Select Peso, HP From Autos where dueno = 1");
+            negocioKg.LecturaBase();
+            if (negocioKg.Guardador.Read())
+            {
+                HP = (int)negocioKg.Guardador["HP"];
+                Peso = (int)negocioKg.Guardador["Peso"];
+            }
+            negocioKg.Guardador.Close();
+            float resultado = (float) Peso / HP;
+            negocioKg.SQLQuery("Update Autos set PesoPotencia = @Resultado where dueno = 1");
+            negocioKg.SetearParametros("@Resultado", resultado);
+            negocioKg.EjecutarAccion();
+        }
+
+
     }
 }

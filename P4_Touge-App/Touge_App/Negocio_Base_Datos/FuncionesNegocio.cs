@@ -49,6 +49,10 @@ namespace Negocio_Base_Datos
 
                 throw;
             }
+            finally
+            {
+                ConexionBaseDatos.Close();
+            }
         }
 
         public void SetearParametros(string Nombre, object valor)
@@ -70,7 +74,7 @@ namespace Negocio_Base_Datos
             catch (Exception)
             {
                 throw;
-            }  
+            } 
         }
         public void CerrarConexion()
         {
