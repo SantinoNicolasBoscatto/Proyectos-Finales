@@ -269,6 +269,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GastosDiarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GastosDiarios.Designer.cs">
+      <DependentUpon>GastosDiarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Higiene.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GastosDiarios.resx">
+      <DependentUpon>GastosDiarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Higiene.resx">
       <DependentUpon>Higiene.cs</DependentUpon>

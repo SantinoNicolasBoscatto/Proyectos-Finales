@@ -18,6 +18,9 @@ namespace Touge_App
         readonly private SoundPlayer aceiteSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\AceiteSonido.wav");
         readonly private SoundPlayer mantenimientoMotorSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\MotorMantenimiento.wav");
         readonly private SoundPlayer TurboSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\Sutututu.wav");
+        readonly private SoundPlayer LimpiarSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\limpiar.wav");
+        readonly private SoundPlayer PitsSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\Pits.wav");
+        readonly private SoundPlayer GasSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\Gas.wav");
         private AudioFileReader audioFile;
         readonly NegocioBaseDatos negocioBD = new NegocioBaseDatos();
         List<Musica> listaCanciones;
@@ -45,6 +48,7 @@ namespace Touge_App
         readonly int repro = 750;
         readonly int swapEngine = 0;
         readonly int reduccionWeight = 235;
+        bool estadoLimpieza;
         string Player = "Santino Boscatto";
         Autos MiAuto;
         public TougeForms()
@@ -151,7 +155,7 @@ namespace Touge_App
             mecanico2.ButtonClick += Mecanico2_ButtonClick;
             mecanico3.ButtonClick += Mecanico3_ButtonClick;
             mecanico4.ButtonClick += Mecanico4_ButtonClick;
-            timer1.Tick += timer1_Tick;
+            timer1.Tick += Timer1_Tick;
             Higiene1.ButtonClick += Higiene1_ButtonClick;
             Higiene2.ButtonClick += Higiene2_ButtonClick;
             Higiene3.ButtonClick += Higiene3_ButtonClick;
@@ -171,14 +175,28 @@ namespace Touge_App
             estadoRepro = negocioMiAuto.DevolverEstadosAuto(4);
             estadoTurbo = negocioMiAuto.DevolverEstadosAuto(5);
             estadoAWD = negocioMiAuto.DevolverEstadosAuto(6);  
+            estadoLimpieza = negocioMiAuto.DevolverEstadosAuto(6);  
             List<int> auxLista;
-            auxLista = negocioMiAuto.devolverEstadoComponentes();
+            auxLista = negocioMiAuto.DevolverEstadoComponentes();
             aceiteManager = auxLista[0];
             motorManager = auxLista[1];
             autoManager = auxLista[2];
             gomasManager = auxLista[3];
-            timerCursor.Tick += timer2_Tick;
+            limpiezaManager = auxLista[4];
+            gomasDeLluviaManager = auxLista[5];
+            timerCursor.Tick += Timer2_Tick;
             MiAuto = negocioMiAuto.DevolverMiAuto();
+            gastosDiarios1.ButtonClick += GastosDiarios1_ButtonClick;
+            gastosDiarios2.ButtonClick += GastosDiarios2_ButtonClick;
+            gastosDiarios3.ButtonClick += GastosDiarios3_ButtonClick;
+            gastosDiarios4.ButtonClick += GastosDiarios4_ButtonClick;
+            gastosDiarios5.ButtonClick += GastosDiarios5_ButtonClick;
+            gastosDiarios6.ButtonClick += GastosDiarios6_ButtonClick;
+            estadoSeguro = negocioMiAuto.LeerSeguro();
+            if (!estadoSeguro)
+            {
+                MessageBox.Show("Necesita Pagar el Seguro! Si su auto se destroza no percibira nada de dinero");
+            }
             if (!Alquilando)
             {
                 Ocultar();
@@ -215,12 +233,13 @@ namespace Touge_App
             }
         }
 
+        
+
         private void FormatearFecha(Fecha aux)
         {
             fechaManager = DateTime.Parse(aux.FechaManager.ToString());
             Formato = fechaManager.ToString("dd/MM/yy", CultureInfo.InvariantCulture);
             dateTimePicker1.Value = fechaAux.FechaManager;
-
         }
 
         private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
@@ -1142,6 +1161,17 @@ namespace Touge_App
                 banderaPaginaMecanico = false;
             }
 
+            else if (gastosDiarios1.Visible==true)
+            {
+                gastosDiarios1.Visible = false;
+                gastosDiarios2.Visible = false;
+                gastosDiarios3.Visible = false;
+                gastosDiarios4.Visible = false;
+                gastosDiarios5.Visible = false;
+                gastosDiarios6.Visible = false;
+                EconomiaMostrar = false;
+            }
+
             if (banderaVolverReglas && banderaEconomiaParaMostrar)
             {
                 BotonPistas.Visible = true;
@@ -1334,7 +1364,8 @@ namespace Touge_App
             PesoTextBox.Text = listaPilotos[indexPilotos].Peso;
             VictoriaTextBox.Text = listaPilotos[indexPilotos].Victorias.ToString();
             DerrotaTextBox.Text = listaPilotos[indexPilotos].Derrotas.ToString();
-            WinRateTextBox.Text = listaPilotos[indexPilotos].PorcentajeCarrerasGanadas.ToString()+"%";
+            string formatin = "0.0";
+            WinRateTextBox.Text = listaPilotos[indexPilotos].PorcentajeCarrerasGanadas.ToString(formatin)+"%";
             TotalTextBox.Text = listaPilotos[indexPilotos].CantidadDeCarreras.ToString();
         }
 
@@ -2000,6 +2031,43 @@ namespace Touge_App
             mecanico4.Precio = string.Format("$ {0:N0}", swapEngine);
         }
 
+        int carWash = 50;
+        int seguro = 750;
+        int dryTyres = 1120;
+        int rainTyres = 1260;
+        int vinilos = 35;
+        private void MostrarGastosDiarios()
+        {
+            OcultarEconomia();
+            gastosDiarios1.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\Wash.jpg");
+            gastosDiarios2.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\Gasolinera.jpg");
+            gastosDiarios3.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\SemiSlick.jpg");
+            gastosDiarios4.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\WetTyre.jpg");
+            gastosDiarios5.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\Seguro.jpg");
+            gastosDiarios6.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\GastosDiarios\Vinilos.jpg");
+            gastosDiarios1.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\CarWash.png");
+            gastosDiarios2.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Nafta.png");
+            gastosDiarios3.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Tyres.png");
+            gastosDiarios4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Tyres.png");
+            gastosDiarios5.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Seguro.png");
+            gastosDiarios6.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\BBS.png");
+            gastosDiarios1.Precio = string.Format("$ {0:N0}", carWash);
+            gastosDiarios2.Precio = "$2,5 C/L";
+            gastosDiarios3.Precio = string.Format("$ {0:N0}", dryTyres);
+            gastosDiarios4.Precio = string.Format("$ {0:N0}", rainTyres);
+            gastosDiarios5.Precio = string.Format("$ {0:N0}", seguro);
+            gastosDiarios6.Precio = string.Format("$ {0:N0}", vinilos);
+            if (gastosDiarios1.Visible == false)
+            {
+                gastosDiarios1.Visible = true;
+                gastosDiarios2.Visible = true;
+                gastosDiarios3.Visible = true;
+                gastosDiarios4.Visible = true;
+                gastosDiarios5.Visible = true;
+                gastosDiarios6.Visible = true;
+            }
+        }
+
         private void AhorrosPictureBox_Click(object sender, EventArgs e)
         {
 
@@ -2077,7 +2145,7 @@ namespace Touge_App
 
         private void GastosVariosPictureBox_Click(object sender, EventArgs e)
         {
-
+            MostrarGastosDiarios();
         }
 
         private void MueblesPictureBox_Click(object sender, EventArgs e)
@@ -2155,51 +2223,87 @@ namespace Touge_App
         int motorManager;
         int autoManager;
         int gomasManager;
+        int gomasDeLluviaManager;
+        int limpiezaManager;
         private HistorialForms registroVentana;
         private void AgregarRegistroBoton_Click(object sender, EventArgs e)
         {
-            registroVentana = new HistorialForms(Player);
-            int filas = historialDGV.Rows.Count;
-            registroVentana.ShowDialog();
-            listaHistorial = negocioHistorial.DevolverHistorial();
-            historialDGV.DataSource = listaHistorial;
-            if (historialDGV.Rows.Count>filas)
+            NegocioBaseDatos negocioUpFecha = new NegocioBaseDatos();
+            if (negocioUpFecha.CombustibleMiAuto()>0)
             {
-                NegocioBaseDatos negocioUpFecha = new NegocioBaseDatos();
-                fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
-                FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
-                NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
-                if (registroVentana.playerBool)
+                if (negocioUpFecha.LeerGomas()>0)
                 {
-                    aceiteManager++;
-                    motorManager++;
-                    autoManager++;
-                    gomasManager++;            
-                    negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager,autoManager,gomasManager);
-                    registroVentana.playerBool = false;
+                    registroVentana = new HistorialForms(Player);
+                    int filas = historialDGV.Rows.Count;
+                    registroVentana.ShowDialog();
+                    listaHistorial = negocioHistorial.DevolverHistorial();
+                    historialDGV.DataSource = listaHistorial;
+                    if (historialDGV.Rows.Count > filas)
+                    {
+                        fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
+                        FormatearFecha(fechaAux);
+                        MessageBox.Show("" + Formato);
+                        NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
+                        if (registroVentana.playerBool)
+                        {
+                            aceiteManager++;
+                            motorManager++;
+                            autoManager++;
+                            limpiezaManager++;
+                            if(registroVentana.IndiceSeleccionado<4)
+                            gomasManager++;
+                            else
+                            gomasDeLluviaManager++;
+                            negocioUpFecha.CombustibleMiAuto(true);
+                            negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+                            registroVentana.playerBool = false;
+                        }
+
+                        if (aceiteManager >= 5)
+                        {
+                            negocioUpdateComponentes.UpEstadoAuto(1);
+                            estadoAceite = false;
+                            //MessageBox.Show("Cambie Aceite");
+                        }
+                        if (motorManager >= 4)
+                        {
+                            negocioUpdateComponentes.UpEstadoAuto(2);
+                            estadoMotor = false;
+                            //MessageBox.Show("Cambie Motor");
+                        }
+                        if (autoManager >= 3)
+                        {
+                            negocioUpdateComponentes.UpEstadoAuto(3);
+                            estadoAuto = false;
+                            //MessageBox.Show("Cambie Auto");
+                        }
+                        if (gomasManager >= 7)
+                        {
+                            negocioUpdateComponentes.UpEstadoAuto(13);
+                        }
+                        if (gomasDeLluviaManager >= 4)
+                        {
+                            MessageBox.Show("Cambie gomas de lluvia!");
+                        }
+                        if (limpiezaManager >= 2)
+                        {
+                            negocioUpdateComponentes.UpEstadoAuto(12);
+                            estadoLimpieza = false;
+                            MessageBox.Show("Limpialo Sucio");
+                        }
+                    }
                 }
-                
-                if (aceiteManager>=5)
+                else
                 {
-                    negocioUpdateComponentes.UpEstadoAuto(1);
-                    MessageBox.Show("Cambie Aceite");
+                    MessageBox.Show("No tiene gomas para competir! Compre Gomas");
                 }
-                if (motorManager>=4)
-                {
-                    negocioUpdateComponentes.UpEstadoAuto(2);
-                    MessageBox.Show("Cambie Motor");
-                }
-                if (autoManager >= 3)
-                {
-                    negocioUpdateComponentes.UpEstadoAuto(3);
-                    MessageBox.Show("Cambie Auto");
-                }
-                if (gomasManager >= 3)
-                {
-                    MessageBox.Show("Cambie gomas");
-                }            
+               
             }
+            else
+            {
+                MessageBox.Show("No tiene la Gasolina suficiente para correr! Vaya a cargarla");
+            }
+            
         }
 
         private void BorrarRegistroBoton_Click(object sender, EventArgs e)
@@ -2243,6 +2347,7 @@ namespace Touge_App
 
         bool estadoFacturas;
         bool estadoComida;
+        bool estadoSeguro;
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             if (fechaAux.FechaManager.Month != CambioMes.Month)
@@ -2266,6 +2371,13 @@ namespace Touge_App
                 negocioAlquilerManager.ActualizarFactura(estadoFacturas);
                 negocioAlquilerManager.ActualizarComida(estadoComida);
                 PaginaUnoAlquiler();    
+            }
+            else if (fechaAux.FechaManager.Year != CambioMes.Year)
+            {
+                MessageBox.Show("Necesita  Abonar su seguro Anual! Sino sin seguro ante destruccion del auto no percibira dinero");
+                estadoSeguro = false;
+                NegocioBaseDatos negocioSeguro = new NegocioBaseDatos();
+                negocioSeguro.UpdateSeguro(estadoSeguro);
             }
         }
 
@@ -3920,19 +4032,24 @@ namespace Touge_App
             {
                 if (miDinero.MiDinero - aceite > 0)
                 {
-                    compraSonido.Play();             
-                    estadoAceite = true;   
-                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                    negocioMecanico.UpEstadoAuto(7);
-                    miDinero.MiDinero -= aceite;
-                    SonidosMecanico(1);
-                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
-                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
-                    DineroMostrarLabel.Text = plataFormato;
-                    compraSonido.Dispose();
-                    aceiteManager = 0;
-                    negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager);
-                    //MessageBox.Show("" + MiAuto.HP);
+                    if (!estadoAceite)
+                    {
+                        compraSonido.Play();
+                        estadoAceite = true;
+                        NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                        negocioMecanico.UpEstadoAuto(7);
+                        miDinero.MiDinero -= aceite;
+                        SonidosMecanico(1);
+                        negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                        plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                        DineroMostrarLabel.Text = plataFormato;
+                        compraSonido.Dispose();
+                        aceiteManager = 0;
+                        negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+                        //MessageBox.Show("" + MiAuto.HP);
+                    }
+                    else
+                        MessageBox.Show("El Mecanico dice que tu aceite esta correcto por ahora y no requiere cambiarlo!");
                 }
                 else
                 {
@@ -3989,17 +4106,23 @@ namespace Touge_App
             {
                 if (miDinero.MiDinero - manAuto > 0)
                 {
-                    estadoAuto = true;
-                    compraSonido.Play();
-                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                    miDinero.MiDinero -= manAuto;
-                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
-                    negocioMecanico.UpEstadoAuto(9);
-                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
-                    DineroMostrarLabel.Text = plataFormato;
-                    compraSonido.Dispose();
-                    autoManager = 0;
-                    negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager);
+                    if (!estadoAuto)
+                    {
+                        estadoAuto = true;
+                        compraSonido.Play();
+                        NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                        miDinero.MiDinero -= manAuto;
+                        negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                        negocioMecanico.UpEstadoAuto(9);
+                        plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                        DineroMostrarLabel.Text = plataFormato;
+                        compraSonido.Dispose();
+                        autoManager = 0;
+                        negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+                    }
+                    else
+                        MessageBox.Show("El Mecanico esta muy Ocupado! Vuelve otro dia");
+                    
                 }
                 else
                 {
@@ -4049,19 +4172,24 @@ namespace Touge_App
             {
                 if (miDinero.MiDinero - manMotor > 0)
                 {
-                    estadoMotor = true;
-                    compraSonido.Play();
-                    NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                    miDinero.MiDinero -= manMotor;
-                    negocioMecanico.ActualizarDinero(miDinero.MiDinero);
-                    negocioMecanico.UpEstadoAuto(8);
-                    SonidosMecanico(2);
-                    plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
-                    DineroMostrarLabel.Text = plataFormato;
-                    MiAuto = negocioMecanico.DevolverMiAuto();
-                    compraSonido.Dispose();
-                    motorManager = 0;
-                    negocioMecanico.UpdatearComponentes(aceiteManager,motorManager,autoManager,gomasManager);
+                    if (!estadoMotor)
+                    {
+                        estadoMotor = true;
+                        compraSonido.Play();
+                        NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
+                        miDinero.MiDinero -= manMotor;
+                        negocioMecanico.ActualizarDinero(miDinero.MiDinero);
+                        negocioMecanico.UpEstadoAuto(8);
+                        SonidosMecanico(2);
+                        plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                        DineroMostrarLabel.Text = plataFormato;
+                        MiAuto = negocioMecanico.DevolverMiAuto();
+                        compraSonido.Dispose();
+                        motorManager = 0;
+                        negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+                    }
+                    else
+                        MessageBox.Show("El Mecanico dice que tu motor esta bien, no le hace falta mantenimiento");
                 }
                 else
                 {
@@ -4083,8 +4211,8 @@ namespace Touge_App
                        negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                        plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                        DineroMostrarLabel.Text = plataFormato;
-                        MiAuto = negocioMecanico.DevolverMiAuto();
-                        compraSonido.Dispose();
+                       MiAuto = negocioMecanico.DevolverMiAuto();
+                       compraSonido.Dispose();
                     }
                     else
                     {
@@ -4137,9 +4265,9 @@ namespace Touge_App
             }
         }
 
-        Timer timer1 = new Timer();
+        readonly Timer timer1 = new Timer();
         int sonido=0;
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             timerCursor.Enabled = true;
             switch (sonido)
@@ -4165,11 +4293,32 @@ namespace Touge_App
                     timer1.Stop();
                     timer1.Enabled = false;
                     break;
+                case 4:
+                    timerCursor.Interval = 12000;
+                    LimpiarSonido.Play();
+                    LimpiarSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
+                case 5:
+                    timerCursor.Interval = 10500;
+                    PitsSonido.Play();
+                    PitsSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
+                case 6:
+                    timerCursor.Interval = 19200;
+                    GasSonido.Play();
+                    GasSonido.Dispose();
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    break;
             }
             
         }
-        Timer timerCursor = new Timer();
-        private void timer2_Tick(object sender, EventArgs e)
+        readonly Timer timerCursor = new Timer();
+        private void Timer2_Tick(object sender, EventArgs e)
         {
             Cursor.Show();
             timerCursor.Enabled = false;
@@ -4185,8 +4334,127 @@ namespace Touge_App
                 case 3:
                     MessageBox.Show("Se Le agrego un Turbo a tu auto!");
                     break;
+                case 4:
+                    MessageBox.Show("Tu Auto Quedo Reluciente!");
+                    break;
+                case 5:
+                    MessageBox.Show("Gomas nuevas Compradas con exito!");
+                    break;
+                case 6:
+                    MessageBox.Show("Tanque Lleno!");
+                    break;
             }
             
+        }
+
+        private void GastosDiarios1_ButtonClick(object sender, EventArgs e)
+        {
+            if (miDinero.MiDinero-carWash>=0)
+            {
+                compraSonido.Play();
+                SonidosMecanico(4);
+                NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+                negocioGastos.UpEstadoAuto(12,0,true);
+                miDinero.MiDinero -= carWash;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                MiAuto = negocioGastos.DevolverMiAuto();
+                compraSonido.Dispose();
+                limpiezaManager = 0;
+                negocioGastos.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+            }
+            else
+            {
+                MessageBox.Show("No tiene el suficiente dinero Para Lavar tu auto");
+            }
+        }
+
+        private void GastosDiarios2_ButtonClick(object sender, EventArgs e)
+        {
+            NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+            if (negocioGastos.LeerTanques())
+            {
+                compraSonido.Play();
+                SonidosMecanico(6);
+                int precio = negocioGastos.CombustibleRecarga();
+                miDinero.MiDinero -= precio;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                MiAuto = negocioGastos.DevolverMiAuto();
+                compraSonido.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Tiene Tanque Lleno, no hace falta recargar");
+            }
+        }
+
+        private void GastosDiarios3_ButtonClick(object sender, EventArgs e)
+        {
+            if (miDinero.MiDinero - dryTyres >= 0)
+            {
+                compraSonido.Play();
+                SonidosMecanico(5);
+                NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+                negocioGastos.UpEstadoAuto(14);
+                miDinero.MiDinero -= dryTyres;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                MiAuto = negocioGastos.DevolverMiAuto();
+                compraSonido.Dispose();
+                negocioGastos.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+            }
+        }
+
+        private void GastosDiarios4_ButtonClick(object sender, EventArgs e)
+        {
+            if (miDinero.MiDinero - rainTyres >= 0)
+            {
+                compraSonido.Play();
+                SonidosMecanico(5);
+                NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+                negocioGastos.UpEstadoAuto(16);
+                miDinero.MiDinero -= rainTyres;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                MiAuto = negocioGastos.DevolverMiAuto();
+                compraSonido.Dispose();
+                negocioGastos.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+            }
+        }
+
+        private void GastosDiarios5_ButtonClick(object sender, EventArgs e)
+        {
+            if (miDinero.MiDinero - seguro >= 0)
+            {
+                compraSonido.Play();
+                NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+                negocioGastos.UpdateSeguro(true);
+                miDinero.MiDinero -= seguro;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                compraSonido.Dispose();
+            }
+        }
+
+        private void GastosDiarios6_ButtonClick(object sender, EventArgs e)
+        {
+            if (miDinero.MiDinero - vinilos >= 0)
+            {
+                compraSonido.Play();
+                NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
+                negocioGastos.Vinilos();
+                miDinero.MiDinero -= vinilos;
+                negocioGastos.ActualizarDinero(miDinero.MiDinero);
+                plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
+                DineroMostrarLabel.Text = plataFormato;
+                compraSonido.Dispose();
+            }
         }
     }
 

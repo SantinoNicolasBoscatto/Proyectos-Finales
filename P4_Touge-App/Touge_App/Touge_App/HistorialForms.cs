@@ -54,10 +54,10 @@ namespace Touge_App
             ClimaComboBox.Items.Add("Semi-Nublado");
             ClimaComboBox.Items.Add("Nublado");
             ClimaComboBox.Items.Add("Neblinoso");
-            ClimaComboBox.Items.Add("Tormentoso");
             ClimaComboBox.Items.Add("Lluvia Leve");
             ClimaComboBox.Items.Add("Lluvia");
             ClimaComboBox.Items.Add("Lluvia Fuerte");
+            ClimaComboBox.Items.Add("Tormentoso");
         }
 
         private void Panel1_MouseMove(object sender, MouseEventArgs e)
@@ -219,7 +219,13 @@ namespace Touge_App
                 MessageBox.Show("Faltan Datos por cargar, porfavor revise bien");
         }
 
-
+        public int IndiceSeleccionado
+        {
+            get
+            {
+                return ClimaComboBox.SelectedIndex;
+            }
+        }
 
         private void TiempoTextBox_Enter(object sender, EventArgs e)
         {

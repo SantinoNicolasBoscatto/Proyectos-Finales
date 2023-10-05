@@ -66,7 +66,7 @@ namespace Touge_App
 
         DialogResult Dialogo;
         public event EventHandler ButtonClick;
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Dialogo = MessageBox.Show("¿Quiere Pagar este servicio?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Dialogo == DialogResult.Yes)

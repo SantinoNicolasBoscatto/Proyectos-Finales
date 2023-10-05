@@ -1283,7 +1283,7 @@ namespace Negocio_Base_Datos
            
         }
 
-        public void UpdatearComponentes(int aceite, int Motor, int ManAuto, int Gomas)
+        public void UpdatearComponentes(int aceite, int Motor, int ManAuto, int Gomas, int RGomas, int Lavado)
         {
             FuncionesNegocio negocioComponentes = new FuncionesNegocio();
             try
@@ -1299,6 +1299,10 @@ namespace Negocio_Base_Datos
                 negocioComponentes.EjecutarAccion();
                 negocioComponentes.SQLQuery("UPDATE estadoAutoManager set gomas = @gomas");
                 negocioComponentes.SetearParametros("@gomas", Gomas);
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set GomasLluvia = @RainTyres");
+                negocioComponentes.SetearParametros("@RainTyres", RGomas);
+                negocioComponentes.SQLQuery("UPDATE estadoAutoManager set Lavado = @Lavadop");
+                negocioComponentes.SetearParametros("@Lavadop", Lavado);
                 negocioComponentes.EjecutarAccion();
             }
             catch (Exception)
@@ -1309,7 +1313,7 @@ namespace Negocio_Base_Datos
             
         }
 
-        public void UpEstadoAuto(int componente, int peso=0)
+        public void UpEstadoAuto(int componente, int peso=0, bool limpieza=false)
         {
             FuncionesNegocio negocioAuto = new FuncionesNegocio();
             string inyeccion = "";
@@ -1366,12 +1370,30 @@ namespace Negocio_Base_Datos
                         peso--;
                         negocioAuto.SetearParametros("@Peso", peso);
                         break;
+                    case 12:
+                        inyeccion = "UPDATE MiAuto set Lavado = @Parametro";
+                        negocioAuto.SetearParametros("@Parametro", limpieza);
+                        break;
+                    case 13:
+                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco - 4";
+                        inyeccion2 =  "UPDATE estadoAutoManager set gomas = 0";
+                        break;
+                    case 14:
+                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco + 4";
+                        break;
+                    case 15:
+                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia - 4";
+                        inyeccion2 = "UPDATE estadoAutoManager set GomasLluvia = 0";
+                        break;
+                    case 16:
+                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia + 4";
+                        break;
                     default:
                         break;
                 }
                 negocioAuto.SQLQuery(inyeccion);
                 negocioAuto.EjecutarAccion();
-                if (componente!=10 && componente!= 11)
+                if (componente<10 || componente==13 || componente==15)
                 {
                     negocioAuto.SQLQuery(inyeccion2);
                     negocioAuto.EjecutarAccion();
@@ -1389,11 +1411,11 @@ namespace Negocio_Base_Datos
             }
         }
 
-        public List<int> devolverEstadoComponentes()
+        public List<int> DevolverEstadoComponentes()
         {
             FuncionesNegocio negociobd = new FuncionesNegocio();
             List<int> estadoManager = new List<int>();
-            negociobd.SQLQuery("select Aceite, Motor, ManAuto, Gomas From estadoAutoManager");
+            negociobd.SQLQuery("select Aceite, Motor, ManAuto, Gomas, lavado, GomasLluvia From estadoAutoManager");
             negociobd.LecturaBase();
             if (negociobd.Guardador.Read())
             {
@@ -1401,6 +1423,8 @@ namespace Negocio_Base_Datos
                 estadoManager.Add((int)negociobd.Guardador["Motor"]);
                 estadoManager.Add((int)negociobd.Guardador["ManAuto"]);
                 estadoManager.Add((int)negociobd.Guardador["Gomas"]);
+                estadoManager.Add((int)negociobd.Guardador["lavado"]);
+                estadoManager.Add((int)negociobd.Guardador["GomasLluvia"]);
             }
             return estadoManager;
         }
@@ -1481,6 +1505,114 @@ namespace Negocio_Base_Datos
             negocioKg.EjecutarAccion();
         }
 
+        public int CombustibleMiAuto(bool verificador = false)
+        {
+            FuncionesNegocio negociobasedatos = new FuncionesNegocio();
+            negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual - 12");
+            negociobasedatos.EjecutarAccion();
+            negociobasedatos.SQLQuery("Select TanqueActual from miauto");
+            negociobasedatos.LecturaBase();
+            int devolver = 0;
+            if (negociobasedatos.Guardador.Read())
+            {
+                devolver = (int)negociobasedatos.Guardador["TanqueActual"]; 
+            }
+            negociobasedatos.Guardador.Close();
+            if (!verificador)
+            {
+                negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual + 12");
+                negociobasedatos.EjecutarAccion();
+            }
+            return devolver;
+        }
 
+        public int LeerGomas()
+        {
+            FuncionesNegocio negociobasedatos = new FuncionesNegocio();
+            int gomas=-1;
+            negociobasedatos.SQLQuery("Select GomasDeSeco from miauto");
+            negociobasedatos.LecturaBase();
+            if (negociobasedatos.Guardador.Read())
+            {
+                gomas = (int)negociobasedatos.Guardador["GomasDeSeco"];
+            }
+            if (gomas > 0)
+            {
+                return gomas;
+            }
+            else
+            {
+                    negociobasedatos.Guardador.Close();
+                    negociobasedatos.SQLQuery("Select GomasDeLluvia from miauto");
+                    negociobasedatos.LecturaBase();
+                    if (negociobasedatos.Guardador.Read())
+                    {
+                        gomas = (int)negociobasedatos.Guardador["GomasDeLluvia"];
+                    }
+                return gomas;
+;            }
+        }
+
+        public int CombustibleRecarga()
+        {
+            FuncionesNegocio combustibleDB = new FuncionesNegocio();
+            combustibleDB.SQLQuery("select a.Tanque Max, m.TanqueActual Act from MiAuto m, Autos a");
+            combustibleDB.LecturaBase();
+            int tanqueMax = 0;
+            int tanqueAct = 0;
+            if (combustibleDB.Guardador.Read())
+            {
+                tanqueMax = (int)combustibleDB.Guardador["Max"];
+                tanqueAct = (int)combustibleDB.Guardador["Act"];
+            }
+            combustibleDB.Guardador.Close();
+            int recarga = tanqueMax - tanqueAct;
+            combustibleDB.SQLQuery("Update MiAuto set TanqueActual= @max");
+            combustibleDB.SetearParametros("@max", tanqueMax);
+            combustibleDB.EjecutarAccion();
+            float precio = recarga * 2.5f;
+            recarga = (int)precio;
+            return recarga;
+        }
+
+        public bool LeerTanques()
+        {
+            FuncionesNegocio tanquesBD = new FuncionesNegocio();
+            tanquesBD.SQLQuery("select TOP 1  a.Tanque TM, m.TanqueActual TA from MiAuto m, Autos a");
+            tanquesBD.LecturaBase();
+            tanquesBD.Guardador.Read();
+            int max = (int)tanquesBD.Guardador["TM"];
+            int act = (int)tanquesBD.Guardador["TA"];
+            int difenrencia = max - act;
+            if (difenrencia > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public void UpdateSeguro(bool seguroBool)
+        {
+            FuncionesNegocio seguro = new FuncionesNegocio();
+            seguro.SQLQuery("Update MiAuto set Seguro = @S");
+            seguro.SetearParametros("@S", seguroBool);
+            seguro.EjecutarAccion();
+        }
+
+        public bool LeerSeguro()
+        {
+            FuncionesNegocio seguro = new FuncionesNegocio();
+            seguro.SQLQuery("select Seguro from miauto");
+            seguro.LecturaBase();
+            seguro.Guardador.Read();
+            bool devolver = (bool)seguro.Guardador["Seguro"];
+            return devolver;
+        }
+
+        public void Vinilos()
+        {
+            FuncionesNegocio vinilosBD = new FuncionesNegocio();
+            vinilosBD.SQLQuery("Update MiAuto set VinilosDisponible = VinilosDisponible+1");
+            vinilosBD.EjecutarAccion();
+        }
     }
 }
