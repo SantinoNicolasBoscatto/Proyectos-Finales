@@ -1,0 +1,222 @@
+#BackGround{
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c8697e8a-097a-42b0-bc30-a27bbdccbfbf/dgbqiws-2e1d17e9-6302-4c26-9689-a41f05ea7619.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M4Njk3ZThhLTA5N2EtNDJiMC1iYzMwLWEyN2JiZGNjYmZiZlwvZGdicWl3cy0yZTFkMTdlOS02MzAyLTRjMjYtOTY4OS1hNDFmMDVlYTc2MTkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.J_qX3EYPS4-gIF-nDPS3aVb3BiUBMtXMjZEgT6gSdwM);
+  background-size: cover;
+  background-color: rgba(196 197 199/0.9);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/* Reloj */
+
+.clock {
+  background: #080808;
+  width: 225px;
+  height: 65px;
+  margin-top: 18px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 81%;
+}
+
+.clock-time,
+.clock-ampm {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  color: #2d7ddf;
+}
+
+.clock-time {
+  font-size: 48px;
+}
+
+/* ICON */
+.DealerIcon{
+  width: 125px;
+  position: fixed;
+  z-index: 999999;
+  left: -8px;
+  top: -15px;
+  padding: 10px;
+  box-sizing: content-box;
+  animation: moverImagen 5s ease-in-out;
+}
+
+@keyframes moverImagen {
+  0% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(calc(50vw - 50px)); /* La mitad del ancho de la pantalla - la mitad del ancho de la imagen */
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+/* CARD CONFIGURACIONES */
+.card {
+  color: #ffffff;
+  width: 410px;
+  height: 285px;
+  position: relative;
+  outline: 8px solid #601285;
+  border-radius: 15px;
+  line-height: 150%;
+  padding: 16px;
+  background: #000000;
+  background-blend-mode: multiply;
+  background: linear-gradient(to top, #42214b, #4e0041);
+  transition: background-color 3s ease-in-out;
+  overflow: hidden;
+}
+
+.card-front {
+  top: 10px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  /* transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860); */
+  transition: transform 4.5s;
+}
+
+.card img{
+  border-radius: 15px;
+  width: 95%;
+  margin-top: 15px;
+  height: 230px;
+  align-self: center;
+}
+
+.card-back {
+  transform: translateX(120%);
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform 4.5s;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', serif;
+}
+
+.card:hover {
+  background-color: #81e6e6;
+  transition: background-color 3s;
+}
+.card:hover .card-front {
+  transform: translateX(-100%);
+  transition: transform 4.5s;
+}
+.card:hover .card-back {
+  transform: translateX(0);
+  transition: transform 4.1s;
+}
+
+.Grid-Container{
+  margin-top: 3%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, minmax(425px, 1fr)); /* Esto crea columnas automáticas */
+  grid-template-rows: repeat(10, minmax(300px, 1fr));
+  row-gap: 50px;
+}
+
+.GridBack{
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, minmax(86px, 1fr)); /* Esto crea columnas automáticas */
+  grid-template-rows: repeat(2, minmax(86px, 1fr));
+  grid-gap: 10px;
+  justify-items: center;
+}
+
+.GridBack div{
+  width: 100%;
+  z-index: 999999999;
+  
+}
+
+.miniGrid{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(90, 90, 90, 0.5);
+  justify-content: center;
+  transition: opacity 1.2s;
+  cursor: pointer;
+}
+
+.miniGrid img{
+  width: 65px;
+  height: 65px;
+  margin-top: -1px;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+.miniGrid:hover > img{
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.miniGrid:hover > .text{
+  opacity: 1;
+  transition: opacity 3s;
+  visibility: visible;
+  cursor: pointer;
+}
+
+.text{
+  position: absolute;
+  top: 18%;
+  font-size: 21px;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(17, 17, 135);
+  opacity: 0;
+  visibility: hidden;
+  align-items: center;
+}
+
+.textDos{
+  position: absolute;
+  top: 71%;
+  font-size: 21px;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(8, 8, 151);
+  opacity: 0;
+  visibility: hidden;
+  align-items: center;
+}
+.miniGrid:hover > .textDos{
+  opacity: 1;
+  transition: opacity 3s;
+  visibility: visible;
+  cursor: pointer;
+}
+
+.Pos{
+  position: absolute;
+  margin-top: 15px;
+}
+
+.Num{
+  top: 25px;
+}
+
+.Pos2{
+  position: absolute;
+  margin-top: 10px;
+}
+
+.Num2{
+  top: 65%;
+}
+.Max{
+  font-size: 24px;
+}
+
+.Min{
+  font-size: 19px;
+}
