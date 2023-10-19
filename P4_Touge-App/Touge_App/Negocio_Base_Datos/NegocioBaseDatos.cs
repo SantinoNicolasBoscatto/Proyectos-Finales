@@ -1455,7 +1455,7 @@ namespace Negocio_Base_Datos
                     inyeccion = "select AWD as vari From MiAuto";
                     break;
                 case 7:
-                    inyeccion = "select Sucio as vari From MiAuto";
+                    inyeccion = "select Lavado as vari From MiAuto";
                     break;
             }
             funciondb.SQLQuery(inyeccion);
