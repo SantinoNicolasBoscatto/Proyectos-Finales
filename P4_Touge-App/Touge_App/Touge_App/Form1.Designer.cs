@@ -202,6 +202,48 @@ namespace Touge_App
             this.VolverBoton = new System.Windows.Forms.Button();
             this.NextMecanico = new System.Windows.Forms.Button();
             this.BackMecanico = new System.Windows.Forms.Button();
+            this.MiAutoPB = new System.Windows.Forms.PictureBox();
+            this.BanderaMiAuto = new System.Windows.Forms.PictureBox();
+            this.PanelGaraje = new System.Windows.Forms.Panel();
+            this.GasofaMiauto2 = new System.Windows.Forms.Label();
+            this.NextObjeto = new System.Windows.Forms.Button();
+            this.TraccionMiauto2 = new System.Windows.Forms.Label();
+            this.GasofaMiauto = new System.Windows.Forms.Label();
+            this.TraccionMiauto = new System.Windows.Forms.Label();
+            this.GomasMojado2 = new System.Windows.Forms.Label();
+            this.GomasSeco2 = new System.Windows.Forms.Label();
+            this.GomasMojado = new System.Windows.Forms.Label();
+            this.GomasSeco = new System.Windows.Forms.Label();
+            this.LimpMiAuto2 = new System.Windows.Forms.Label();
+            this.MantMiAuto2 = new System.Windows.Forms.Label();
+            this.PlusBoton = new System.Windows.Forms.Button();
+            this.ASpMiAuto2 = new System.Windows.Forms.Label();
+            this.ReproMiAuto2 = new System.Windows.Forms.Label();
+            this.MotorMiAuto2 = new System.Windows.Forms.Label();
+            this.AceiteMiAuto2 = new System.Windows.Forms.Label();
+            this.TorqueMiAuto = new System.Windows.Forms.Label();
+            this.PPMiAuto2 = new System.Windows.Forms.Label();
+            this.PesoMiAuto2 = new System.Windows.Forms.Label();
+            this.HpMiauto2 = new System.Windows.Forms.Label();
+            this.ASpMiAuto = new System.Windows.Forms.Label();
+            this.ReproMiAuto = new System.Windows.Forms.Label();
+            this.LimpMiAuto = new System.Windows.Forms.Label();
+            this.MantMiAuto = new System.Windows.Forms.Label();
+            this.MotorMiAuto = new System.Windows.Forms.Label();
+            this.AceiteMiAuto = new System.Windows.Forms.Label();
+            this.TorqueLabel2 = new System.Windows.Forms.Label();
+            this.PPMiAuto = new System.Windows.Forms.Label();
+            this.PesoMiAuto = new System.Windows.Forms.Label();
+            this.HpMiauto = new System.Windows.Forms.Label();
+            this.NombreMiauto = new ZBobb.AlphaBlendTextBox();
+            this.BackObjeto = new System.Windows.Forms.Button();
+            this.CargaPistasAutosPilotosEconomia = new System.Windows.Forms.Button();
+            this.gastosDiarios5 = new Touge_App.GastosDiarios();
+            this.gastosDiarios4 = new Touge_App.GastosDiarios();
+            this.gastosDiarios6 = new Touge_App.GastosDiarios();
+            this.gastosDiarios3 = new Touge_App.GastosDiarios();
+            this.gastosDiarios2 = new Touge_App.GastosDiarios();
+            this.gastosDiarios1 = new Touge_App.GastosDiarios();
             this.mecanico4 = new Touge_App.Mecanico();
             this.mecanico3 = new Touge_App.Mecanico();
             this.mecanico2 = new Touge_App.Mecanico();
@@ -223,12 +265,6 @@ namespace Touge_App
             this.ShopPanel1 = new Touge_App.EShopPanels();
             this.alquileres2 = new Touge_App.Alquileres();
             this.alquileres1 = new Touge_App.Alquileres();
-            this.gastosDiarios1 = new Touge_App.GastosDiarios();
-            this.gastosDiarios2 = new Touge_App.GastosDiarios();
-            this.gastosDiarios3 = new Touge_App.GastosDiarios();
-            this.gastosDiarios6 = new Touge_App.GastosDiarios();
-            this.gastosDiarios4 = new Touge_App.GastosDiarios();
-            this.gastosDiarios5 = new Touge_App.GastosDiarios();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -241,6 +277,9 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiAutoPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BanderaMiAuto)).BeginInit();
+            this.PanelGaraje.SuspendLayout();
             this.SuspendLayout();
             // 
             // eventLog1
@@ -607,7 +646,7 @@ namespace Touge_App
             this.AutoPilotoPictureBox.Location = new System.Drawing.Point(19, 555);
             this.AutoPilotoPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AutoPilotoPictureBox.Name = "AutoPilotoPictureBox";
-            this.AutoPilotoPictureBox.Size = new System.Drawing.Size(555, 263);
+            this.AutoPilotoPictureBox.Size = new System.Drawing.Size(482, 263);
             this.AutoPilotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.AutoPilotoPictureBox.TabIndex = 28;
             this.AutoPilotoPictureBox.TabStop = false;
@@ -2446,6 +2485,7 @@ namespace Touge_App
             this.MisCosasPictureBox.TabIndex = 219;
             this.MisCosasPictureBox.UseVisualStyleBackColor = true;
             this.MisCosasPictureBox.Visible = false;
+            this.MisCosasPictureBox.Click += new System.EventHandler(this.MisCosasPictureBox_Click);
             this.MisCosasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AhorrosPictureBox_Paint);
             this.MisCosasPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
             this.MisCosasPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
@@ -3100,6 +3140,551 @@ namespace Touge_App
             this.BackMecanico.Visible = false;
             this.BackMecanico.Click += new System.EventHandler(this.BackMecanico_Click);
             // 
+            // MiAutoPB
+            // 
+            this.MiAutoPB.Location = new System.Drawing.Point(11, 16);
+            this.MiAutoPB.Name = "MiAutoPB";
+            this.MiAutoPB.Size = new System.Drawing.Size(1264, 730);
+            this.MiAutoPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MiAutoPB.TabIndex = 321;
+            this.MiAutoPB.TabStop = false;
+            this.MiAutoPB.Visible = false;
+            // 
+            // BanderaMiAuto
+            // 
+            this.BanderaMiAuto.Location = new System.Drawing.Point(1281, 16);
+            this.BanderaMiAuto.Name = "BanderaMiAuto";
+            this.BanderaMiAuto.Size = new System.Drawing.Size(524, 803);
+            this.BanderaMiAuto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BanderaMiAuto.TabIndex = 322;
+            this.BanderaMiAuto.TabStop = false;
+            this.BanderaMiAuto.Visible = false;
+            // 
+            // PanelGaraje
+            // 
+            this.PanelGaraje.Controls.Add(this.GasofaMiauto2);
+            this.PanelGaraje.Controls.Add(this.NextObjeto);
+            this.PanelGaraje.Controls.Add(this.TraccionMiauto2);
+            this.PanelGaraje.Controls.Add(this.GasofaMiauto);
+            this.PanelGaraje.Controls.Add(this.TraccionMiauto);
+            this.PanelGaraje.Controls.Add(this.GomasMojado2);
+            this.PanelGaraje.Controls.Add(this.GomasSeco2);
+            this.PanelGaraje.Controls.Add(this.GomasMojado);
+            this.PanelGaraje.Controls.Add(this.GomasSeco);
+            this.PanelGaraje.Controls.Add(this.LimpMiAuto2);
+            this.PanelGaraje.Controls.Add(this.MantMiAuto2);
+            this.PanelGaraje.Controls.Add(this.PlusBoton);
+            this.PanelGaraje.Controls.Add(this.ASpMiAuto2);
+            this.PanelGaraje.Controls.Add(this.ReproMiAuto2);
+            this.PanelGaraje.Controls.Add(this.MotorMiAuto2);
+            this.PanelGaraje.Controls.Add(this.AceiteMiAuto2);
+            this.PanelGaraje.Controls.Add(this.TorqueMiAuto);
+            this.PanelGaraje.Controls.Add(this.PPMiAuto2);
+            this.PanelGaraje.Controls.Add(this.PesoMiAuto2);
+            this.PanelGaraje.Controls.Add(this.HpMiauto2);
+            this.PanelGaraje.Controls.Add(this.ASpMiAuto);
+            this.PanelGaraje.Controls.Add(this.ReproMiAuto);
+            this.PanelGaraje.Controls.Add(this.LimpMiAuto);
+            this.PanelGaraje.Controls.Add(this.MantMiAuto);
+            this.PanelGaraje.Controls.Add(this.MotorMiAuto);
+            this.PanelGaraje.Controls.Add(this.AceiteMiAuto);
+            this.PanelGaraje.Controls.Add(this.TorqueLabel2);
+            this.PanelGaraje.Controls.Add(this.PPMiAuto);
+            this.PanelGaraje.Controls.Add(this.PesoMiAuto);
+            this.PanelGaraje.Controls.Add(this.HpMiauto);
+            this.PanelGaraje.Location = new System.Drawing.Point(1281, 16);
+            this.PanelGaraje.Name = "PanelGaraje";
+            this.PanelGaraje.Size = new System.Drawing.Size(524, 804);
+            this.PanelGaraje.TabIndex = 323;
+            // 
+            // GasofaMiauto2
+            // 
+            this.GasofaMiauto2.BackColor = System.Drawing.Color.Transparent;
+            this.GasofaMiauto2.Font = new System.Drawing.Font("Segoe UI", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GasofaMiauto2.ForeColor = System.Drawing.Color.Silver;
+            this.GasofaMiauto2.Location = new System.Drawing.Point(298, 232);
+            this.GasofaMiauto2.Name = "GasofaMiauto2";
+            this.GasofaMiauto2.Size = new System.Drawing.Size(189, 48);
+            this.GasofaMiauto2.TabIndex = 30;
+            this.GasofaMiauto2.Text = "47/47";
+            this.GasofaMiauto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GasofaMiauto2.Visible = false;
+            // 
+            // NextObjeto
+            // 
+            this.NextObjeto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.NextObjeto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextObjeto.BackColor = System.Drawing.Color.Transparent;
+            this.NextObjeto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NextObjeto.BackgroundImage")));
+            this.NextObjeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.NextObjeto.FlatAppearance.BorderSize = 0;
+            this.NextObjeto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextObjeto.Location = new System.Drawing.Point(463, 383);
+            this.NextObjeto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NextObjeto.Name = "NextObjeto";
+            this.NextObjeto.Size = new System.Drawing.Size(67, 57);
+            this.NextObjeto.TabIndex = 325;
+            this.NextObjeto.UseVisualStyleBackColor = false;
+            this.NextObjeto.Visible = false;
+            this.NextObjeto.Click += new System.EventHandler(this.NextObjeto_Click);
+            // 
+            // TraccionMiauto2
+            // 
+            this.TraccionMiauto2.BackColor = System.Drawing.Color.Transparent;
+            this.TraccionMiauto2.Font = new System.Drawing.Font("Segoe UI", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TraccionMiauto2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.TraccionMiauto2.Location = new System.Drawing.Point(56, 237);
+            this.TraccionMiauto2.Name = "TraccionMiauto2";
+            this.TraccionMiauto2.Size = new System.Drawing.Size(143, 48);
+            this.TraccionMiauto2.TabIndex = 29;
+            this.TraccionMiauto2.Text = "AWD";
+            this.TraccionMiauto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TraccionMiauto2.Visible = false;
+            // 
+            // GasofaMiauto
+            // 
+            this.GasofaMiauto.BackColor = System.Drawing.Color.Transparent;
+            this.GasofaMiauto.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GasofaMiauto.ForeColor = System.Drawing.Color.Gainsboro;
+            this.GasofaMiauto.Location = new System.Drawing.Point(270, 174);
+            this.GasofaMiauto.Name = "GasofaMiauto";
+            this.GasofaMiauto.Size = new System.Drawing.Size(251, 58);
+            this.GasofaMiauto.TabIndex = 28;
+            this.GasofaMiauto.Text = "Gasolina";
+            this.GasofaMiauto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GasofaMiauto.Visible = false;
+            // 
+            // TraccionMiauto
+            // 
+            this.TraccionMiauto.BackColor = System.Drawing.Color.Transparent;
+            this.TraccionMiauto.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TraccionMiauto.ForeColor = System.Drawing.Color.SteelBlue;
+            this.TraccionMiauto.Location = new System.Drawing.Point(4, 168);
+            this.TraccionMiauto.Name = "TraccionMiauto";
+            this.TraccionMiauto.Size = new System.Drawing.Size(260, 71);
+            this.TraccionMiauto.TabIndex = 27;
+            this.TraccionMiauto.Text = "Traccion";
+            this.TraccionMiauto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TraccionMiauto.Visible = false;
+            // 
+            // GomasMojado2
+            // 
+            this.GomasMojado2.BackColor = System.Drawing.Color.Transparent;
+            this.GomasMojado2.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GomasMojado2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.GomasMojado2.Location = new System.Drawing.Point(314, 76);
+            this.GomasMojado2.Name = "GomasMojado2";
+            this.GomasMojado2.Size = new System.Drawing.Size(128, 50);
+            this.GomasMojado2.TabIndex = 26;
+            this.GomasMojado2.Text = "99";
+            this.GomasMojado2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GomasMojado2.Visible = false;
+            // 
+            // GomasSeco2
+            // 
+            this.GomasSeco2.BackColor = System.Drawing.Color.Transparent;
+            this.GomasSeco2.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GomasSeco2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.GomasSeco2.Location = new System.Drawing.Point(71, 78);
+            this.GomasSeco2.Name = "GomasSeco2";
+            this.GomasSeco2.Size = new System.Drawing.Size(104, 48);
+            this.GomasSeco2.TabIndex = 25;
+            this.GomasSeco2.Text = "99";
+            this.GomasSeco2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GomasSeco2.Visible = false;
+            // 
+            // GomasMojado
+            // 
+            this.GomasMojado.BackColor = System.Drawing.Color.Transparent;
+            this.GomasMojado.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GomasMojado.ForeColor = System.Drawing.Color.DarkOrange;
+            this.GomasMojado.Location = new System.Drawing.Point(266, 15);
+            this.GomasMojado.Name = "GomasMojado";
+            this.GomasMojado.Size = new System.Drawing.Size(251, 58);
+            this.GomasMojado.TabIndex = 24;
+            this.GomasMojado.Text = "Wet Tyres";
+            this.GomasMojado.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GomasMojado.Visible = false;
+            // 
+            // GomasSeco
+            // 
+            this.GomasSeco.BackColor = System.Drawing.Color.Transparent;
+            this.GomasSeco.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GomasSeco.ForeColor = System.Drawing.Color.OrangeRed;
+            this.GomasSeco.Location = new System.Drawing.Point(0, 9);
+            this.GomasSeco.Name = "GomasSeco";
+            this.GomasSeco.Size = new System.Drawing.Size(260, 71);
+            this.GomasSeco.TabIndex = 23;
+            this.GomasSeco.Text = "Dry Tyres";
+            this.GomasSeco.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GomasSeco.Visible = false;
+            // 
+            // LimpMiAuto2
+            // 
+            this.LimpMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.LimpMiAuto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LimpMiAuto2.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.LimpMiAuto2.Location = new System.Drawing.Point(303, 551);
+            this.LimpMiAuto2.Name = "LimpMiAuto2";
+            this.LimpMiAuto2.Size = new System.Drawing.Size(154, 49);
+            this.LimpMiAuto2.TabIndex = 22;
+            this.LimpMiAuto2.Text = "Sucio";
+            this.LimpMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MantMiAuto2
+            // 
+            this.MantMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.MantMiAuto2.Font = new System.Drawing.Font("Segoe UI", 21F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MantMiAuto2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.MantMiAuto2.Location = new System.Drawing.Point(30, 551);
+            this.MantMiAuto2.Name = "MantMiAuto2";
+            this.MantMiAuto2.Size = new System.Drawing.Size(153, 56);
+            this.MantMiAuto2.TabIndex = 21;
+            this.MantMiAuto2.Text = "Malo";
+            this.MantMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PlusBoton
+            // 
+            this.PlusBoton.BackColor = System.Drawing.Color.Transparent;
+            this.PlusBoton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlusBoton.BackgroundImage")));
+            this.PlusBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PlusBoton.FlatAppearance.BorderSize = 0;
+            this.PlusBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PlusBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PlusBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PlusBoton.Location = new System.Drawing.Point(236, 756);
+            this.PlusBoton.Name = "PlusBoton";
+            this.PlusBoton.Size = new System.Drawing.Size(46, 47);
+            this.PlusBoton.TabIndex = 20;
+            this.PlusBoton.UseVisualStyleBackColor = false;
+            this.PlusBoton.Click += new System.EventHandler(this.PlusBoton_Click);
+            // 
+            // ASpMiAuto2
+            // 
+            this.ASpMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.ASpMiAuto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ASpMiAuto2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.ASpMiAuto2.Location = new System.Drawing.Point(357, 730);
+            this.ASpMiAuto2.Name = "ASpMiAuto2";
+            this.ASpMiAuto2.Size = new System.Drawing.Size(85, 58);
+            this.ASpMiAuto2.TabIndex = 19;
+            this.ASpMiAuto2.Text = "NA";
+            this.ASpMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ReproMiAuto2
+            // 
+            this.ReproMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.ReproMiAuto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReproMiAuto2.ForeColor = System.Drawing.Color.Red;
+            this.ReproMiAuto2.Location = new System.Drawing.Point(69, 735);
+            this.ReproMiAuto2.Name = "ReproMiAuto2";
+            this.ReproMiAuto2.Size = new System.Drawing.Size(85, 47);
+            this.ReproMiAuto2.TabIndex = 18;
+            this.ReproMiAuto2.Text = "NO";
+            this.ReproMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MotorMiAuto2
+            // 
+            this.MotorMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.MotorMiAuto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MotorMiAuto2.ForeColor = System.Drawing.Color.Red;
+            this.MotorMiAuto2.Location = new System.Drawing.Point(300, 383);
+            this.MotorMiAuto2.Name = "MotorMiAuto2";
+            this.MotorMiAuto2.Size = new System.Drawing.Size(164, 49);
+            this.MotorMiAuto2.TabIndex = 15;
+            this.MotorMiAuto2.Text = "Malo";
+            this.MotorMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AceiteMiAuto2
+            // 
+            this.AceiteMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.AceiteMiAuto2.Font = new System.Drawing.Font("Segoe UI", 21F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AceiteMiAuto2.ForeColor = System.Drawing.Color.Red;
+            this.AceiteMiAuto2.Location = new System.Drawing.Point(25, 376);
+            this.AceiteMiAuto2.Name = "AceiteMiAuto2";
+            this.AceiteMiAuto2.Size = new System.Drawing.Size(178, 56);
+            this.AceiteMiAuto2.TabIndex = 14;
+            this.AceiteMiAuto2.Text = "Cambio";
+            this.AceiteMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TorqueMiAuto
+            // 
+            this.TorqueMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.TorqueMiAuto.Font = new System.Drawing.Font("Segoe UI", 21F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TorqueMiAuto.ForeColor = System.Drawing.Color.MediumBlue;
+            this.TorqueMiAuto.Location = new System.Drawing.Point(295, 229);
+            this.TorqueMiAuto.Name = "TorqueMiAuto";
+            this.TorqueMiAuto.Size = new System.Drawing.Size(186, 54);
+            this.TorqueMiAuto.TabIndex = 13;
+            this.TorqueMiAuto.Text = "9999 Nm";
+            this.TorqueMiAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PPMiAuto2
+            // 
+            this.PPMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.PPMiAuto2.Font = new System.Drawing.Font("Segoe UI", 19.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PPMiAuto2.ForeColor = System.Drawing.Color.Red;
+            this.PPMiAuto2.Location = new System.Drawing.Point(4, 226);
+            this.PPMiAuto2.Name = "PPMiAuto2";
+            this.PPMiAuto2.Size = new System.Drawing.Size(234, 52);
+            this.PPMiAuto2.TabIndex = 12;
+            this.PPMiAuto2.Text = "10,61 Kg/Hp";
+            this.PPMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PesoMiAuto2
+            // 
+            this.PesoMiAuto2.BackColor = System.Drawing.Color.Transparent;
+            this.PesoMiAuto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoMiAuto2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.PesoMiAuto2.Location = new System.Drawing.Point(289, 73);
+            this.PesoMiAuto2.Name = "PesoMiAuto2";
+            this.PesoMiAuto2.Size = new System.Drawing.Size(192, 52);
+            this.PesoMiAuto2.TabIndex = 11;
+            this.PesoMiAuto2.Text = "9999 Kg";
+            this.PesoMiAuto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HpMiauto2
+            // 
+            this.HpMiauto2.BackColor = System.Drawing.Color.Transparent;
+            this.HpMiauto2.Font = new System.Drawing.Font("Segoe UI", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HpMiauto2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.HpMiauto2.Location = new System.Drawing.Point(29, 66);
+            this.HpMiauto2.Name = "HpMiauto2";
+            this.HpMiauto2.Size = new System.Drawing.Size(172, 60);
+            this.HpMiauto2.TabIndex = 10;
+            this.HpMiauto2.Text = "999 Hp";
+            this.HpMiauto2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ASpMiAuto
+            // 
+            this.ASpMiAuto.AutoSize = true;
+            this.ASpMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.ASpMiAuto.Font = new System.Drawing.Font("Segoe UI", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ASpMiAuto.ForeColor = System.Drawing.Color.Cyan;
+            this.ASpMiAuto.Location = new System.Drawing.Point(281, 662);
+            this.ASpMiAuto.Name = "ASpMiAuto";
+            this.ASpMiAuto.Size = new System.Drawing.Size(240, 59);
+            this.ASpMiAuto.TabIndex = 9;
+            this.ASpMiAuto.Text = "Aspiracion";
+            this.ASpMiAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ReproMiAuto
+            // 
+            this.ReproMiAuto.AutoSize = true;
+            this.ReproMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.ReproMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReproMiAuto.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.ReproMiAuto.Location = new System.Drawing.Point(37, 656);
+            this.ReproMiAuto.Name = "ReproMiAuto";
+            this.ReproMiAuto.Size = new System.Drawing.Size(159, 65);
+            this.ReproMiAuto.TabIndex = 8;
+            this.ReproMiAuto.Text = "Repro";
+            // 
+            // LimpMiAuto
+            // 
+            this.LimpMiAuto.AutoSize = true;
+            this.LimpMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.LimpMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LimpMiAuto.ForeColor = System.Drawing.Color.Aquamarine;
+            this.LimpMiAuto.Location = new System.Drawing.Point(310, 477);
+            this.LimpMiAuto.Name = "LimpMiAuto";
+            this.LimpMiAuto.Size = new System.Drawing.Size(153, 65);
+            this.LimpMiAuto.TabIndex = 7;
+            this.LimpMiAuto.Text = "Limp.";
+            this.LimpMiAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MantMiAuto
+            // 
+            this.MantMiAuto.AutoSize = true;
+            this.MantMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.MantMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MantMiAuto.ForeColor = System.Drawing.Color.SeaGreen;
+            this.MantMiAuto.Location = new System.Drawing.Point(38, 476);
+            this.MantMiAuto.Name = "MantMiAuto";
+            this.MantMiAuto.Size = new System.Drawing.Size(158, 65);
+            this.MantMiAuto.TabIndex = 6;
+            this.MantMiAuto.Text = "Mant.";
+            // 
+            // MotorMiAuto
+            // 
+            this.MotorMiAuto.AutoSize = true;
+            this.MotorMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.MotorMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MotorMiAuto.ForeColor = System.Drawing.Color.YellowGreen;
+            this.MotorMiAuto.Location = new System.Drawing.Point(301, 314);
+            this.MotorMiAuto.Name = "MotorMiAuto";
+            this.MotorMiAuto.Size = new System.Drawing.Size(163, 65);
+            this.MotorMiAuto.TabIndex = 5;
+            this.MotorMiAuto.Text = "Motor";
+            // 
+            // AceiteMiAuto
+            // 
+            this.AceiteMiAuto.AutoSize = true;
+            this.AceiteMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.AceiteMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AceiteMiAuto.ForeColor = System.Drawing.Color.Yellow;
+            this.AceiteMiAuto.Location = new System.Drawing.Point(34, 311);
+            this.AceiteMiAuto.Name = "AceiteMiAuto";
+            this.AceiteMiAuto.Size = new System.Drawing.Size(167, 65);
+            this.AceiteMiAuto.TabIndex = 4;
+            this.AceiteMiAuto.Text = "Aceite";
+            // 
+            // TorqueLabel2
+            // 
+            this.TorqueLabel2.AutoSize = true;
+            this.TorqueLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.TorqueLabel2.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TorqueLabel2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.TorqueLabel2.Location = new System.Drawing.Point(293, 159);
+            this.TorqueLabel2.Name = "TorqueLabel2";
+            this.TorqueLabel2.Size = new System.Drawing.Size(185, 65);
+            this.TorqueLabel2.TabIndex = 3;
+            this.TorqueLabel2.Text = "Torque";
+            // 
+            // PPMiAuto
+            // 
+            this.PPMiAuto.AutoSize = true;
+            this.PPMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.PPMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PPMiAuto.ForeColor = System.Drawing.Color.Red;
+            this.PPMiAuto.Location = new System.Drawing.Point(39, 161);
+            this.PPMiAuto.Name = "PPMiAuto";
+            this.PPMiAuto.Size = new System.Drawing.Size(157, 65);
+            this.PPMiAuto.TabIndex = 2;
+            this.PPMiAuto.Text = "P/PW";
+            // 
+            // PesoMiAuto
+            // 
+            this.PesoMiAuto.AutoSize = true;
+            this.PesoMiAuto.BackColor = System.Drawing.Color.Transparent;
+            this.PesoMiAuto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoMiAuto.ForeColor = System.Drawing.Color.DarkOrange;
+            this.PesoMiAuto.Location = new System.Drawing.Point(321, -1);
+            this.PesoMiAuto.Name = "PesoMiAuto";
+            this.PesoMiAuto.Size = new System.Drawing.Size(132, 65);
+            this.PesoMiAuto.TabIndex = 1;
+            this.PesoMiAuto.Text = "Peso";
+            // 
+            // HpMiauto
+            // 
+            this.HpMiauto.BackColor = System.Drawing.Color.Transparent;
+            this.HpMiauto.Font = new System.Drawing.Font("Segoe UI", 28.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HpMiauto.ForeColor = System.Drawing.Color.OrangeRed;
+            this.HpMiauto.Location = new System.Drawing.Point(54, -1);
+            this.HpMiauto.Name = "HpMiauto";
+            this.HpMiauto.Size = new System.Drawing.Size(133, 59);
+            this.HpMiauto.TabIndex = 0;
+            this.HpMiauto.Text = "PW";
+            this.HpMiauto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NombreMiauto
+            // 
+            this.NombreMiauto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.NombreMiauto.BackAlpha = 25;
+            this.NombreMiauto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NombreMiauto.Font = new System.Drawing.Font("F1TV-2022-Position", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreMiauto.Location = new System.Drawing.Point(11, 756);
+            this.NombreMiauto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NombreMiauto.Multiline = true;
+            this.NombreMiauto.Name = "NombreMiauto";
+            this.NombreMiauto.Size = new System.Drawing.Size(1264, 64);
+            this.NombreMiauto.TabIndex = 324;
+            this.NombreMiauto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NombreMiauto.Visible = false;
+            // 
+            // BackObjeto
+            // 
+            this.BackObjeto.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackObjeto.BackColor = System.Drawing.Color.Transparent;
+            this.BackObjeto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackObjeto.BackgroundImage")));
+            this.BackObjeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackObjeto.FlatAppearance.BorderSize = 0;
+            this.BackObjeto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackObjeto.Location = new System.Drawing.Point(-1, 399);
+            this.BackObjeto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BackObjeto.Name = "BackObjeto";
+            this.BackObjeto.Size = new System.Drawing.Size(67, 57);
+            this.BackObjeto.TabIndex = 326;
+            this.BackObjeto.UseVisualStyleBackColor = false;
+            this.BackObjeto.Visible = false;
+            this.BackObjeto.Click += new System.EventHandler(this.BackObjeto_Click);
+            // 
+            // CargaPistasAutosPilotosEconomia
+            // 
+            this.CargaPistasAutosPilotosEconomia.BackColor = System.Drawing.Color.Transparent;
+            this.CargaPistasAutosPilotosEconomia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CargaPistasAutosPilotosEconomia.Location = new System.Drawing.Point(1, 1);
+            this.CargaPistasAutosPilotosEconomia.Name = "CargaPistasAutosPilotosEconomia";
+            this.CargaPistasAutosPilotosEconomia.Size = new System.Drawing.Size(66, 33);
+            this.CargaPistasAutosPilotosEconomia.TabIndex = 327;
+            this.CargaPistasAutosPilotosEconomia.UseVisualStyleBackColor = false;
+            // 
+            // gastosDiarios5
+            // 
+            this.gastosDiarios5.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios5.Location = new System.Drawing.Point(1188, 25);
+            this.gastosDiarios5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios5.Name = "gastosDiarios5";
+            this.gastosDiarios5.Precio = "";
+            this.gastosDiarios5.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios5.TabIndex = 319;
+            this.gastosDiarios5.Visible = false;
+            // 
+            // gastosDiarios4
+            // 
+            this.gastosDiarios4.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios4.Location = new System.Drawing.Point(652, 480);
+            this.gastosDiarios4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios4.Name = "gastosDiarios4";
+            this.gastosDiarios4.Precio = "";
+            this.gastosDiarios4.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios4.TabIndex = 318;
+            this.gastosDiarios4.Visible = false;
+            // 
+            // gastosDiarios6
+            // 
+            this.gastosDiarios6.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios6.Location = new System.Drawing.Point(1188, 480);
+            this.gastosDiarios6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios6.Name = "gastosDiarios6";
+            this.gastosDiarios6.Precio = "";
+            this.gastosDiarios6.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios6.TabIndex = 317;
+            this.gastosDiarios6.Visible = false;
+            // 
+            // gastosDiarios3
+            // 
+            this.gastosDiarios3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios3.Location = new System.Drawing.Point(652, 25);
+            this.gastosDiarios3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios3.Name = "gastosDiarios3";
+            this.gastosDiarios3.Precio = "";
+            this.gastosDiarios3.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios3.TabIndex = 315;
+            this.gastosDiarios3.Visible = false;
+            // 
+            // gastosDiarios2
+            // 
+            this.gastosDiarios2.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios2.Location = new System.Drawing.Point(117, 480);
+            this.gastosDiarios2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios2.Name = "gastosDiarios2";
+            this.gastosDiarios2.Precio = "";
+            this.gastosDiarios2.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios2.TabIndex = 314;
+            this.gastosDiarios2.Visible = false;
+            // 
+            // gastosDiarios1
+            // 
+            this.gastosDiarios1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.gastosDiarios1.Location = new System.Drawing.Point(116, 25);
+            this.gastosDiarios1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gastosDiarios1.Name = "gastosDiarios1";
+            this.gastosDiarios1.Precio = "";
+            this.gastosDiarios1.Size = new System.Drawing.Size(488, 338);
+            this.gastosDiarios1.TabIndex = 313;
+            this.gastosDiarios1.Visible = false;
+            // 
             // mecanico4
             // 
             this.mecanico4.BackColor = System.Drawing.Color.Navy;
@@ -3376,16 +3961,14 @@ namespace Touge_App
             // alquileres2
             // 
             this.alquileres2.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres2.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
-    " ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres2.Ducha = resources.GetString("alquileres2.Ducha");
             this.alquileres2.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Id = 0;
             this.alquileres2.Location = new System.Drawing.Point(909, 144);
             this.alquileres2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.alquileres2.Name = "alquileres2";
             this.alquileres2.Pieza = "● ● ● ● ● ● ● ● ";
-            this.alquileres2.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
-    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $$$$$$$$";
+            this.alquileres2.Precio = resources.GetString("alquileres2.Precio");
             this.alquileres2.Sala = "● ● ● ● ● ● ● ● ";
             this.alquileres2.Size = new System.Drawing.Size(829, 574);
             this.alquileres2.TabIndex = 243;
@@ -3395,86 +3978,20 @@ namespace Touge_App
             // alquileres1
             // 
             this.alquileres1.BackColor = System.Drawing.Color.LightGray;
-            this.alquileres1.Ducha = "● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●" +
-    " ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ";
+            this.alquileres1.Ducha = resources.GetString("alquileres1.Ducha");
             this.alquileres1.Garaje = "● ● ● ● ● ● ● ● ";
             this.alquileres1.Id = 0;
             this.alquileres1.Location = new System.Drawing.Point(72, 143);
             this.alquileres1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = " ";
-            this.alquileres1.Precio = "$ $ ";
+            this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
+    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ ";
             this.alquileres1.Sala = " ";
             this.alquileres1.Size = new System.Drawing.Size(829, 574);
             this.alquileres1.TabIndex = 242;
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
-            // 
-            // gastosDiarios1
-            // 
-            this.gastosDiarios1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios1.Location = new System.Drawing.Point(116, 25);
-            this.gastosDiarios1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios1.Name = "gastosDiarios1";
-            this.gastosDiarios1.Precio = "";
-            this.gastosDiarios1.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios1.TabIndex = 313;
-            this.gastosDiarios1.Visible = false;
-            // 
-            // gastosDiarios2
-            // 
-            this.gastosDiarios2.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios2.Location = new System.Drawing.Point(117, 480);
-            this.gastosDiarios2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios2.Name = "gastosDiarios2";
-            this.gastosDiarios2.Precio = "";
-            this.gastosDiarios2.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios2.TabIndex = 314;
-            this.gastosDiarios2.Visible = false;
-            // 
-            // gastosDiarios3
-            // 
-            this.gastosDiarios3.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios3.Location = new System.Drawing.Point(652, 25);
-            this.gastosDiarios3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios3.Name = "gastosDiarios3";
-            this.gastosDiarios3.Precio = "";
-            this.gastosDiarios3.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios3.TabIndex = 315;
-            this.gastosDiarios3.Visible = false;
-            // 
-            // gastosDiarios6
-            // 
-            this.gastosDiarios6.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios6.Location = new System.Drawing.Point(1188, 480);
-            this.gastosDiarios6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios6.Name = "gastosDiarios6";
-            this.gastosDiarios6.Precio = "";
-            this.gastosDiarios6.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios6.TabIndex = 317;
-            this.gastosDiarios6.Visible = false;
-            // 
-            // gastosDiarios4
-            // 
-            this.gastosDiarios4.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios4.Location = new System.Drawing.Point(652, 480);
-            this.gastosDiarios4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios4.Name = "gastosDiarios4";
-            this.gastosDiarios4.Precio = "";
-            this.gastosDiarios4.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios4.TabIndex = 318;
-            this.gastosDiarios4.Visible = false;
-            // 
-            // gastosDiarios5
-            // 
-            this.gastosDiarios5.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.gastosDiarios5.Location = new System.Drawing.Point(1188, 25);
-            this.gastosDiarios5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gastosDiarios5.Name = "gastosDiarios5";
-            this.gastosDiarios5.Precio = "";
-            this.gastosDiarios5.Size = new System.Drawing.Size(488, 338);
-            this.gastosDiarios5.TabIndex = 319;
-            this.gastosDiarios5.Visible = false;
             // 
             // TougeForms
             // 
@@ -3482,6 +3999,12 @@ namespace Touge_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1811, 884);
+            this.Controls.Add(this.CargaPistasAutosPilotosEconomia);
+            this.Controls.Add(this.BackObjeto);
+            this.Controls.Add(this.NombreMiauto);
+            this.Controls.Add(this.PanelGaraje);
+            this.Controls.Add(this.BanderaMiAuto);
+            this.Controls.Add(this.MiAutoPB);
             this.Controls.Add(this.gastosDiarios5);
             this.Controls.Add(this.gastosDiarios4);
             this.Controls.Add(this.gastosDiarios6);
@@ -3698,6 +4221,10 @@ namespace Touge_App
             ((System.ComponentModel.ISupportInitialize)(this.FichaTecnicaPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DineroPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiAutoPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BanderaMiAuto)).EndInit();
+            this.PanelGaraje.ResumeLayout(false);
+            this.PanelGaraje.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3902,6 +4429,42 @@ namespace Touge_App
         private GastosDiarios gastosDiarios1;
         private GastosDiarios gastosDiarios4;
         private GastosDiarios gastosDiarios5;
+        private System.Windows.Forms.PictureBox MiAutoPB;
+        private System.Windows.Forms.PictureBox BanderaMiAuto;
+        private System.Windows.Forms.Panel PanelGaraje;
+        private ZBobb.AlphaBlendTextBox NombreMiauto;
+        private System.Windows.Forms.Label LimpMiAuto;
+        private System.Windows.Forms.Label MantMiAuto;
+        private System.Windows.Forms.Label MotorMiAuto;
+        private System.Windows.Forms.Label AceiteMiAuto;
+        private System.Windows.Forms.Label TorqueLabel2;
+        private System.Windows.Forms.Label PPMiAuto;
+        private System.Windows.Forms.Label PesoMiAuto;
+        private System.Windows.Forms.Label HpMiauto;
+        private System.Windows.Forms.Label ASpMiAuto;
+        private System.Windows.Forms.Label ReproMiAuto;
+        private System.Windows.Forms.Button PlusBoton;
+        private System.Windows.Forms.Label ASpMiAuto2;
+        private System.Windows.Forms.Label ReproMiAuto2;
+        private System.Windows.Forms.Label MotorMiAuto2;
+        private System.Windows.Forms.Label AceiteMiAuto2;
+        private System.Windows.Forms.Label TorqueMiAuto;
+        private System.Windows.Forms.Label PPMiAuto2;
+        private System.Windows.Forms.Label PesoMiAuto2;
+        private System.Windows.Forms.Label HpMiauto2;
+        private System.Windows.Forms.Label LimpMiAuto2;
+        private System.Windows.Forms.Label MantMiAuto2;
+        private System.Windows.Forms.Label GomasMojado2;
+        private System.Windows.Forms.Label GomasSeco2;
+        private System.Windows.Forms.Label GomasMojado;
+        private System.Windows.Forms.Label GomasSeco;
+        private System.Windows.Forms.Label GasofaMiauto2;
+        private System.Windows.Forms.Label TraccionMiauto2;
+        private System.Windows.Forms.Label GasofaMiauto;
+        private System.Windows.Forms.Label TraccionMiauto;
+        private System.Windows.Forms.Button BackObjeto;
+        private System.Windows.Forms.Button NextObjeto;
+        private System.Windows.Forms.Button CargaPistasAutosPilotosEconomia;
     }
 }
 

@@ -1614,5 +1614,110 @@ namespace Negocio_Base_Datos
             vinilosBD.SQLQuery("Update MiAuto set VinilosDisponible = VinilosDisponible+1");
             vinilosBD.EjecutarAccion();
         }
+
+        public MiAuto GetMiAuto()
+        {
+            FuncionesNegocio funcionGet = new FuncionesNegocio();
+            MiAuto aux = new MiAuto();
+            funcionGet.SQLQuery("select Hp, Peso, PesoPotencia, Torque, Traccion, Auto1, Aceite, Motor, Mantenimiento, Lavado, Repro, Aspiracion, TanqueActual, GomasDeSeco, GomasDeLluvia, Nombre, Tanque  from Autos, MiAuto where Dueno = 1");
+            funcionGet.LecturaBase();
+            if (funcionGet.Guardador.Read())
+            {
+                aux.Hp = (int)funcionGet.Guardador["Hp"];
+                aux.Peso = (int)funcionGet.Guardador["Peso"];
+                aux.PesoPotencia = (double)funcionGet.Guardador["PesoPotencia"];
+                aux.Torque = (int)funcionGet.Guardador["Torque"];
+                aux.Traccion = (string)funcionGet.Guardador["Traccion"];
+                aux.Imagen = (string)funcionGet.Guardador["Auto1"];
+                aux.Aceite = (bool)funcionGet.Guardador["Aceite"];
+                aux.Motor = (bool)funcionGet.Guardador["Motor"];
+                aux.Mantenimiento = (bool)funcionGet.Guardador["Mantenimiento"];
+                aux.Repro = (bool)funcionGet.Guardador["Repro"];
+                aux.Asp = (string)funcionGet.Guardador["Aspiracion"];
+                aux.TanqueActual = (int)funcionGet.Guardador["TanqueActual"];
+                aux.TanqueTotal = (int)funcionGet.Guardador["Tanque"];
+                aux.GomasSemiSlick = (int)funcionGet.Guardador["GomasDeSeco"];
+                aux.GomasWet = (int)funcionGet.Guardador["GomasDeLluvia"];
+                aux.Nombre = (string)funcionGet.Guardador["Nombre"];
+            }
+            return aux;
+        }
+
+        public int NumeroDeMisObjetos()
+        {
+            int devolver = 0;
+            FuncionesNegocio leerObjetos = new FuncionesNegocio();
+            leerObjetos.SQLQuery("select Comprado from Ropa where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                devolver++;
+            }
+            leerObjetos.Guardador.Close();
+            leerObjetos.SQLQuery("select Comprado from Muebles where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                devolver++;
+            }
+            leerObjetos.Guardador.Close();
+            leerObjetos.SQLQuery("select Comprado from Electronicos where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                devolver++;
+            }
+            leerObjetos.Guardador.Close();
+            return devolver;
+        }
+
+        public void CargarListasAuxiliares (ref List<MisObjetos> auxObjetos)
+        {
+            FuncionesNegocio leerObjetos = new FuncionesNegocio();
+            leerObjetos.SQLQuery("select NumeroDeRegistro, NombreRopa, ImagenRopa, Precio, Comprado from Ropa where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                MisObjetos aux = new MisObjetos
+                {
+                    Id = (int)leerObjetos.Guardador["NumeroDeRegistro"],
+                    Precio = (int)leerObjetos.Guardador["Precio"],
+                    NombreProducto = (string)leerObjetos.Guardador["NombreRopa"],
+                    Imagen = (string)leerObjetos.Guardador["ImagenRopa"],
+                    Comprado = (bool)leerObjetos.Guardador["Comprado"]
+                };
+                auxObjetos.Add(aux);
+            }
+            leerObjetos.Guardador.Close();
+            leerObjetos.SQLQuery("select NumeroDeRegistro, NombreMueble, ImagenMueble, Precio, Comprado from Muebles where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                MisObjetos aux = new MisObjetos
+                {
+                    Id = (int)leerObjetos.Guardador["NumeroDeRegistro"],
+                    Precio = (int)leerObjetos.Guardador["Precio"],
+                    NombreProducto = (string)leerObjetos.Guardador["NombreMueble"],
+                    Imagen = (string)leerObjetos.Guardador["ImagenMueble"],
+                    Comprado = (bool)leerObjetos.Guardador["Comprado"]
+                };
+                auxObjetos.Add(aux);
+            }
+            leerObjetos.Guardador.Close();
+            leerObjetos.SQLQuery("select NumeroDeRegistro, NombreElectronico, ImagenElectronico, Precio, Comprado from Electronicos where Comprado = 0");
+            leerObjetos.LecturaBase();
+            while (leerObjetos.Guardador.Read())
+            {
+                MisObjetos aux = new MisObjetos
+                {
+                    Id = (int)leerObjetos.Guardador["NumeroDeRegistro"],
+                    Precio = (int)leerObjetos.Guardador["Precio"],
+                    NombreProducto = (string)leerObjetos.Guardador["NombreElectronico"],
+                    Imagen = (string)leerObjetos.Guardador["ImagenElectronico"],
+                    Comprado = (bool)leerObjetos.Guardador["Comprado"]
+                };
+                auxObjetos.Add(aux);
+            }
+        }
     }
 }

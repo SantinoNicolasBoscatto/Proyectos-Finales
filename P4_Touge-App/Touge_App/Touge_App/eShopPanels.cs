@@ -35,6 +35,10 @@ namespace Touge_App
         {
             try
             {
+                if (ProductoImagen.Visible==false)
+                {
+                    ProductoImagen.Visible = true;
+                }
                 ProductoImagen.Load(imagen);
             }
             catch (Exception)
@@ -42,6 +46,11 @@ namespace Touge_App
                 ProductoImagen.Load("https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg?w=2000");
             }
 
+        }
+
+        public void PictureBoxFalse()
+        {
+            ProductoImagen.Visible = false;
         }
 
         DialogResult Dialogo;
@@ -92,5 +101,10 @@ namespace Touge_App
             NombreDelProducto.ForeColor = Fore;
         }
 
+        public void Ocultar()
+        {
+            BotonComprar.Visible = false;
+            PrecioLabel.Visible = false;
+        }
     }
 }

@@ -34,4 +34,25 @@ namespace Modelo_Clases
             this.MarcaAuto = new Marca();
         }
     }
+
+    public class MiAuto
+    {
+        public int Hp { get; set; }
+        public int Peso { get; set; }
+        public int Torque { get; set; }
+        public double PesoPotencia { get; set; }
+        public string Traccion { get; set; }
+        public string Imagen { get; set; }
+        public string Nombre { get; set; }
+        public bool Aceite { get; set; }
+        public bool Motor { get; set; }
+        public bool Mantenimiento { get; set; }
+        public bool Lavado { get; set; }
+        public bool Repro { get; set; }
+        public string Asp { get; set; }
+        public int TanqueActual { get; set; }
+        public int TanqueTotal { get; set; }
+        public int GomasSemiSlick { get; set; }
+        public int GomasWet { get; set; }
+    }
 }

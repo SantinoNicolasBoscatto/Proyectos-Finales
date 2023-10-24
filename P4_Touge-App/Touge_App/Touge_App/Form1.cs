@@ -47,6 +47,8 @@ namespace Touge_App
         List<Ropa> listaRopa;
         List<Mueble> listaMuebles;
         List<Electronicos> listaElectro = new List<Electronicos>();
+        List<EShopPanels> listaMisCosas; //Lista De Paneles (8-Max)
+        List<MisObjetos> listaObjetosAux = null; //Lista de Mis Objetos
         //PRECIOS
         readonly int aceite = 85;
         readonly int manMotor = 125;
@@ -537,7 +539,6 @@ namespace Touge_App
                 this.Location = new Point(dx, dy);
             }
         }
-
         //FUNCIONES
         private void RepintadoBotones(bool bandera, PaintEventArgs e, Button Boton)
         {
@@ -553,6 +554,16 @@ namespace Touge_App
         // Trasparentar Los Botones
         private void Trasparentado(Button Boton, Button Boton2)
         {
+            BackObjeto.Parent = PictureBoxBack;
+            NextObjeto.Parent = PictureBoxBack;
+            NextObjeto.Location = new Point(1307, 320);
+            NombreMiauto.Parent = PictureBoxBack;
+            MiAutoPB.Parent = PictureBoxBack;
+            BanderaMiAuto.Parent = PictureBoxBack;
+            PanelGaraje.Parent = BanderaMiAuto;
+            PlusBoton.Parent = PanelGaraje;
+            PanelGaraje.Location = new Point(0, 0);
+            PanelGaraje.BackColor = Color.FromArgb(75, 75, 75, 55);
             DineroPb.Parent = PictureBoxBack;
             DineroMostrarLabel.Parent = PictureBoxBack;
             Boton.BackColor = Color.Transparent;
@@ -600,6 +611,7 @@ namespace Touge_App
             AnteriorPistaBoton.FlatAppearance.MouseDownBackColor = Color.FromArgb(70, 50, 50, 50);
             PilotosPictureBox.Parent = PictureBoxBack;
             AutoPilotoPictureBox.Parent = PictureBoxBack;
+            AutoPilotoPictureBox.BackColor = Color.Transparent;
             PaisPictureBox.Parent = PictureBoxBack;
             BiografiaPilotosTextBox.Parent = PictureBoxBack;
             VolumenControl.Parent = PictureBoxBack;
@@ -1339,6 +1351,109 @@ namespace Touge_App
                 gastosDiarios4.Visible = false;
                 gastosDiarios5.Visible = false;
                 gastosDiarios6.Visible = false;
+                EconomiaMostrar = false;
+            }
+
+            else if (MiAutoPB.Visible==true)
+            {
+                MiAutoPB.Visible = false;
+                PanelGaraje.Visible = false;
+                BanderaMiAuto.Visible = false;
+                PlusBoton.Visible = false;
+                NombreMiauto.Visible = false;
+                HpMiauto.Visible = false;
+                HpMiauto2.Visible = false;
+                PesoMiAuto.Visible = false;
+                PesoMiAuto2.Visible = false;
+                PPMiAuto.Visible = false;
+                PPMiAuto2.Visible = false;
+                TorqueMiAuto.Visible = false;
+                TorqueLabel2.Visible = false;
+                AceiteMiAuto.Visible = false;
+                AceiteMiAuto2.Visible = false;
+                MotorMiAuto.Visible = false;
+                MotorMiAuto2.Visible = false;
+                MantMiAuto.Visible = false;
+                MantMiAuto2.Visible = false;
+                LimpMiAuto.Visible = false;
+                LimpMiAuto2.Visible = false;
+                ReproMiAuto.Visible = false;
+                ReproMiAuto2.Visible = false;
+                ASpMiAuto.Visible = false;
+                ASpMiAuto2.Visible = false;
+                GomasMojado.Visible = false;
+                GomasMojado2.Visible = false;
+                GomasSeco.Visible = false;
+                GomasSeco2.Visible = false;
+                TraccionMiauto.Visible = false;
+                TraccionMiauto2.Visible = false;
+                GasofaMiauto.Visible = false;
+                GasofaMiauto2.Visible = false;
+                EconomiaMostrar = false;
+            }
+
+            else if (listaMisCosas[0].Visible==true)
+            {
+                BackObjeto.Visible = false;
+                NextObjeto.Visible = false;
+                MisObjetosPaginaManager = 1;
+                switch (listaMisCosas.Count)
+                {
+                    case 1:
+                        listaMisCosas[0].Visible = false;
+                        break;
+                    case 2:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        break;
+                    case 3:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        break;
+                    case 4:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        listaMisCosas[3].Visible = false;
+                        break;
+                    case 5:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        listaMisCosas[3].Visible = false;
+                        listaMisCosas[4].Visible = false;
+                        break;
+                    case 6:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        listaMisCosas[3].Visible = false;
+                        listaMisCosas[4].Visible = false;
+                        listaMisCosas[5].Visible = false;
+                        break;
+                    case 7:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        listaMisCosas[3].Visible = false;
+                        listaMisCosas[4].Visible = false;
+                        listaMisCosas[5].Visible = false;
+                        listaMisCosas[6].Visible = false;
+                        break;
+                    case 8:
+                        listaMisCosas[0].Visible = false;
+                        listaMisCosas[1].Visible = false;
+                        listaMisCosas[2].Visible = false;
+                        listaMisCosas[3].Visible = false;
+                        listaMisCosas[4].Visible = false;
+                        listaMisCosas[5].Visible = false;
+                        listaMisCosas[6].Visible = false;
+                        listaMisCosas[7].Visible = false;
+                        break;
+                    default:
+                        break;
+                }
                 EconomiaMostrar = false;
             }
 
@@ -4081,7 +4196,7 @@ namespace Touge_App
             }
         }
 
-        //MOSTRAR MODULO HIGIENE Y EVENTOS INDICE: 4.10
+        //MOSTRAR MODULO GAstosVarios Y EVENTOS INDICE: 4.10
         private void GastosVariosPictureBox_Click(object sender, EventArgs e)
         {
             MostrarGastosDiarios();
@@ -4222,6 +4337,5032 @@ namespace Touge_App
             }
         }
 
+        //MOSTRAR MODULO Garaje Y EVENTOS INDICE: 4.11
+        private void GarajePictureBox_Click(object sender, EventArgs e)
+        {
+            MostrarGaraje();
+        }
+        private void MostrarGaraje()
+        {
+            OcultarEconomia();
+            MiAutoPB.Visible = true;
+            BanderaMiAuto.Visible = true;
+            PanelGaraje.Visible = true;
+            NombreMiauto.Visible = true;
+            plus = true;
+            HpMiauto.Visible = true;
+            HpMiauto2.Visible = true;
+            PesoMiAuto.Visible = true;
+            PesoMiAuto2.Visible = true;
+            PPMiAuto.Visible = true;
+            PPMiAuto2.Visible = true;
+            TorqueMiAuto.Visible = true;
+            TorqueLabel2.Visible = true;
+            AceiteMiAuto.Visible = true;
+            AceiteMiAuto2.Visible = true;
+            MotorMiAuto.Visible = true;
+            MotorMiAuto2.Visible = true;
+            MantMiAuto.Visible = true;
+            MantMiAuto2.Visible = true;
+            LimpMiAuto.Visible = true;
+            LimpMiAuto2.Visible = true;
+            ReproMiAuto.Visible = true;
+            ReproMiAuto2.Visible = true;
+            ASpMiAuto.Visible = true;
+            ASpMiAuto2.Visible = true;
+            PlusBoton.Visible = true;
+            CargarMiauto();
+        }
+        private void OcultarDatos()
+        {
+            if (plus)
+            {
+                plus = false;
+                HpMiauto.Visible = false;
+                HpMiauto2.Visible = false;
+                PesoMiAuto.Visible = false;
+                PesoMiAuto2.Visible = false;
+                PPMiAuto.Visible = false;
+                PPMiAuto2.Visible = false;
+                TorqueMiAuto.Visible = false;
+                TorqueLabel2.Visible = false;
+                AceiteMiAuto.Visible = false;
+                AceiteMiAuto2.Visible = false;
+                MotorMiAuto.Visible = false;
+                MotorMiAuto2.Visible = false;
+                MantMiAuto.Visible = false;
+                MantMiAuto2.Visible = false;
+                LimpMiAuto.Visible = false;
+                LimpMiAuto2.Visible = false;
+                ReproMiAuto.Visible = false;
+                ReproMiAuto2.Visible = false;
+                ASpMiAuto.Visible = false;
+                ASpMiAuto2.Visible = false;
+                GomasMojado.Visible = true;
+                GomasMojado2.Visible = true;
+                GomasSeco.Visible = true;
+                GomasSeco2.Visible = true;
+                TraccionMiauto.Visible = true;
+                TraccionMiauto2.Visible = true;
+                GasofaMiauto.Visible = true;
+                GasofaMiauto2.Visible = true;
+            }
+            else
+            {
+                plus = true;
+                HpMiauto.Visible = true;
+                HpMiauto2.Visible = true;
+                PesoMiAuto.Visible = true;
+                PesoMiAuto2.Visible = true;
+                PPMiAuto.Visible = true;
+                PPMiAuto2.Visible = true;
+                TorqueMiAuto.Visible = true;
+                TorqueLabel2.Visible = true;
+                AceiteMiAuto.Visible = true;
+                AceiteMiAuto2.Visible = true;
+                MotorMiAuto.Visible = true;
+                MotorMiAuto2.Visible = true;
+                MantMiAuto.Visible = true;
+                MantMiAuto2.Visible = true;
+                LimpMiAuto.Visible = true;
+                LimpMiAuto2.Visible = true;
+                ReproMiAuto.Visible = true;
+                ReproMiAuto2.Visible = true;
+                ASpMiAuto.Visible = true;
+                ASpMiAuto2.Visible = true;
+                GomasMojado.Visible = false;
+                GomasMojado2.Visible = false;
+                GomasSeco.Visible = false;
+                GomasSeco2.Visible = false;
+                TraccionMiauto.Visible = false;
+                TraccionMiauto2.Visible = false;
+                GasofaMiauto.Visible = false;
+                GasofaMiauto2.Visible = false;
+            }
+        }
+        private void CargarMiauto()
+        {
+            NegocioBaseDatos negocioMiAuto = new NegocioBaseDatos();
+            MiAuto myCar;
+            myCar = negocioMiAuto.GetMiAuto();
+            MiAutoPB.Load(myCar.Imagen);
+            HpMiauto2.Text = myCar.Hp.ToString() + " Hp";
+            PesoMiAuto2.Text = myCar.Peso.ToString() + " Kg";
+            PPMiAuto2.Text = myCar.PesoPotencia.ToString("0.00") + " Kg/Hp";
+            TorqueMiAuto.Text = myCar.Torque.ToString() + "Nm";
+            NombreMiauto.Text = myCar.Nombre;
+            GomasSeco2.Text = myCar.GomasSemiSlick.ToString();
+            GomasMojado2.Text = myCar.GomasWet.ToString();
+            TraccionMiauto2.Text = myCar.Traccion;
+            if (myCar.Aceite)
+            {
+                AceiteMiAuto2.Text = "OK";
+                AceiteMiAuto2.ForeColor = Color.LimeGreen;
+            }
+            if (myCar.Motor)
+            {
+                MotorMiAuto2.Text = "OK";
+                MotorMiAuto2.ForeColor = Color.LimeGreen;
+            }
+            if (myCar.Mantenimiento)
+            {
+                MantMiAuto2.Text = "OK";
+                MantMiAuto2.ForeColor = Color.LimeGreen;
+            }
+            if (!myCar.Lavado)
+            {
+                LimpMiAuto2.Text = "Limpio";
+                LimpMiAuto2.ForeColor = Color.SpringGreen;
+            }
+            if (myCar.Repro)
+            {
+                ReproMiAuto2.Text = "Si";
+                ReproMiAuto2.ForeColor = Color.LimeGreen;
+            }
+            if (myCar.Asp == "NA")
+            {
+                ASpMiAuto2.Text = "NA";
+                ASpMiAuto2.ForeColor = Color.Wheat;
+            }
+            else if (myCar.Asp == "T")
+            {
+                ASpMiAuto2.Text = "T";
+                ASpMiAuto2.ForeColor = Color.LightCyan;
+            }
+            else
+            {
+                ASpMiAuto2.Text = "SC";
+                ASpMiAuto2.ForeColor = Color.Blue;
+            }
+            GasofaMiauto2.Text = myCar.TanqueActual + "/" + myCar.TanqueTotal;
+            if (myCar.TanqueActual / myCar.TanqueTotal == 1)
+                GasofaMiauto2.ForeColor = Color.Green;
+            else if (myCar.TanqueActual / myCar.TanqueTotal >= 0.75)
+                GasofaMiauto2.ForeColor = Color.YellowGreen;
+            else if (myCar.TanqueActual / myCar.TanqueTotal >= 0.5)
+                GasofaMiauto2.ForeColor = Color.Yellow;
+            else if (myCar.TanqueActual / myCar.TanqueTotal >= 0.20)
+                GasofaMiauto2.ForeColor = Color.OrangeRed;
+            else
+                GasofaMiauto2.ForeColor = Color.OrangeRed;
+        }
+        bool plus = true;
+        private void PlusBoton_Click(object sender, EventArgs e)
+        {
+            OcultarDatos();
+        }
+
+        //Modulo MIS OBJETOS INDICE 4.8
+        private void MisCosasPictureBox_Click(object sender, EventArgs e)
+        {
+            NegocioBaseDatos conexionObjetos = new NegocioBaseDatos();
+            if (listaObjetosAux==null)
+            {
+                listaObjetosAux = new List<MisObjetos>();
+                conexionObjetos.CargarListasAuxiliares(ref listaObjetosAux);
+            }
+            listaMisCosas = CrearObjetos();
+            if (listaMisCosas.Count > 0)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    NextObjeto.Visible = true;
+                    BackObjeto.Visible = true;
+                    PaginaUno();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+                MessageBox.Show("No Tienes Objetos");
+        }
+        int managerMisObjetos = 0;//Detecta cuantos objetos son y da la orden de crear los paneles
+        private List<EShopPanels> CrearObjetos()
+        {
+            List<EShopPanels> listaDeMisCosas = new List<EShopPanels>();
+            NegocioBaseDatos conexionObjetos = new NegocioBaseDatos();
+            managerMisObjetos = conexionObjetos.NumeroDeMisObjetos();
+            if (managerMisObjetos > 8)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    EShopPanels panelPrueba = new EShopPanels
+                    {
+                        Size = new Size(379, 377),
+                        Visible = true,
+                        Parent = PictureBoxBack,
+                        BackColor = Color.Silver,
+                        ForeColor = Color.Black
+                    };
+                    panelPrueba.Ocultar();
+                    listaDeMisCosas.Add(panelPrueba);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < managerMisObjetos; i++)
+                {
+                    EShopPanels panelPrueba = new EShopPanels
+                    {
+                        Size = new Size(379, 377),
+                        Visible = true,
+                        Parent = PictureBoxBack,
+                        BackColor = Color.Silver,
+                        ForeColor = Color.Black
+                    };
+                    panelPrueba.Ocultar();
+                    listaDeMisCosas.Add(panelPrueba);
+                }
+            }
+            return listaDeMisCosas;
+        }//Crea Los Paneles
+        private void NextObjeto_Click(object sender, EventArgs e)
+        {
+            MisObjetosPaginaManager++;
+            switch (MisObjetosPaginaManager)
+            {
+                case 2:
+                    PaginaDos();
+                    break;
+                case 3:
+                    PaginaTres();
+                    break;
+                case 4:
+                    PaginaCuatro();
+                    break;
+                case 5:
+                    PaginaCinco();
+                    break;
+                case 6:
+                    PaginaSeis();
+                    break;
+                case 7:
+                    PaginaSiete();
+                    break;
+                case 8:
+                    PaginaOcho();
+                    break;
+                case 9:
+                    PaginaNueve();
+                    break;
+                case 10:
+                    PaginaDiez();
+                    break;
+                case 11:
+                    PaginaOnce();
+                    break;
+                case 12:
+                    PaginaDoce();
+                    break;
+                case 13:
+                    PaginaTrece();
+                    break;
+                case 14:
+                    PaginaCatorce();
+                    break;
+                case 15:
+                    PaginaQuince();
+                    break;
+                case 16:
+                    PaginaDieciseis();
+                    break;
+                case 17:
+                    PaginaDiecisiete();
+                    break;
+                case 18:
+                    PaginaDieciocho();
+                    break;
+                case 19:
+                    PaginaDiecinueve();
+                    break;
+                case 20:
+                    PaginaVeinte();
+                    break;
+                default:
+                    MisObjetosPaginaManager--;
+                    break;
+            }
+        }
+        private void BackObjeto_Click(object sender, EventArgs e)
+        {
+            MisObjetosPaginaManager--;
+            switch (MisObjetosPaginaManager)
+            {
+                case 1:
+                    PaginaUno();
+                    break;
+                case 2:
+                    PaginaDos();
+                    break;
+                case 3:
+                    PaginaTres();
+                    break;
+                case 4:
+                    PaginaCuatro();
+                    break;
+                case 5:
+                    PaginaCinco();
+                    break;
+                case 6:
+                    PaginaSeis();
+                    break;
+                case 7:
+                    PaginaSiete();
+                    break;
+                case 8:
+                    PaginaOcho();
+                    break;
+                case 9:
+                    PaginaNueve();
+                    break;
+                case 10:
+                    PaginaDiez();
+                    break;
+                case 11:
+                    PaginaOnce();
+                    break;
+                case 12:
+                    PaginaDoce();
+                    break;
+                case 13:
+                    PaginaTrece();
+                    break;
+                case 14:
+                    PaginaCatorce();
+                    break;
+                case 15:
+                    PaginaQuince();
+                    break;
+                case 16:
+                    PaginaDieciseis();
+                    break;
+                case 17:
+                    PaginaDiecisiete();
+                    break;
+                case 18:
+                    PaginaDieciocho();
+                    break;
+                case 19:
+                    PaginaDiecinueve();
+                    break;
+                default:
+                    MisObjetosPaginaManager++;
+                    break;
+            }
+        }
+        int MisObjetosPaginaManager = 1; //El Manager de las Paginas de mis Items
+        int indexM; //Maneja el index de la lista de mis Objetos
+        private void PaginaUno()
+        {
+            if (MisObjetosPaginaManager == 1)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 0;
+                    int aux = listaMisCosas.Count - indexM;
+                    switch (aux)
+                    {
+                        case 1:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            break;
+                        case 2:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[8].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[8].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            break;
+                        case 3:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            break;
+                        case 4:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            listaMisCosas[indexM + 3].Location = ShopPanel4.Location;
+                            listaMisCosas[indexM + 3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                            listaMisCosas[indexM + 3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                            break;
+                        case 5:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            listaMisCosas[indexM + 3].Location = ShopPanel4.Location;
+                            listaMisCosas[indexM + 3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                            listaMisCosas[indexM + 3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                            listaMisCosas[indexM + 4].Location = ShopPanel5.Location;
+                            listaMisCosas[indexM + 4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                            listaMisCosas[indexM + 4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                            break;
+                        case 6:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            listaMisCosas[indexM + 3].Location = ShopPanel4.Location;
+                            listaMisCosas[indexM + 3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                            listaMisCosas[indexM + 3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                            listaMisCosas[indexM + 4].Location = ShopPanel5.Location;
+                            listaMisCosas[indexM + 4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                            listaMisCosas[indexM + 4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                            listaMisCosas[indexM + 5].Location = ShopPanel6.Location;
+                            listaMisCosas[indexM + 5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                            listaMisCosas[indexM + 5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                            break;
+                        case 7:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            listaMisCosas[indexM + 3].Location = ShopPanel4.Location;
+                            listaMisCosas[indexM + 3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                            listaMisCosas[indexM + 3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                            listaMisCosas[indexM + 4].Location = ShopPanel5.Location;
+                            listaMisCosas[indexM + 4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                            listaMisCosas[indexM + 4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                            listaMisCosas[indexM + 5].Location = ShopPanel6.Location;
+                            listaMisCosas[indexM + 5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                            listaMisCosas[indexM + 5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                            listaMisCosas[indexM + 6].Location = ShopPanel7.Location;
+                            listaMisCosas[indexM + 6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                            listaMisCosas[indexM + 6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                            break;
+                        default:
+                            listaMisCosas[indexM].Location = ShopPanel1.Location;
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                            listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
+                            listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                            listaMisCosas[indexM + 2].Location = ShopPanel3.Location;
+                            listaMisCosas[indexM + 2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                            listaMisCosas[indexM + 2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                            listaMisCosas[indexM + 3].Location = ShopPanel4.Location;
+                            listaMisCosas[indexM + 3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                            listaMisCosas[indexM + 3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                            listaMisCosas[indexM + 4].Location = ShopPanel5.Location;
+                            listaMisCosas[indexM + 4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                            listaMisCosas[indexM + 4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                            listaMisCosas[indexM + 5].Location = ShopPanel6.Location;
+                            listaMisCosas[indexM + 5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                            listaMisCosas[indexM + 5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                            listaMisCosas[indexM + 6].Location = ShopPanel7.Location;
+                            listaMisCosas[indexM + 6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                            listaMisCosas[indexM + 6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                            listaMisCosas[indexM + 7].Location = ShopPanel8.Location;
+                            listaMisCosas[indexM + 7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                            listaMisCosas[indexM + 7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                            break;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDos()
+        {
+            if (MisObjetosPaginaManager == 2)
+            {
+                try
+                {
+                    indexM = 8;
+                    int aux = listaObjetosAux.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaTres()
+        {
+            if (MisObjetosPaginaManager == 3)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 16;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaCuatro()
+        {
+            if (MisObjetosPaginaManager == 4)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 24;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaCinco()
+        {
+            if (MisObjetosPaginaManager == 5)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 32;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaSeis()
+        {
+            if (MisObjetosPaginaManager == 6)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 40;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaSiete()
+        {
+            if (MisObjetosPaginaManager == 7)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 48;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaOcho()
+        {
+            if (MisObjetosPaginaManager == 8)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 56;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaNueve()
+        {
+            if (MisObjetosPaginaManager == 9)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 64;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDiez()
+        {
+            if (MisObjetosPaginaManager == 10)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 72;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaOnce()
+        {
+            if (MisObjetosPaginaManager == 11)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 80;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDoce()
+        {
+            if (MisObjetosPaginaManager == 12)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 88;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaTrece()
+        {
+            if (MisObjetosPaginaManager == 13)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 96;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaCatorce()
+        {
+            if (MisObjetosPaginaManager == 14)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 104;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaQuince()
+        {
+            if (MisObjetosPaginaManager == 15)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 112;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDieciseis()
+        {
+            if (MisObjetosPaginaManager == 16)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 120;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDiecisiete()
+        {
+            if (MisObjetosPaginaManager == 17)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 128;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDieciocho()
+        {
+            if (MisObjetosPaginaManager == 18)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 136;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaDiecinueve()
+        {
+            if (MisObjetosPaginaManager == 19)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 144;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+        private void PaginaVeinte()
+        {
+            if (MisObjetosPaginaManager == 20)
+            {
+                try
+                {
+                    OcultarEconomia();
+                    indexM = 152;
+                    int aux = listaMisCosas.Count - indexM;
+                    if (aux > 0)
+                    {
+                        switch (aux)
+                        {
+                            case 1:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = "";
+                                listaMisCosas[1].PictureBoxFalse();
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 2:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = "";
+                                listaMisCosas[2].PictureBoxFalse();
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 3:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = "";
+                                listaMisCosas[3].PictureBoxFalse();
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 4:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = "";
+                                listaMisCosas[4].PictureBoxFalse();
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 5:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = "";
+                                listaMisCosas[5].PictureBoxFalse();
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 6:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = "";
+                                listaMisCosas[6].PictureBoxFalse();
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            case 7:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = "";
+                                listaMisCosas[7].PictureBoxFalse();
+                                break;
+                            default:
+                                listaMisCosas[0].Location = ShopPanel1.Location;
+                                listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                                listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
+                                listaMisCosas[1].Location = ShopPanel2.Location;
+                                listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                                listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
+                                listaMisCosas[2].Location = ShopPanel3.Location;
+                                listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
+                                listaMisCosas[2].CargarImagenes(listaObjetosAux[indexM + 2].Imagen);
+                                listaMisCosas[3].Location = ShopPanel4.Location;
+                                listaMisCosas[3].NombreProducto = listaObjetosAux[indexM + 3].NombreProducto;
+                                listaMisCosas[3].CargarImagenes(listaObjetosAux[indexM + 3].Imagen);
+                                listaMisCosas[4].Location = ShopPanel5.Location;
+                                listaMisCosas[4].NombreProducto = listaObjetosAux[indexM + 4].NombreProducto;
+                                listaMisCosas[4].CargarImagenes(listaObjetosAux[indexM + 4].Imagen);
+                                listaMisCosas[5].Location = ShopPanel6.Location;
+                                listaMisCosas[5].NombreProducto = listaObjetosAux[indexM + 5].NombreProducto;
+                                listaMisCosas[5].CargarImagenes(listaObjetosAux[indexM + 5].Imagen);
+                                listaMisCosas[6].Location = ShopPanel7.Location;
+                                listaMisCosas[6].NombreProducto = listaObjetosAux[indexM + 6].NombreProducto;
+                                listaMisCosas[6].CargarImagenes(listaObjetosAux[indexM + 6].Imagen);
+                                listaMisCosas[7].Location = ShopPanel8.Location;
+                                listaMisCosas[7].NombreProducto = listaObjetosAux[indexM + 7].NombreProducto;
+                                listaMisCosas[7].CargarImagenes(listaObjetosAux[indexM + 7].Imagen);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Tiene Mas objetos");
+                        MisObjetosPaginaManager--;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+
         //TIMER QUE EJECUTAN EL SONIDO DE LA COMPRA EN MECANICO O GASTOS DIARIOS
         int sonido = 0;
         private void Timer1_Tick(object sender, EventArgs e)
@@ -4342,16 +9483,6 @@ namespace Touge_App
             }
         }
 
-        //INCOMPLETO
-        private void GarajePictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void CarDealerPictureBox_Click(object sender, EventArgs e)
-        {
-            string url = "https://gtdb.io/gt7/used-cars/";
-            System.Diagnostics.Process.Start(url);
-        }
         //DATETIMEMANAGER, 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -4385,6 +9516,13 @@ namespace Touge_App
                 negocioSeguro.UpdateSeguro(estadoSeguro);
             }
         }
-    }
 
+        //INCOMPLETO
+        //Falta la configuracion de la pagina y subirla al Hosting 4.12
+        private void CarDealerPictureBox_Click(object sender, EventArgs e)
+        {
+            string url = "https://gtdb.io/gt7/used-cars/";
+            System.Diagnostics.Process.Start(url);
+        }
+    }
 }
