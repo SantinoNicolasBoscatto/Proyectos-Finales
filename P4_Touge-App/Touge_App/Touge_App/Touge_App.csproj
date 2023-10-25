@@ -251,6 +251,12 @@
     <Compile Include="Alquileres.Designer.cs">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaPista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaPista.Designer.cs">
+      <DependentUpon>CargaPista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comida.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alquileres.resx">
       <DependentUpon>Alquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaPista.resx">
+      <DependentUpon>CargaPista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comida.resx">
       <DependentUpon>Comida.cs</DependentUpon>

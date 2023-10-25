@@ -46,7 +46,7 @@ namespace Negocio_Base_Datos
             List<Pistas> listaPistas = new List<Pistas>();
             try
             {
-                negocioBD.SQLQuery("select Nombre, Bio Biografia, Distancia, Pais, ModalidadPreferida, Record, Imagenes, Imagen2 from pistas");
+                negocioBD.SQLQuery("select Nombre, Bio Biografia, Distancia, Pais, ModalidadPreferida, Record, Imagenes, Imagen2, Layaout from pistas");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -59,7 +59,8 @@ namespace Negocio_Base_Datos
                         ModalidadPreferida = (string)negocioBD.Guardador["ModalidadPreferida"],
                         Record = (string)negocioBD.Guardador["Record"],
                         Imagenes = (string)negocioBD.Guardador["Imagenes"],
-                        Imagenes2 = (string)negocioBD.Guardador["Imagen2"]
+                        Imagenes2 = (string)negocioBD.Guardador["Imagen2"],
+                        Lay = (string)negocioBD.Guardador["Layaout"]
                     };
                     listaPistas.Add(auxiliar);
                 }
@@ -71,6 +72,31 @@ namespace Negocio_Base_Datos
                 throw;
             }
             
+        }
+
+        public void AgregarPistas(Pistas aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("Insert into Pistas (Nombre, Bio, Distancia, Pais, ModalidadPreferida , Record, Imagenes, Imagen2, Layaout) values(@Nombre, @Bio, @Distancia, @Pais, @ModalidadPreferida, @Record, @Imagenes, @Imagen2, @Layaout)");
+                negociobd.SetearParametros("@Nombre", aux.NombrePista);
+                negociobd.SetearParametros("@Bio", aux.BiografiaPista);
+                negociobd.SetearParametros("@Distancia", aux.Distancia);
+                negociobd.SetearParametros("@Pais", aux.Pais);
+                negociobd.SetearParametros("@ModalidadPreferida", aux.ModalidadPreferida);
+                negociobd.SetearParametros("@Record", aux.Record);
+                negociobd.SetearParametros("@Imagenes", aux.Imagenes);
+                negociobd.SetearParametros("@Imagen2", aux.Imagenes2);
+                negociobd.SetearParametros("@Layaout", aux.Lay);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public List<Pilotos> DevolverPilotos()

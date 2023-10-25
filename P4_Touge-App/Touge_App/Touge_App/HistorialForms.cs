@@ -15,7 +15,7 @@ namespace Touge_App
     public partial class HistorialForms : Form
     {
         string Player;
-        public bool playerBool { get; set; }
+        public bool PlayerBool { get; set; }
         public HistorialForms(string jugador)
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace Touge_App
             ClaseComboBox.Items.Add("S");
             ClaseComboBox.Items.Add("S++");
             ModalidadBox.Items.Add("Side By Side");
-            ModalidadBox.Items.Add("El Gato Y El Rato");
+            ModalidadBox.Items.Add("El Gato Y El Raton");
             ModalidadBox.Items.Add("Muerte Subita");
             ModalidadBox.Items.Add("Batalla Aleatoria");
             ClimaComboBox.Items.Add("Despejado");
@@ -137,7 +137,7 @@ namespace Touge_App
                 if (aux.Ganador == Player)
                 {
                     int dineroGanador;
-                    playerBool = true;
+                    PlayerBool = true;
                     switch (aux.Clase)
                     {
                         case "F":
@@ -176,7 +176,7 @@ namespace Touge_App
                 else if (aux.Perdedor == Player)
                 {
                     int dineroPerdedor;
-                    playerBool = true;
+                    PlayerBool = true;
                     switch (aux.Clase)
                     {
                         case "F":
@@ -245,7 +245,6 @@ namespace Touge_App
                 SetPlaceholderText();
             }
         }
-
         private void TiempoTextbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
@@ -283,6 +282,7 @@ namespace Touge_App
                 e.Handled = true;
             }
         }
+
         private void GanadorComboBox_Enter(object sender, EventArgs e)
         {
             if (PilotoComboBox.Text != "" && RivalComboBox.Text != "")

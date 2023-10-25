@@ -16,5 +16,6 @@ namespace Modelo_Clases
         public string ModalidadPreferida { get; set; }
         public string Imagenes { get; set; }
         public string Imagenes2 { get; set; }
+        public string Lay { get; set; }
     }
 }

@@ -554,6 +554,8 @@ namespace Touge_App
         // Trasparentar Los Botones
         private void Trasparentado(Button Boton, Button Boton2)
         {
+            CargaPistasAutosPilotosEconomia.Parent = PictureBoxBack;
+            CargaPistasAutosPilotosEconomia.Visible = false;
             BackObjeto.Parent = PictureBoxBack;
             NextObjeto.Parent = PictureBoxBack;
             NextObjeto.Location = new Point(1307, 320);
@@ -1075,7 +1077,7 @@ namespace Touge_App
                 DistanciaTextbox.Visible = true;
                 SiguientePistaBoton.Visible = true;
                 AnteriorPistaBoton.Visible = true;
-               
+                CargaPistasAutosPilotosEconomia.Visible = true;
             }
             CargaBasePistas();
             
@@ -1092,18 +1094,22 @@ namespace Touge_App
             NombreCircuito.Text = listaPistas[indexPistas].NombrePista;
             NombreCircuito.TextAlign = HorizontalAlignment.Center;
         }
-        bool imagen = true;
+        int imagen = 1;
         private void PistaPictureBox_Click(object sender, EventArgs e)
         {
-            if (imagen)
-            {
-                PistaPictureBox.Load(listaPistas[indexPistas].Imagenes2);
-                imagen = false;
-            }
-            else
+            imagen++;
+            if (imagen==1)
             {
                 PistaPictureBox.Load(listaPistas[indexPistas].Imagenes);
-                imagen = true;
+            }
+            else if (imagen ==2)
+            {
+                PistaPictureBox.Load(listaPistas[indexPistas].Imagenes2);
+            }
+            else if (imagen == 3)
+            {
+                PistaPictureBox.Load(listaPistas[indexPistas].Lay);
+                imagen = 0;
             }
         }
         //BACK-NEXT DE LAS PISTAS
@@ -1114,7 +1120,7 @@ namespace Touge_App
                 indexPistas++;
                 CargaBasePistas();
             }
-            imagen = true;
+            imagen = 1;
         }
         private void AnteriorPistaBoton_Click(object sender, EventArgs e)
         {
@@ -1123,7 +1129,7 @@ namespace Touge_App
                 indexPistas--;
                 CargaBasePistas();
             }
-            imagen = true;
+            imagen = 1;
         }
         //CONFIGURACION DEL BOTON VOLVER
         bool banderaVolverReglas = true;
@@ -1143,7 +1149,8 @@ namespace Touge_App
                 DistanciaTextbox.Visible = false;
                 SiguientePistaBoton.Visible = false;
                 AnteriorPistaBoton.Visible = false;
-                imagen = true;
+                CargaPistasAutosPilotosEconomia.Visible = false;
+                imagen = 1;
             }
             else if(PilotosPictureBox.Visible == true)
             {
@@ -1157,6 +1164,7 @@ namespace Touge_App
                 RivalTextBox.Visible = false;
                 BackDriver.Visible = false;
                 NextDriver.Visible = false;
+                CargaPistasAutosPilotosEconomia.Visible = false;
             }
             else if (BanderasPictureBox.Visible == true)
             {
@@ -1166,6 +1174,7 @@ namespace Touge_App
                 AutosPictureBox.Visible = false;
                 NextAuto.Visible = false;
                 BackAuto.Visible = false;
+                CargaPistasAutosPilotosEconomia.Visible = false;
             }
             else if(ModalidadesBoton.Visible == true)
             {
@@ -1300,6 +1309,7 @@ namespace Touge_App
                 bdCargaRopa = false;
                 bdCargaMueble = false;
                 bdCargaElectro = false;
+                CargaPistasAutosPilotosEconomia.Visible = false;
             }
 
             else if (PagoLabel.Visible == true)
@@ -1502,7 +1512,7 @@ namespace Touge_App
         int contadorImagenes = 0;
         private void PilotosBoton_Click(object sender, EventArgs e)
         {
-            
+            CargaPistasAutosPilotosEconomia.Visible = true;
             Ocultar();
             Cornering.Visible = true;
             PilotosPictureBox.Visible = true;
@@ -1672,6 +1682,7 @@ namespace Touge_App
         private void AutosBoton_Click(object sender, EventArgs e)
         {
             Ocultar();
+            CargaPistasAutosPilotosEconomia.Visible = true;
             CargarAutos();
         }
         private void CargarAutos()
@@ -1982,7 +1993,7 @@ namespace Touge_App
                         FormatearFecha(fechaAux);
                         MessageBox.Show("" + Formato);
                         NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
-                        if (registroVentana.playerBool)
+                        if (registroVentana.PlayerBool)
                         {
                             aceiteManager++;
                             motorManager++;
@@ -1994,7 +2005,7 @@ namespace Touge_App
                                 gomasDeLluviaManager++;
                             negocioUpFecha.CombustibleMiAuto(true);
                             negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
-                            registroVentana.playerBool = false;
+                            registroVentana.PlayerBool = false;
                         }
 
                         if (aceiteManager >= 5)
@@ -2880,6 +2891,7 @@ namespace Touge_App
                 {
                     PaginaUnoRopa();
                     MostrarShopPanels(Color.Khaki, Color.FromArgb(255, 54, 54, 54));
+                    CargaPistasAutosPilotosEconomia.Visible = true;
                 }
                 else
                 {
@@ -3035,6 +3047,7 @@ namespace Touge_App
             {
                 PaginaUnoMuebles();
                 MostrarShopPanels(Color.FromArgb(240, 160, 82, 45), Color.GhostWhite);
+                CargaPistasAutosPilotosEconomia.Visible = true;
             }
             else
             {
@@ -3184,6 +3197,7 @@ namespace Touge_App
             {
                 PaginaUnoElectros();
                 MostrarShopPanels(Color.FromArgb(255, 40, 89, 255), Color.GhostWhite);
+                CargaPistasAutosPilotosEconomia.Visible = true;
             }
             else
             {
@@ -9523,6 +9537,43 @@ namespace Touge_App
         {
             string url = "https://gtdb.io/gt7/used-cars/";
             System.Diagnostics.Process.Start(url);
+        }
+
+
+        int modoDesarrollador = 0;
+        bool bdHumilde = true;
+        private void CargaPistasAutosPilotosEconomia_Click(object sender, EventArgs e)
+        {
+            if (modoDesarrollador == 9)
+            {
+                if (bdHumilde)
+                {
+                    MessageBox.Show("Desbloqueo el Modo Developer");
+                    bdHumilde = false;
+                }   
+                if (PistaPictureBox.Visible==true)
+                {
+                    CargaPista ventanaPistas = new CargaPista();
+                    ventanaPistas.ShowDialog();
+                }
+
+                else if (PilotosPictureBox.Visible == true)
+                {
+
+                }
+
+                else if (AutosPictureBox.Visible == true)
+                {
+
+                }
+
+                else if (ShopPanel1.Visible==true)
+                {
+
+                }
+            }
+            else
+                modoDesarrollador++;
         }
     }
 }

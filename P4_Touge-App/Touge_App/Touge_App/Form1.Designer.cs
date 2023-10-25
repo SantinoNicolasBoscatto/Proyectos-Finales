@@ -627,6 +627,7 @@ namespace Touge_App
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BiografiaPilotosTextBox.BackAlpha = 70;
             this.BiografiaPilotosTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BiografiaPilotosTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BiografiaPilotosTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.BiografiaPilotosTextBox.Font = new System.Drawing.Font("F1TV-2022-NameCondensed", 14.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BiografiaPilotosTextBox.Location = new System.Drawing.Point(19, 34);
@@ -3612,12 +3613,16 @@ namespace Touge_App
             // CargaPistasAutosPilotosEconomia
             // 
             this.CargaPistasAutosPilotosEconomia.BackColor = System.Drawing.Color.Transparent;
+            this.CargaPistasAutosPilotosEconomia.FlatAppearance.BorderSize = 0;
+            this.CargaPistasAutosPilotosEconomia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.CargaPistasAutosPilotosEconomia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.CargaPistasAutosPilotosEconomia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CargaPistasAutosPilotosEconomia.Location = new System.Drawing.Point(1, 1);
+            this.CargaPistasAutosPilotosEconomia.Location = new System.Drawing.Point(2, 1);
             this.CargaPistasAutosPilotosEconomia.Name = "CargaPistasAutosPilotosEconomia";
             this.CargaPistasAutosPilotosEconomia.Size = new System.Drawing.Size(66, 33);
             this.CargaPistasAutosPilotosEconomia.TabIndex = 327;
             this.CargaPistasAutosPilotosEconomia.UseVisualStyleBackColor = false;
+            this.CargaPistasAutosPilotosEconomia.Click += new System.EventHandler(this.CargaPistasAutosPilotosEconomia_Click);
             // 
             // gastosDiarios5
             // 
@@ -3986,7 +3991,7 @@ namespace Touge_App
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = " ";
             this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
-    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ ";
+    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ ";
             this.alquileres1.Sala = " ";
             this.alquileres1.Size = new System.Drawing.Size(829, 574);
             this.alquileres1.TabIndex = 242;
