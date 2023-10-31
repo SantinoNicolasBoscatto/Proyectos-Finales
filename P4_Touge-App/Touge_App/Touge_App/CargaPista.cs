@@ -24,7 +24,6 @@ namespace Touge_App
         {
             Close();
         }
-
         private void SetPlaceholderText()
         {
             Record.ForeColor = SystemColors.ControlLight;
@@ -103,9 +102,9 @@ namespace Touge_App
             mouseLoc = e.Location;
         }
 
-        OpenFileDialog CargarImagen = new OpenFileDialog();
-        OpenFileDialog CargarImagen2 = new OpenFileDialog();
-        OpenFileDialog CargarImagen3 = new OpenFileDialog();
+        readonly OpenFileDialog CargarImagen = new OpenFileDialog();
+        readonly OpenFileDialog CargarImagen2 = new OpenFileDialog();
+        readonly OpenFileDialog CargarImagen3 = new OpenFileDialog();
         private void Agregar_Click(object sender, EventArgs e)
         {
             if (NombrePista.Text != "" && Distancia.Text != "" && PP.Text != "" && ModalidadBox.Text != "" && Record.Text != "" && Img1.Text != "" && Img2.Text != "" && Lay.Text != "" && Bio.Text != "")

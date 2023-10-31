@@ -31,6 +31,14 @@ namespace Touge_App
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CargaPista));
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.Bio = new System.Windows.Forms.TextBox();
+            this.Lay = new System.Windows.Forms.TextBox();
+            this.Img2 = new System.Windows.Forms.TextBox();
+            this.Img1 = new System.Windows.Forms.TextBox();
+            this.Record = new System.Windows.Forms.TextBox();
+            this.PP = new System.Windows.Forms.TextBox();
+            this.Distancia = new System.Windows.Forms.TextBox();
+            this.NombrePista = new System.Windows.Forms.TextBox();
             this.Imagen3Boton = new System.Windows.Forms.Button();
             this.Imagen2Boton = new System.Windows.Forms.Button();
             this.Imagen1Boton = new System.Windows.Forms.Button();
@@ -51,14 +59,6 @@ namespace Touge_App
             this.RadioButtonNo = new System.Windows.Forms.RadioButton();
             this.RadioButtonSi = new System.Windows.Forms.RadioButton();
             this.Promocion = new System.Windows.Forms.Label();
-            this.NombrePista = new System.Windows.Forms.TextBox();
-            this.Distancia = new System.Windows.Forms.TextBox();
-            this.PP = new System.Windows.Forms.TextBox();
-            this.Record = new System.Windows.Forms.TextBox();
-            this.Img1 = new System.Windows.Forms.TextBox();
-            this.Img2 = new System.Windows.Forms.TextBox();
-            this.Lay = new System.Windows.Forms.TextBox();
-            this.Bio = new System.Windows.Forms.TextBox();
             this.PanelFondo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +100,78 @@ namespace Touge_App
             this.PanelFondo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             this.PanelFondo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             // 
+            // Bio
+            // 
+            this.Bio.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bio.Location = new System.Drawing.Point(133, 634);
+            this.Bio.Name = "Bio";
+            this.Bio.Size = new System.Drawing.Size(312, 37);
+            this.Bio.TabIndex = 64;
+            // 
+            // Lay
+            // 
+            this.Lay.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lay.Location = new System.Drawing.Point(135, 544);
+            this.Lay.Name = "Lay";
+            this.Lay.Size = new System.Drawing.Size(312, 37);
+            this.Lay.TabIndex = 63;
+            // 
+            // Img2
+            // 
+            this.Img2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Img2.Location = new System.Drawing.Point(135, 458);
+            this.Img2.Name = "Img2";
+            this.Img2.Size = new System.Drawing.Size(312, 37);
+            this.Img2.TabIndex = 62;
+            // 
+            // Img1
+            // 
+            this.Img1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Img1.Location = new System.Drawing.Point(135, 376);
+            this.Img1.Name = "Img1";
+            this.Img1.Size = new System.Drawing.Size(312, 37);
+            this.Img1.TabIndex = 61;
+            // 
+            // Record
+            // 
+            this.Record.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Record.Location = new System.Drawing.Point(135, 302);
+            this.Record.MaxLength = 10;
+            this.Record.Name = "Record";
+            this.Record.Size = new System.Drawing.Size(312, 37);
+            this.Record.TabIndex = 60;
+            this.Record.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TiempoTextbox_KeyPress);
+            this.Record.Leave += new System.EventHandler(this.TiempoTextBox_Leave);
+            // 
+            // PP
+            // 
+            this.PP.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PP.Location = new System.Drawing.Point(135, 168);
+            this.PP.Name = "PP";
+            this.PP.Size = new System.Drawing.Size(312, 37);
+            this.PP.TabIndex = 59;
+            // 
+            // Distancia
+            // 
+            this.Distancia.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Distancia.Location = new System.Drawing.Point(135, 101);
+            this.Distancia.Name = "Distancia";
+            this.Distancia.Size = new System.Drawing.Size(312, 37);
+            this.Distancia.TabIndex = 58;
+            // 
+            // NombrePista
+            // 
+            this.NombrePista.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombrePista.Location = new System.Drawing.Point(135, 29);
+            this.NombrePista.Name = "NombrePista";
+            this.NombrePista.Size = new System.Drawing.Size(312, 37);
+            this.NombrePista.TabIndex = 57;
+            // 
             // Imagen3Boton
             // 
             this.Imagen3Boton.BackColor = System.Drawing.Color.LawnGreen;
             this.Imagen3Boton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Imagen3Boton.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Imagen3Boton.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Imagen3Boton.ForeColor = System.Drawing.Color.Black;
             this.Imagen3Boton.Location = new System.Drawing.Point(191, 595);
             this.Imagen3Boton.Name = "Imagen3Boton";
@@ -118,7 +185,7 @@ namespace Touge_App
             // 
             this.Imagen2Boton.BackColor = System.Drawing.Color.LawnGreen;
             this.Imagen2Boton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Imagen2Boton.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Imagen2Boton.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Imagen2Boton.ForeColor = System.Drawing.Color.Black;
             this.Imagen2Boton.Location = new System.Drawing.Point(191, 506);
             this.Imagen2Boton.Name = "Imagen2Boton";
@@ -378,73 +445,6 @@ namespace Touge_App
             this.Promocion.Size = new System.Drawing.Size(140, 35);
             this.Promocion.TabIndex = 24;
             this.Promocion.Text = "Promocion";
-            // 
-            // NombrePista
-            // 
-            this.NombrePista.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombrePista.Location = new System.Drawing.Point(135, 29);
-            this.NombrePista.Name = "NombrePista";
-            this.NombrePista.Size = new System.Drawing.Size(312, 37);
-            this.NombrePista.TabIndex = 57;
-            // 
-            // Distancia
-            // 
-            this.Distancia.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Distancia.Location = new System.Drawing.Point(135, 101);
-            this.Distancia.Name = "Distancia";
-            this.Distancia.Size = new System.Drawing.Size(312, 37);
-            this.Distancia.TabIndex = 58;
-            // 
-            // PP
-            // 
-            this.PP.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PP.Location = new System.Drawing.Point(135, 168);
-            this.PP.Name = "PP";
-            this.PP.Size = new System.Drawing.Size(312, 37);
-            this.PP.TabIndex = 59;
-            // 
-            // Record
-            // 
-            this.Record.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Record.Location = new System.Drawing.Point(135, 302);
-            this.Record.MaxLength = 10;
-            this.Record.Name = "Record";
-            this.Record.Size = new System.Drawing.Size(312, 37);
-            this.Record.TabIndex = 60;
-            this.Record.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TiempoTextbox_KeyPress);
-            this.Record.Leave += new System.EventHandler(this.TiempoTextBox_Leave);
-            // 
-            // Img1
-            // 
-            this.Img1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Img1.Location = new System.Drawing.Point(135, 376);
-            this.Img1.Name = "Img1";
-            this.Img1.Size = new System.Drawing.Size(312, 37);
-            this.Img1.TabIndex = 61;
-            // 
-            // Img2
-            // 
-            this.Img2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Img2.Location = new System.Drawing.Point(135, 458);
-            this.Img2.Name = "Img2";
-            this.Img2.Size = new System.Drawing.Size(312, 37);
-            this.Img2.TabIndex = 62;
-            // 
-            // Lay
-            // 
-            this.Lay.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lay.Location = new System.Drawing.Point(135, 544);
-            this.Lay.Name = "Lay";
-            this.Lay.Size = new System.Drawing.Size(312, 37);
-            this.Lay.TabIndex = 63;
-            // 
-            // Bio
-            // 
-            this.Bio.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bio.Location = new System.Drawing.Point(133, 634);
-            this.Bio.Name = "Bio";
-            this.Bio.Size = new System.Drawing.Size(312, 37);
-            this.Bio.TabIndex = 64;
             // 
             // CargaPista
             // 

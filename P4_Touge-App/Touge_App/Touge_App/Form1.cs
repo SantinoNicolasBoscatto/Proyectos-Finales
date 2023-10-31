@@ -554,6 +554,8 @@ namespace Touge_App
         // Trasparentar Los Botones
         private void Trasparentado(Button Boton, Button Boton2)
         {
+            PilotoNameAuto.Parent = FichaTecnicaPb;
+            PilotoNameAuto.Location = new Point(23, 508);
             CargaPistasAutosPilotosEconomia.Parent = PictureBoxBack;
             CargaPistasAutosPilotosEconomia.Visible = false;
             BackObjeto.Parent = PictureBoxBack;
@@ -1579,7 +1581,9 @@ namespace Touge_App
             Rain.Text = listaPilotos[indexPilotos].RainHability.ToString();
             if (listaPilotos[indexPilotos].Defending < 10)
                 Defending.Location = new Point(270, 354);
-            Defending.Text = listaPilotos[indexPilotos].Defending.ToString();
+            if (listaPilotos[indexPilotos].Overall < 10)
+                Overall.Location = new Point(0, 0);
+            Overall.Text = listaPilotos[indexPilotos].Overall.ToString();
             if (banderaSize)
             {
                 Cornering.Location = new Point(48, 43);
@@ -1709,7 +1713,7 @@ namespace Touge_App
             TopLabel.Text = listaAutos[indexAutos].TopSpeed.ToString() + "  Km/H";
             KmLabel.Text = listaAutos[indexAutos].Kilometraje.ToString() + "  Km";
             CatLabel.Text = listaAutos[indexAutos].Categoria;
-            NombrePilotoLabel.Text = listaAutos[indexAutos].Piloto;
+            PilotoNameAuto.Text = listaAutos[indexAutos].Piloto;
         }
         private void AutosPictureBox_Click(object sender, EventArgs e)
         {
@@ -9546,31 +9550,44 @@ namespace Touge_App
         {
             if (modoDesarrollador == 9)
             {
-                if (bdHumilde)
+                try
                 {
-                    MessageBox.Show("Desbloqueo el Modo Developer");
-                    bdHumilde = false;
-                }   
-                if (PistaPictureBox.Visible==true)
-                {
-                    CargaPista ventanaPistas = new CargaPista();
-                    ventanaPistas.ShowDialog();
+                    if (bdHumilde)
+                    {
+                        MessageBox.Show("Desbloqueo el Modo Developer");
+                        bdHumilde = false;
+                    }
+                    if (PistaPictureBox.Visible == true)
+                    {
+                        CargaPista ventanaPistas = new CargaPista();
+                        ventanaPistas.ShowDialog();
+                    }
+
+                    else if (AutosPictureBox.Visible == true)
+                    {
+
+                        CargaAutos ventanaAutos = new CargaAutos();
+                        ventanaAutos.ShowDialog();
+                        CargarAutos();
+                    }
+
+                    else if (PilotosPictureBox.Visible == true)
+                    {
+                        CargaPilotos ventanaPistas = new CargaPilotos();
+                        ventanaPistas.ShowDialog();
+                        CargaPilotos();
+                    }
+
+                    else if (ShopPanel1.Visible == true)
+                    {
+
+                    }
                 }
-
-                else if (PilotosPictureBox.Visible == true)
+                catch (Exception)
                 {
-
+                    throw;
                 }
-
-                else if (AutosPictureBox.Visible == true)
-                {
-
-                }
-
-                else if (ShopPanel1.Visible==true)
-                {
-
-                }
+                
             }
             else
                 modoDesarrollador++;

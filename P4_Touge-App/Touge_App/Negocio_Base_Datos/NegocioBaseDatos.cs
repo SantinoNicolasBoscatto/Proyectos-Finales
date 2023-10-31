@@ -156,13 +156,59 @@ namespace Negocio_Base_Datos
             
         }
 
+        public void AgregarPilotos(Pilotos aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("insert into Pilotos (Nombre, Apodo, Equipo, Ranking, Victorias, Derrotas, PorcentajeCarrerasGanadas, MayorRival, Altura, Peso, Edad, Bio, Foto, Nacionalidad, Auto, AutoAtras, AutoDetalle, AutoMovimiento, Cornering, Braking, Reflexes, TyresManagement, Overtaking, Defending, Rain, Overall, Concentration, Presure, Experience, Agressive, Pace) values (@Nombre, @Apodo, @Equipo, @Ranking, @Victorias, @Derrotas, @PorcentajeCarrerasGanadas, @MayorRival, @Altura, @Peso, @Edad, @Bio, @Foto, @Nacionalidad, @Auto, @AutoAtras, @AutoDetalle, @AutoMovimiento, @Cornering, @Braking, @Reflexes, @TyresManagement, @Overtaking, @Defending, @Rain, @Overall, @Concentration, @Presure, @Experience, @Agressive, @Pace)");
+                negociobd.SetearParametros("@Nombre", aux.NombrePiloto);
+                negociobd.SetearParametros("@Apodo", aux.Apodo);
+                negociobd.SetearParametros("@Equipo", aux.Equipo);
+                negociobd.SetearParametros("@Ranking", aux.Ranking);
+                negociobd.SetearParametros("@Victorias", aux.Victorias);
+                negociobd.SetearParametros("@Derrotas", aux.Derrotas);
+                negociobd.SetearParametros("@PorcentajeCarrerasGanadas", aux.PorcentajeCarrerasGanadas);
+                negociobd.SetearParametros("@MayorRival", aux.Rival);
+                negociobd.SetearParametros("@Altura", aux.Altura);
+                negociobd.SetearParametros("@Peso", aux.Peso);
+                negociobd.SetearParametros("@Edad", aux.Edad);
+                negociobd.SetearParametros("@Bio", aux.Biografia);
+                negociobd.SetearParametros("@Foto", aux.Foto);
+                negociobd.SetearParametros("@Nacionalidad", aux.Nacionalidad);
+                negociobd.SetearParametros("@Auto", aux.Auto);
+                negociobd.SetearParametros("@AutoAtras", aux.AutoAtras);
+                negociobd.SetearParametros("@AutoDetalle", aux.AutoFrontal);
+                negociobd.SetearParametros("@AutoMovimiento", aux.AutoDriving);
+                negociobd.SetearParametros("@Cornering", aux.Cornering);
+                negociobd.SetearParametros("@Braking", aux.Braking);
+                negociobd.SetearParametros("@Reflexes", aux.Reflexes);
+                negociobd.SetearParametros("@TyresManagement", aux.TyresManagement);
+                negociobd.SetearParametros("@Overtaking", aux.Overtaking);
+                negociobd.SetearParametros("@Defending", aux.Defending);
+                negociobd.SetearParametros("@Rain", aux.RainHability);
+                negociobd.SetearParametros("@Overall", aux.Overall);
+                negociobd.SetearParametros("@Concentration", aux.Concentracion);
+                negociobd.SetearParametros("@Presure", aux.ManejoPresion);
+                negociobd.SetearParametros("@Experience", aux.Experiencia);
+                negociobd.SetearParametros("@Agressive", aux.Agresividad);
+                negociobd.SetearParametros("@Pace", aux.Pace);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<Autos> DevolverAutos()
         {
             List<Autos> listaAutos = new List<Autos>();
             FuncionesNegocio negocioBD = new FuncionesNegocio();
             try
             {
-                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP   from Autos a, Marca m where a.Marca = m.ID ");
+                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P   from Autos a, Marca m where a.Marca = m.ID ");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -184,7 +230,8 @@ namespace Negocio_Base_Datos
                         ImagenAutoTres = (string)negocioBD.Guardador["f3"],
                         ImagenAutoCuatro = (string)negocioBD.Guardador["f4"],
                         ImagenAutoCinco = (string)negocioBD.Guardador["f5"],
-                        Aspiracion = (string)negocioBD.Guardador["Asp"]
+                        Aspiracion = (string)negocioBD.Guardador["Asp"],
+                        Piloto = (string)negocioBD.Guardador["P"]
                     };
                     auxiliar.MarcaAuto.NombreMarca = (string)negocioBD.Guardador["NM"];
                     auxiliar.MarcaAuto.ImagenMarca = (string)negocioBD.Guardador["IM"];
@@ -198,6 +245,46 @@ namespace Negocio_Base_Datos
 
                 throw;
             }    
+        }
+
+        public void AgregarAutos(Autos aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("insert Into Autos (Nombre,Anio,Traccion,PaisFabricacion,Categoria, HP, Torque, Peso, PesoPotencia, TopSpeed,Kilometraje, Marca,Auto1,Auto2,Auto3,Auto4,Auto5,ImagenVentas, Dueno, Tanque, Aspiracion, IdealHP, Price, Piloto) values (@Nombre,@Anio,@Traccion,@PaisFabricacion,@Categoria,@HP,@Torque,@Peso,@PesoPotencia,@TopSpeed,@Kilometraje, @Marca,@Auto1,@Auto2,@Auto3,@Auto4,@Auto5,@ImagenVentas, @Dueno, @Tanque, @Aspiracion, @IdealHP, @Price, @Piloto)");
+                negociobd.SetearParametros("@Nombre", aux.NombreModelo);
+                negociobd.SetearParametros("@Anio", aux.Anio);
+                negociobd.SetearParametros("@Traccion", aux.Traccion);
+                negociobd.SetearParametros("@PaisFabricacion", aux.PaisFabricacion);
+                negociobd.SetearParametros("@Categoria", aux.Categoria);
+                negociobd.SetearParametros("@HP", aux.HP);
+                negociobd.SetearParametros("@Torque", aux.Torque);
+                negociobd.SetearParametros("@Peso", aux.Peso);
+                negociobd.SetearParametros("@PesoPotencia", aux.RelacionPesoPotencia);
+                negociobd.SetearParametros("@TopSpeed", aux.TopSpeed);
+                negociobd.SetearParametros("@Kilometraje", aux.Kilometraje);
+                negociobd.SetearParametros("@Marca", aux.MarcaAuto.IdMarca);
+                negociobd.SetearParametros("@Auto1", aux.ImagenAuto);
+                negociobd.SetearParametros("@Auto2", aux.ImagenAutoSecundaria);
+                negociobd.SetearParametros("@Auto3", aux.ImagenAutoTres);
+                negociobd.SetearParametros("@Auto4", aux.ImagenAutoCuatro);
+                negociobd.SetearParametros("@Auto5", aux.ImagenAutoCinco);
+                negociobd.SetearParametros("@ImagenVentas", aux.ImagenVenta);
+                negociobd.SetearParametros("@Dueno", 0);
+                negociobd.SetearParametros("@Tanque", aux.Tanque);
+                negociobd.SetearParametros("@Aspiracion", aux.Aspiracion);
+                negociobd.SetearParametros("@IdealHP", aux.HP);
+                negociobd.SetearParametros("@Price", aux.Precio);
+                negociobd.SetearParametros("@Piloto", aux.Piloto);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public void NombrePiloto(ComboBox combo)

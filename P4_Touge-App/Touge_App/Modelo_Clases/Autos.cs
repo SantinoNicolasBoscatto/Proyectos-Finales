@@ -16,6 +16,7 @@ namespace Modelo_Clases
         public int Torque { get; set; }
         public int Peso { get; set; }
         public int Tanque { get; set; }
+        public int Precio { get; set; }
         public double RelacionPesoPotencia { get; set; }
         public double TopSpeed { get; set; }
         public string ImagenAuto { get; set; }
@@ -23,6 +24,7 @@ namespace Modelo_Clases
         public string ImagenAutoTres { get; set; }
         public string ImagenAutoCuatro { get; set; }
         public string ImagenAutoCinco { get; set; }
+        public string ImagenVenta { get; set; }
         public string Categoria { get; set; }
         public string Traccion { get; set; }
         public string Aspiracion { get; set; }

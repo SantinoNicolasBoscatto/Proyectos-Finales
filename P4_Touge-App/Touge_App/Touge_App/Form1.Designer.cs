@@ -238,6 +238,7 @@ namespace Touge_App
             this.NombreMiauto = new ZBobb.AlphaBlendTextBox();
             this.BackObjeto = new System.Windows.Forms.Button();
             this.CargaPistasAutosPilotosEconomia = new System.Windows.Forms.Button();
+            this.PilotoNameAuto = new System.Windows.Forms.Label();
             this.gastosDiarios5 = new Touge_App.GastosDiarios();
             this.gastosDiarios4 = new Touge_App.GastosDiarios();
             this.gastosDiarios6 = new Touge_App.GastosDiarios();
@@ -3163,6 +3164,7 @@ namespace Touge_App
             // 
             // PanelGaraje
             // 
+            this.PanelGaraje.Controls.Add(this.PilotoNameAuto);
             this.PanelGaraje.Controls.Add(this.GasofaMiauto2);
             this.PanelGaraje.Controls.Add(this.NextObjeto);
             this.PanelGaraje.Controls.Add(this.TraccionMiauto2);
@@ -3624,6 +3626,18 @@ namespace Touge_App
             this.CargaPistasAutosPilotosEconomia.UseVisualStyleBackColor = false;
             this.CargaPistasAutosPilotosEconomia.Click += new System.EventHandler(this.CargaPistasAutosPilotosEconomia_Click);
             // 
+            // PilotoNameAuto
+            // 
+            this.PilotoNameAuto.BackColor = System.Drawing.Color.Transparent;
+            this.PilotoNameAuto.Font = new System.Drawing.Font("F1 Turbo", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PilotoNameAuto.ForeColor = System.Drawing.Color.DarkRed;
+            this.PilotoNameAuto.Location = new System.Drawing.Point(0, 730);
+            this.PilotoNameAuto.Name = "PilotoNameAuto";
+            this.PilotoNameAuto.Size = new System.Drawing.Size(521, 65);
+            this.PilotoNameAuto.TabIndex = 329;
+            this.PilotoNameAuto.Text = "label1";
+            this.PilotoNameAuto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // gastosDiarios5
             // 
             this.gastosDiarios5.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -3991,7 +4005,8 @@ namespace Touge_App
             this.alquileres1.Name = "alquileres1";
             this.alquileres1.Pieza = " ";
             this.alquileres1.Precio = "$ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
-    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ ";
+    " $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $ $" +
+    " $ ";
             this.alquileres1.Sala = " ";
             this.alquileres1.Size = new System.Drawing.Size(829, 574);
             this.alquileres1.TabIndex = 242;
@@ -4470,6 +4485,7 @@ namespace Touge_App
         private System.Windows.Forms.Button BackObjeto;
         private System.Windows.Forms.Button NextObjeto;
         private System.Windows.Forms.Button CargaPistasAutosPilotosEconomia;
+        private System.Windows.Forms.Label PilotoNameAuto;
     }
 }
 
