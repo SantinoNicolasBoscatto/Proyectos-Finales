@@ -17,5 +17,6 @@ namespace Modelo_Clases
         public string Imagenes { get; set; }
         public string Imagenes2 { get; set; }
         public string Lay { get; set; }
+        public int Combo { get; set; }
     }
 }

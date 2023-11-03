@@ -14,7 +14,7 @@ namespace Touge_App
 {
     public partial class HistorialForms : Form
     {
-        string Player;
+        readonly string Player;
         public bool PlayerBool { get; set; }
         public HistorialForms(string jugador)
         {
@@ -398,18 +398,8 @@ namespace Touge_App
                 string NombreDePiloto = PilotoComboBox.Text;
                 if (!PilotoComboBox.Items.Contains(NombreDePiloto) && NombreDePiloto != "")
                 {
-                    DialogResult resultado = MessageBox.Show("Este Piloto No existe en la Base de Datos. ¿desea ingresarlo?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        MessageBox.Show("En Desarrollo");
-                        banderaGanador = true;
-                    }     
-                    else
-                    {
-                        MessageBox.Show("Este resultado no afectara En la estadisticas de ningun piloto");
-                        banderaGanador = false;
-                    }
-                        
+                    MessageBox.Show("Este Piloto No existe en la Base de Datos. Este resultado no afectara En la estadisticas de ningun piloto");
+                    banderaGanador = false;
                 }
                 else
                     banderaGanador = true;

@@ -104,6 +104,7 @@ namespace Touge_App
             this.AutoRivalComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.AutoRivalComboBox.BackColor = System.Drawing.Color.Gold;
             this.AutoRivalComboBox.DropDownHeight = 100;
+            this.AutoRivalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AutoRivalComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AutoRivalComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoRivalComboBox.ForeColor = System.Drawing.Color.Black;
@@ -122,6 +123,7 @@ namespace Touge_App
             this.AutoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.AutoComboBox.BackColor = System.Drawing.Color.SpringGreen;
             this.AutoComboBox.DropDownHeight = 100;
+            this.AutoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AutoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AutoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoComboBox.ForeColor = System.Drawing.Color.Black;
@@ -140,6 +142,7 @@ namespace Touge_App
             this.CircuitoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CircuitoComboBox.BackColor = System.Drawing.Color.DimGray;
             this.CircuitoComboBox.DropDownHeight = 100;
+            this.CircuitoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CircuitoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CircuitoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CircuitoComboBox.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -260,6 +263,7 @@ namespace Touge_App
             this.RivalComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.RivalComboBox.BackColor = System.Drawing.Color.Purple;
             this.RivalComboBox.DropDownHeight = 100;
+            this.RivalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RivalComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RivalComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RivalComboBox.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -280,6 +284,7 @@ namespace Touge_App
             this.PilotoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.PilotoComboBox.BackColor = System.Drawing.Color.MidnightBlue;
             this.PilotoComboBox.DropDownHeight = 100;
+            this.PilotoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PilotoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PilotoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PilotoComboBox.ForeColor = System.Drawing.Color.WhiteSmoke;

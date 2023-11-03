@@ -94,7 +94,7 @@ namespace Touge_App
         readonly Economia miDinero = new Economia();
         string plataFormato;
         //PLAYER DATOS
-        string Player = "Santino Boscatto";
+        readonly string Player = "Santino Boscatto";
         Autos MiAuto;
         //TIMERS
         readonly Timer timerCompra = new Timer();
@@ -117,6 +117,9 @@ namespace Touge_App
                 DineroPb.Location = new Point(670, 722);
                 BackEconomia.Location = new Point(0, 338);
                 NextEconomia.Location = new Point(1311, 338);
+                PilotoNameAuto.Location = new Point(23, 535);
+                Font nuevoFont = new Font("F1 Turbo", 18);
+                PilotoNameAuto.Font = nuevoFont;
             }
             else
             {
@@ -161,11 +164,11 @@ namespace Touge_App
             }
             historialDGV.RowHeadersWidth = 4;
         }
-        
+
+        Form2 mensajeBox = new Form2();
         //CARGA DEL FORMS
         private void Form1_Load(object sender, EventArgs e)
         {
-
             //Cargo La base de datos de canciones
             listaCanciones = negocioBD.DevolverCanciones();
             //Pido Un numero Random para reproducir alguna Cancion
@@ -257,21 +260,22 @@ namespace Touge_App
             // GET AL SEGURO
             estadoSeguro = negocioMiAuto.LeerSeguro();
             //VERIFICACIONES DE LAS OLBIGACIONES A PAGAR PAGOS
+            FechaLabel.Text = Formato;
             if (!estadoSeguro)
             {
-                MessageBox.Show("Necesita Pagar el Seguro! Si su auto se destroza no percibira nada de dinero");
+                mensajeBox.Mostrar("Necesita Pagar el Seguro! Si su auto se destroza no percibira nada de dinero");
             }
             if (!Alquilando)
             {
                 Ocultar();
-                MessageBox.Show("Debe Pagar el Alquiler Moroso!");
+                mensajeBox.Mostrar("Debe Pagar el Alquiler Moroso!");
                 PaginaUnoAlquiler();
                 VolverBoton.Visible = false;
             }
             else if (!estadoFacturas)
             {
                 Ocultar();
-                MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
                 MostrarFacturas();
                 VolverBoton.Visible = false;
             }
@@ -279,7 +283,7 @@ namespace Touge_App
             {
                 Ocultar();
                 ComidaPaginaUno();
-                MessageBox.Show("Debe Hacer las Compras!");
+                mensajeBox.Mostrar("Debe Hacer las Compras!");
                 PanelComida1.Visible = true;
                 PanelComida2.Visible = true;
                 PanelComida3.Visible = true;
@@ -292,7 +296,7 @@ namespace Touge_App
             {
                 Ocultar();
                 HigienePagina();
-                MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
                 VolverBoton.Visible = false;
             }
         }
@@ -554,10 +558,14 @@ namespace Touge_App
         // Trasparentar Los Botones
         private void Trasparentado(Button Boton, Button Boton2)
         {
+            FiltrarPilotosPistasAutos.Parent = PictureBoxBack;
+            FiltrarPilotosPistasAutos.Visible = true;
             PilotoNameAuto.Parent = FichaTecnicaPb;
+            panel1.Parent = PictureBoxBack;
+            panel1.BackColor = Color.FromArgb(128, 50, 50, 50);
             PilotoNameAuto.Location = new Point(23, 508);
             CargaPistasAutosPilotosEconomia.Parent = PictureBoxBack;
-            CargaPistasAutosPilotosEconomia.Visible = false;
+            CargaPistasAutosPilotosEconomia.Visible = true;
             BackObjeto.Parent = PictureBoxBack;
             NextObjeto.Parent = PictureBoxBack;
             NextObjeto.Location = new Point(1307, 320);
@@ -845,7 +853,7 @@ namespace Touge_App
         private void FormatearFecha(Fecha aux)
         {
             fechaManager = DateTime.Parse(aux.FechaManager.ToString());
-            Formato = fechaManager.ToString("dd/MM/yy", CultureInfo.InvariantCulture);
+            Formato = fechaManager.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
             dateTimePicker1.Value = fechaAux.FechaManager;
         }
         //EVENTO RESIZE
@@ -978,7 +986,7 @@ namespace Touge_App
         readonly Random randomFondo = new Random();
         private void RandomFondo()
         {
-            int RandomNumero = randomFondo.Next(8);
+            int RandomNumero = randomFondo.Next(1, 5);
             PictureBoxBack.BackgroundImageLayout = ImageLayout.Stretch;
             switch (RandomNumero)
             {
@@ -991,30 +999,18 @@ namespace Touge_App
                     PistasBiografia.BackAlpha = 20;
                     break;
                 case 1:
-                    PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/2_Fondo.gif");
-                    PistasBiografia.BackAlpha = 20;
-                    break;
-                case 2:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/3_Fondo.gif");
                     PistasBiografia.BackAlpha = 45;
                     break;
-                case 3:
+                case 2:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/4_Fondo.gif");
                     PistasBiografia.BackAlpha = 55;
                     break;
-                case 4:
-                    PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/5_Fondo.gif");
-                    PistasBiografia.BackAlpha = 45;
-                    break;
-                case 5:
-                    PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/6_Fondo.gif");
-                    PistasBiografia.BackAlpha = 40;
-                    break;
-                case 6:
+                case 3:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/7_Fondo.gif");
                     PistasBiografia.BackAlpha = 40;
                     break;
-                case 7:
+                case 4:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/10_Fondo.gif");
                     PistasBiografia.BackAlpha = 60;
                     break;
@@ -1033,6 +1029,7 @@ namespace Touge_App
             AutosBoton.Visible = false;
             CloseButton.Visible = false;
             VolverBoton.Visible = true;
+            panel1.Visible = false;
             
         }
         private void OcultarEconomia()
@@ -1151,7 +1148,7 @@ namespace Touge_App
                 DistanciaTextbox.Visible = false;
                 SiguientePistaBoton.Visible = false;
                 AnteriorPistaBoton.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = false;
+                CargaPistasAutosPilotosEconomia.Visible = true;
                 imagen = 1;
             }
             else if(PilotosPictureBox.Visible == true)
@@ -1166,7 +1163,7 @@ namespace Touge_App
                 RivalTextBox.Visible = false;
                 BackDriver.Visible = false;
                 NextDriver.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = false;
+                CargaPistasAutosPilotosEconomia.Visible = true;
             }
             else if (BanderasPictureBox.Visible == true)
             {
@@ -1176,7 +1173,7 @@ namespace Touge_App
                 AutosPictureBox.Visible = false;
                 NextAuto.Visible = false;
                 BackAuto.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = false;
+                CargaPistasAutosPilotosEconomia.Visible = true;
             }
             else if(ModalidadesBoton.Visible == true)
             {
@@ -1478,6 +1475,7 @@ namespace Touge_App
                 HistorialBoton.Visible = true;
                 AutosBoton.Visible = true;
                 CloseButton.Visible = true;
+                panel1.Visible = true;
             }
 
             else if (banderaEconomiaParaMostrar==false)
@@ -1995,7 +1993,7 @@ namespace Touge_App
                     {
                         fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
                         FormatearFecha(fechaAux);
-                        MessageBox.Show("" + Formato);
+                        FechaLabel.Text = Formato;
                         NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
                         if (registroVentana.PlayerBool)
                         {
@@ -2036,25 +2034,25 @@ namespace Touge_App
                         }
                         if (gomasDeLluviaManager >= 4)
                         {
-                            MessageBox.Show("Cambie gomas de lluvia!");
+                            mensajeBox.Mostrar("Cambie gomas de lluvia!");
                         }
                         if (limpiezaManager >= 2)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(12);
                             estadoLimpieza = false;
-                            MessageBox.Show("Limpialo Sucio");
+                            mensajeBox.Mostrar("Limpialo Sucio");
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No tiene gomas para competir! Compre Gomas");
+                    mensajeBox.Mostrar("No tiene gomas para competir! Compre Gomas");
                 }
 
             }
             else
             {
-                MessageBox.Show("No tiene la Gasolina suficiente para correr! Vaya a cargarla");
+                mensajeBox.Mostrar("No tiene la Gasolina suficiente para correr! Vaya a cargarla");
             }
 
         }
@@ -2319,7 +2317,7 @@ namespace Touge_App
                     DineroMostrarLabel.Text = plataFormato;
                     fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     CloseButton.Visible = false;
                     PanelComida1.SoldOut();
@@ -2341,15 +2339,15 @@ namespace Touge_App
                     {
                         OcultarComida();
                         HigienePagina();
-                        MessageBox.Show("Debe Comprar Las Cosas de Higiene!");
+                        mensajeBox.Mostrar("Debe Comprar Las Cosas de Higiene!");
                         VolverBoton.Visible = false;
                     }
                 }
                 else
-                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+                    mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
             }
             else
-                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+                mensajeBox.Mostrar("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
         }
         private void PanelComida2_ButtonClick(object sender, EventArgs e)
         {
@@ -2366,7 +2364,7 @@ namespace Touge_App
                     DineroMostrarLabel.Text = plataFormato;
                     fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     PanelComida2.SoldOut();
                     switch (comidaManager)
@@ -2387,15 +2385,15 @@ namespace Touge_App
                     {
                         OcultarComida();
                         HigienePagina();
-                        MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                        mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
                         VolverBoton.Visible = false;
                     }
                 }
                 else
-                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+                    mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
             }
             else
-                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+                mensajeBox.Mostrar("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
         }
         private void PanelComida3_ButtonClick(object sender, EventArgs e)
         {
@@ -2412,7 +2410,7 @@ namespace Touge_App
                     DineroMostrarLabel.Text = plataFormato; ;
                     fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     PanelComida3.SoldOut();
                     switch (comidaManager)
@@ -2433,15 +2431,15 @@ namespace Touge_App
                     {
                         OcultarComida();
                         HigienePagina();
-                        MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                        mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
                         VolverBoton.Visible = false;
                     }
                 }
                 else
-                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+                    mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
             }
             else
-                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
+                mensajeBox.Mostrar("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar.");
         }
         private void PanelComida4_ButtonClick(object sender, EventArgs e)
         {
@@ -2458,7 +2456,7 @@ namespace Touge_App
                     DineroMostrarLabel.Text = plataFormato;
                     fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     PanelComida4.SoldOut();
                     switch (comidaManager)
@@ -2479,15 +2477,15 @@ namespace Touge_App
                     {
                         OcultarComida();
                         HigienePagina();
-                        MessageBox.Show("Debe Pagar Sus Facturas Moroso!");
+                        mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
                         VolverBoton.Visible = false;
                     }
                 }
                 else
-                    MessageBox.Show("No tiene dinero para Comprar este producto.");
+                    mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
             }
             else
-                MessageBox.Show("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar..");
+                mensajeBox.Mostrar("Usted ya realizo la compra mensual! Espere al proximo mes para volver a comprar..");
 
         }
         //MOSTRAR MODULO ALQUILER, NEXT-BACK Y PAGINAS INDICE: 4.2
@@ -2618,7 +2616,7 @@ namespace Touge_App
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 VolverBoton.Visible = true;
                 CloseButton.Visible = false;
                 compraSonido.Dispose();
@@ -2630,13 +2628,13 @@ namespace Touge_App
                     SiguienteAlquiler.Visible = false;
                     VolverBoton.Visible = false;
                     MostrarFacturas();
-                    MessageBox.Show("Necesita abonar los servicios del mes!");
+                    mensajeBox.Mostrar("Necesita abonar los servicios del mes!");
                 }
 
             }
             else
             {
-                MessageBox.Show("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
+                mensajeBox.Mostrar("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
             }
 
 
@@ -2660,7 +2658,7 @@ namespace Touge_App
                 CasaAlquilada = negocioPago.ActualizarCasaAlquilada(CasaAlquilada);
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 compraSonido.Dispose();
                 if (!estadoFacturas)
                 {
@@ -2670,12 +2668,12 @@ namespace Touge_App
                     SiguienteAlquiler.Visible = false;
                     VolverBoton.Visible = false;
                     MostrarFacturas();
-                    MessageBox.Show("Necesita abonar los servicios del mes!");
+                    mensajeBox.Mostrar("Necesita abonar los servicios del mes!");
                 }
             }
             else
             {
-                MessageBox.Show("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
+                mensajeBox.Mostrar("No tiene dinero para pagar el alquiler, si no puede renovar el alquiler Pierde el juego");
             }
         }
         //MOSTRAR MODULO FACTURAS INDICE: 4.3
@@ -2723,7 +2721,7 @@ namespace Touge_App
                             compraSonido.Dispose();
                             if (!estadoComida)
                             {
-                                MessageBox.Show("Debe Realizar la compra Mensual!");
+                                mensajeBox.Mostrar("Debe Realizar la compra Mensual!");
                                 OcultarEconomia();
                                 Servicios1.Visible = false;
                                 Servicios2.Visible = false;
@@ -2739,7 +2737,7 @@ namespace Touge_App
                         }
                         else
                         {
-                            MessageBox.Show("No tiene el suficiente dinero para abonar el servicio basico, GameOver");
+                            mensajeBox.Mostrar("No tiene el suficiente dinero para abonar el servicio basico, GameOver");
                         }
                     }
                     else if (Servicios2.Checked == true)
@@ -2756,7 +2754,7 @@ namespace Touge_App
                             compraSonido.Dispose();
                             if (!estadoComida)
                             {
-                                MessageBox.Show("Debe Realizar la compra Mensual!");
+                                mensajeBox.Mostrar("Debe Realizar la compra Mensual!");
                                 OcultarEconomia();
                                 Servicios1.Visible = false;
                                 Servicios2.Visible = false;
@@ -2772,7 +2770,7 @@ namespace Touge_App
                         }
                         else
                         {
-                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                            mensajeBox.Mostrar("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
                         }
                     }
                     else if (Servicios3.Checked == true)
@@ -2789,7 +2787,7 @@ namespace Touge_App
                             compraSonido.Dispose();
                             if (!estadoComida)
                             {
-                                MessageBox.Show("Debe Realizar la compra Mensual!");
+                                mensajeBox.Mostrar("Debe Realizar la compra Mensual!");
                                 OcultarEconomia();
                                 Servicios1.Visible = false;
                                 Servicios2.Visible = false;
@@ -2805,7 +2803,7 @@ namespace Touge_App
                         }
                         else
                         {
-                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                            mensajeBox.Mostrar("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
                         }
                     }
                     else if (Servicios4.Checked == true)
@@ -2822,7 +2820,7 @@ namespace Touge_App
                             compraSonido.Dispose();
                             if (!estadoComida)
                             {
-                                MessageBox.Show("Debe Realizar la compra Mensual!");
+                                mensajeBox.Mostrar("Debe Realizar la compra Mensual!");
                                 OcultarEconomia();
                                 Servicios1.Visible = false;
                                 Servicios2.Visible = false;
@@ -2838,7 +2836,7 @@ namespace Touge_App
                         }
                         else
                         {
-                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                            mensajeBox.Mostrar("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
                         }
                     }
                     else
@@ -2855,7 +2853,7 @@ namespace Touge_App
                             compraSonido.Dispose();
                             if (!estadoComida)
                             {
-                                MessageBox.Show("Debe Realizar la compra Mensual!");
+                                mensajeBox.Mostrar("Debe Realizar la compra Mensual!");
                                 OcultarEconomia();
                                 Servicios1.Visible = false;
                                 Servicios2.Visible = false;
@@ -2871,12 +2869,12 @@ namespace Touge_App
                         }
                         else
                         {
-                            MessageBox.Show("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
+                            mensajeBox.Mostrar("No tiene el suficiente dinero para abonar el esta opcion, elija una mas barata");
                         }
                     }
                 }
                 else
-                    MessageBox.Show("Usted Ya abono los servicios este mes!");
+                    mensajeBox.Mostrar("Usted Ya abono los servicios este mes!");
 
             }
 
@@ -2899,7 +2897,7 @@ namespace Touge_App
                 }
                 else
                 {
-                    MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+                    mensajeBox.Mostrar("En este momento estamos falta de Articulos! vuelva mas tarde");
                 }
             }
             catch (Exception)
@@ -3055,7 +3053,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+                mensajeBox.Mostrar("En este momento estamos falta de Articulos! vuelva mas tarde");
             }
         }
         private void PaginaUnoMuebles()
@@ -3479,7 +3477,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel1.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3523,7 +3521,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel2.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3567,7 +3565,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel3.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3611,7 +3609,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel4.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3655,7 +3653,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel5.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3699,7 +3697,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel6.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3742,7 +3740,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel7.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3786,7 +3784,7 @@ namespace Touge_App
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
                 FormatearFecha(fechaAux);
-                MessageBox.Show("" + Formato);
+                FechaLabel.Text = Formato;
                 ShopPanel8.SoldOut();
                 compraSonido.Dispose();
                 switch (eShopmanager)
@@ -3879,7 +3877,7 @@ namespace Touge_App
                     plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                     DineroMostrarLabel.Text = plataFormato;
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     Higiene1.SoldOut();
                 }
@@ -3899,7 +3897,7 @@ namespace Touge_App
                     plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                     DineroMostrarLabel.Text = plataFormato;
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     Higiene2.SoldOut();
                 }
@@ -3919,7 +3917,7 @@ namespace Touge_App
                     plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                     DineroMostrarLabel.Text = plataFormato;
                     FormatearFecha(fechaAux);
-                    MessageBox.Show("" + Formato);
+                    FechaLabel.Text = Formato;
                     VolverBoton.Visible = true;
                     Higiene3.SoldOut();
                 }
@@ -4010,7 +4008,7 @@ namespace Touge_App
                         //MessageBox.Show("" + MiAuto.HP);
                     }
                     else
-                        MessageBox.Show("El Mecanico dice que tu aceite esta correcto por ahora y no requiere cambiarlo!");
+                        mensajeBox.Mostrar("El Mecanico dice que tu aceite esta correcto por ahora y no requiere cambiarlo!");
                 }
                 else
                 {
@@ -4270,6 +4268,7 @@ namespace Touge_App
             else
             {
                 MessageBox.Show("No tiene el suficiente dinero Para Lavar tu auto");
+                
             }
         }
         private void GastosDiarios2_ButtonClick(object sender, EventArgs e)
@@ -9580,7 +9579,18 @@ namespace Touge_App
 
                     else if (ShopPanel1.Visible == true)
                     {
-
+                        CargarProductos ventanaProductos = new CargarProductos();
+                        ventanaProductos.ShowDialog();
+                    }
+                    else if (alquileres1.Visible == true)
+                    {
+                        CargaAlquileres ventanaAlquiler = new CargaAlquileres();
+                        ventanaAlquiler.ShowDialog();
+                    }
+                    else
+                    {
+                        CargarMusica ventanaMusica = new CargarMusica();
+                        ventanaMusica.ShowDialog();
                     }
                 }
                 catch (Exception)
@@ -9591,6 +9601,31 @@ namespace Touge_App
             }
             else
                 modoDesarrollador++;
+        }
+
+        private void FiltrarPilotosPistasAutos_Click(object sender, EventArgs e)
+        {
+            if (PistaPictureBox.Visible == true)
+            {
+                FiltroPistas filtroPistas = new FiltroPistas();
+                filtroPistas.ShowDialog();
+                if (filtroPistas.Bandera)
+                {
+                    imagen = 1;
+                    CargaPistasAutosPilotosEconomia.Visible = true;
+                    NombreCircuito.Text = filtroPistas.PistaFiltrada.NombrePista;
+                    PistaPictureBox.Load(filtroPistas.PistaFiltrada.Imagenes);
+                    DistanciaTextbox.Text = "Distancia: " + filtroPistas.PistaFiltrada.Distancia;
+                    PaisTextBox.Text = "Pais: " + filtroPistas.PistaFiltrada.Pais;
+                    ModalidadTextBox.Text = "Modalidad: " + filtroPistas.PistaFiltrada.ModalidadPreferida;
+                    PistasBiografia.Text = filtroPistas.PistaFiltrada.BiografiaPista;
+                    indexPistas = filtroPistas.PistaFiltrada.Combo;
+                }            
+            }
+            else
+            {
+                MessageBox.Show("Hola");
+            }
         }
     }
 }

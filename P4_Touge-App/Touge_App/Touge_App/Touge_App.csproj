@@ -251,6 +251,12 @@
     <Compile Include="Alquileres.Designer.cs">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaAlquileres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaAlquileres.Designer.cs">
+      <DependentUpon>CargaAlquileres.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargaAutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,18 @@
     <Compile Include="CargaPista.Designer.cs">
       <DependentUpon>CargaPista.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargarMusica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarMusica.Designer.cs">
+      <DependentUpon>CargarMusica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargarProductos.Designer.cs">
+      <DependentUpon>CargarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comida.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -281,11 +299,23 @@
     <Compile Include="eShopPanels.Designer.cs">
       <DependentUpon>eShopPanels.cs</DependentUpon>
     </Compile>
+    <Compile Include="FiltroPistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltroPistas.Designer.cs">
+      <DependentUpon>FiltroPistas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GastosDiarios.cs">
       <SubType>UserControl</SubType>
@@ -316,6 +346,9 @@
     <EmbeddedResource Include="Alquileres.resx">
       <DependentUpon>Alquileres.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CargaAlquileres.resx">
+      <DependentUpon>CargaAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CargaAutos.resx">
       <DependentUpon>CargaAutos.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,14 +358,26 @@
     <EmbeddedResource Include="CargaPista.resx">
       <DependentUpon>CargaPista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CargarMusica.resx">
+      <DependentUpon>CargarMusica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargarProductos.resx">
+      <DependentUpon>CargarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comida.resx">
       <DependentUpon>Comida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eShopPanels.resx">
       <DependentUpon>eShopPanels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FiltroPistas.resx">
+      <DependentUpon>FiltroPistas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GastosDiarios.resx">
       <DependentUpon>GastosDiarios.cs</DependentUpon>

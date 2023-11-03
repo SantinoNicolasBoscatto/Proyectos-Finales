@@ -40,6 +40,24 @@ namespace Negocio_Base_Datos
             
         }
 
+        public void AgregarCancion(Musica aux)
+        {
+            try
+            {
+                FuncionesNegocio negocioCancion = new FuncionesNegocio();
+                negocioCancion.SQLQuery("Insert Into Musica values (@Name, @URL,@Tapa)");
+                negocioCancion.SetearParametros("@Name", aux.NombreCancion);
+                negocioCancion.SetearParametros("@URL", aux.CancionURL);
+                negocioCancion.SetearParametros("@Tapa", aux.TapaMusica);
+                negocioCancion.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<Pistas> DevolverPistas()
         {
             FuncionesNegocio negocioBD = new FuncionesNegocio();
@@ -285,6 +303,62 @@ namespace Negocio_Base_Datos
                 throw;
             }
 
+        }
+
+        public void AgregarProductos(MisObjetos aux, string producto)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                switch (producto)
+                {
+                    case "Ropa":
+                        negociobd.SQLQuery("insert into Ropa values (@ID, @Nombre, @Imagen, @Precio, 1)");
+                        break;
+                    case "Muebles":
+                        negociobd.SQLQuery("insert into Muebles values (@ID, @Nombre, @Imagen, @Precio, 1)");
+                        break;
+                    case "Electronicos":
+                        negociobd.SQLQuery("insert into Electronicos values (@ID, @Nombre, @Imagen, @Precio, 1)");
+                        break;
+                    default:
+                        MessageBox.Show("Error");
+                        break;
+                }
+                negociobd.SetearParametros("@ID", aux.Id);
+                negociobd.SetearParametros("@Nombre", aux.NombreProducto);
+                negociobd.SetearParametros("@Imagen", aux.Imagen);
+                negociobd.SetearParametros("@Precio", aux.Precio);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
+        public void AgregarAlquiler(Alquiler aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("INSERT INTO alquileres (NumeroRegistro, Precio, Dormitorios, SalasDeEstar, Garajes, Duchas, NombreAlquiler, ImagenAlquiler, Estado )VALUES (@ID, @Precio, @Dormitorios, @SalasDeEstar, @Garajes, @Duchas, @NombreAlquiler, @ImagenAlquiler, 1)");
+                negociobd.SetearParametros("@ID", aux.NumeroRegistro);
+                negociobd.SetearParametros("@Precio", aux.PrecioDepartamento);
+                negociobd.SetearParametros("@Dormitorios", aux.CantidadDormitorios);
+                negociobd.SetearParametros("@SalasDeEstar", aux.CantidadSalasEstar);
+                negociobd.SetearParametros("@Garajes", aux.CantidadGarajes);
+                negociobd.SetearParametros("@Duchas", aux.CantidadDuchas);
+                negociobd.SetearParametros("@NombreAlquiler", aux.NombreAlquiler);
+                negociobd.SetearParametros("@ImagenAlquiler", aux.ImagenAlquiler);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void NombrePiloto(ComboBox combo)
@@ -1831,6 +1905,28 @@ namespace Negocio_Base_Datos
                 };
                 auxObjetos.Add(aux);
             }
+        }
+
+        public Pistas FiltrarPistas(string aux)
+        {
+            FuncionesNegocio negociobd = new FuncionesNegocio();
+            Pistas auxiliar = new Pistas();
+            negociobd.SQLQuery("Select Nombre, Bio, Distancia, Pais, ModalidadPreferida , Record, Imagenes, Imagen2, Layaout from pistas Where Nombre = @Aux");
+            negociobd.SetearParametros("@Aux", aux);
+            negociobd.LecturaBase();
+            if (negociobd.Guardador.Read())
+            {
+                auxiliar.NombrePista = (string)negociobd.Guardador["Nombre"];
+                auxiliar.BiografiaPista = (string)negociobd.Guardador["Bio"];
+                auxiliar.Distancia = (string)negociobd.Guardador["Distancia"];
+                auxiliar.Pais = (string)negociobd.Guardador["Pais"];
+                auxiliar.ModalidadPreferida = (string)negociobd.Guardador["ModalidadPreferida"];
+                auxiliar.Record = (string)negociobd.Guardador["Record"];
+                auxiliar.Imagenes = (string)negociobd.Guardador["Imagenes"];
+                auxiliar.Imagenes2 = (string)negociobd.Guardador["Imagen2"];
+                auxiliar.Lay = (string)negociobd.Guardador["Layaout"];
+            }
+            return auxiliar;
         }
     }
 }
