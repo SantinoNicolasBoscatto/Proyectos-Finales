@@ -454,7 +454,7 @@ namespace Touge_App
             this.Marca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.Marca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.Marca.BackColor = System.Drawing.Color.Orange;
-            this.Marca.DropDownHeight = 100;
+            this.Marca.DropDownHeight = 200;
             this.Marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Marca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Marca.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -598,7 +598,7 @@ namespace Touge_App
             this.CategoriaAuto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.CategoriaAuto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CategoriaAuto.BackColor = System.Drawing.Color.Orange;
-            this.CategoriaAuto.DropDownHeight = 100;
+            this.CategoriaAuto.DropDownHeight = 200;
             this.CategoriaAuto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoriaAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CategoriaAuto.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

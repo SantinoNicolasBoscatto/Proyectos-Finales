@@ -19,6 +19,14 @@ namespace Touge_App
             InitializeComponent();
             PanelFondo.BackColor = Color.FromArgb(180, 0, 0, 0);
         }
+        Form2 mensajeBox = new Form2();
+        Pistas pistasMod = null;
+        public CargaPista(Pistas mod)
+        {
+            InitializeComponent();
+            PanelFondo.BackColor = Color.FromArgb(180, 0, 0, 0);
+            pistasMod = mod;
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -75,11 +83,38 @@ namespace Touge_App
 
         private void CargaPista_Load(object sender, EventArgs e)
         {
-            SetPlaceholderText();
-            ModalidadBox.Items.Add("Side By Side");
-            ModalidadBox.Items.Add("El Gato Y El Raton");
-            ModalidadBox.Items.Add("Muerte Subita");
-            ModalidadBox.Items.Add("Batalla Aleatoria");
+            if (pistasMod==null)
+            {
+                ModalidadBox.Items.Add("Side By Side");
+                ModalidadBox.Items.Add("El Gato Y El Raton");
+                ModalidadBox.Items.Add("Muerte Subita");
+                ModalidadBox.Items.Add("Batalla Aleatoria");
+                SetPlaceholderText();
+            }
+            else
+            {
+                NombrePista.Text = pistasMod.NombrePista;
+                Distancia.Text = pistasMod.Distancia;
+                PP.Text = pistasMod.Pais;
+                Record.Text = pistasMod.Record;
+                Img1.Text = pistasMod.Imagenes;
+                Img2.Text = pistasMod.Imagenes2;
+                Lay.Text = pistasMod.Lay;
+                Bio.Text = pistasMod.BiografiaPista;
+                ModalidadBox.Items.Add("Side By Side");
+                ModalidadBox.Items.Add("El Gato Y El Raton");
+                ModalidadBox.Items.Add("Muerte Subita");
+                ModalidadBox.Items.Add("Batalla Aleatoria");
+                for (int i = 0; i < 4; i++)
+                {
+                    if (ModalidadBox.Items[i].ToString() == pistasMod.ModalidadPreferida)
+                    {
+                        ModalidadBox.SelectedIndex = i;
+                        i = 4;
+                    }
+                }
+                Agregar.Text = "Mod";              
+            }         
             CargarImagen.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagen2.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagen3.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
@@ -109,26 +144,44 @@ namespace Touge_App
         {
             if (NombrePista.Text != "" && Distancia.Text != "" && PP.Text != "" && ModalidadBox.Text != "" && Record.Text != "" && Img1.Text != "" && Img2.Text != "" && Lay.Text != "" && Bio.Text != "")
             {
-                Pistas aux = new Pistas
+                if (pistasMod==null)
                 {
-                    NombrePista = NombrePista.Text,
-                    Distancia = Distancia.Text,
-                    Pais = PP.Text,
-                    ModalidadPreferida = ModalidadBox.Text,
-                    Record = Record.Text,
-                    Imagenes = Img1.Text,
-                    Imagenes2 = Img2.Text,
-                    BiografiaPista = Bio.Text,
-                    Lay = Lay.Text
-                };
-                NegocioBaseDatos negocioAgregar = new NegocioBaseDatos();
-                negocioAgregar.AgregarPistas(aux);
-                MessageBox.Show("Pista Agregada Con Exito");
+                    Pistas aux = new Pistas
+                    {
+                        NombrePista = NombrePista.Text,
+                        Distancia = Distancia.Text,
+                        Pais = PP.Text,
+                        ModalidadPreferida = ModalidadBox.Text,
+                        Record = Record.Text,
+                        Imagenes = Img1.Text,
+                        Imagenes2 = Img2.Text,
+                        BiografiaPista = Bio.Text,
+                        Lay = Lay.Text
+                    };
+                    NegocioBaseDatos negocioAgregar = new NegocioBaseDatos();
+                    negocioAgregar.AgregarPistas(aux);
+                    mensajeBox.Mostrar("Pista Agregada Con Exito");
+                }
+
+                else
+                {
+                    NegocioBaseDatos negocioMod = new NegocioBaseDatos();
+                    pistasMod.NombrePista = NombrePista.Text;
+                    pistasMod.Distancia = Distancia.Text;
+                    pistasMod.Pais= PP.Text;
+                    pistasMod.Record = Record.Text;
+                    pistasMod.Imagenes = Img1.Text;
+                    pistasMod.Imagenes2 = Img2.Text;
+                    pistasMod.Lay = Lay.Text;
+                    pistasMod.BiografiaPista = Bio.Text;
+                    pistasMod.ModalidadPreferida = ModalidadBox.Text;
+                    negocioMod.ModPista(pistasMod);
+                }
                 Close();
             }
             else
             {
-                MessageBox.Show("Faltan Datos");
+                mensajeBox.Mostrar("Faltan Datos");
             }
                 
         }

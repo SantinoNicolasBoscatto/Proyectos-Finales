@@ -24,7 +24,13 @@ namespace Touge_App
         public CargaAutos()
         {
             InitializeComponent();
-            CargaCombos();
+        }
+
+        Autos aux = null;
+        public CargaAutos(Autos traslado)
+        {
+            InitializeComponent();           
+            aux = traslado;
         }
         private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -44,6 +50,17 @@ namespace Touge_App
         }
         private void CargaAutos_Load(object sender, EventArgs e)
         {
+            if (Screen.AllScreens.Length >= 2)
+            {
+                // Obtener la segunda pantalla
+                Screen segundaPantalla = Screen.AllScreens[1];
+
+                // Obtener el formulario actual
+                Form formulario = this;
+
+                // Centrar el formulario en la segunda pantalla
+                formulario.Location = new Point(2430, 50);
+            }
             PanelFondo.BackColor = Color.FromArgb(128, 0, 0, 0);
             PanelFondo.Parent = this;
             this.Size = PanelFondo.Size;
@@ -53,6 +70,62 @@ namespace Touge_App
             CargarImagen3.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagen4.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagen5.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
+            CargaCombos();
+            if (aux != null)
+            {
+                Agregar.Text = "Mod";
+                NombreAuto.Text = aux.NombreModelo;
+                PilotoAuto.Text = aux.Piloto;              
+                AnioAuto.Text = aux.Anio.ToString();
+                PaisImagen.Text = aux.PaisFabricacion;
+                HpAuto.Text = aux.HP.ToString();
+                PesoAuto.Text = aux.Peso.ToString();
+                PPAuto.Text = aux.RelacionPesoPotencia.ToString();
+                TopSpeedAuto.Text = aux.TopSpeed.ToString();
+                KilometrajeAuto.Text = aux.Kilometraje.ToString();
+                TanqueAuto.Text = aux.Tanque.ToString();
+                Price.Text = aux.Precio.ToString();
+                TorqueAuto.Text = aux.Torque.ToString();
+                Img1.Text = aux.ImagenAuto;
+                Img2.Text = aux.ImagenAutoSecundaria;
+                Img3.Text = aux.ImagenAutoTres;
+                Img4.Text = aux.ImagenAutoCuatro;
+                Img5.Text = aux.ImagenAutoCinco;
+                Img6.Text = aux.ImagenAutoCinco;
+
+                for (int i = 0; i < CategoriaAuto.Items.Count; i++)
+                {
+                    if (CategoriaAuto.Items[i].ToString() == aux.Categoria)
+                    {
+                        CategoriaAuto.SelectedIndex = i;
+                        i = CategoriaAuto.Items.Count;
+                    }
+                }
+                for (int i = 0; i < TraccionAuto.Items.Count; i++)
+                {
+                    if (TraccionAuto.Items[i].ToString() == aux.Traccion)
+                    {
+                        TraccionAuto.SelectedIndex = i;
+                        i = TraccionAuto.Items.Count;
+                    }
+                }
+                for (int i = 0; i < Aspiracion.Items.Count; i++)
+                {
+                    if (Aspiracion.Items[i].ToString() == aux.Aspiracion)
+                    {
+                        Aspiracion.SelectedIndex = i;
+                        i = Aspiracion.Items.Count;
+                    }
+                }
+                for (int i = 0; i < Marca.Items.Count; i++)
+                {
+                    if (Marca.Items[i].ToString() == aux.MarcaAuto.NombreMarca)
+                    {
+                        Marca.SelectedIndex = i;
+                        i = Marca.Items.Count;
+                    }
+                }
+            }
         }
         private void CargarOpen(OpenFileDialog aux, TextBox auxT)
         {
@@ -66,7 +139,6 @@ namespace Touge_App
         {
             Close();
         }
-
         private void CargaCombos()
         {
             CategoriaAuto.Items.Add("F");
@@ -84,48 +156,13 @@ namespace Touge_App
             Aspiracion.Items.Add("NA");
             Aspiracion.Items.Add("T");
             Aspiracion.Items.Add("SC");
-            Marca.Items.Add("Abarth");
-            Marca.Items.Add("Acura");
-            Marca.Items.Add("Alfa Romeo");
-            Marca.Items.Add("Alpine");
-            Marca.Items.Add("American Motors");
-            Marca.Items.Add("Aston Martin");
-            Marca.Items.Add("Audi");
-            Marca.Items.Add("Autobianchi");
-            Marca.Items.Add("BMW");
-            Marca.Items.Add("Buick");
-            Marca.Items.Add("Chevrolet");
-            Marca.Items.Add("Citroen");
-            Marca.Items.Add("Daihatsu");
-            Marca.Items.Add("Datsun");
-            Marca.Items.Add("DMC");
-            Marca.Items.Add("Dodge");
-            Marca.Items.Add("Ferrari");
-            Marca.Items.Add("Fiat");
-            Marca.Items.Add("Ford");
-            Marca.Items.Add("Holden");
-            Marca.Items.Add("Honda");
-            Marca.Items.Add("Isuzu");
-            Marca.Items.Add("Lada");
-            Marca.Items.Add("Lamborghini");
-            Marca.Items.Add("Lancia");
-            Marca.Items.Add("Lotus");
-            Marca.Items.Add("Maserati");
-            Marca.Items.Add("Mazda");
-            Marca.Items.Add("McLaren");
-            Marca.Items.Add("Mercedes");
-            Marca.Items.Add("Mini Cooper");
-            Marca.Items.Add("Mitsubishi");
-            Marca.Items.Add("Nissan");
-            Marca.Items.Add("Opel");
-            Marca.Items.Add("Peugeot");
-            Marca.Items.Add("Porsche");
-            Marca.Items.Add("Renault");
-            Marca.Items.Add("Seat");
-            Marca.Items.Add("Subaru");
-            Marca.Items.Add("Suzuki");
-            Marca.Items.Add("Toyota");
-            Marca.Items.Add("Volkswagen");
+            NegocioBaseDatos negociobaseMarca = new NegocioBaseDatos();
+            List<Marca> listaMarca;
+            listaMarca =  negociobaseMarca.DevolverMarca();
+            for (int i = 0; i < listaMarca.Count; i++)
+            {
+                Marca.Items.Add(listaMarca[i].NombreMarca);
+            }
         }
         private void HpAuto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -345,33 +382,67 @@ namespace Touge_App
                 && KilometrajeAuto.Text != "" && TanqueAuto.Text != "" && PilotoAuto.Text != "" && Aspiracion.Text != "" && Marca.Text != "" && PaisImagen.Text != "" && Img1.Text != "" && Img2.Text != "" && Img3.Text != "" 
                 && Img4.Text != "" && Img5.Text != "" && Img6.Text != "" && Price.Text!="" && TorqueAuto.Text!="")
             {
-                Autos aux = new Autos();
-                int index = Marca.SelectedIndex + 1;
-                aux.NombreModelo = NombreAuto.Text;
-                aux.Anio = int.Parse(AnioAuto.Text);
-                aux.PaisFabricacion = PaisImagen.Text;
-                aux.Traccion = TraccionAuto.Text;
-                aux.Categoria = CategoriaAuto.Text;
-                aux.RelacionPesoPotencia = double.Parse(PPAuto.Text);
-                aux.HP = int.Parse(HpAuto.Text);
-                aux.Torque = int.Parse(TorqueAuto.Text);
-                aux.Peso = int.Parse(PesoAuto.Text);
-                aux.TopSpeed = double.Parse(TopSpeedAuto.Text);
-                aux.Kilometraje = int.Parse(KilometrajeAuto.Text);
-                aux.Tanque = int.Parse(TanqueAuto.Text);
-                aux.Piloto = PilotoAuto.Text;
-                aux.Aspiracion = Aspiracion.Text;
-                aux.MarcaAuto.IdMarca = index;
-                aux.ImagenAuto = Img1.Text;
-                aux.ImagenAutoSecundaria = Img2.Text;
-                aux.ImagenAutoTres = Img3.Text;
-                aux.ImagenAutoCuatro = Img4.Text;
-                aux.ImagenAutoCinco = Img5.Text;
-                aux.ImagenVenta = Img6.Text;
-                aux.Precio = int.Parse(Price.Text);
-                NegocioBaseDatos negociobd = new NegocioBaseDatos();
-                negociobd.AgregarAutos(aux);
-                MessageBox.Show("Agregado Con Exito");
+                if (aux == null)
+                {
+                    Autos aux2 = new Autos();
+                    int index = Marca.SelectedIndex + 1;
+                    aux2.NombreModelo = NombreAuto.Text;
+                    aux2.Anio = int.Parse(AnioAuto.Text);
+                    aux2.PaisFabricacion = PaisImagen.Text;
+                    aux2.Traccion = TraccionAuto.Text;
+                    aux2.Categoria = CategoriaAuto.Text;
+                    aux2.RelacionPesoPotencia = double.Parse(PPAuto.Text);
+                    aux2.HP = int.Parse(HpAuto.Text);
+                    aux2.Torque = int.Parse(TorqueAuto.Text);
+                    aux2.Peso = int.Parse(PesoAuto.Text);
+                    aux2.TopSpeed = double.Parse(TopSpeedAuto.Text);
+                    aux2.Kilometraje = int.Parse(KilometrajeAuto.Text);
+                    aux2.Tanque = int.Parse(TanqueAuto.Text);
+                    aux2.Piloto = PilotoAuto.Text;
+                    aux2.Aspiracion = Aspiracion.Text;
+                    aux2.MarcaAuto.IdMarca = index;
+                    aux2.ImagenAuto = Img1.Text;
+                    aux2.ImagenAutoSecundaria = Img2.Text;
+                    aux2.ImagenAutoTres = Img3.Text;
+                    aux2.ImagenAutoCuatro = Img4.Text;
+                    aux2.ImagenAutoCinco = Img5.Text;
+                    aux2.ImagenVenta = Img6.Text;
+                    aux2.Precio = int.Parse(Price.Text);
+                    NegocioBaseDatos negociobd = new NegocioBaseDatos();
+                    negociobd.AgregarAutos(aux2);
+                    MessageBox.Show("Agregado Con Exito");
+                }
+
+                else
+                {
+                    int index = Marca.SelectedIndex + 1;
+                    aux.NombreModelo = NombreAuto.Text;
+                    aux.Anio = int.Parse(AnioAuto.Text);
+                    aux.PaisFabricacion = PaisImagen.Text;
+                    aux.Traccion = TraccionAuto.Text;
+                    aux.Categoria = CategoriaAuto.Text;
+                    aux.RelacionPesoPotencia = double.Parse(PPAuto.Text);
+                    aux.HP = int.Parse(HpAuto.Text);
+                    aux.Torque = int.Parse(TorqueAuto.Text);
+                    aux.Peso = int.Parse(PesoAuto.Text);
+                    aux.TopSpeed = double.Parse(TopSpeedAuto.Text);
+                    aux.Kilometraje = int.Parse(KilometrajeAuto.Text);
+                    aux.Tanque = int.Parse(TanqueAuto.Text);
+                    aux.Piloto = PilotoAuto.Text;
+                    aux.Aspiracion = Aspiracion.Text;
+                    aux.MarcaAuto.IdMarca = index;
+                    aux.ImagenAuto = Img1.Text;
+                    aux.ImagenAutoSecundaria = Img2.Text;
+                    aux.ImagenAutoTres = Img3.Text;
+                    aux.ImagenAutoCuatro = Img4.Text;
+                    aux.ImagenAutoCinco = Img5.Text;
+                    aux.ImagenVenta = Img6.Text;
+                    aux.Precio = int.Parse(Price.Text);
+                    NegocioBaseDatos negociobd = new NegocioBaseDatos();
+                    negociobd.ModAutos(aux);
+                    MessageBox.Show("Modificado Con Exito");
+                }
+
                 Close();
             }
 
@@ -381,6 +452,5 @@ namespace Touge_App
             }
         }
 
-        
     }
 }

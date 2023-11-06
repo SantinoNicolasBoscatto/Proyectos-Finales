@@ -14,7 +14,10 @@ namespace Touge_App
     public partial class FiltroPistas : Form
     {
         public Pistas PistaFiltrada { get; set; }
+        public Autos AutoFiltrado { get; set; }
+        public Pilotos PilotoFiltrado { get; set; }
         public bool Bandera { get; set; }
+        public int Verificador { get; set; }
         public FiltroPistas()
         {
             InitializeComponent();
@@ -48,24 +51,80 @@ namespace Touge_App
             if (AutoComboBox.Text!="")
             {
                 NegocioBaseDatos negociobd = new NegocioBaseDatos();
-                PistaFiltrada = negociobd.FiltrarPistas(AutoComboBox.Text);
-                PistaFiltrada.Combo = AutoComboBox.SelectedIndex;
-                Bandera = true;
-                Close();
+                try
+                {
+                    if (Verificador==1)
+                    {
+                        PistaFiltrada = negociobd.FiltrarPistas(AutoComboBox.Text);
+                        PistaFiltrada.Combo = AutoComboBox.SelectedIndex;
+                    }
+                    else if (Verificador == 2)
+                    {
+                        AutoFiltrado = negociobd.FiltrarAutos(AutoComboBox.Text);
+                        AutoFiltrado.Combo = AutoComboBox.SelectedIndex;
+                    }
+                    else
+                    {
+                        PilotoFiltrado = negociobd.FiltrarPilotos(AutoComboBox.Text);
+                        PilotoFiltrado.Combo = AutoComboBox.SelectedIndex;
+                    }
+                    
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    Bandera = true;
+                    Close();
+                }
+            }
+            else
+            {
+                mensajeBox.Mostrar("Cargue Auto");
             }
         }
+        Form2 mensajeBox = new Form2();
 
         private void FiltroPistas_Load(object sender, EventArgs e)
         {
             Bandera = false;
             NegocioBaseDatos negociobd = new NegocioBaseDatos();
-            List<Pistas> listaPistas =  negociobd.DevolverPistas();
-            int index = 0;
-            while (index< listaPistas.Count)
+            if (Verificador==1)
             {
-                AutoComboBox.Items.Add(listaPistas[index].NombrePista);
-                index++;
+                List<Pistas> listaPistas = negociobd.DevolverPistas();
+                int index = 0;
+                while (index < listaPistas.Count)
+                {
+                    AutoComboBox.Items.Add(listaPistas[index].NombrePista);
+                    index++;
+                }
             }
+            else if (Verificador==2)
+            {
+                List<Autos> listaAutos = negociobd.DevolverAutos();
+                int index = 0;
+                NombreLabel.Text = "Nombre Auto";
+                while (index < listaAutos.Count)
+                {
+                    AutoComboBox.Items.Add(listaAutos[index].NombreModelo);
+                    index++;
+                }
+            }
+            else 
+            {
+                List<Pilotos> listaPilotos = negociobd.DevolverPilotos();
+                int index = 0;
+                NombreLabel.Text = "Nombre Piloto";
+                while (index < listaPilotos.Count)
+                {
+                    AutoComboBox.Items.Add(listaPilotos[index].NombrePiloto);
+                    index++;
+                }
+            }
+
         }
     }
 }

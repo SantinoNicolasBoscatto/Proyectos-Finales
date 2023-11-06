@@ -19,6 +19,7 @@ namespace Touge_App
             InitializeComponent();
         }
         readonly OpenFileDialog CargarImagen = new OpenFileDialog();
+        Form2 mensajeBox = new Form2();
         private void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -73,7 +74,7 @@ namespace Touge_App
                     };
                     NegocioBaseDatos negociobd = new NegocioBaseDatos();
                     negociobd.AgregarProductos(aux, ClaseComboBox.Text);
-                    MessageBox.Show("Agregado Con exito");
+                    mensajeBox.Mostrar("Agregado Con exito");
                     Close();
                 }
                 catch (Exception)
@@ -85,7 +86,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("Faltan Datos");
+                mensajeBox.Mostrar("Faltan Datos de cargar");
             }
         }
 

@@ -64,7 +64,7 @@ namespace Negocio_Base_Datos
             List<Pistas> listaPistas = new List<Pistas>();
             try
             {
-                negocioBD.SQLQuery("select Nombre, Bio Biografia, Distancia, Pais, ModalidadPreferida, Record, Imagenes, Imagen2, Layaout from pistas");
+                negocioBD.SQLQuery("select Nombre, Bio Biografia, Distancia, Pais, ModalidadPreferida, Record, Imagenes, Imagen2, Layaout, PistaID from pistas");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -78,6 +78,7 @@ namespace Negocio_Base_Datos
                         Record = (string)negocioBD.Guardador["Record"],
                         Imagenes = (string)negocioBD.Guardador["Imagenes"],
                         Imagenes2 = (string)negocioBD.Guardador["Imagen2"],
+                        ID = (int)negocioBD.Guardador["PistaID"],
                         Lay = (string)negocioBD.Guardador["Layaout"]
                     };
                     listaPistas.Add(auxiliar);
@@ -115,6 +116,67 @@ namespace Negocio_Base_Datos
                 throw;
             }
            
+        }
+
+        public void ModPista(Pistas aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("Update Pistas Set Nombre = @N , Bio =@B, Distancia = @D, Pais = @P, ModalidadPreferida = @M, Imagenes = @I, Imagen2 = @I2, Layaout = @I3, Record = @R where PistaID = @Id ");
+                negociobd.SetearParametros("@N", aux.NombrePista);
+                negociobd.SetearParametros("@B", aux.BiografiaPista);
+                negociobd.SetearParametros("@D", aux.Distancia);
+                negociobd.SetearParametros("@P", aux.Pais);
+                negociobd.SetearParametros("@M", aux.ModalidadPreferida);
+                negociobd.SetearParametros("@I", aux.Imagenes);
+                negociobd.SetearParametros("@I2", aux.Imagenes2);
+                negociobd.SetearParametros("@I3", aux.Lay);
+                negociobd.SetearParametros("@R", aux.Record);
+                negociobd.SetearParametros("@Id", aux.ID);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void ModAutos(Autos aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("Update Autos set Nombre = @Nombre, Anio = @Anio, Traccion = @Traccion, HP = @HP, Torque = @Torque, Peso = @Peso, PesoPotencia = @PesoPotencia, TopSpeed = @TopSpeed, Categoria = @Categoria, Kilometraje = @Kilometraje, Marca = @Marca, Piloto = @Piloto, PaisFabricacion = @PaisFabricacion, Auto1 = @1, Auto2 = @2, Auto3 = @3, Auto4 = @4, Auto5 = @5, Tanque = @Tanque, Aspiracion = @Asp, Price = @Price where @ID = AutoID");
+                negociobd.SetearParametros("@Nombre", aux.NombreModelo);
+                negociobd.SetearParametros("@Anio", aux.Anio);
+                negociobd.SetearParametros("@Traccion", aux.Traccion);
+                negociobd.SetearParametros("@Torque", aux.Torque);
+                negociobd.SetearParametros("@HP", aux.HP);
+                negociobd.SetearParametros("@Peso", aux.Peso);
+                negociobd.SetearParametros("@PesoPotencia", aux.RelacionPesoPotencia);
+                negociobd.SetearParametros("@TopSpeed", aux.TopSpeed);
+                negociobd.SetearParametros("@Categoria", aux.Categoria);
+                negociobd.SetearParametros("@Kilometraje", aux.Kilometraje);
+                negociobd.SetearParametros("@Marca", aux.MarcaAuto.IdMarca);
+                negociobd.SetearParametros("@Piloto", aux.Piloto);
+                negociobd.SetearParametros("@PaisFabricacion", aux.PaisFabricacion);
+                negociobd.SetearParametros("@1", aux.ImagenAuto);
+                negociobd.SetearParametros("@2", aux.ImagenAutoSecundaria);
+                negociobd.SetearParametros("@3", aux.ImagenAutoTres);
+                negociobd.SetearParametros("@4", aux.ImagenAutoCuatro);
+                negociobd.SetearParametros("@5", aux.ImagenAutoCinco);
+                negociobd.SetearParametros("@Tanque", aux.Tanque);
+                negociobd.SetearParametros("@Asp", aux.Aspiracion);
+                negociobd.SetearParametros("@Price", aux.Precio);
+                negociobd.SetearParametros("@ID", aux.Id);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<Pilotos> DevolverPilotos()
@@ -162,6 +224,7 @@ namespace Negocio_Base_Datos
                         AutoDriving = (string)negocioBD.Guardador["AutoMovimiento"],
                         IdPiloto = (int)negocioBD.Guardador["PilotoID"]
                     };
+                    auxiliar.Total = auxiliar.Victorias + auxiliar.Derrotas;
                     listaPilotos.Add(auxiliar);
                 }
                 return listaPilotos;
@@ -220,13 +283,58 @@ namespace Negocio_Base_Datos
             }
         }
 
+        public void ModPilotos(Pilotos aux)
+        {
+            try
+            {
+                FuncionesNegocio negociobd = new FuncionesNegocio();
+                negociobd.SQLQuery("Update Pilotos set Nombre = @Nombre, Apodo = @Apodo, Equipo = @Equipo, Ranking = @Ranking, Victorias = @Victorias, Derrotas = @Derrotas, PorcentajeCarrerasGanadas = @PorcentajeCarrerasGanadas, MayorRival = @MayorRival,  Altura = @Altura, Peso = @Peso, Edad = @Edad, Bio = @Bio, Foto = @Foto, Cornering = @Cornering, Braking = @Braking, Reflexes = @Reflexes, TyresManagement = @TyresManagement, Overtaking = @Overtaking, Defending = @Defending, Rain = @Rain, Overall  = @Overall, Concentration = @Concentration, Presure = @Presure, Experience = @Experience, Agressive = @Agressive, Pace = @Pace, Nacionalidad = @Nacionalidad, Auto = @Auto, AutoAtras = @AutoAtras, AutoDetalle = @AutoDetalle, AutoMovimiento = @AutoMovimiento");
+                negociobd.SetearParametros("@Nombre", aux.NombrePiloto);
+                negociobd.SetearParametros("@Apodo", aux.Apodo);
+                negociobd.SetearParametros("@Equipo", aux.Equipo);
+                negociobd.SetearParametros("@Ranking", aux.Ranking);
+                negociobd.SetearParametros("@Victorias", aux.Victorias);
+                negociobd.SetearParametros("@Derrotas", aux.Derrotas);
+                negociobd.SetearParametros("@PorcentajeCarrerasGanadas", aux.PorcentajeCarrerasGanadas);
+                negociobd.SetearParametros("@MayorRival", aux.Rival);
+                negociobd.SetearParametros("@Altura", aux.Altura);
+                negociobd.SetearParametros("@Peso", aux.Peso);
+                negociobd.SetearParametros("@Edad", aux.Edad);
+                negociobd.SetearParametros("@Bio", aux.Biografia);
+                negociobd.SetearParametros("@Foto", aux.Foto);
+                negociobd.SetearParametros("@Cornering", aux.Cornering);
+                negociobd.SetearParametros("@Braking", aux.Braking);
+                negociobd.SetearParametros("@Reflexes", aux.Reflexes);
+                negociobd.SetearParametros("@TyresManagement", aux.TyresManagement);
+                negociobd.SetearParametros("@Overtaking", aux.Overtaking);
+                negociobd.SetearParametros("@Defending", aux.Defending);
+                negociobd.SetearParametros("@Rain", aux.RainHability);
+                negociobd.SetearParametros("@Overall", aux.Overtaking);
+                negociobd.SetearParametros("@Concentration", aux.Concentracion);
+                negociobd.SetearParametros("@Presure", aux.ManejoPresion);
+                negociobd.SetearParametros("@Experience", aux.Experiencia);
+                negociobd.SetearParametros("@Agressive", aux.Agresividad);
+                negociobd.SetearParametros("@Pace", aux.Pace);
+                negociobd.SetearParametros("@Nacionalidad", aux.Nacionalidad);
+                negociobd.SetearParametros("@Auto", aux.Auto);
+                negociobd.SetearParametros("@AutoAtras", aux.AutoAtras);
+                negociobd.SetearParametros("@AutoMovimiento", aux.AutoDriving);
+                negociobd.SetearParametros("@AutoDetalle", aux.AutoFrontal);
+                negociobd.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<Autos> DevolverAutos()
         {
             List<Autos> listaAutos = new List<Autos>();
             FuncionesNegocio negocioBD = new FuncionesNegocio();
             try
             {
-                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P   from Autos a, Marca m where a.Marca = m.ID ");
+                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P, Tanque as Tank, Price as Precio from Autos a, Marca m where a.Marca = m.ID ");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -249,6 +357,9 @@ namespace Negocio_Base_Datos
                         ImagenAutoCuatro = (string)negocioBD.Guardador["f4"],
                         ImagenAutoCinco = (string)negocioBD.Guardador["f5"],
                         Aspiracion = (string)negocioBD.Guardador["Asp"],
+                        Tanque = (int)negocioBD.Guardador["Tank"],
+                        Precio = (int)negocioBD.Guardador["Precio"],
+                        Id = (int)negocioBD.Guardador["ID"],
                         Piloto = (string)negocioBD.Guardador["P"]
                     };
                     auxiliar.MarcaAuto.NombreMarca = (string)negocioBD.Guardador["NM"];
@@ -337,6 +448,7 @@ namespace Negocio_Base_Datos
             }
             
         }
+
 
         public void AgregarAlquiler(Alquiler aux)
         {
@@ -1927,6 +2039,125 @@ namespace Negocio_Base_Datos
                 auxiliar.Lay = (string)negociobd.Guardador["Layaout"];
             }
             return auxiliar;
+        }
+
+        public Autos FiltrarAutos(string aux)
+        {
+            FuncionesNegocio negocioBD = new FuncionesNegocio();
+            Autos auxiliar = null;
+            negocioBD.SQLQuery("select a.AutoID ID, a.Nombre NombreAuto, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P  from Autos a, Marca m where a.Marca = m.ID AND a.Nombre = @Aux ");
+            negocioBD.SetearParametros("@Aux", aux);
+            negocioBD.LecturaBase();
+            if (negocioBD.Guardador.Read())
+            {
+                auxiliar = new Autos
+                {              
+                    NombreModelo = (string)negocioBD.Guardador["NombreAuto"],
+                    Anio = (int)negocioBD.Guardador["An"],
+                    Traccion = (string)negocioBD.Guardador["Trac"],
+                    PaisFabricacion = (string)negocioBD.Guardador["Pais"],
+                    HP = (int)negocioBD.Guardador["IHP"],
+                    Torque = (int)negocioBD.Guardador["Torque"],
+                    Peso = (int)negocioBD.Guardador["Peso"],
+                    RelacionPesoPotencia = (double)negocioBD.Guardador["PP"],
+                    TopSpeed = (double)negocioBD.Guardador["TS"],
+                    Categoria = (string)negocioBD.Guardador["Cat"],
+                    Kilometraje = (double)negocioBD.Guardador["K"],
+                    ImagenAuto = (string)negocioBD.Guardador["f1"],
+                    ImagenAutoSecundaria = (string)negocioBD.Guardador["f2"],
+                    ImagenAutoTres = (string)negocioBD.Guardador["f3"],
+                    ImagenAutoCuatro = (string)negocioBD.Guardador["f4"],
+                    ImagenAutoCinco = (string)negocioBD.Guardador["f5"],
+                    Aspiracion = (string)negocioBD.Guardador["Asp"],
+                    Piloto = (string)negocioBD.Guardador["P"]
+                };
+                auxiliar.MarcaAuto.ImagenMarca = (string)negocioBD.Guardador["IM"];
+            }          
+            return auxiliar;
+        }
+
+        public Pilotos FiltrarPilotos(string aux)
+        {
+            FuncionesNegocio negocioBD = new FuncionesNegocio();
+            Pilotos auxiliar = null;
+            negocioBD.SQLQuery("select Nombre, Apodo, Equipo, Ranking, Victorias, Derrotas, PorcentajeCarrerasGanadas WinRate, MayorRival, Altura, Peso, Edad, Bio Biografia, Foto FotoPiloto, Cornering, Braking, Reflexes, TyresManagement, Overtaking, Defending, Rain, Overall, Concentration, Presure, Experience, Agressive, Pace, Nacionalidad, Auto, PilotoID, AutoAtras, AutoDetalle, AutoMovimiento from Pilotos where Nombre = @Aux");
+            negocioBD.SetearParametros("@Aux", aux);
+            negocioBD.LecturaBase();
+            if (negocioBD.Guardador.Read())
+            {
+                auxiliar = new Pilotos
+                {
+                    NombrePiloto = (string)negocioBD.Guardador["Nombre"],
+                    Apodo = (string)negocioBD.Guardador["Apodo"],
+                    Equipo = (string)negocioBD.Guardador["Equipo"],
+                    Ranking = (string)negocioBD.Guardador["Ranking"],
+                    Victorias = (int)negocioBD.Guardador["Victorias"],
+                    Derrotas = (int)negocioBD.Guardador["Derrotas"],
+                    PorcentajeCarrerasGanadas = (double)negocioBD.Guardador["WinRate"],
+                    Rival = (string)negocioBD.Guardador["MayorRival"],
+                    Altura = (string)negocioBD.Guardador["Altura"],
+                    Peso = (string)negocioBD.Guardador["Peso"],
+                    Edad = (int)negocioBD.Guardador["Edad"],
+                    Biografia = (string)negocioBD.Guardador["Biografia"],
+                    Foto = (string)negocioBD.Guardador["FotoPiloto"],
+                    Cornering = (int)negocioBD.Guardador["Cornering"],
+                    Braking = (int)negocioBD.Guardador["Braking"],
+                    Reflexes = (int)negocioBD.Guardador["Reflexes"],
+                    TyresManagement = (int)negocioBD.Guardador["TyresManagement"],
+                    Overtaking = (int)negocioBD.Guardador["Overtaking"],
+                    Defending = (int)negocioBD.Guardador["Defending"],
+                    RainHability = (int)negocioBD.Guardador["Rain"],
+                    Concentracion = (int)negocioBD.Guardador["Concentration"],
+                    ManejoPresion = (int)negocioBD.Guardador["Presure"],
+                    Experiencia = (int)negocioBD.Guardador["Experience"],
+                    Agresividad = (int)negocioBD.Guardador["Agressive"],
+                    Pace = (int)negocioBD.Guardador["Pace"],
+                    Overall = (int)negocioBD.Guardador["Overall"],
+                    Nacionalidad = (string)negocioBD.Guardador["Nacionalidad"],
+                    Auto = (string)negocioBD.Guardador["Auto"],
+                    AutoAtras = (string)negocioBD.Guardador["AutoAtras"],
+                    AutoFrontal = (string)negocioBD.Guardador["AutoDetalle"],
+                    AutoDriving = (string)negocioBD.Guardador["AutoMovimiento"],
+                    IdPiloto = (int)negocioBD.Guardador["PilotoID"]
+                };
+                
+            }
+            return auxiliar;
+        }
+
+        public void InsertarMarcas(string aux1, string aux2)
+        {
+            FuncionesNegocio negociobd = new FuncionesNegocio();
+            negociobd.SQLQuery("Select ID from Marca");
+            negociobd.LecturaBase();
+            int conta = 0;
+            while (negociobd.Guardador.Read())
+            {
+                conta++;
+            }
+            conta++;
+            negociobd.Guardador.Close();
+            negociobd.SQLQuery("insert into Marca (ID, NombreMarca, ImagenMarca) values (@Conta,@Name,@Img)");
+            negociobd.SetearParametros("@Conta", conta);
+            negociobd.SetearParametros("@Name", aux1);
+            negociobd.SetearParametros("@Img", aux2);
+            negociobd.EjecutarAccion();
+        }
+
+        public List<Marca> DevolverMarca()
+        {
+            List<Marca> listaMarcas = new List<Marca>();
+            FuncionesNegocio negocioMarcas = new FuncionesNegocio();
+            negocioMarcas.SQLQuery("select ID, NombreMarca from Marca");
+            negocioMarcas.LecturaBase();
+            while (negocioMarcas.Guardador.Read())
+            {
+                Marca aux = new Marca();
+                aux.NombreMarca = (string)negocioMarcas.Guardador["NombreMarca"];
+                aux.IdMarca = (int)negocioMarcas.Guardador["ID"];
+                listaMarcas.Add(aux);
+            }
+            return listaMarcas;
         }
     }
 }

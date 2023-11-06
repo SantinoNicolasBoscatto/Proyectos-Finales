@@ -171,7 +171,7 @@ namespace Touge_App
                     NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();
                     dineroGanador += dineroNegocio.DevolverDinero();
                     dineroNegocio.ActualizarDinero(dineroGanador);
-                    MessageBox.Show("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
+                    mensajeBox.Mostrar("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
                 }
                 else if (aux.Perdedor == Player)
                 {
@@ -210,13 +210,13 @@ namespace Touge_App
                     NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();
                     dineroPerdedor += dineroNegocio.DevolverDinero();
                     dineroNegocio.ActualizarDinero(dineroPerdedor);
-                    MessageBox.Show("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
+                    mensajeBox.Mostrar("Su cantidad de dinero es: " + dineroNegocio.DevolverDinero());
                 }
-                MessageBox.Show("Registro Agregado con exito");
+                mensajeBox.Mostrar("Registro Agregado con exito");
                 this.Close();
             }
             else
-                MessageBox.Show("Faltan Datos por cargar, porfavor revise bien");
+                mensajeBox.Mostrar("Faltan Datos por cargar, porfavor revise bien");
         }
 
         public int IndiceSeleccionado
@@ -295,7 +295,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("Antes Cargue a Los Pilotos!");
+                mensajeBox.Mostrar("Antes Cargue a Los Pilotos!");
                 if (PilotoComboBox.Text == "")
                     PilotoComboBox.Focus();
                 else
@@ -323,7 +323,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("Antes Cargue a Los Pilotos!");
+                mensajeBox.Mostrar("Antes Cargue a Los Pilotos!");
                 if (PilotoComboBox.Text == "")
                     PilotoComboBox.Focus();
                 else
@@ -398,7 +398,7 @@ namespace Touge_App
                 string NombreDePiloto = PilotoComboBox.Text;
                 if (!PilotoComboBox.Items.Contains(NombreDePiloto) && NombreDePiloto != "")
                 {
-                    MessageBox.Show("Este Piloto No existe en la Base de Datos. Este resultado no afectara En la estadisticas de ningun piloto");
+                    mensajeBox.Mostrar("Este Piloto No existe en la Base de Datos. Este resultado no afectara En la estadisticas de ningun piloto");
                     banderaGanador = false;
                 }
                 else
@@ -407,6 +407,7 @@ namespace Touge_App
             
         }
         bool banderaPerdedor = false;
+        Form2 mensajeBox = new Form2();
         private void RivalComboBox_Leave(object sender, EventArgs e)
         {
             if (!close)

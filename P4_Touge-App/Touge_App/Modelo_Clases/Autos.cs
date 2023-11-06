@@ -10,6 +10,7 @@ namespace Modelo_Clases
     {
         public string NombreModelo { get; set; }
         public int Anio { get; set; }
+        public int Id { get; set; }
         public string PaisFabricacion { get; set; }
         public Marca MarcaAuto { get; set; }
         public int HP { get; set; }
@@ -30,6 +31,7 @@ namespace Modelo_Clases
         public string Aspiracion { get; set; }
         public double Kilometraje { get; set; }
         public string Piloto { get; set; }
+        public int Combo { get; set; }
 
         public Autos()
         {

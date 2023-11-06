@@ -33,6 +33,20 @@ namespace Touge_App
             RankingBox.Items.Add("Leyenda");
         }
 
+        Pilotos updater = null;
+        public CargaPilotos(Pilotos traspaso)
+        {
+            InitializeComponent();
+            RankingBox.Items.Add("Rookie");
+            RankingBox.Items.Add("Junior");
+            RankingBox.Items.Add("Amateur");
+            RankingBox.Items.Add("Semi-Pro");
+            RankingBox.Items.Add("Profesional");
+            RankingBox.Items.Add("Estrella");
+            RankingBox.Items.Add("Leyenda");
+            updater = traspaso;
+        }
+
         private void Cancelar_Click(object sender, EventArgs e)
         {
             Close();
@@ -152,6 +166,17 @@ namespace Touge_App
 
         private void CargaPilotos_Load(object sender, EventArgs e)
         {
+            if (Screen.AllScreens.Length >= 2)
+            {
+                // Obtener la segunda pantalla
+                Screen segundaPantalla = Screen.AllScreens[1];
+
+                // Obtener el formulario actual
+                Form formulario = this;
+
+                // Centrar el formulario en la segunda pantalla
+                formulario.Location = new Point(2350, 75);
+            }
             MostrarOcultar(true);
             PanelFondo.Parent = this;
             this.Size = PanelFondo.Size;
@@ -162,6 +187,48 @@ namespace Touge_App
             CargarImagenAuto2.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagenAuto3.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagenAuto4.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
+            if (updater!=null)
+            {
+                NombreBox.Text = updater.NombrePiloto;
+                ApodoBox.Text = updater.Apodo;
+                AlturaBox.Text = updater.Altura;
+                PesoBox.Text = updater.Peso;
+                EquipoBox.Text = updater.Equipo;
+                VictoriaBox.Text = updater.Victorias.ToString();
+                DerrotasBox.Text = updater.Derrotas.ToString();
+                WinRateBox.Text = updater.PorcentajeCarrerasGanadas.ToString();
+                RivalBox.Text = updater.Rival;
+                BioBox.Text = updater.Biografia;
+                FotoPilotoBox.Text = updater.Foto;
+                FotoBandera.Text = updater.Nacionalidad;
+                FotoAuto1.Text = updater.Auto;
+                FotoAuto2.Text = updater.AutoAtras;
+                FotoAuto3.Text = updater.AutoFrontal;
+                FotoAuto4.Text = updater.AutoDriving;
+                CorneringBox.Text = updater.Cornering.ToString();
+                BrakingBox.Text = updater.Braking.ToString();
+                ReflexesBox.Text = updater.Reflexes.ToString();
+                TyresManagementBox.Text = updater.TyresManagement.ToString();
+                OvertakingBox.Text = updater.Overtaking.ToString();
+                DefendingBox.Text = updater.Defending.ToString();
+                RainBox.Text = updater.RainHability.ToString();
+                ConcentrationBox.Text = updater.Concentracion.ToString();
+                PressureBox.Text = updater.ManejoPresion.ToString();
+                ExperienceBox.Text = updater.Experiencia.ToString();
+                AgressiveBox.Text = updater.Agresividad.ToString();
+                PaceBox.Text = updater.Pace.ToString();
+                OverallBox.Text = updater.Overall.ToString();
+                EdadBox.Text = updater.Edad.ToString();
+                Agregar.Text = "Mod";
+                for (int i = 0; i < RankingBox.Items.Count; i++)
+                {
+                    if (RankingBox.Items[i].ToString() == updater.Ranking)
+                    {
+                        RankingBox.SelectedIndex = i;
+                        i = RankingBox.Items.Count;
+                    }
+                }
+            }
         }
         private void CargarOpen(OpenFileDialog aux, TextBox auxT)
         {
@@ -250,15 +317,25 @@ namespace Touge_App
                     Edad = int.Parse(EdadBox.Text),
                 };
                 NegocioBaseDatos negociobd = new NegocioBaseDatos();
-                negociobd.AgregarPilotos(aux);
-                MessageBox.Show("Piloto agregado Con Exito");
+                if (updater == null)
+                {                   
+                    negociobd.AgregarPilotos(aux);
+                    mensajeBox.Mostrar("Piloto agregado Con Exito");
+                }
+
+                else
+                {
+                    negociobd.ModPilotos(aux);
+                    mensajeBox.Mostrar("Piloto Modificado Con Exito");
+                }
                 Close();
             }
 
             else
             {
-                MessageBox.Show("Faltan Cargar Datos");
+                mensajeBox.Mostrar("Faltan Cargar Datos");
             }
         }
+        Form2 mensajeBox = new Form2();
     }
 }

@@ -56,7 +56,7 @@ namespace Touge_App
 
         public string Precio
         {
-            get { return "$ " + Preciolabel.Text; }
+            get { return "" + Preciolabel.Text; }
             set { Preciolabel.Text =  value; }
         }
 
@@ -74,7 +74,7 @@ namespace Touge_App
 
         public string Ducha
         {
-            get { return "● " + Duchalabel.Text; }
+            get { return "" + Duchalabel.Text; }
             set { Duchalabel.Text = value; }
         }
 

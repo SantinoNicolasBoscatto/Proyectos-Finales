@@ -49,23 +49,23 @@ namespace Touge_App
             this.AutoComboBox.FormattingEnabled = true;
             this.AutoComboBox.IntegralHeight = false;
             this.AutoComboBox.ItemHeight = 25;
-            this.AutoComboBox.Location = new System.Drawing.Point(12, 75);
+            this.AutoComboBox.Location = new System.Drawing.Point(10, 60);
             this.AutoComboBox.MaxDropDownItems = 20;
             this.AutoComboBox.Name = "AutoComboBox";
-            this.AutoComboBox.Size = new System.Drawing.Size(389, 33);
-            this.AutoComboBox.TabIndex = 129;
+            this.AutoComboBox.Size = new System.Drawing.Size(400, 33);
+            this.AutoComboBox.TabIndex = 133;
             // 
             // NombreLabel
             // 
-            this.NombreLabel.AutoSize = true;
             this.NombreLabel.BackColor = System.Drawing.Color.Transparent;
             this.NombreLabel.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombreLabel.ForeColor = System.Drawing.Color.White;
-            this.NombreLabel.Location = new System.Drawing.Point(108, 9);
+            this.NombreLabel.Location = new System.Drawing.Point(10, 9);
             this.NombreLabel.Name = "NombreLabel";
-            this.NombreLabel.Size = new System.Drawing.Size(198, 38);
+            this.NombreLabel.Size = new System.Drawing.Size(400, 38);
             this.NombreLabel.TabIndex = 132;
-            this.NombreLabel.Text = "Nombre Auto";
+            this.NombreLabel.Text = "Nombre Pista";
+            this.NombreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Cancelar
             // 
@@ -122,7 +122,6 @@ namespace Touge_App
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBoxBack_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxBack_MouseMove);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -44,6 +44,8 @@ namespace Modelo_Clases
         public int Agresividad { get; set; }
         public int IdPiloto { get; set; }
         public string Ranking { get; set; }
+        public int Combo { get; set; }
+        public int Total { get; set; }
 
     }
 }

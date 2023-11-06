@@ -19,7 +19,7 @@ namespace Touge_App
             InitializeComponent();
             CargarImagenTapa.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
         }
-
+        Form2 mensajeBox = new Form2();
         readonly OpenFileDialog CargarImagenTapa = new OpenFileDialog();
         private void CargarImagen_Click(object sender, EventArgs e)
         {
@@ -58,8 +58,12 @@ namespace Touge_App
                 };
                 NegocioBaseDatos negociobd = new NegocioBaseDatos();
                 negociobd.AgregarCancion(aux);
-                MessageBox.Show("Agregado Con exito");
+                mensajeBox.Mostrar("Agregado Con exito");
                 Close();
+            }
+            else
+            {
+                mensajeBox.Mostrar("Faltan Datos");
             }
         }
 

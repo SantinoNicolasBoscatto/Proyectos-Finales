@@ -263,6 +263,12 @@
     <Compile Include="CargaAutos.Designer.cs">
       <DependentUpon>CargaAutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaMarca.Designer.cs">
+      <DependentUpon>CargaMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargaPilotos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CargaAutos.resx">
       <DependentUpon>CargaAutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaMarca.resx">
+      <DependentUpon>CargaMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CargaPilotos.resx">
       <DependentUpon>CargaPilotos.cs</DependentUpon>

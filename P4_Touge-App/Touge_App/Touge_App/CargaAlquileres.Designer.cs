@@ -243,13 +243,12 @@ namespace Touge_App
             this.CargarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CargarFoto.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CargarFoto.ForeColor = System.Drawing.Color.Black;
-            this.CargarFoto.Location = new System.Drawing.Point(75, 413);
+            this.CargarFoto.Location = new System.Drawing.Point(86, 413);
             this.CargarFoto.Name = "CargarFoto";
             this.CargarFoto.Size = new System.Drawing.Size(138, 36);
             this.CargarFoto.TabIndex = 130;
             this.CargarFoto.Text = "Cargar Imagen";
             this.CargarFoto.UseVisualStyleBackColor = false;
-            this.CargarFoto.Visible = false;
             this.CargarFoto.Click += new System.EventHandler(this.CargarFoto_Click);
             // 
             // CargaAlquileres

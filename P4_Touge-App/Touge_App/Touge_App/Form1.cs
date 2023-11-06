@@ -560,6 +560,8 @@ namespace Touge_App
         {
             FiltrarPilotosPistasAutos.Parent = PictureBoxBack;
             FiltrarPilotosPistasAutos.Visible = true;
+            UpdateBoton.Parent = PictureBoxBack;
+            UpdateBoton.Visible = true;
             PilotoNameAuto.Parent = FichaTecnicaPb;
             panel1.Parent = PictureBoxBack;
             panel1.BackColor = Color.FromArgb(128, 50, 50, 50);
@@ -847,6 +849,14 @@ namespace Touge_App
             DineroMostrarLabel.BackColor = Color.FromArgb(135, 30, 30, 30);
             BackMecanico.Parent = PictureBoxBack;
             NextMecanico.Parent = PictureBoxBack;
+            RookieLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            JuniorLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            AmateurLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            SemiProLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            ProfesionalLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            EstrellaLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            LeyendaLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
+            PromocionLabel.BackColor = Color.FromArgb(150, 170, 170, 170);
         }
 
         // FUNCION PARA FORMATEAR FECHA
@@ -996,23 +1006,18 @@ namespace Touge_App
                     CampoLabel.ForeColor = Color.Red;
                     CriterioLabel.ForeColor = Color.Red;
                     FiltroBusquedaLabel.ForeColor = Color.Red;
-                    PistasBiografia.BackAlpha = 20;
                     break;
                 case 1:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/3_Fondo.gif");
-                    PistasBiografia.BackAlpha = 45;
                     break;
                 case 2:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/4_Fondo.gif");
-                    PistasBiografia.BackAlpha = 55;
                     break;
                 case 3:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/7_Fondo.gif");
-                    PistasBiografia.BackAlpha = 40;
                     break;
                 case 4:
                     PictureBoxBack.Load("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/img/Fondos-Pantalla/10_Fondo.gif");
-                    PistasBiografia.BackAlpha = 60;
                     break;
             }
         }
@@ -1575,10 +1580,11 @@ namespace Touge_App
                 Concentration.Location = new Point(53, 354);
             Concentration.Text = listaPilotos[indexPilotos].Concentracion.ToString();
             if (listaPilotos[indexPilotos].RainHability < 10)
-                Rain.Location = new Point(166, 354);
+                Rain.Location = new Point(158, 354);
             Rain.Text = listaPilotos[indexPilotos].RainHability.ToString();
             if (listaPilotos[indexPilotos].Defending < 10)
-                Defending.Location = new Point(270, 354);
+                Defending.Location = new Point(255, 354);
+            Defending.Text = listaPilotos[indexPilotos].Defending.ToString();
             if (listaPilotos[indexPilotos].Overall < 10)
                 Overall.Location = new Point(0, 0);
             Overall.Text = listaPilotos[indexPilotos].Overall.ToString();
@@ -1594,26 +1600,19 @@ namespace Touge_App
                 Agressiveness.Location = new Point(155, 274);
                 Overtaking.Location = new Point(262, 274);
                 Concentration.Location = new Point(45, 380);
-                Rain.Location = new Point(165, 380);
+                Rain.Location = new Point(158, 380);
                 Defending.Location = new Point(262, 380);
                 Overall.Location = new Point(465, 336);
                 NombrePilotoTextBox.Location = new Point(118, 528);
                 ApodoTextBox.Location = new Point(118, 565);
                 EquipoTextBox.Location = new Point(118, 600);
                 RivalTextBox.Location = new Point(118, 635);
-
                 EdadTextBox.Location = new Point(433, 528);
-
                 AlturaTextBox.Location = new Point(430, 570);
-
                 PesoTextBox.Location = new Point(430, 603);
-
                 VictoriaTextBox.Location = new Point(612, 530);
-
                 DerrotaTextBox.Location = new Point(612, 565);
-
                 WinRateTextBox.Location = new Point(612, 602);
-
                 TotalTextBox.Location = new Point(612, 636);
             }
             NombrePilotoTextBox.Text = listaPilotos[indexPilotos].NombrePiloto;
@@ -1627,7 +1626,7 @@ namespace Touge_App
             DerrotaTextBox.Text = listaPilotos[indexPilotos].Derrotas.ToString();
             string formatin = "0.0";
             WinRateTextBox.Text = listaPilotos[indexPilotos].PorcentajeCarrerasGanadas.ToString(formatin)+"%";
-            TotalTextBox.Text = listaPilotos[indexPilotos].CantidadDeCarreras.ToString();
+            TotalTextBox.Text = listaPilotos[indexPilotos].Total.ToString();
         }
         private void AutoPilotoPictureBox_Click(object sender, EventArgs e)
         {
@@ -1956,7 +1955,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("No selecciono ningun registro a eliminar", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mensajeBox.Mostrar("No selecciono ningun registro a eliminar");
             }
         }
         private void CampoCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -3203,7 +3202,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("En este momento estamos falta de Articulos! vuelva mas tarde");
+                mensajeBox.Mostrar("En este momento estamos falta de Articulos! vuelva mas tarde");
             }
         }
         private void PaginaUnoElectros()
@@ -3386,7 +3385,7 @@ namespace Touge_App
                         bdCargaRopa = true;
                     }
                     else
-                        MessageBox.Show("No hay mas articulos que comprar!");
+                        mensajeBox.Mostrar("No hay mas articulos que comprar!");
                 }
             }
             else if (ShopPanel1.BackColor == Color.FromArgb(240, 160, 82, 45))
@@ -3399,7 +3398,7 @@ namespace Touge_App
                         bdCargaMueble = true;
                     }
                     else
-                        MessageBox.Show("No hay mas articulos que comprar!");
+                        mensajeBox.Mostrar("No hay mas articulos que comprar!");
                 }
             }
             else if (ShopPanel1.BackColor == Color.FromArgb(255, 40, 89, 255))
@@ -3412,7 +3411,7 @@ namespace Touge_App
                         bdCargaElectro = true;
                     }
                     else
-                        MessageBox.Show("No hay mas articulos que comprar!");
+                        mensajeBox.Mostrar("No hay mas articulos que comprar!");
                 }
             }
 
@@ -3472,7 +3471,6 @@ namespace Touge_App
                 negocioPago.ActualizarDinero(miDinero.MiDinero);
                 compraSonido.Play();
                 negocioPago.DeshabilitarArticulo(ShopPanel1.Id, eShopmanager);
-                //MessageBox.Show("Articulo Comprado con exito! " + miDinero.MiDinero + " USD");
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
                 fechaAux.FechaManager = negocioPago.UpdatearFecha(1);
@@ -3506,7 +3504,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel2_ButtonClick(object sender, EventArgs e)
         {
@@ -3550,7 +3548,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel3_ButtonClick(object sender, EventArgs e)
         {
@@ -3594,7 +3592,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel4_ButtonClick(object sender, EventArgs e)
         {
@@ -3638,7 +3636,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel5_ButtonClick(object sender, EventArgs e)
         {
@@ -3682,7 +3680,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel6_ButtonClick(object sender, EventArgs e)
         {
@@ -3725,7 +3723,7 @@ namespace Touge_App
                 }
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel7_ButtonClick(object sender, EventArgs e)
         {
@@ -3769,7 +3767,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         private void ShopPanel8_ButtonClick(object sender, EventArgs e)
         {
@@ -3814,7 +3812,7 @@ namespace Touge_App
 
             }
             else
-                MessageBox.Show("No tiene dinero para Comprar este producto.");
+                mensajeBox.Mostrar("No tiene dinero para Comprar este producto.");
         }
         //MOSTRAR MODULO HIGIENE, EVENTOS Y PAGINA INDICE: 4.7
         private void HigienePictureBox_Click(object sender, EventArgs e)
@@ -4005,14 +4003,13 @@ namespace Touge_App
                         compraSonido.Dispose();
                         aceiteManager = 0;
                         negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
-                        //MessageBox.Show("" + MiAuto.HP);
                     }
                     else
                         mensajeBox.Mostrar("El Mecanico dice que tu aceite esta correcto por ahora y no requiere cambiarlo!");
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Hacer el cambio de Aceite");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Hacer el cambio de Aceite");
                 }
             }
             else
@@ -4036,12 +4033,12 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("Tu Vehiculo ya tiene una Repro!");
+                        mensajeBox.Mostrar("Tu Vehiculo ya tiene una Repro!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Hacerle Una Repro al auto");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Hacerle Una Repro al auto");
                 }
             }
             if (estadoAceite && estadoMotor && estadoAuto)
@@ -4071,12 +4068,12 @@ namespace Touge_App
                         negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
                     }
                     else
-                        MessageBox.Show("El Mecanico esta muy Ocupado! Vuelve otro dia");
+                        mensajeBox.Mostrar("El Mecanico esta muy Ocupado! Vuelve otro dia");
 
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Hacer Mantenimiento del Auto");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Hacer Mantenimiento del Auto");
                 }
             }
             else
@@ -4101,12 +4098,12 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("Tu Vehiculo ya tiene un Turbo!");
+                        mensajeBox.Mostrar("Tu Vehiculo ya tiene un Turbo!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Colocarle un turbo al Auto");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Colocarle un turbo al Auto");
                 }
             }
             if (estadoAceite && estadoMotor && estadoAuto)
@@ -4138,11 +4135,11 @@ namespace Touge_App
                         negocioMecanico.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
                     }
                     else
-                        MessageBox.Show("El Mecanico dice que tu motor esta bien, no le hace falta mantenimiento");
+                        mensajeBox.Mostrar("El Mecanico dice que tu motor esta bien, no le hace falta mantenimiento");
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Hacer Mantenimiento del Motor");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Hacer Mantenimiento del Motor");
                 }
             }
             else
@@ -4165,12 +4162,12 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("Tu Vehiculo ya Es AWD!");
+                        mensajeBox.Mostrar("Tu Vehiculo ya Es AWD!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para realizarle la modficicacion AWD al auto");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para realizarle la modficicacion AWD al auto");
                 }
             }
             if (estadoAceite && estadoMotor && estadoAuto)
@@ -4198,7 +4195,7 @@ namespace Touge_App
                 }
                 else
                 {
-                    MessageBox.Show("No tiene el suficiente dinero Para Hacer una Reduccion de Peso");
+                    mensajeBox.Mostrar("No tiene el suficiente dinero Para Hacer una Reduccion de Peso");
                 }
             }
             else
@@ -4267,7 +4264,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("No tiene el suficiente dinero Para Lavar tu auto");
+                mensajeBox.Mostrar("No tiene el suficiente dinero Para Lavar tu auto");
                 
             }
         }
@@ -4288,7 +4285,7 @@ namespace Touge_App
             }
             else
             {
-                MessageBox.Show("Tiene Tanque Lleno, no hace falta recargar");
+                mensajeBox.Mostrar("Tiene Tanque Lleno, no hace falta recargar");
             }
         }
         private void GastosDiarios3_ButtonClick(object sender, EventArgs e)
@@ -4554,7 +4551,7 @@ namespace Touge_App
                 }
             }
             else
-                MessageBox.Show("No Tienes Objetos");
+                mensajeBox.Mostrar("No Tienes Objetos");
         }
         int managerMisObjetos = 0;//Detecta cuantos objetos son y da la orden de crear los paneles
         private List<EShopPanels> CrearObjetos()
@@ -5101,7 +5098,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -5339,7 +5336,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -5576,7 +5573,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -5813,7 +5810,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
                 }
@@ -6049,7 +6046,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -6286,7 +6283,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -6523,7 +6520,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -6760,7 +6757,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -6997,7 +6994,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -7234,7 +7231,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -7471,7 +7468,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -7708,7 +7705,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -7945,7 +7942,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -8182,7 +8179,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -8419,7 +8416,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -8656,7 +8653,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -8893,7 +8890,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -9130,7 +9127,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -9367,7 +9364,7 @@ namespace Touge_App
                     }
                     else
                     {
-                        MessageBox.Show("No Tiene Mas objetos");
+                        mensajeBox.Mostrar("No Tiene Mas objetos");
                         MisObjetosPaginaManager--;
                     }
 
@@ -9440,22 +9437,22 @@ namespace Touge_App
             switch (sonido)
             {
                 case 1:
-                    MessageBox.Show("Aceite Cambiado con exito!");
+                    mensajeBox.Mostrar("Aceite Cambiado con exito!");
                     break;
                 case 2:
-                    MessageBox.Show("Mantenimiento del Motor Realizado!");
+                    mensajeBox.Mostrar("Mantenimiento del Motor Realizado!");
                     break;
                 case 3:
-                    MessageBox.Show("Se Le agrego un Turbo a tu auto!");
+                    mensajeBox.Mostrar("Se Le agrego un Turbo a tu auto!");
                     break;
                 case 4:
-                    MessageBox.Show("Tu Auto Quedo Reluciente!");
+                    mensajeBox.Mostrar("Tu Auto Quedo Reluciente!");
                     break;
                 case 5:
-                    MessageBox.Show("Gomas nuevas Compradas con exito!");
+                    mensajeBox.Mostrar("Gomas nuevas Compradas con exito!");
                     break;
                 case 6:
-                    MessageBox.Show("Tanque Lleno!");
+                    mensajeBox.Mostrar("Tanque Lleno!");
                     break;
             }
 
@@ -9509,7 +9506,7 @@ namespace Touge_App
                 NegocioBaseDatos negocioAlquilerManager = new NegocioBaseDatos();
                 negocioAlquilerManager.ActualizarAlquilando(Alquilando);
                 CambioMes = fechaAux.FechaManager;
-                MessageBox.Show("Cambio El Mes, Necesitas renovar el Alquiler");
+                mensajeBox.Mostrar("Cambio El Mes, Necesitas renovar el Alquiler");
                 listaAlquiler = negocioAlquiler.DevolverAlquiler(true, CasaAlquilada);
                 Ocultar();
                 OcultarEconomia();
@@ -9527,39 +9524,32 @@ namespace Touge_App
             }
             else if (fechaAux.FechaManager.Year != CambioMes.Year)
             {
-                MessageBox.Show("Necesita  Abonar su seguro Anual! Sino sin seguro ante destruccion del auto no percibira dinero");
+                mensajeBox.Mostrar("Necesita  Abonar su seguro Anual! Sino sin seguro ante destruccion del auto no percibira dinero");
                 estadoSeguro = false;
                 NegocioBaseDatos negocioSeguro = new NegocioBaseDatos();
                 negocioSeguro.UpdateSeguro(estadoSeguro);
             }
         }
 
-        //INCOMPLETO
-        //Falta la configuracion de la pagina y subirla al Hosting 4.12
-        private void CarDealerPictureBox_Click(object sender, EventArgs e)
-        {
-            string url = "https://gtdb.io/gt7/used-cars/";
-            System.Diagnostics.Process.Start(url);
-        }
-
-
+        // Carga De elementos
         int modoDesarrollador = 0;
         bool bdHumilde = true;
         private void CargaPistasAutosPilotosEconomia_Click(object sender, EventArgs e)
         {
-            if (modoDesarrollador == 9)
+            if (modoDesarrollador == 4)
             {
                 try
                 {
                     if (bdHumilde)
                     {
-                        MessageBox.Show("Desbloqueo el Modo Developer");
+                        mensajeBox.Mostrar("Desbloqueo el Modo Developer");
                         bdHumilde = false;
                     }
                     if (PistaPictureBox.Visible == true)
                     {
                         CargaPista ventanaPistas = new CargaPista();
                         ventanaPistas.ShowDialog();
+                        CargaBasePistas();
                     }
 
                     else if (AutosPictureBox.Visible == true)
@@ -9580,12 +9570,17 @@ namespace Touge_App
                     else if (ShopPanel1.Visible == true)
                     {
                         CargarProductos ventanaProductos = new CargarProductos();
-                        ventanaProductos.ShowDialog();
+                        ventanaProductos.Show();
                     }
                     else if (alquileres1.Visible == true)
                     {
                         CargaAlquileres ventanaAlquiler = new CargaAlquileres();
-                        ventanaAlquiler.ShowDialog();
+                        ventanaAlquiler.Show();
+                    }
+                    else if (FLabel.Visible == true)
+                    {
+                        CargaMarca ventanaMarca = new CargaMarca();
+                        ventanaMarca.ShowDialog();
                     }
                     else
                     {
@@ -9597,22 +9592,26 @@ namespace Touge_App
                 {
                     throw;
                 }
-                
+
             }
             else
                 modoDesarrollador++;
         }
 
+        //Filtrar
         private void FiltrarPilotosPistasAutos_Click(object sender, EventArgs e)
         {
             if (PistaPictureBox.Visible == true)
             {
-                FiltroPistas filtroPistas = new FiltroPistas();
+                FiltroPistas filtroPistas = new FiltroPistas
+                {
+                    Verificador = 1
+                };
                 filtroPistas.ShowDialog();
                 if (filtroPistas.Bandera)
                 {
                     imagen = 1;
-                    CargaPistasAutosPilotosEconomia.Visible = true;
+                    //CargaPistasAutosPilotosEconomia.Visible = true;
                     NombreCircuito.Text = filtroPistas.PistaFiltrada.NombrePista;
                     PistaPictureBox.Load(filtroPistas.PistaFiltrada.Imagenes);
                     DistanciaTextbox.Text = "Distancia: " + filtroPistas.PistaFiltrada.Distancia;
@@ -9620,11 +9619,154 @@ namespace Touge_App
                     ModalidadTextBox.Text = "Modalidad: " + filtroPistas.PistaFiltrada.ModalidadPreferida;
                     PistasBiografia.Text = filtroPistas.PistaFiltrada.BiografiaPista;
                     indexPistas = filtroPistas.PistaFiltrada.Combo;
-                }            
+                }
+            }
+
+            else if (AutosPictureBox.Visible == true)
+            {
+                FiltroPistas filtroAutos = new FiltroPistas
+                {
+                    Verificador = 2
+                };
+                filtroAutos.ShowDialog();
+                if (filtroAutos.Bandera)
+                {
+                    contadorImagenAuto = 0;
+                    indexAutos = filtroAutos.AutoFiltrado.Combo;
+                    negocioBDAutos = new NegocioBaseDatos();
+                    NombreAutoTextbox.Text = filtroAutos.AutoFiltrado.NombreModelo;
+                    AutosPictureBox.Load(filtroAutos.AutoFiltrado.ImagenAuto);
+                    MarcaPictureBox.Load(filtroAutos.AutoFiltrado.MarcaAuto.ImagenMarca);
+                    BanderasPictureBox.Load(filtroAutos.AutoFiltrado.PaisFabricacion);
+                    YearLabel.Text = filtroAutos.AutoFiltrado.Anio.ToString();
+                    NmLabel.Text = filtroAutos.AutoFiltrado.Torque.ToString() + "  Nm";
+                    HpLabel.Text = filtroAutos.AutoFiltrado.HP.ToString() + "  Hp";
+                    KgLabel.Text = filtroAutos.AutoFiltrado.Peso.ToString() + "  Kg";
+                    string formato = "0.00";
+                    KgHp.Text = filtroAutos.AutoFiltrado.RelacionPesoPotencia.ToString(formato) + "  Kg/Hp";
+                    TopLabel.Text = filtroAutos.AutoFiltrado.TopSpeed.ToString() + "  Km/H";
+                    KmLabel.Text = filtroAutos.AutoFiltrado.Kilometraje.ToString() + "  Km";
+                    CatLabel.Text = filtroAutos.AutoFiltrado.Categoria;
+                    PilotoNameAuto.Text = filtroAutos.AutoFiltrado.Piloto;
+                }
+            }
+
+            else if (BiografiaPilotosTextBox.Visible == true)
+            {
+                FiltroPistas filtroPilotos = new FiltroPistas
+                {
+                    Verificador = 3
+                };
+                filtroPilotos.ShowDialog();
+                if (filtroPilotos.Bandera)
+                {
+                    contadorImagenes = 0;
+                    indexPilotos = filtroPilotos.PilotoFiltrado.Combo;
+                    PilotosPictureBox.Load(filtroPilotos.PilotoFiltrado.Foto);
+                    BiografiaPilotosTextBox.Text = filtroPilotos.PilotoFiltrado.Biografia;
+                    AutoPilotoPictureBox.Load(filtroPilotos.PilotoFiltrado.Auto);
+                    PaisPictureBox.Load(filtroPilotos.PilotoFiltrado.Nacionalidad);
+                    if (filtroPilotos.PilotoFiltrado.Cornering < 10)
+                        Cornering.Location = new Point(53, 42);
+                    Cornering.Text = filtroPilotos.PilotoFiltrado.Cornering.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Braking < 10)
+                        Braking.Location = new Point(163, 42);
+                    Braking.Text = filtroPilotos.PilotoFiltrado.Braking.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Reflexes < 10)
+                        Reflexes.Location = new Point(270, 42);
+                    Reflexes.Text = filtroPilotos.PilotoFiltrado.Reflexes.ToString();
+                    if (filtroPilotos.PilotoFiltrado.ManejoPresion < 10)
+                        Pressure.Location = new Point(53, 149);
+                    Pressure.Text = filtroPilotos.PilotoFiltrado.ManejoPresion.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Experiencia < 10)
+                        Experience.Location = new Point(163, 149);
+                    Experience.Text = filtroPilotos.PilotoFiltrado.Experiencia.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Pace < 10)
+                        Pace.Location = new Point(270, 149);
+                    Pace.Text = filtroPilotos.PilotoFiltrado.Pace.ToString();
+                    if (filtroPilotos.PilotoFiltrado.TyresManagement < 10)
+                        Tyres.Location = new Point(55, 255);
+                    Tyres.Text = filtroPilotos.PilotoFiltrado.TyresManagement.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Agresividad < 10)
+                        Agressiveness.Location = new Point(163, 255);
+                    Agressiveness.Text = filtroPilotos.PilotoFiltrado.Agresividad.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Overtaking < 10)
+                        Overtaking.Location = new Point(270, 255);
+                    Overtaking.Text = filtroPilotos.PilotoFiltrado.Overtaking.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Concentracion < 10)
+                        Concentration.Location = new Point(53, 354);
+                    Concentration.Text = filtroPilotos.PilotoFiltrado.Concentracion.ToString();
+                    if (filtroPilotos.PilotoFiltrado.RainHability < 10)
+                        Rain.Location = new Point(166, 354);
+                    Rain.Text = filtroPilotos.PilotoFiltrado.RainHability.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Defending < 10)
+                        Defending.Location = new Point(270, 354);
+                    Defending.Text = filtroPilotos.PilotoFiltrado.Defending.ToString();
+                    if (filtroPilotos.PilotoFiltrado.Overall < 10)
+                        Overall.Location = new Point(0, 0);
+                    Overall.Text = filtroPilotos.PilotoFiltrado.Overall.ToString();
+                    NombrePilotoTextBox.Text = filtroPilotos.PilotoFiltrado.NombrePiloto;
+                    ApodoTextBox.Text = filtroPilotos.PilotoFiltrado.Apodo;
+                    EquipoTextBox.Text = filtroPilotos.PilotoFiltrado.Equipo;
+                    RivalTextBox.Text = filtroPilotos.PilotoFiltrado.Rival;
+                    EdadTextBox.Text = filtroPilotos.PilotoFiltrado.Edad.ToString();
+                    AlturaTextBox.Text = filtroPilotos.PilotoFiltrado.Altura;
+                    PesoTextBox.Text = filtroPilotos.PilotoFiltrado.Peso;
+                    VictoriaTextBox.Text = filtroPilotos.PilotoFiltrado.Victorias.ToString();
+                    DerrotaTextBox.Text = filtroPilotos.PilotoFiltrado.Derrotas.ToString();
+                    string formatin = "0.0";
+                    WinRateTextBox.Text = filtroPilotos.PilotoFiltrado.PorcentajeCarrerasGanadas.ToString(formatin) + "%";
+                    TotalTextBox.Text = filtroPilotos.PilotoFiltrado.CantidadDeCarreras.ToString();
+                }
+
+            }
+        }
+        //INCOMPLETO
+        //Falta la configuracion de la pagina y subirla al Hosting 4.12
+        private void CarDealerPictureBox_Click(object sender, EventArgs e)
+        {
+            string url = "https://gtdb.io/gt7/used-cars/";
+            System.Diagnostics.Process.Start(url);
+        }
+    
+      
+        //Update
+        int modoDesarrolladorUp = 0;
+        bool listoPapa = true;
+        private void UpdateBoton_Click(object sender, EventArgs e)
+        {
+            if (modoDesarrolladorUp >= 4)
+            {
+                if (listoPapa)
+                {
+                    mensajeBox.Mostrar("Modo Desarrolador Activado");
+                    listoPapa = false;
+                }
+
+                if (PistaPictureBox.Visible)
+                {
+                    CargaPista ventanaPistas = new CargaPista(listaPistas[indexPistas]);
+                    ventanaPistas.ShowDialog();
+                    CargaBasePistas();
+                }
+                else if (AutosPictureBox.Visible==true)
+                {
+                    CargaAutos ventanaAutos = new CargaAutos(listaAutos[indexAutos]);
+                    ventanaAutos.ShowDialog();
+                    CargarAutos();
+                }
+
+                else if (PilotosPictureBox.Visible == true)
+                {
+                    CargaPilotos ventanaPilotos = new CargaPilotos(listaPilotos[indexPilotos]);
+                    ventanaPilotos.ShowDialog();
+                    CargaPilotos();
+                }
+
             }
             else
             {
-                MessageBox.Show("Hola");
+                modoDesarrolladorUp++;
             }
         }
     }

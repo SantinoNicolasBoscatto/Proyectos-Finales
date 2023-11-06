@@ -50,7 +50,7 @@ namespace Touge_App
             this.ImagenLabel.ForeColor = System.Drawing.Color.White;
             this.ImagenLabel.Location = new System.Drawing.Point(10, 86);
             this.ImagenLabel.Name = "ImagenLabel";
-            this.ImagenLabel.Size = new System.Drawing.Size(194, 40);
+            this.ImagenLabel.Size = new System.Drawing.Size(185, 38);
             this.ImagenLabel.TabIndex = 133;
             this.ImagenLabel.Text = "Imagen Tapa";
             // 
@@ -73,7 +73,7 @@ namespace Touge_App
             this.NombreProductoLabel.ForeColor = System.Drawing.Color.White;
             this.NombreProductoLabel.Location = new System.Drawing.Point(24, 19);
             this.NombreProductoLabel.Name = "NombreProductoLabel";
-            this.NombreProductoLabel.Size = new System.Drawing.Size(131, 40);
+            this.NombreProductoLabel.Size = new System.Drawing.Size(125, 38);
             this.NombreProductoLabel.TabIndex = 131;
             this.NombreProductoLabel.Text = "Nombre";
             // 
@@ -132,7 +132,7 @@ namespace Touge_App
             this.MusicaLabel.ForeColor = System.Drawing.Color.White;
             this.MusicaLabel.Location = new System.Drawing.Point(8, 185);
             this.MusicaLabel.Name = "MusicaLabel";
-            this.MusicaLabel.Size = new System.Drawing.Size(193, 40);
+            this.MusicaLabel.Size = new System.Drawing.Size(186, 38);
             this.MusicaLabel.TabIndex = 135;
             this.MusicaLabel.Text = "Archivo Mp3";
             // 
@@ -157,7 +157,7 @@ namespace Touge_App
             this.CargarMp3.Name = "CargarMp3";
             this.CargarMp3.Size = new System.Drawing.Size(138, 36);
             this.CargarMp3.TabIndex = 136;
-            this.CargarMp3.Text = "Cargar Imagen";
+            this.CargarMp3.Text = "Cargar Audio";
             this.CargarMp3.UseVisualStyleBackColor = false;
             this.CargarMp3.Click += new System.EventHandler(this.CargarMp3_Click);
             // 

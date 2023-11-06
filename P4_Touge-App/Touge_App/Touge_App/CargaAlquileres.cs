@@ -12,7 +12,7 @@ namespace Touge_App
             InitializeComponent();
             cargarImagen.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
         }
-
+        Form2 mensajeBox = new Form2();
         private void IdBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -53,11 +53,11 @@ namespace Touge_App
                 };
                 NegocioBaseDatos negociobd = new NegocioBaseDatos();
                 negociobd.AgregarAlquiler(aux);
-                MessageBox.Show("Agregado Con exito");
+                mensajeBox.Mostrar("Agregado Con exito");
                 Close();
             }
             else
-                MessageBox.Show("Faltan Datos Por Cargar");
+                mensajeBox.Mostrar("Faltan Datos Por Cargar");
         }
     }
 }

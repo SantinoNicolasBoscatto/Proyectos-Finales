@@ -1,8 +1,8 @@
-﻿--Insert Into Musica values 
---('One Night In Arabia', 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\24-ONE NIGHT IN ARABIA.mp3','')
+﻿
+Insert Into Musica values ('One Night In Arabia', 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\24-ONE NIGHT IN ARABIA.mp3','')
 
 --CRUD
-select Nombre, Bio Biografia, Distancia, Pais, ModalidadPreferida, Record, Imagenes, Imagen2 from pistas
+select * from Musica
 
 
 select Nombre, Apodo, Equipo, Ranking, Victorias, Derrotas, PorcentajeCarrerasGanadas WinRate, MayorRival,
@@ -18,6 +18,9 @@ Insert Into Pistas values ('Akagi','El Monte Akagi es una montaña en la prefect
 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Pistas\Akagi.jpg'
 ,'3:12.896'
 ,'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Pistas\Akagi_2.jpg')
+
+Insert into Pistas (Nombre, Bio, Distancia, Pais, ModalidadPreferida,Record, Imagenes, Imagen2, Layaout) values('', '', '', '', '', '', '', '', '');
+
 
 --Insert Into Pilotos values ('Nombre', 'Apodo', 'Equipo', 'Ranking', 'Victorias', 'Derrotas', 'Porcentaje', 'Rival',
 --'Altura', 'Peso', 'Edad', 'Bio', 'Foto', 'Cornering', 'Brakin', 'Reflexes', 'Tyres', 'Overtaking', 'Defending',
@@ -42,17 +45,18 @@ insert Into Autos values ('Senda',1995,'FWD', 83, 55, 895, 10.80, 173.6, 'E', 35
 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Drivers\Auto\Santino2.jpg',
 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Drivers\Auto\Santino1.jpg')
 
-
+select HP from Autos where AutoID = 2
 
 update Historial Set Clima = 'Seco'
 
 --Eliminar Columnas
-ALTER TABLE alquileres
-Drop COLUMN  ImagenAlquiler3;
+ALTER TABLE Pistas
+Add   Layaout VarChar (2500);
 
+
+select * from HigieneManager
 --Agregar Columnas
-ALTER TABLE Alquileres
-Add Estado bit
+
 
 select Circuito, DriverA, DriverB, PilotoGanador, PilotoPerdedor, AutoA, AutoB, Tiempo, Clase, Clima, Modalidad, Promocion from Historial
 select * from Historial
@@ -74,7 +78,7 @@ CREATE TABLE Alquileres (
     ImagenAlquiler3 VARCHAR(2000)
 );
 
-INSERT INTO alquileres (NumeroRegistro, Precio, Dormitorios, SalasDeEstar, Garajes, Duchas, NombreAlquiler, ImagenAlquiler, Estado)VALUES (10, 1100, 1, 1, 1, 1,
+INSERT INTO alquileres (NumeroRegistro, Precio, Dormitorios, SalasDeEstar, Garajes, Duchas, NombreAlquiler, ImagenAlquiler, Estado )VALUES (10, 1100, 1, 1, 1, 1,
 'Departamento Pequeño Akina Centro, Con Garaje Compartido',
 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Alquileres\Alquiler10.jpg', 1);
 
@@ -87,11 +91,12 @@ Update Alquileres Set ImagenAlquiler =
 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Alquileres\Alquiler7.png' 
 where NumeroRegistro = 7
 
-select Circuito, DriverA Piloto, DriverB as Rival, PilotoGanador Ganador, PilotoPerdedor Perdedor, AutoA AutoPiloto, AutoB AutoRival, 
-Promocion, Tiempo, Clase, Clima, Modalidad, HistorialID ID from Historial where Rival Like 'R%'
-select nombre, Victorias, PorcentajeCarrerasGanadas, Derrotas from Pilotos where Nombre = 'Lewis Hamilton'
 
-Update Pilotos set PorcentajeCarrerasGanadas = 29.5555 where Nombre =  'Lewis Hamilton'
+Update Pilotos set Foto = 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Pilotos\Itsuki-Plantilla.jpg' where Apodo =  'Iggy'
+
+select * from Economia
+
+Update Economia set Dinero = 10000
 
 SELECT * FROM (SELECT Circuito, DriverA AS Piloto, DriverB AS Rival, PilotoGanador AS Ganador, PilotoPerdedor AS Perdedor, AutoA AS AutoPiloto, AutoB AS AutoRival, Promocion, Tiempo, Clase, Clima, Modalidad, HistorialID AS ID FROM Historial) AS Subquery
 WHERE Rival LIKE 'R%'
@@ -103,26 +108,143 @@ select FechaManager from Fecha
 
 delete from Fecha
 
-UPDATE Fecha SET FechaManager = DATEADD(day, -6, FechaManager)
+UPDATE Fecha SET FechaManager = DATEADD(day, -4, FechaManager)
 
 select Precio from Alquileres where NumeroRegistro =5
 
 insert Economia (Dinero) values (13535)
 
-UPDATE Economia SET Dinero = 999999
+UPDATE Economia SET Dinero = 13535
 
-select * from Fecha
+select * from Muebles
 
-insert into ComidaManager values (1)
+insert AlquilerManager values (1, 1)
 
-CREATE TABLE ComidaManager (
-	CompraMensual bit
+CREATE TABLE estadoAutoManager (
+    Aceite int,
+	Motor int,
+	ManAuto int,
+	gomas int
 );
 
-select NumeroDeRegistro, NombrePack, ImagenPack, Precio, PackComprado from Comida
+insert into Ropa values (50, 'Pava', 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Electronicos\2.png', 18, 1)
 
-insert into Comida values ('Ejemplo 12', 'Imagen', 9999, 12, 1)
 
-Update Comida Set ImagenPack = 'C:\Users\Santino\Downloads\descargar.jpeg'
 
-select CompraMensual from ComidaManager
+select NumeroDeRegistro, Precio, Comprado from Electronicos where Comprado =0
+
+update Ropa set ImagenRopa = 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Ropa\2.png' 
+where NumeroDeRegistro = 1
+
+
+
+Update Muebles Set Comprado = 1
+
+
+UPDATE estadoAutoManager set ManAuto = 0 
+
+UPDATE Autos set HP = 99 where dueno = 1
+
+select * From estadoAutoManager
+
+UPDATE Autos set IdealHP = 80 where dueno = 1
+
+UPDATE estadoAutoManager set GomasLluvia = 0
+
+
+
+select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K,
+m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, a.Tanque  from Autos a, Marca m where a.Marca = m.ID AND Dueno = 1
+
+select * From estadoAutoManager  
+
+select  *  from miauto
+
+select Hp, IdealHP from Autos
+
+Update Autos set Pais2 = 'icons/Toyota.png' where Dueno = 0
+
+Update MiAuto set VinilosDisponible = 0
+
+select * from MiAuto
+
+Select Peso, HP From Autos where dueno = 1
+Update Autos set PesoPotencia = Peso / HP where AutoID = 2
+
+select HP, idealHp From Autos where dueno = 1
+
+select TOP 1 a.Tanque, m.TanqueActual from MiAuto m, Autos a
+
+select Aceite, Motor, ManAuto, Gomas, lavado, GomasLluvia From estadoAutoManager
+
+select AutoID, Nombre, Anio, Traccion, HP, Traccion, Torque, Peso, PesoPotencia, TopSpeed, ImagenMarca, PaisFabricacion, Aspiracion, Price, ImagenVentas from Autos, Marca where Marca = ID and  Dueno = 0
+
+select * from Marca
+
+Update Autos Set ImagenVentas = 'Marcas/Lancia.png' where AutoID >1
+
+
+insert Into Autos (Nombre,Anio,Traccion,PaisFabricacion,Pais2,Categoria, HP, Torque, Peso, PesoPotencia, TopSpeed,Kilometraje, Marca,Auto1,Auto2,Auto3,Auto4,Auto5,ImagenVentas, Dueno, Tanque, Aspiracion, IdealHP, Price) values 
+('Mazda RX-7 GT-X (FC) 90', 1990, 'RWD', 'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Autos\Banderas-Pais-Fabricacion\Japon.png', 
+'Japan', 'C', 183, 198, 1251, 6.83, 275.2, 35412, 28, 'C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg','C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg',
+'C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg','C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg','C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg',
+'C:\Users\Santino\source\repos\PaginaAutos\PaginaAutos\img\MazdaRX7INFINI.jpg',0,45, 'T', 202, 65000)
+
+select AutoID from Autos where dueno = 0
+
+Update Marca Set ImagenPagina = 'Anon' where AutoID = 3
+
+Update Autos Set Price = 0 Where AutoID = 2
+
+select FechaManager , FechaPagina from Fecha
+
+ALTER TABLE Fecha
+Add FechaPagina DateTime
+
+Update Fecha Set FechaManager = '2026-07-05 00:00:00.000'
+
+select Hp, IdealHP from Autos where Dueno = 1
+
+Update Economia Set Dinero = Dinero - 500
+
+Select Price From Autos Where AutoID = 1
+
+Update MiAuto Set Motor = 1
+
+select * from MiAuto
+
+select Hp, Peso, PesoPotencia, Torque, Traccion, Auto1, Aceite, Motor, Mantenimiento, Lavado, Repro, Aspiracion, TanqueActual, Tanque, GomasDeSeco, GomasDeLluvia  from Autos, MiAuto where Dueno = 1
+
+update Electronicos set Comprado = 1
+
+select NumeroDeRegistro, NombreElectronico, ImagenElectronico, Precio, Comprado from Electronicos
+
+select Comprado from Muebles where Comprado = 0
+
+select * from autos 
+
+Update Autos set Piloto = 'Desconocido' where AutoID = 43
+
+
+select * from Ropa
+delete From Muebles where AutoID = 8
+
+select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P   from Autos a, Marca m where a.Marca = m.ID 
+
+select * from Muebles
+
+select * from Electronicos
+
+select * from autos
+
+select Nombre, Apodo, Equipo, Ranking, Victorias, Derrotas, PorcentajeCarrerasGanadas, MayorRival, Altura, Peso, Edad, Bio, Foto, Nacionalidad, Auto, AutoAtras, AutoDetalle, AutoMovimiento, Cornering, Braking, Reflexes, TyresManagement, Overtaking, Defending, Rain, Overall, Concentration, Presure, Experience, Agressive, Pace from Pilotos
+Select * from Autos
+
+
+update Pilotos set AutoMovimiento =  'C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Autos\Fotos-Autos\CelicaGT4_M.jpg' where Nombre = 'Kenji Futawa'
+
+Update Pistas Set Nombre = '', Bio ='', Distancia = '', Pais = '', ModalidadPreferida = '', Imagenes = '', Imagen2 = '', Layaout = '', Record = ''
+
+select * from Pilotos
+
+Update Pilotos set Nombre = @Nombre, Apodo = @Apodo, Equipo = @Equipo, Ranking = @Ranking, Victorias = @Victorias, Derrotas = @Derrotas, PorcentajeCarrerasGanadas = @PorcentajeCarrerasGanadas, MayorRival = @MayorRival,  Altura = @Altura, Peso = @Peso, Edad = @Edad, Bio = @Bio, Foto = @Foto, Cornering = @Cornering, Braking = @Braking, Reflexes = @Reflexes, TyresManagement = @TyresManagement, Overtaking = @Overtaking, Defending = @Defending, Rain = @Rain, Overall  = @Overall, Concentration = @Concentration, Presure = @Presure, Experience = @Experience, Agressive = @Agressive, Pace = @Pace, Nacionalidad = @Nacionalidad, Auto = @Auto, AutoAtras = @AutoAtras, AutoDetalle = @AutoDetalle, AutoMovimiento = @AutoMovimiento
