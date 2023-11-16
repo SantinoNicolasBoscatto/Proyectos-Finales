@@ -1,13 +1,13 @@
 .Grid-Proyectos{
     display: grid;
     grid-template-rows: 430px 430px; 
-    grid-template-columns: 400px 400px 400px;
+    grid-template-columns: 400px 400px 390px;
     align-items: center; /* Centra verticalmente los elementos en las filas */
     justify-content: center; /* Centra horizontalmente los elementos en las columnas */
     position: absolute;
     margin-top: 9%;
-    column-gap: 55px;
-    overflow: hidden;
+    column-gap: 50px;
+    overflow: visible;
 }
 
 .MisProyectos{
@@ -36,11 +36,23 @@
     transform-style: preserve-3d;
     border-radius: 2rem;
     left: 8.3%;
+    z-index: 100;
   }
   
   .container2:hover > .card2 {
     cursor: pointer;
-    transform: rotateY(180deg) rotateZ(180deg);
+    transform: rotateX(180deg) scale(1.01);
+  }
+
+  .container2:hover > .right {
+    cursor: pointer;
+    transform: rotateY(180deg) rotateZ(180deg) scale(1.01) translateX(-75px);
+  }
+
+  .container2:hover > .Left {
+    cursor: pointer;
+    transform: rotateY(-180deg) rotateZ(-180deg) scale(1.01) translateX(40px);
+    z-index: 9999;
   }
   
   .front2, .back2 {
@@ -85,7 +97,7 @@
     list-style-type: circle; /* Establece el tipo de marcador de lista como un círculo. Puedes cambiarlo según tus preferencias. */
     padding-left: 15px;
     margin-top: -23px; 
-    font-size: 17px;
+    font-size: 15px;
     list-style-position: outside;
   }
 
@@ -115,7 +127,7 @@
     letter-spacing: 2px;
     font-style: italic;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    left: 34.5%;
+    left: 34.2%;
   }
 
   .Fondo-Trasparente{
@@ -127,5 +139,11 @@
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+a img{
+    position: absolute;
+    left: 41.5%;
+    width: 45px;
 }
   
