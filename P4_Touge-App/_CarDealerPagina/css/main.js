@@ -36,3 +36,5 @@ class DigitalClock {
   const clockObject = new DigitalClock(clockElement);
   
   clockObject.start();
+
+  console.log("HOla");
