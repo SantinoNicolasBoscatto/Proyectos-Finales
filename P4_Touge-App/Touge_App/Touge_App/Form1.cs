@@ -4535,6 +4535,8 @@ namespace Touge_App
                 listaObjetosAux = new List<MisObjetos>();
                 conexionObjetos.CargarListasAuxiliares(ref listaObjetosAux);
             }
+            listaObjetosAux = new List<MisObjetos>();
+            conexionObjetos.CargarListasAuxiliares(ref listaObjetosAux);
             listaMisCosas = CrearObjetos();
             if (listaMisCosas.Count > 0)
             {
@@ -4747,8 +4749,8 @@ namespace Touge_App
                             break;
                         case 2:
                             listaMisCosas[indexM].Location = ShopPanel1.Location;
-                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[8].NombreProducto;
-                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[8].Imagen);
+                            listaMisCosas[indexM].NombreProducto = listaObjetosAux[indexM].NombreProducto;
+                            listaMisCosas[indexM].CargarImagenes(listaObjetosAux[indexM].Imagen);
                             listaMisCosas[indexM + 1].Location = ShopPanel2.Location;
                             listaMisCosas[indexM + 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
                             listaMisCosas[indexM + 1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);

@@ -314,7 +314,7 @@ namespace Touge_App
                     Agresividad = int.Parse(AgressiveBox.Text),
                     Pace = int.Parse(PaceBox.Text),
                     Overall = int.Parse(OverallBox.Text),
-                    Edad = int.Parse(EdadBox.Text),
+                    Edad = int.Parse(EdadBox.Text)
                 };
                 NegocioBaseDatos negociobd = new NegocioBaseDatos();
                 if (updater == null)
@@ -325,6 +325,7 @@ namespace Touge_App
 
                 else
                 {
+                    aux.IdPiloto = updater.IdPiloto;
                     negociobd.ModPilotos(aux);
                     mensajeBox.Mostrar("Piloto Modificado Con Exito");
                 }

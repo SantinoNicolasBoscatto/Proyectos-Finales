@@ -143,7 +143,15 @@
 
 a img{
     position: absolute;
-    left: 41.5%;
-    width: 45px;
+    left: 43%;
+    margin-top: 12px;
+    width: 30px;
+    transition: all 1s;
+}
+
+a img:hover{
+    transform: translateY(-8px);
+    width: 40px;
+    left: 41%;
 }
   

@@ -1,6 +1,0 @@
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\bin\Debug\PaginaWeb.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\bin\Debug\PaginaWeb.pdb
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\obj\Debug\PaginaWeb.csproj.AssemblyReference.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\obj\Debug\PaginaWeb.csproj.CoreCompileInputs.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\obj\Debug\PaginaWeb.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\PaginaWeb\obj\Debug\PaginaWeb.pdb

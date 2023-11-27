@@ -288,7 +288,7 @@ namespace Negocio_Base_Datos
             try
             {
                 FuncionesNegocio negociobd = new FuncionesNegocio();
-                negociobd.SQLQuery("Update Pilotos set Nombre = @Nombre, Apodo = @Apodo, Equipo = @Equipo, Ranking = @Ranking, Victorias = @Victorias, Derrotas = @Derrotas, PorcentajeCarrerasGanadas = @PorcentajeCarrerasGanadas, MayorRival = @MayorRival,  Altura = @Altura, Peso = @Peso, Edad = @Edad, Bio = @Bio, Foto = @Foto, Cornering = @Cornering, Braking = @Braking, Reflexes = @Reflexes, TyresManagement = @TyresManagement, Overtaking = @Overtaking, Defending = @Defending, Rain = @Rain, Overall  = @Overall, Concentration = @Concentration, Presure = @Presure, Experience = @Experience, Agressive = @Agressive, Pace = @Pace, Nacionalidad = @Nacionalidad, Auto = @Auto, AutoAtras = @AutoAtras, AutoDetalle = @AutoDetalle, AutoMovimiento = @AutoMovimiento");
+                negociobd.SQLQuery("Update Pilotos set Nombre = @Nombre, Apodo = @Apodo, Equipo = @Equipo, Ranking = @Ranking, Victorias = @Victorias, Derrotas = @Derrotas, PorcentajeCarrerasGanadas = @PorcentajeCarrerasGanadas, MayorRival = @MayorRival,  Altura = @Altura, Peso = @Peso, Edad = @Edad, Bio = @Bio, Foto = @Foto, Cornering = @Cornering, Braking = @Braking, Reflexes = @Reflexes, TyresManagement = @TyresManagement, Overtaking = @Overtaking, Defending = @Defending, Rain = @Rain, Overall  = @Overall, Concentration = @Concentration, Presure = @Presure, Experience = @Experience, Agressive = @Agressive, Pace = @Pace, Nacionalidad = @Nacionalidad, Auto = @Auto, AutoAtras = @AutoAtras, AutoDetalle = @AutoDetalle, AutoMovimiento = @AutoMovimiento where PilotoID = @ID");
                 negociobd.SetearParametros("@Nombre", aux.NombrePiloto);
                 negociobd.SetearParametros("@Apodo", aux.Apodo);
                 negociobd.SetearParametros("@Equipo", aux.Equipo);
@@ -309,7 +309,7 @@ namespace Negocio_Base_Datos
                 negociobd.SetearParametros("@Overtaking", aux.Overtaking);
                 negociobd.SetearParametros("@Defending", aux.Defending);
                 negociobd.SetearParametros("@Rain", aux.RainHability);
-                negociobd.SetearParametros("@Overall", aux.Overtaking);
+                negociobd.SetearParametros("@Overall", aux.Overall);
                 negociobd.SetearParametros("@Concentration", aux.Concentracion);
                 negociobd.SetearParametros("@Presure", aux.ManejoPresion);
                 negociobd.SetearParametros("@Experience", aux.Experiencia);
@@ -320,6 +320,7 @@ namespace Negocio_Base_Datos
                 negociobd.SetearParametros("@AutoAtras", aux.AutoAtras);
                 negociobd.SetearParametros("@AutoMovimiento", aux.AutoDriving);
                 negociobd.SetearParametros("@AutoDetalle", aux.AutoFrontal);
+                negociobd.SetearParametros("@ID", aux.IdPiloto);
                 negociobd.EjecutarAccion();
             }
             catch (Exception)
