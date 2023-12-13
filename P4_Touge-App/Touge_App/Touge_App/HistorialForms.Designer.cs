@@ -49,7 +49,7 @@ namespace Touge_App
             this.ModalidadLabel = new System.Windows.Forms.Label();
             this.ClimaLabel = new System.Windows.Forms.Label();
             this.Claselabel = new System.Windows.Forms.Label();
-            this.TiempoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.TiempoTextBox = new System.Windows.Forms.TextBox();
             this.TiempoLabel = new System.Windows.Forms.Label();
             this.AutoRival = new System.Windows.Forms.Label();
             this.AutoLabel = new System.Windows.Forms.Label();
@@ -414,7 +414,6 @@ namespace Touge_App
             // 
             // TiempoTextBox
             // 
-            this.TiempoTextBox.BackAlpha = 50;
             this.TiempoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.TiempoTextBox.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TiempoTextBox.ForeColor = System.Drawing.Color.DarkRed;
@@ -549,7 +548,7 @@ namespace Touge_App
         private System.Windows.Forms.Label CircuitoLabel;
         private System.Windows.Forms.Label ClimaLabel;
         private System.Windows.Forms.Label Claselabel;
-        private ZBobb.AlphaBlendTextBox TiempoTextBox;
+        private System.Windows.Forms.TextBox TiempoTextBox;
         private System.Windows.Forms.Label TiempoLabel;
         private System.Windows.Forms.Label AutoRival;
         private System.Windows.Forms.Label AutoLabel;

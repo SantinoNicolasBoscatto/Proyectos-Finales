@@ -337,6 +337,6 @@ namespace Touge_App
                 mensajeBox.Mostrar("Faltan Cargar Datos");
             }
         }
-        Form2 mensajeBox = new Form2();
+        readonly Form2 mensajeBox = new Form2();
     }
 }

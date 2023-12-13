@@ -29,8 +29,8 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
@@ -63,19 +63,19 @@ namespace Touge_App
             this.Rain = new System.Windows.Forms.Label();
             this.Defending = new System.Windows.Forms.Label();
             this.Overall = new System.Windows.Forms.Label();
-            this.NombrePilotoTextBox = new ZBobb.AlphaBlendTextBox();
-            this.EquipoTextBox = new ZBobb.AlphaBlendTextBox();
-            this.ApodoTextBox = new ZBobb.AlphaBlendTextBox();
+            this.NombrePilotoTextBox = new System.Windows.Forms.TextBox();
+            this.EquipoTextBox = new System.Windows.Forms.TextBox();
+            this.ApodoTextBox = new System.Windows.Forms.TextBox();
             this.BackDriver = new System.Windows.Forms.Button();
             this.NextDriver = new System.Windows.Forms.Button();
-            this.AlturaTextBox = new ZBobb.AlphaBlendTextBox();
-            this.PesoTextBox = new ZBobb.AlphaBlendTextBox();
-            this.VictoriaTextBox = new ZBobb.AlphaBlendTextBox();
-            this.DerrotaTextBox = new ZBobb.AlphaBlendTextBox();
-            this.WinRateTextBox = new ZBobb.AlphaBlendTextBox();
-            this.TotalTextBox = new ZBobb.AlphaBlendTextBox();
-            this.RivalTextBox = new ZBobb.AlphaBlendTextBox();
-            this.EdadTextBox = new ZBobb.AlphaBlendTextBox();
+            this.AlturaTextBox = new System.Windows.Forms.TextBox();
+            this.PesoTextBox = new System.Windows.Forms.TextBox();
+            this.VictoriaTextBox = new System.Windows.Forms.TextBox();
+            this.DerrotaTextBox = new System.Windows.Forms.TextBox();
+            this.WinRateTextBox = new System.Windows.Forms.TextBox();
+            this.TotalTextBox = new System.Windows.Forms.TextBox();
+            this.RivalTextBox = new System.Windows.Forms.TextBox();
+            this.EdadTextBox = new System.Windows.Forms.TextBox();
             this.AutosPictureBox = new System.Windows.Forms.PictureBox();
             this.BanderasPictureBox = new System.Windows.Forms.PictureBox();
             this.NextAuto = new System.Windows.Forms.Button();
@@ -91,14 +91,14 @@ namespace Touge_App
             this.PesoLabel = new System.Windows.Forms.Label();
             this.PotenciaLabel = new System.Windows.Forms.Label();
             this.AnioLabel = new System.Windows.Forms.Label();
-            this.YearLabel = new ZBobb.AlphaBlendTextBox();
-            this.NmLabel = new ZBobb.AlphaBlendTextBox();
-            this.HpLabel = new ZBobb.AlphaBlendTextBox();
-            this.KgLabel = new ZBobb.AlphaBlendTextBox();
-            this.KgHp = new ZBobb.AlphaBlendTextBox();
-            this.TopLabel = new ZBobb.AlphaBlendTextBox();
-            this.KmLabel = new ZBobb.AlphaBlendTextBox();
-            this.CatLabel = new ZBobb.AlphaBlendTextBox();
+            this.YearLabel = new System.Windows.Forms.TextBox();
+            this.NmLabel = new System.Windows.Forms.TextBox();
+            this.HpLabel = new System.Windows.Forms.TextBox();
+            this.KgLabel = new System.Windows.Forms.TextBox();
+            this.KgHp = new System.Windows.Forms.TextBox();
+            this.TopLabel = new System.Windows.Forms.TextBox();
+            this.KmLabel = new System.Windows.Forms.TextBox();
+            this.CatLabel = new System.Windows.Forms.TextBox();
             this.FLabel = new System.Windows.Forms.Label();
             this.ELabel = new System.Windows.Forms.Label();
             this.DLabel = new System.Windows.Forms.Label();
@@ -118,7 +118,6 @@ namespace Touge_App
             this.BackModalidad = new System.Windows.Forms.Button();
             this.RandomTitulo = new System.Windows.Forms.Label();
             this.SubitaTitulo = new System.Windows.Forms.Label();
-            this.NombrePilotoLabel = new System.Windows.Forms.Label();
             this.RookieLabel = new System.Windows.Forms.Label();
             this.RankingPilotosLabel = new System.Windows.Forms.Label();
             this.JuniorLabel = new System.Windows.Forms.Label();
@@ -178,6 +177,7 @@ namespace Touge_App
             this.MiAutoPB = new System.Windows.Forms.PictureBox();
             this.BanderaMiAuto = new System.Windows.Forms.PictureBox();
             this.PanelGaraje = new System.Windows.Forms.Panel();
+            this.PromocionTextBox = new System.Windows.Forms.TextBox();
             this.PilotoNameAuto = new System.Windows.Forms.Label();
             this.GasofaMiauto2 = new System.Windows.Forms.Label();
             this.NextObjeto = new System.Windows.Forms.Button();
@@ -206,6 +206,7 @@ namespace Touge_App
             this.MotorMiAuto = new System.Windows.Forms.Label();
             this.AceiteMiAuto = new System.Windows.Forms.Label();
             this.TorqueLabel2 = new System.Windows.Forms.Label();
+            this.UpdateBoton = new System.Windows.Forms.Button();
             this.PPMiAuto = new System.Windows.Forms.Label();
             this.PesoMiAuto = new System.Windows.Forms.Label();
             this.HpMiauto = new System.Windows.Forms.Label();
@@ -214,34 +215,6 @@ namespace Touge_App
             this.panel1 = new System.Windows.Forms.Panel();
             this.FechaLabel = new System.Windows.Forms.Label();
             this.FiltrarPilotosPistasAutos = new System.Windows.Forms.Button();
-            this.UpdateBoton = new System.Windows.Forms.Button();
-            this.gastosDiarios5 = new Touge_App.GastosDiarios();
-            this.gastosDiarios4 = new Touge_App.GastosDiarios();
-            this.gastosDiarios6 = new Touge_App.GastosDiarios();
-            this.gastosDiarios3 = new Touge_App.GastosDiarios();
-            this.gastosDiarios2 = new Touge_App.GastosDiarios();
-            this.gastosDiarios1 = new Touge_App.GastosDiarios();
-            this.mecanico4 = new Touge_App.Mecanico();
-            this.mecanico3 = new Touge_App.Mecanico();
-            this.mecanico2 = new Touge_App.Mecanico();
-            this.mecanico1 = new Touge_App.Mecanico();
-            this.Higiene3 = new Touge_App.Higiene();
-            this.Higiene2 = new Touge_App.Higiene();
-            this.Higiene1 = new Touge_App.Higiene();
-            this.PanelComida4 = new Touge_App.Comida();
-            this.PanelComida3 = new Touge_App.Comida();
-            this.PanelComida2 = new Touge_App.Comida();
-            this.PanelComida1 = new Touge_App.Comida();
-            this.ShopPanel8 = new Touge_App.EShopPanels();
-            this.ShopPanel7 = new Touge_App.EShopPanels();
-            this.ShopPanel6 = new Touge_App.EShopPanels();
-            this.ShopPanel5 = new Touge_App.EShopPanels();
-            this.ShopPanel4 = new Touge_App.EShopPanels();
-            this.ShopPanel3 = new Touge_App.EShopPanels();
-            this.ShopPanel2 = new Touge_App.EShopPanels();
-            this.ShopPanel1 = new Touge_App.EShopPanels();
-            this.alquileres2 = new Touge_App.Alquileres();
-            this.alquileres1 = new Touge_App.Alquileres();
             this.BiografiaPilotosTextBox = new System.Windows.Forms.TextBox();
             this.NombreMiauto = new System.Windows.Forms.TextBox();
             this.NombreCircuito = new System.Windows.Forms.TextBox();
@@ -269,7 +242,33 @@ namespace Touge_App
             this.ProfesionalTextbox = new System.Windows.Forms.TextBox();
             this.EstrellaTextBox = new System.Windows.Forms.TextBox();
             this.LeyendaTextBox = new System.Windows.Forms.TextBox();
-            this.PromocionTextBox = new System.Windows.Forms.TextBox();
+            this.gastosDiarios5 = new Touge_App.GastosDiarios();
+            this.gastosDiarios4 = new Touge_App.GastosDiarios();
+            this.gastosDiarios6 = new Touge_App.GastosDiarios();
+            this.gastosDiarios3 = new Touge_App.GastosDiarios();
+            this.gastosDiarios2 = new Touge_App.GastosDiarios();
+            this.gastosDiarios1 = new Touge_App.GastosDiarios();
+            this.mecanico4 = new Touge_App.Mecanico();
+            this.mecanico3 = new Touge_App.Mecanico();
+            this.mecanico2 = new Touge_App.Mecanico();
+            this.mecanico1 = new Touge_App.Mecanico();
+            this.Higiene3 = new Touge_App.Higiene();
+            this.Higiene2 = new Touge_App.Higiene();
+            this.Higiene1 = new Touge_App.Higiene();
+            this.PanelComida4 = new Touge_App.Comida();
+            this.PanelComida3 = new Touge_App.Comida();
+            this.PanelComida2 = new Touge_App.Comida();
+            this.PanelComida1 = new Touge_App.Comida();
+            this.ShopPanel8 = new Touge_App.EShopPanels();
+            this.ShopPanel7 = new Touge_App.EShopPanels();
+            this.ShopPanel6 = new Touge_App.EShopPanels();
+            this.ShopPanel5 = new Touge_App.EShopPanels();
+            this.ShopPanel4 = new Touge_App.EShopPanels();
+            this.ShopPanel3 = new Touge_App.EShopPanels();
+            this.ShopPanel2 = new Touge_App.EShopPanels();
+            this.ShopPanel1 = new Touge_App.EShopPanels();
+            this.alquileres2 = new Touge_App.Alquileres();
+            this.alquileres1 = new Touge_App.Alquileres();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PistaPictureBox)).BeginInit();
@@ -306,9 +305,9 @@ namespace Touge_App
             this.PilotosBoton.TabIndex = 4;
             this.PilotosBoton.UseVisualStyleBackColor = true;
             this.PilotosBoton.Click += new System.EventHandler(this.PilotosBoton_Click);
-            this.PilotosBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.PilotosBoton_Paint);
-            this.PilotosBoton.MouseEnter += new System.EventHandler(this.PilotosBoton_MouseEnter);
-            this.PilotosBoton.MouseLeave += new System.EventHandler(this.PilotosBoton_MouseLeave);
+            this.PilotosBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.PilotosBoton.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.PilotosBoton.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // AutosBoton
             // 
@@ -344,9 +343,9 @@ namespace Touge_App
             this.HistorialBoton.TabIndex = 7;
             this.HistorialBoton.UseVisualStyleBackColor = true;
             this.HistorialBoton.Click += new System.EventHandler(this.HistorialBoton_Click);
-            this.HistorialBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.HistorialBoton_Paint);
-            this.HistorialBoton.MouseEnter += new System.EventHandler(this.HistorialBoton_MouseEnter);
-            this.HistorialBoton.MouseLeave += new System.EventHandler(this.HistorialBoton_MouseLeave);
+            this.HistorialBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.EconomiaBoton_Paint);
+            this.HistorialBoton.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
+            this.HistorialBoton.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
             // ReglasBoton
             // 
@@ -396,7 +395,7 @@ namespace Touge_App
             this.PictureBoxBack.Location = new System.Drawing.Point(0, 0);
             this.PictureBoxBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxBack.Name = "PictureBoxBack";
-            this.PictureBoxBack.Size = new System.Drawing.Size(1811, 884);
+            this.PictureBoxBack.Size = new System.Drawing.Size(1820, 976);
             this.PictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxBack.TabIndex = 0;
             this.PictureBoxBack.TabStop = false;
@@ -430,7 +429,7 @@ namespace Touge_App
             this.ConfiguracionBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ConfiguracionBoton.FlatAppearance.BorderSize = 0;
             this.ConfiguracionBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConfiguracionBoton.Location = new System.Drawing.Point(41, 822);
+            this.ConfiguracionBoton.Location = new System.Drawing.Point(20, 625);
             this.ConfiguracionBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ConfiguracionBoton.Name = "ConfiguracionBoton";
             this.ConfiguracionBoton.Size = new System.Drawing.Size(69, 57);
@@ -450,7 +449,7 @@ namespace Touge_App
             this.BackBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BackBoton.FlatAppearance.BorderSize = 0;
             this.BackBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackBoton.Location = new System.Drawing.Point(411, 823);
+            this.BackBoton.Location = new System.Drawing.Point(440, 625);
             this.BackBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackBoton.Name = "BackBoton";
             this.BackBoton.Size = new System.Drawing.Size(69, 57);
@@ -467,7 +466,7 @@ namespace Touge_App
             this.NextBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.NextBoton.FlatAppearance.BorderSize = 0;
             this.NextBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextBoton.Location = new System.Drawing.Point(495, 823);
+            this.NextBoton.Location = new System.Drawing.Point(470, 625);
             this.NextBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextBoton.Name = "NextBoton";
             this.NextBoton.Size = new System.Drawing.Size(69, 57);
@@ -499,7 +498,7 @@ namespace Touge_App
             this.AnteriorPistaBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.AnteriorPistaBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.AnteriorPistaBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AnteriorPistaBoton.Location = new System.Drawing.Point(1229, 825);
+            this.AnteriorPistaBoton.Location = new System.Drawing.Point(1229, 907);
             this.AnteriorPistaBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AnteriorPistaBoton.Name = "AnteriorPistaBoton";
             this.AnteriorPistaBoton.Size = new System.Drawing.Size(196, 57);
@@ -519,7 +518,7 @@ namespace Touge_App
             this.SiguientePistaBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.SiguientePistaBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.SiguientePistaBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SiguientePistaBoton.Location = new System.Drawing.Point(1483, 825);
+            this.SiguientePistaBoton.Location = new System.Drawing.Point(1483, 907);
             this.SiguientePistaBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SiguientePistaBoton.Name = "SiguientePistaBoton";
             this.SiguientePistaBoton.Size = new System.Drawing.Size(197, 57);
@@ -530,16 +529,14 @@ namespace Touge_App
             // 
             // PilotosPictureBox
             // 
-            this.PilotosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PilotosPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PilotosPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.PilotosPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PilotosPictureBox.BackgroundImage")));
             this.PilotosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PilotosPictureBox.Location = new System.Drawing.Point(915, 34);
             this.PilotosPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PilotosPictureBox.Name = "PilotosPictureBox";
-            this.PilotosPictureBox.Size = new System.Drawing.Size(877, 785);
+            this.PilotosPictureBox.Size = new System.Drawing.Size(877, 867);
             this.PilotosPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PilotosPictureBox.TabIndex = 26;
             this.PilotosPictureBox.TabStop = false;
@@ -547,13 +544,10 @@ namespace Touge_App
             // 
             // AutoPilotoPictureBox
             // 
-            this.AutoPilotoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AutoPilotoPictureBox.Location = new System.Drawing.Point(19, 555);
+            this.AutoPilotoPictureBox.Location = new System.Drawing.Point(21, 555);
             this.AutoPilotoPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AutoPilotoPictureBox.Name = "AutoPilotoPictureBox";
-            this.AutoPilotoPictureBox.Size = new System.Drawing.Size(482, 263);
+            this.AutoPilotoPictureBox.Size = new System.Drawing.Size(555, 333);
             this.AutoPilotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.AutoPilotoPictureBox.TabIndex = 28;
             this.AutoPilotoPictureBox.TabStop = false;
@@ -562,13 +556,12 @@ namespace Touge_App
             // 
             // PaisPictureBox
             // 
-            this.PaisPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.PaisPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PaisPictureBox.Location = new System.Drawing.Point(583, 555);
             this.PaisPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PaisPictureBox.Name = "PaisPictureBox";
-            this.PaisPictureBox.Size = new System.Drawing.Size(315, 263);
+            this.PaisPictureBox.Size = new System.Drawing.Size(315, 333);
             this.PaisPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PaisPictureBox.TabIndex = 29;
             this.PaisPictureBox.TabStop = false;
@@ -579,7 +572,7 @@ namespace Touge_App
             this.VolumenControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.VolumenControl.BackColor = System.Drawing.Color.Transparent;
             this.VolumenControl.EmptyTrackColor = System.Drawing.Color.Red;
-            this.VolumenControl.Location = new System.Drawing.Point(116, 822);
+            this.VolumenControl.Location = new System.Drawing.Point(50, 625);
             this.VolumenControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VolumenControl.Name = "VolumenControl";
             this.VolumenControl.ScaleType = Winamp.Components.WinampTrackBar.WinampTrackBarScaleType.None;
@@ -786,12 +779,11 @@ namespace Touge_App
             // 
             this.NombrePilotoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NombrePilotoTextBox.BackAlpha = 0;
-            this.NombrePilotoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NombrePilotoTextBox.BackColor = System.Drawing.Color.DimGray;
             this.NombrePilotoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NombrePilotoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.NombrePilotoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombrePilotoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.NombrePilotoTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombrePilotoTextBox.ForeColor = System.Drawing.Color.White;
             this.NombrePilotoTextBox.Location = new System.Drawing.Point(1069, 633);
             this.NombrePilotoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NombrePilotoTextBox.Multiline = true;
@@ -799,18 +791,18 @@ namespace Touge_App
             this.NombrePilotoTextBox.ReadOnly = true;
             this.NombrePilotoTextBox.Size = new System.Drawing.Size(277, 39);
             this.NombrePilotoTextBox.TabIndex = 44;
+            this.NombrePilotoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NombrePilotoTextBox.Visible = false;
             // 
             // EquipoTextBox
             // 
             this.EquipoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EquipoTextBox.BackAlpha = 0;
-            this.EquipoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.EquipoTextBox.BackColor = System.Drawing.Color.DimGray;
             this.EquipoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EquipoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.EquipoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EquipoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.EquipoTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EquipoTextBox.ForeColor = System.Drawing.Color.White;
             this.EquipoTextBox.Location = new System.Drawing.Point(1069, 718);
             this.EquipoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EquipoTextBox.Multiline = true;
@@ -818,18 +810,18 @@ namespace Touge_App
             this.EquipoTextBox.ReadOnly = true;
             this.EquipoTextBox.Size = new System.Drawing.Size(277, 39);
             this.EquipoTextBox.TabIndex = 46;
+            this.EquipoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EquipoTextBox.WordWrap = false;
             // 
             // ApodoTextBox
             // 
             this.ApodoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApodoTextBox.BackAlpha = 0;
-            this.ApodoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ApodoTextBox.BackColor = System.Drawing.Color.DimGray;
             this.ApodoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ApodoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.ApodoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApodoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.ApodoTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApodoTextBox.ForeColor = System.Drawing.Color.White;
             this.ApodoTextBox.Location = new System.Drawing.Point(1069, 674);
             this.ApodoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ApodoTextBox.Multiline = true;
@@ -837,6 +829,7 @@ namespace Touge_App
             this.ApodoTextBox.ReadOnly = true;
             this.ApodoTextBox.Size = new System.Drawing.Size(277, 39);
             this.ApodoTextBox.TabIndex = 48;
+            this.ApodoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BackDriver
             // 
@@ -847,7 +840,7 @@ namespace Touge_App
             this.BackDriver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BackDriver.FlatAppearance.BorderSize = 0;
             this.BackDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackDriver.Location = new System.Drawing.Point(1283, 822);
+            this.BackDriver.Location = new System.Drawing.Point(1283, 904);
             this.BackDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackDriver.Name = "BackDriver";
             this.BackDriver.Size = new System.Drawing.Size(67, 57);
@@ -865,7 +858,7 @@ namespace Touge_App
             this.NextDriver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.NextDriver.FlatAppearance.BorderSize = 0;
             this.NextDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextDriver.Location = new System.Drawing.Point(1357, 822);
+            this.NextDriver.Location = new System.Drawing.Point(1357, 904);
             this.NextDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextDriver.Name = "NextDriver";
             this.NextDriver.Size = new System.Drawing.Size(67, 57);
@@ -878,32 +871,31 @@ namespace Touge_App
             // 
             this.AlturaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AlturaTextBox.BackAlpha = 0;
-            this.AlturaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AlturaTextBox.BackColor = System.Drawing.Color.DimGray;
             this.AlturaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AlturaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.AlturaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlturaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.AlturaTextBox.Location = new System.Drawing.Point(1483, 681);
+            this.AlturaTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlturaTextBox.ForeColor = System.Drawing.Color.White;
+            this.AlturaTextBox.Location = new System.Drawing.Point(1509, 681);
             this.AlturaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AlturaTextBox.Multiline = true;
             this.AlturaTextBox.Name = "AlturaTextBox";
             this.AlturaTextBox.ReadOnly = true;
-            this.AlturaTextBox.Size = new System.Drawing.Size(103, 31);
+            this.AlturaTextBox.Size = new System.Drawing.Size(93, 31);
             this.AlturaTextBox.TabIndex = 53;
             this.AlturaTextBox.Text = "2,00 M";
+            this.AlturaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AlturaTextBox.Visible = false;
             // 
             // PesoTextBox
             // 
             this.PesoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PesoTextBox.BackAlpha = 0;
-            this.PesoTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PesoTextBox.BackColor = System.Drawing.Color.DimGray;
             this.PesoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PesoTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.PesoTextBox.Font = new System.Drawing.Font("Formula1 TV-", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PesoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.PesoTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PesoTextBox.ForeColor = System.Drawing.Color.White;
             this.PesoTextBox.Location = new System.Drawing.Point(1483, 720);
             this.PesoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PesoTextBox.Multiline = true;
@@ -912,18 +904,18 @@ namespace Touge_App
             this.PesoTextBox.Size = new System.Drawing.Size(103, 39);
             this.PesoTextBox.TabIndex = 54;
             this.PesoTextBox.Text = "100 Kg";
+            this.PesoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PesoTextBox.Visible = false;
             // 
             // VictoriaTextBox
             // 
             this.VictoriaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VictoriaTextBox.BackAlpha = 0;
-            this.VictoriaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.VictoriaTextBox.BackColor = System.Drawing.Color.DimGray;
             this.VictoriaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.VictoriaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.VictoriaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VictoriaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.VictoriaTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VictoriaTextBox.ForeColor = System.Drawing.Color.White;
             this.VictoriaTextBox.Location = new System.Drawing.Point(1729, 638);
             this.VictoriaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VictoriaTextBox.Multiline = true;
@@ -932,18 +924,18 @@ namespace Touge_App
             this.VictoriaTextBox.Size = new System.Drawing.Size(63, 34);
             this.VictoriaTextBox.TabIndex = 55;
             this.VictoriaTextBox.Text = "999";
+            this.VictoriaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.VictoriaTextBox.Visible = false;
             // 
             // DerrotaTextBox
             // 
             this.DerrotaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DerrotaTextBox.BackAlpha = 0;
-            this.DerrotaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DerrotaTextBox.BackColor = System.Drawing.Color.DimGray;
             this.DerrotaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DerrotaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.DerrotaTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DerrotaTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.DerrotaTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DerrotaTextBox.ForeColor = System.Drawing.Color.White;
             this.DerrotaTextBox.Location = new System.Drawing.Point(1729, 678);
             this.DerrotaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DerrotaTextBox.Multiline = true;
@@ -952,18 +944,18 @@ namespace Touge_App
             this.DerrotaTextBox.Size = new System.Drawing.Size(63, 34);
             this.DerrotaTextBox.TabIndex = 56;
             this.DerrotaTextBox.Text = "100%";
+            this.DerrotaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DerrotaTextBox.Visible = false;
             // 
             // WinRateTextBox
             // 
             this.WinRateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.WinRateTextBox.BackAlpha = 0;
-            this.WinRateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WinRateTextBox.BackColor = System.Drawing.Color.Gray;
             this.WinRateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.WinRateTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.WinRateTextBox.Font = new System.Drawing.Font("Formula1 TV-", 10F);
-            this.WinRateTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.WinRateTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WinRateTextBox.ForeColor = System.Drawing.Color.White;
             this.WinRateTextBox.Location = new System.Drawing.Point(1728, 719);
             this.WinRateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WinRateTextBox.Multiline = true;
@@ -972,18 +964,18 @@ namespace Touge_App
             this.WinRateTextBox.Size = new System.Drawing.Size(64, 34);
             this.WinRateTextBox.TabIndex = 57;
             this.WinRateTextBox.Text = "999";
+            this.WinRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WinRateTextBox.Visible = false;
             // 
             // TotalTextBox
             // 
             this.TotalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TotalTextBox.BackAlpha = 0;
-            this.TotalTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TotalTextBox.BackColor = System.Drawing.Color.DimGray;
             this.TotalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TotalTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.TotalTextBox.Font = new System.Drawing.Font("Formula1 TV-", 13.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.TotalTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTextBox.ForeColor = System.Drawing.Color.White;
             this.TotalTextBox.Location = new System.Drawing.Point(1729, 756);
             this.TotalTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TotalTextBox.Multiline = true;
@@ -992,18 +984,18 @@ namespace Touge_App
             this.TotalTextBox.Size = new System.Drawing.Size(64, 34);
             this.TotalTextBox.TabIndex = 58;
             this.TotalTextBox.Text = "999";
+            this.TotalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TotalTextBox.Visible = false;
             // 
             // RivalTextBox
             // 
             this.RivalTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RivalTextBox.BackAlpha = 0;
-            this.RivalTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.RivalTextBox.BackColor = System.Drawing.Color.DimGray;
             this.RivalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RivalTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RivalTextBox.Font = new System.Drawing.Font("Formula1 TV-", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RivalTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.RivalTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RivalTextBox.ForeColor = System.Drawing.Color.DimGray;
             this.RivalTextBox.Location = new System.Drawing.Point(1068, 759);
             this.RivalTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RivalTextBox.Multiline = true;
@@ -1017,12 +1009,11 @@ namespace Touge_App
             // 
             this.EdadTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EdadTextBox.BackAlpha = 0;
-            this.EdadTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.EdadTextBox.BackColor = System.Drawing.Color.Gray;
             this.EdadTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EdadTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.EdadTextBox.Font = new System.Drawing.Font("Formula1 TV-", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EdadTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.EdadTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EdadTextBox.ForeColor = System.Drawing.Color.White;
             this.EdadTextBox.Location = new System.Drawing.Point(1483, 631);
             this.EdadTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EdadTextBox.Multiline = true;
@@ -1030,6 +1021,7 @@ namespace Touge_App
             this.EdadTextBox.ReadOnly = true;
             this.EdadTextBox.Size = new System.Drawing.Size(101, 39);
             this.EdadTextBox.TabIndex = 60;
+            this.EdadTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.EdadTextBox.WordWrap = false;
             // 
             // AutosPictureBox
@@ -1070,7 +1062,7 @@ namespace Touge_App
             this.NextAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.NextAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NextAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextAuto.Location = new System.Drawing.Point(1547, 729);
+            this.NextAuto.Location = new System.Drawing.Point(1547, 811);
             this.NextAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextAuto.Name = "NextAuto";
             this.NextAuto.Size = new System.Drawing.Size(197, 57);
@@ -1090,7 +1082,7 @@ namespace Touge_App
             this.BackAuto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BackAuto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackAuto.Location = new System.Drawing.Point(1312, 729);
+            this.BackAuto.Location = new System.Drawing.Point(1312, 811);
             this.BackAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackAuto.Name = "BackAuto";
             this.BackAuto.Size = new System.Drawing.Size(184, 57);
@@ -1113,15 +1105,13 @@ namespace Touge_App
             // 
             // FichaTecnicaPb
             // 
-            this.FichaTecnicaPb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FichaTecnicaPb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FichaTecnicaPb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FichaTecnicaPb.BackgroundImage")));
             this.FichaTecnicaPb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FichaTecnicaPb.Location = new System.Drawing.Point(1231, 32);
             this.FichaTecnicaPb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FichaTecnicaPb.Name = "FichaTecnicaPb";
-            this.FichaTecnicaPb.Size = new System.Drawing.Size(563, 679);
+            this.FichaTecnicaPb.Size = new System.Drawing.Size(563, 750);
             this.FichaTecnicaPb.TabIndex = 88;
             this.FichaTecnicaPb.TabStop = false;
             this.FichaTecnicaPb.Visible = false;
@@ -1263,8 +1253,7 @@ namespace Touge_App
             // 
             // YearLabel
             // 
-            this.YearLabel.BackAlpha = 0;
-            this.YearLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.YearLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.YearLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.YearLabel.Font = new System.Drawing.Font("F1 Turbo", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.YearLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1280,8 +1269,7 @@ namespace Touge_App
             // 
             // NmLabel
             // 
-            this.NmLabel.BackAlpha = 0;
-            this.NmLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.NmLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.NmLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NmLabel.Font = new System.Drawing.Font("F1 Turbo", 15.2F);
             this.NmLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1297,8 +1285,7 @@ namespace Touge_App
             // 
             // HpLabel
             // 
-            this.HpLabel.BackAlpha = 0;
-            this.HpLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.HpLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.HpLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.HpLabel.Font = new System.Drawing.Font("F1 Turbo", 15.2F);
             this.HpLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1314,8 +1301,7 @@ namespace Touge_App
             // 
             // KgLabel
             // 
-            this.KgLabel.BackAlpha = 0;
-            this.KgLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KgLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.KgLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KgLabel.Font = new System.Drawing.Font("F1 Turbo", 15.2F);
             this.KgLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1331,12 +1317,11 @@ namespace Touge_App
             // 
             // KgHp
             // 
-            this.KgHp.BackAlpha = 0;
-            this.KgHp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KgHp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.KgHp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KgHp.Font = new System.Drawing.Font("Engravers MT", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KgHp.ForeColor = System.Drawing.Color.Firebrick;
-            this.KgHp.Location = new System.Drawing.Point(1231, 399);
+            this.KgHp.Location = new System.Drawing.Point(1236, 399);
             this.KgHp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KgHp.Multiline = true;
             this.KgHp.Name = "KgHp";
@@ -1348,8 +1333,7 @@ namespace Touge_App
             // 
             // TopLabel
             // 
-            this.TopLabel.BackAlpha = 0;
-            this.TopLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TopLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.TopLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TopLabel.Font = new System.Drawing.Font("Engravers MT", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TopLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1365,8 +1349,7 @@ namespace Touge_App
             // 
             // KmLabel
             // 
-            this.KmLabel.BackAlpha = 0;
-            this.KmLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KmLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.KmLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.KmLabel.Font = new System.Drawing.Font("Engravers MT", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KmLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1382,8 +1365,7 @@ namespace Touge_App
             // 
             // CatLabel
             // 
-            this.CatLabel.BackAlpha = 0;
-            this.CatLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.CatLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.CatLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CatLabel.Font = new System.Drawing.Font("F1 Turbo", 20.2F);
             this.CatLabel.ForeColor = System.Drawing.Color.Firebrick;
@@ -1552,7 +1534,7 @@ namespace Touge_App
             this.ModalidadesBoton.Location = new System.Drawing.Point(29, 212);
             this.ModalidadesBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModalidadesBoton.Name = "ModalidadesBoton";
-            this.ModalidadesBoton.Size = new System.Drawing.Size(559, 362);
+            this.ModalidadesBoton.Size = new System.Drawing.Size(559, 444);
             this.ModalidadesBoton.TabIndex = 163;
             this.ModalidadesBoton.UseVisualStyleBackColor = true;
             this.ModalidadesBoton.Visible = false;
@@ -1572,14 +1554,14 @@ namespace Touge_App
             this.CategoriasBoton.Location = new System.Drawing.Point(640, 212);
             this.CategoriasBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CategoriasBoton.Name = "CategoriasBoton";
-            this.CategoriasBoton.Size = new System.Drawing.Size(539, 362);
+            this.CategoriasBoton.Size = new System.Drawing.Size(539, 444);
             this.CategoriasBoton.TabIndex = 164;
             this.CategoriasBoton.UseVisualStyleBackColor = true;
             this.CategoriasBoton.Visible = false;
             this.CategoriasBoton.Click += new System.EventHandler(this.CategoriasBoton_Click);
-            this.CategoriasBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.CategoriasBoton_Paint);
-            this.CategoriasBoton.MouseEnter += new System.EventHandler(this.CategoriasBoton_MouseEnter);
-            this.CategoriasBoton.MouseLeave += new System.EventHandler(this.CategoriasBoton_MouseLeave);
+            this.CategoriasBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.CategoriasBoton.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.CategoriasBoton.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // RankingBoton
             // 
@@ -1592,14 +1574,14 @@ namespace Touge_App
             this.RankingBoton.Location = new System.Drawing.Point(1237, 212);
             this.RankingBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RankingBoton.Name = "RankingBoton";
-            this.RankingBoton.Size = new System.Drawing.Size(539, 362);
+            this.RankingBoton.Size = new System.Drawing.Size(539, 444);
             this.RankingBoton.TabIndex = 165;
             this.RankingBoton.UseVisualStyleBackColor = true;
             this.RankingBoton.Visible = false;
             this.RankingBoton.Click += new System.EventHandler(this.RankingBoton_Click);
-            this.RankingBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.RankingBoton_Paint);
-            this.RankingBoton.MouseEnter += new System.EventHandler(this.RankingBoton_MouseEnter);
-            this.RankingBoton.MouseLeave += new System.EventHandler(this.RankingBoton_MouseLeave);
+            this.RankingBoton.Paint += new System.Windows.Forms.PaintEventHandler(this.ReglasBoton_Paint);
+            this.RankingBoton.MouseEnter += new System.EventHandler(this.ReglasBoton_MouseEnter);
+            this.RankingBoton.MouseLeave += new System.EventHandler(this.ReglasBoton_MouseLeave);
             // 
             // ModalidadesTitulo
             // 
@@ -1655,7 +1637,7 @@ namespace Touge_App
             this.NextModalidad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.NextModalidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NextModalidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextModalidad.Location = new System.Drawing.Point(824, 414);
+            this.NextModalidad.Location = new System.Drawing.Point(824, 496);
             this.NextModalidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextModalidad.Name = "NextModalidad";
             this.NextModalidad.Size = new System.Drawing.Size(179, 57);
@@ -1675,7 +1657,7 @@ namespace Touge_App
             this.BackModalidad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BackModalidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackModalidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackModalidad.Location = new System.Drawing.Point(824, 341);
+            this.BackModalidad.Location = new System.Drawing.Point(824, 423);
             this.BackModalidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackModalidad.Name = "BackModalidad";
             this.BackModalidad.Size = new System.Drawing.Size(179, 57);
@@ -1710,18 +1692,6 @@ namespace Touge_App
             this.SubitaTitulo.TabIndex = 183;
             this.SubitaTitulo.Text = "MuerteSubita";
             this.SubitaTitulo.Visible = false;
-            // 
-            // NombrePilotoLabel
-            // 
-            this.NombrePilotoLabel.BackColor = System.Drawing.Color.Transparent;
-            this.NombrePilotoLabel.Font = new System.Drawing.Font("Engravers MT", 17F, System.Drawing.FontStyle.Bold);
-            this.NombrePilotoLabel.ForeColor = System.Drawing.Color.LawnGreen;
-            this.NombrePilotoLabel.Location = new System.Drawing.Point(1253, 665);
-            this.NombrePilotoLabel.Name = "NombrePilotoLabel";
-            this.NombrePilotoLabel.Size = new System.Drawing.Size(545, 38);
-            this.NombrePilotoLabel.TabIndex = 184;
-            this.NombrePilotoLabel.Text = "label1";
-            this.NombrePilotoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RookieLabel
             // 
@@ -1806,7 +1776,7 @@ namespace Touge_App
             this.NextRanking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.NextRanking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NextRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextRanking.Location = new System.Drawing.Point(845, 452);
+            this.NextRanking.Location = new System.Drawing.Point(845, 534);
             this.NextRanking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextRanking.Name = "NextRanking";
             this.NextRanking.Size = new System.Drawing.Size(125, 39);
@@ -1826,7 +1796,7 @@ namespace Touge_App
             this.BackRanking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BackRanking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackRanking.Location = new System.Drawing.Point(847, 405);
+            this.BackRanking.Location = new System.Drawing.Point(847, 487);
             this.BackRanking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackRanking.Name = "BackRanking";
             this.BackRanking.Size = new System.Drawing.Size(125, 39);
@@ -1939,9 +1909,9 @@ namespace Touge_App
             this.ComidaPictureBox.UseVisualStyleBackColor = true;
             this.ComidaPictureBox.Visible = false;
             this.ComidaPictureBox.Click += new System.EventHandler(this.ComidaPictureBox_Click);
-            this.ComidaPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ComidaPictureBox_Paint);
-            this.ComidaPictureBox.MouseEnter += new System.EventHandler(this.PilotosBoton_MouseEnter);
-            this.ComidaPictureBox.MouseLeave += new System.EventHandler(this.PilotosBoton_MouseLeave);
+            this.ComidaPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.ComidaPictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.ComidaPictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // AlquilerPictureBox
             // 
@@ -1956,7 +1926,7 @@ namespace Touge_App
             this.AlquilerPictureBox.UseVisualStyleBackColor = true;
             this.AlquilerPictureBox.Visible = false;
             this.AlquilerPictureBox.Click += new System.EventHandler(this.AlquilerPictureBox_Click);
-            this.AlquilerPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AlquilerPictureBox_Paint);
+            this.AlquilerPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AutosBoton_Paint);
             this.AlquilerPictureBox.MouseEnter += new System.EventHandler(this.AutosBoton_MouseEnter);
             this.AlquilerPictureBox.MouseLeave += new System.EventHandler(this.AutosBoton_MouseLeave);
             // 
@@ -1974,9 +1944,9 @@ namespace Touge_App
             this.FacturasPictureBox.UseVisualStyleBackColor = true;
             this.FacturasPictureBox.Visible = false;
             this.FacturasPictureBox.Click += new System.EventHandler(this.FacturasPictureBox_Click);
-            this.FacturasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.FacturasPictureBox_Paint);
-            this.FacturasPictureBox.MouseEnter += new System.EventHandler(this.ReglasBoton_MouseEnter);
-            this.FacturasPictureBox.MouseLeave += new System.EventHandler(this.ReglasBoton_MouseLeave);
+            this.FacturasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.FacturasPictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.FacturasPictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // ElectroPictureBox
             // 
@@ -1984,7 +1954,7 @@ namespace Touge_App
             this.ElectroPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ElectroPictureBox.BackgroundImage")));
             this.ElectroPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ElectroPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ElectroPictureBox.Location = new System.Drawing.Point(1189, 446);
+            this.ElectroPictureBox.Location = new System.Drawing.Point(1189, 528);
             this.ElectroPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ElectroPictureBox.Name = "ElectroPictureBox";
             this.ElectroPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -1992,9 +1962,9 @@ namespace Touge_App
             this.ElectroPictureBox.UseVisualStyleBackColor = true;
             this.ElectroPictureBox.Visible = false;
             this.ElectroPictureBox.Click += new System.EventHandler(this.ElectroPictureBox_Click);
-            this.ElectroPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ElectroPictureBox_Paint);
-            this.ElectroPictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
-            this.ElectroPictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
+            this.ElectroPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ModalidadesBoton_Paint);
+            this.ElectroPictureBox.MouseEnter += new System.EventHandler(this.ModalidadesBoton_MouseEnter);
+            this.ElectroPictureBox.MouseLeave += new System.EventHandler(this.ModalidadesBoton_MouseLeave);
             // 
             // MueblesPictureBox
             // 
@@ -2002,7 +1972,7 @@ namespace Touge_App
             this.MueblesPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MueblesPictureBox.BackgroundImage")));
             this.MueblesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MueblesPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MueblesPictureBox.Location = new System.Drawing.Point(635, 446);
+            this.MueblesPictureBox.Location = new System.Drawing.Point(635, 528);
             this.MueblesPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MueblesPictureBox.Name = "MueblesPictureBox";
             this.MueblesPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -2010,9 +1980,9 @@ namespace Touge_App
             this.MueblesPictureBox.UseVisualStyleBackColor = true;
             this.MueblesPictureBox.Visible = false;
             this.MueblesPictureBox.Click += new System.EventHandler(this.MueblesPictureBox_Click);
-            this.MueblesPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MueblesPictureBox_Paint);
-            this.MueblesPictureBox.MouseEnter += new System.EventHandler(this.HistorialBoton_MouseEnter);
-            this.MueblesPictureBox.MouseLeave += new System.EventHandler(this.HistorialBoton_MouseLeave);
+            this.MueblesPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ReglasBoton_Paint);
+            this.MueblesPictureBox.MouseEnter += new System.EventHandler(this.ReglasBoton_MouseEnter);
+            this.MueblesPictureBox.MouseLeave += new System.EventHandler(this.ReglasBoton_MouseLeave);
             // 
             // RopaPictureBox
             // 
@@ -2020,7 +1990,7 @@ namespace Touge_App
             this.RopaPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RopaPictureBox.BackgroundImage")));
             this.RopaPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RopaPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RopaPictureBox.Location = new System.Drawing.Point(79, 446);
+            this.RopaPictureBox.Location = new System.Drawing.Point(79, 528);
             this.RopaPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RopaPictureBox.Name = "RopaPictureBox";
             this.RopaPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -2028,7 +1998,7 @@ namespace Touge_App
             this.RopaPictureBox.UseVisualStyleBackColor = true;
             this.RopaPictureBox.Visible = false;
             this.RopaPictureBox.Click += new System.EventHandler(this.RopaPictureBox_Click);
-            this.RopaPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.RopaPictureBox_Paint);
+            this.RopaPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.EconomiaBoton_Paint);
             this.RopaPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
             this.RopaPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
@@ -2045,9 +2015,9 @@ namespace Touge_App
             this.MisCosasPictureBox.UseVisualStyleBackColor = true;
             this.MisCosasPictureBox.Visible = false;
             this.MisCosasPictureBox.Click += new System.EventHandler(this.MisCosasPictureBox_Click);
-            this.MisCosasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AhorrosPictureBox_Paint);
-            this.MisCosasPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
-            this.MisCosasPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
+            this.MisCosasPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.AutosBoton_Paint);
+            this.MisCosasPictureBox.MouseEnter += new System.EventHandler(this.AutosBoton_MouseEnter);
+            this.MisCosasPictureBox.MouseLeave += new System.EventHandler(this.AutosBoton_MouseLeave);
             // 
             // GarajePictureBox
             // 
@@ -2055,7 +2025,7 @@ namespace Touge_App
             this.GarajePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GarajePictureBox.BackgroundImage")));
             this.GarajePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GarajePictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GarajePictureBox.Location = new System.Drawing.Point(635, 446);
+            this.GarajePictureBox.Location = new System.Drawing.Point(635, 528);
             this.GarajePictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GarajePictureBox.Name = "GarajePictureBox";
             this.GarajePictureBox.Size = new System.Drawing.Size(540, 316);
@@ -2063,9 +2033,9 @@ namespace Touge_App
             this.GarajePictureBox.UseVisualStyleBackColor = true;
             this.GarajePictureBox.Visible = false;
             this.GarajePictureBox.Click += new System.EventHandler(this.GarajePictureBox_Click);
-            this.GarajePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.GarajePictureBox_Paint);
-            this.GarajePictureBox.MouseEnter += new System.EventHandler(this.HistorialBoton_MouseEnter);
-            this.GarajePictureBox.MouseLeave += new System.EventHandler(this.HistorialBoton_MouseLeave);
+            this.GarajePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ReglasBoton_Paint);
+            this.GarajePictureBox.MouseEnter += new System.EventHandler(this.ReglasBoton_MouseEnter);
+            this.GarajePictureBox.MouseLeave += new System.EventHandler(this.ReglasBoton_MouseLeave);
             // 
             // HigienePictureBox
             // 
@@ -2080,9 +2050,9 @@ namespace Touge_App
             this.HigienePictureBox.UseVisualStyleBackColor = true;
             this.HigienePictureBox.Visible = false;
             this.HigienePictureBox.Click += new System.EventHandler(this.HigienePictureBox_Click);
-            this.HigienePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.HigienePictureBox_Paint);
-            this.HigienePictureBox.MouseEnter += new System.EventHandler(this.ReglasBoton_MouseEnter);
-            this.HigienePictureBox.MouseLeave += new System.EventHandler(this.ReglasBoton_MouseLeave);
+            this.HigienePictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.HigienePictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.HigienePictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // CarDealerPictureBox
             // 
@@ -2090,7 +2060,7 @@ namespace Touge_App
             this.CarDealerPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CarDealerPictureBox.BackgroundImage")));
             this.CarDealerPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CarDealerPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CarDealerPictureBox.Location = new System.Drawing.Point(1189, 443);
+            this.CarDealerPictureBox.Location = new System.Drawing.Point(1189, 525);
             this.CarDealerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CarDealerPictureBox.Name = "CarDealerPictureBox";
             this.CarDealerPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -2098,9 +2068,9 @@ namespace Touge_App
             this.CarDealerPictureBox.UseVisualStyleBackColor = true;
             this.CarDealerPictureBox.Visible = false;
             this.CarDealerPictureBox.Click += new System.EventHandler(this.CarDealerPictureBox_Click);
-            this.CarDealerPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.CarDealerPictureBox_Paint);
-            this.CarDealerPictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
-            this.CarDealerPictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
+            this.CarDealerPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.EconomiaBoton_Paint);
+            this.CarDealerPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
+            this.CarDealerPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
             // GastosVariosPictureBox
             // 
@@ -2108,7 +2078,7 @@ namespace Touge_App
             this.GastosVariosPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GastosVariosPictureBox.BackgroundImage")));
             this.GastosVariosPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GastosVariosPictureBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GastosVariosPictureBox.Location = new System.Drawing.Point(79, 446);
+            this.GastosVariosPictureBox.Location = new System.Drawing.Point(79, 528);
             this.GastosVariosPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GastosVariosPictureBox.Name = "GastosVariosPictureBox";
             this.GastosVariosPictureBox.Size = new System.Drawing.Size(540, 318);
@@ -2116,9 +2086,9 @@ namespace Touge_App
             this.GastosVariosPictureBox.UseVisualStyleBackColor = true;
             this.GastosVariosPictureBox.Visible = false;
             this.GastosVariosPictureBox.Click += new System.EventHandler(this.GastosVariosPictureBox_Click);
-            this.GastosVariosPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.GastosVariosPictureBox_Paint);
-            this.GastosVariosPictureBox.MouseEnter += new System.EventHandler(this.AutosBoton_MouseEnter);
-            this.GastosVariosPictureBox.MouseLeave += new System.EventHandler(this.AutosBoton_MouseLeave);
+            this.GastosVariosPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.EconomiaBoton_Paint);
+            this.GastosVariosPictureBox.MouseEnter += new System.EventHandler(this.EconomiaBoton_MouseEnter);
+            this.GastosVariosPictureBox.MouseLeave += new System.EventHandler(this.EconomiaBoton_MouseLeave);
             // 
             // MecanicoPictureBox
             // 
@@ -2134,9 +2104,9 @@ namespace Touge_App
             this.MecanicoPictureBox.UseVisualStyleBackColor = true;
             this.MecanicoPictureBox.Visible = false;
             this.MecanicoPictureBox.Click += new System.EventHandler(this.MecanicoPictureBox_Click);
-            this.MecanicoPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MecanicoPictureBox_Paint);
-            this.MecanicoPictureBox.MouseEnter += new System.EventHandler(this.PilotosBoton_MouseEnter);
-            this.MecanicoPictureBox.MouseLeave += new System.EventHandler(this.PilotosBoton_MouseLeave);
+            this.MecanicoPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.BotonPistas_Paint);
+            this.MecanicoPictureBox.MouseEnter += new System.EventHandler(this.HoverBoton_MouseEnter);
+            this.MecanicoPictureBox.MouseLeave += new System.EventHandler(this.HoverBoton_MouseLeave);
             // 
             // historialDGV
             // 
@@ -2150,17 +2120,17 @@ namespace Touge_App
             this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2355,7 +2325,7 @@ namespace Touge_App
             this.SiguienteAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SiguienteAlquiler.FlatAppearance.BorderSize = 0;
             this.SiguienteAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SiguienteAlquiler.Location = new System.Drawing.Point(1744, 401);
+            this.SiguienteAlquiler.Location = new System.Drawing.Point(1744, 483);
             this.SiguienteAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SiguienteAlquiler.Name = "SiguienteAlquiler";
             this.SiguienteAlquiler.Size = new System.Drawing.Size(67, 57);
@@ -2373,7 +2343,7 @@ namespace Touge_App
             this.VolverAlquiler.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.VolverAlquiler.FlatAppearance.BorderSize = 0;
             this.VolverAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolverAlquiler.Location = new System.Drawing.Point(-1, 401);
+            this.VolverAlquiler.Location = new System.Drawing.Point(-1, 483);
             this.VolverAlquiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VolverAlquiler.Name = "VolverAlquiler";
             this.VolverAlquiler.Size = new System.Drawing.Size(67, 57);
@@ -2566,7 +2536,7 @@ namespace Touge_App
             this.NextComida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.NextComida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NextComida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextComida.Location = new System.Drawing.Point(801, 441);
+            this.NextComida.Location = new System.Drawing.Point(801, 523);
             this.NextComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextComida.Name = "NextComida";
             this.NextComida.Size = new System.Drawing.Size(197, 57);
@@ -2586,7 +2556,7 @@ namespace Touge_App
             this.BackComida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BackComida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackComida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackComida.Location = new System.Drawing.Point(803, 364);
+            this.BackComida.Location = new System.Drawing.Point(803, 446);
             this.BackComida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackComida.Name = "BackComida";
             this.BackComida.Size = new System.Drawing.Size(196, 57);
@@ -2631,15 +2601,16 @@ namespace Touge_App
             this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(1715, 825);
+            this.CloseButton.Location = new System.Drawing.Point(1295, 625);
             this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(64, 57);
             this.CloseButton.TabIndex = 301;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseBoton_Click);
-            this.CloseButton.MouseEnter += new System.EventHandler(this.CloseBoton_MouseEnter);
-            this.CloseButton.MouseLeave += new System.EventHandler(this.CloseBoton_MouseLeave);
+            this.CloseButton.Paint += new System.Windows.Forms.PaintEventHandler(this.ModalidadesBoton_Paint);
+            this.CloseButton.MouseEnter += new System.EventHandler(this.ModalidadesBoton_MouseEnter);
+            this.CloseButton.MouseLeave += new System.EventHandler(this.ModalidadesBoton_MouseLeave);
             // 
             // VolverBoton
             // 
@@ -2650,7 +2621,7 @@ namespace Touge_App
             this.VolverBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.VolverBoton.FlatAppearance.BorderSize = 0;
             this.VolverBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VolverBoton.Location = new System.Drawing.Point(1715, 825);
+            this.VolverBoton.Location = new System.Drawing.Point(1295, 625);
             this.VolverBoton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VolverBoton.Name = "VolverBoton";
             this.VolverBoton.Size = new System.Drawing.Size(64, 57);
@@ -2670,7 +2641,7 @@ namespace Touge_App
             this.NextMecanico.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.NextMecanico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.NextMecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextMecanico.Location = new System.Drawing.Point(817, 425);
+            this.NextMecanico.Location = new System.Drawing.Point(817, 507);
             this.NextMecanico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NextMecanico.Name = "NextMecanico";
             this.NextMecanico.Size = new System.Drawing.Size(177, 57);
@@ -2690,7 +2661,7 @@ namespace Touge_App
             this.BackMecanico.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.BackMecanico.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackMecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackMecanico.Location = new System.Drawing.Point(817, 364);
+            this.BackMecanico.Location = new System.Drawing.Point(817, 446);
             this.BackMecanico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BackMecanico.Name = "BackMecanico";
             this.BackMecanico.Size = new System.Drawing.Size(179, 57);
@@ -2721,6 +2692,7 @@ namespace Touge_App
             // 
             // PanelGaraje
             // 
+            this.PanelGaraje.Controls.Add(this.PromocionTextBox);
             this.PanelGaraje.Controls.Add(this.PilotoNameAuto);
             this.PanelGaraje.Controls.Add(this.GasofaMiauto2);
             this.PanelGaraje.Controls.Add(this.NextObjeto);
@@ -2749,21 +2721,36 @@ namespace Touge_App
             this.PanelGaraje.Controls.Add(this.MotorMiAuto);
             this.PanelGaraje.Controls.Add(this.AceiteMiAuto);
             this.PanelGaraje.Controls.Add(this.TorqueLabel2);
+            this.PanelGaraje.Controls.Add(this.UpdateBoton);
             this.PanelGaraje.Controls.Add(this.PPMiAuto);
             this.PanelGaraje.Controls.Add(this.PesoMiAuto);
             this.PanelGaraje.Controls.Add(this.HpMiauto);
+            this.PanelGaraje.Controls.Add(this.CloseButton);
+            this.PanelGaraje.Controls.Add(this.VolverBoton);
             this.PanelGaraje.Location = new System.Drawing.Point(1281, 16);
             this.PanelGaraje.Name = "PanelGaraje";
             this.PanelGaraje.Size = new System.Drawing.Size(524, 804);
             this.PanelGaraje.TabIndex = 323;
             // 
+            // PromocionTextBox
+            // 
+            this.PromocionTextBox.Font = new System.Drawing.Font("Segoe UI", 15.2F, System.Drawing.FontStyle.Bold);
+            this.PromocionTextBox.Location = new System.Drawing.Point(-316, 542);
+            this.PromocionTextBox.Multiline = true;
+            this.PromocionTextBox.Name = "PromocionTextBox";
+            this.PromocionTextBox.ReadOnly = true;
+            this.PromocionTextBox.Size = new System.Drawing.Size(797, 253);
+            this.PromocionTextBox.TabIndex = 358;
+            this.PromocionTextBox.Text = resources.GetString("PromocionTextBox.Text");
+            this.PromocionTextBox.Visible = false;
+            // 
             // PilotoNameAuto
             // 
             this.PilotoNameAuto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PilotoNameAuto.BackColor = System.Drawing.Color.Transparent;
+            this.PilotoNameAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.PilotoNameAuto.Font = new System.Drawing.Font("F1 Turbo", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PilotoNameAuto.ForeColor = System.Drawing.Color.DarkRed;
+            this.PilotoNameAuto.ForeColor = System.Drawing.Color.Chartreuse;
             this.PilotoNameAuto.Location = new System.Drawing.Point(0, 730);
             this.PilotoNameAuto.Name = "PilotoNameAuto";
             this.PilotoNameAuto.Size = new System.Drawing.Size(521, 65);
@@ -3115,6 +3102,21 @@ namespace Touge_App
             this.TorqueLabel2.TabIndex = 3;
             this.TorqueLabel2.Text = "Torque";
             // 
+            // UpdateBoton
+            // 
+            this.UpdateBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateBoton.BackColor = System.Drawing.Color.Transparent;
+            this.UpdateBoton.FlatAppearance.BorderSize = 0;
+            this.UpdateBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.UpdateBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.UpdateBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateBoton.Location = new System.Drawing.Point(402, 745);
+            this.UpdateBoton.Name = "UpdateBoton";
+            this.UpdateBoton.Size = new System.Drawing.Size(26, 58);
+            this.UpdateBoton.TabIndex = 330;
+            this.UpdateBoton.UseVisualStyleBackColor = false;
+            this.UpdateBoton.Click += new System.EventHandler(this.UpdateBoton_Click);
+            // 
             // PPMiAuto
             // 
             this.PPMiAuto.AutoSize = true;
@@ -3210,27 +3212,332 @@ namespace Touge_App
             this.FiltrarPilotosPistasAutos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.FiltrarPilotosPistasAutos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.FiltrarPilotosPistasAutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FiltrarPilotosPistasAutos.Location = new System.Drawing.Point(3, 821);
+            this.FiltrarPilotosPistasAutos.Location = new System.Drawing.Point(3, 903);
             this.FiltrarPilotosPistasAutos.Name = "FiltrarPilotosPistasAutos";
             this.FiltrarPilotosPistasAutos.Size = new System.Drawing.Size(33, 58);
             this.FiltrarPilotosPistasAutos.TabIndex = 329;
             this.FiltrarPilotosPistasAutos.UseVisualStyleBackColor = false;
             this.FiltrarPilotosPistasAutos.Click += new System.EventHandler(this.FiltrarPilotosPistasAutos_Click);
             // 
-            // UpdateBoton
+            // BiografiaPilotosTextBox
             // 
-            this.UpdateBoton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateBoton.BackColor = System.Drawing.Color.Transparent;
-            this.UpdateBoton.FlatAppearance.BorderSize = 0;
-            this.UpdateBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.UpdateBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.UpdateBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateBoton.Location = new System.Drawing.Point(1784, 824);
-            this.UpdateBoton.Name = "UpdateBoton";
-            this.UpdateBoton.Size = new System.Drawing.Size(26, 58);
-            this.UpdateBoton.TabIndex = 330;
-            this.UpdateBoton.UseVisualStyleBackColor = false;
-            this.UpdateBoton.Click += new System.EventHandler(this.UpdateBoton_Click);
+            this.BiografiaPilotosTextBox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BiografiaPilotosTextBox.Location = new System.Drawing.Point(19, 34);
+            this.BiografiaPilotosTextBox.Multiline = true;
+            this.BiografiaPilotosTextBox.Name = "BiografiaPilotosTextBox";
+            this.BiografiaPilotosTextBox.ReadOnly = true;
+            this.BiografiaPilotosTextBox.Size = new System.Drawing.Size(880, 504);
+            this.BiografiaPilotosTextBox.TabIndex = 331;
+            this.BiografiaPilotosTextBox.Visible = false;
+            // 
+            // NombreMiauto
+            // 
+            this.NombreMiauto.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreMiauto.Location = new System.Drawing.Point(11, 756);
+            this.NombreMiauto.Name = "NombreMiauto";
+            this.NombreMiauto.ReadOnly = true;
+            this.NombreMiauto.Size = new System.Drawing.Size(1264, 74);
+            this.NombreMiauto.TabIndex = 332;
+            this.NombreMiauto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NombreMiauto.Visible = false;
+            // 
+            // NombreCircuito
+            // 
+            this.NombreCircuito.Font = new System.Drawing.Font("Segoe UI", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreCircuito.Location = new System.Drawing.Point(41, 716);
+            this.NombreCircuito.Name = "NombreCircuito";
+            this.NombreCircuito.ReadOnly = true;
+            this.NombreCircuito.Size = new System.Drawing.Size(1153, 81);
+            this.NombreCircuito.TabIndex = 333;
+            this.NombreCircuito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NombreCircuito.Visible = false;
+            // 
+            // PaisTextBox
+            // 
+            this.PaisTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaisTextBox.Location = new System.Drawing.Point(1229, 762);
+            this.PaisTextBox.Name = "PaisTextBox";
+            this.PaisTextBox.ReadOnly = true;
+            this.PaisTextBox.Size = new System.Drawing.Size(549, 38);
+            this.PaisTextBox.TabIndex = 334;
+            this.PaisTextBox.Visible = false;
+            // 
+            // ModalidadTextBox
+            // 
+            this.ModalidadTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModalidadTextBox.Location = new System.Drawing.Point(1229, 716);
+            this.ModalidadTextBox.Name = "ModalidadTextBox";
+            this.ModalidadTextBox.ReadOnly = true;
+            this.ModalidadTextBox.Size = new System.Drawing.Size(340, 38);
+            this.ModalidadTextBox.TabIndex = 335;
+            this.ModalidadTextBox.Visible = false;
+            // 
+            // DistanciaTextbox
+            // 
+            this.DistanciaTextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DistanciaTextbox.Location = new System.Drawing.Point(1592, 716);
+            this.DistanciaTextbox.Name = "DistanciaTextbox";
+            this.DistanciaTextbox.ReadOnly = true;
+            this.DistanciaTextbox.Size = new System.Drawing.Size(187, 34);
+            this.DistanciaTextbox.TabIndex = 336;
+            this.DistanciaTextbox.Visible = false;
+            // 
+            // PistasBiografia
+            // 
+            this.PistasBiografia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PistasBiografia.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PistasBiografia.Location = new System.Drawing.Point(1229, 50);
+            this.PistasBiografia.Multiline = true;
+            this.PistasBiografia.Name = "PistasBiografia";
+            this.PistasBiografia.ReadOnly = true;
+            this.PistasBiografia.Size = new System.Drawing.Size(555, 646);
+            this.PistasBiografia.TabIndex = 337;
+            this.PistasBiografia.Visible = false;
+            // 
+            // NombreAutoTextbox
+            // 
+            this.NombreAutoTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NombreAutoTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NombreAutoTextbox.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NombreAutoTextbox.Location = new System.Drawing.Point(11, 716);
+            this.NombreAutoTextbox.Name = "NombreAutoTextbox";
+            this.NombreAutoTextbox.ReadOnly = true;
+            this.NombreAutoTextbox.Size = new System.Drawing.Size(1212, 58);
+            this.NombreAutoTextbox.TabIndex = 338;
+            this.NombreAutoTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NombreAutoTextbox.Visible = false;
+            // 
+            // FTextbox
+            // 
+            this.FTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.FTextbox.Location = new System.Drawing.Point(27, 190);
+            this.FTextbox.Multiline = true;
+            this.FTextbox.Name = "FTextbox";
+            this.FTextbox.ReadOnly = true;
+            this.FTextbox.Size = new System.Drawing.Size(419, 242);
+            this.FTextbox.TabIndex = 339;
+            this.FTextbox.Text = "En esta Categoria se Encuentran los autos con una relacion de Peso/Potencia Mayor" +
+    " a 15 Kg/. Los Corredores deberan apostar 250 USD cada uno, y el ganador se qued" +
+    "ara con el pozo acumulado de 500 USD.";
+            this.FTextbox.Visible = false;
+            // 
+            // ETextbox
+            // 
+            this.ETextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.ETextbox.Location = new System.Drawing.Point(473, 190);
+            this.ETextbox.Multiline = true;
+            this.ETextbox.Name = "ETextbox";
+            this.ETextbox.ReadOnly = true;
+            this.ETextbox.Size = new System.Drawing.Size(419, 242);
+            this.ETextbox.TabIndex = 340;
+            this.ETextbox.Text = resources.GetString("ETextbox.Text");
+            this.ETextbox.Visible = false;
+            // 
+            // DTextbox
+            // 
+            this.DTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.DTextbox.Location = new System.Drawing.Point(919, 190);
+            this.DTextbox.Multiline = true;
+            this.DTextbox.Name = "DTextbox";
+            this.DTextbox.ReadOnly = true;
+            this.DTextbox.Size = new System.Drawing.Size(419, 242);
+            this.DTextbox.TabIndex = 341;
+            this.DTextbox.Text = resources.GetString("DTextbox.Text");
+            this.DTextbox.Visible = false;
+            // 
+            // CTextbox
+            // 
+            this.CTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.CTextbox.Location = new System.Drawing.Point(1365, 190);
+            this.CTextbox.Multiline = true;
+            this.CTextbox.Name = "CTextbox";
+            this.CTextbox.ReadOnly = true;
+            this.CTextbox.Size = new System.Drawing.Size(419, 242);
+            this.CTextbox.TabIndex = 342;
+            this.CTextbox.Text = resources.GetString("CTextbox.Text");
+            this.CTextbox.Visible = false;
+            // 
+            // BTextbox
+            // 
+            this.BTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.BTextbox.Location = new System.Drawing.Point(27, 572);
+            this.BTextbox.Multiline = true;
+            this.BTextbox.Name = "BTextbox";
+            this.BTextbox.ReadOnly = true;
+            this.BTextbox.Size = new System.Drawing.Size(419, 242);
+            this.BTextbox.TabIndex = 343;
+            this.BTextbox.Text = resources.GetString("BTextbox.Text");
+            this.BTextbox.Visible = false;
+            // 
+            // ATextbox
+            // 
+            this.ATextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.ATextbox.Location = new System.Drawing.Point(473, 572);
+            this.ATextbox.Multiline = true;
+            this.ATextbox.Name = "ATextbox";
+            this.ATextbox.ReadOnly = true;
+            this.ATextbox.Size = new System.Drawing.Size(419, 242);
+            this.ATextbox.TabIndex = 344;
+            this.ATextbox.Text = resources.GetString("ATextbox.Text");
+            this.ATextbox.Visible = false;
+            // 
+            // STextbox
+            // 
+            this.STextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.STextbox.Location = new System.Drawing.Point(919, 572);
+            this.STextbox.Multiline = true;
+            this.STextbox.Name = "STextbox";
+            this.STextbox.ReadOnly = true;
+            this.STextbox.Size = new System.Drawing.Size(419, 242);
+            this.STextbox.TabIndex = 345;
+            this.STextbox.Text = resources.GetString("STextbox.Text");
+            this.STextbox.Visible = false;
+            // 
+            // SPlusTextbox
+            // 
+            this.SPlusTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
+            this.SPlusTextbox.Location = new System.Drawing.Point(1357, 572);
+            this.SPlusTextbox.Multiline = true;
+            this.SPlusTextbox.Name = "SPlusTextbox";
+            this.SPlusTextbox.ReadOnly = true;
+            this.SPlusTextbox.Size = new System.Drawing.Size(419, 242);
+            this.SPlusTextbox.TabIndex = 346;
+            this.SPlusTextbox.Text = resources.GetString("SPlusTextbox.Text");
+            this.SPlusTextbox.Visible = false;
+            // 
+            // SideTextBox
+            // 
+            this.SideTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SideTextBox.Location = new System.Drawing.Point(32, 238);
+            this.SideTextBox.Multiline = true;
+            this.SideTextBox.Name = "SideTextBox";
+            this.SideTextBox.ReadOnly = true;
+            this.SideTextBox.Size = new System.Drawing.Size(788, 454);
+            this.SideTextBox.TabIndex = 347;
+            this.SideTextBox.Text = resources.GetString("SideTextBox.Text");
+            this.SideTextBox.Visible = false;
+            // 
+            // GatoTextbox
+            // 
+            this.GatoTextbox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GatoTextbox.Location = new System.Drawing.Point(1005, 238);
+            this.GatoTextbox.Multiline = true;
+            this.GatoTextbox.Name = "GatoTextbox";
+            this.GatoTextbox.ReadOnly = true;
+            this.GatoTextbox.Size = new System.Drawing.Size(785, 453);
+            this.GatoTextbox.TabIndex = 348;
+            this.GatoTextbox.Text = resources.GetString("GatoTextbox.Text");
+            this.GatoTextbox.Visible = false;
+            // 
+            // SubitaTextBox
+            // 
+            this.SubitaTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubitaTextBox.Location = new System.Drawing.Point(1007, 239);
+            this.SubitaTextBox.Multiline = true;
+            this.SubitaTextBox.Name = "SubitaTextBox";
+            this.SubitaTextBox.ReadOnly = true;
+            this.SubitaTextBox.Size = new System.Drawing.Size(791, 403);
+            this.SubitaTextBox.TabIndex = 350;
+            this.SubitaTextBox.Text = resources.GetString("SubitaTextBox.Text");
+            this.SubitaTextBox.Visible = false;
+            // 
+            // AletorioTextBox
+            // 
+            this.AletorioTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AletorioTextBox.Location = new System.Drawing.Point(33, 238);
+            this.AletorioTextBox.Multiline = true;
+            this.AletorioTextBox.Name = "AletorioTextBox";
+            this.AletorioTextBox.ReadOnly = true;
+            this.AletorioTextBox.Size = new System.Drawing.Size(788, 454);
+            this.AletorioTextBox.TabIndex = 349;
+            this.AletorioTextBox.Text = resources.GetString("AletorioTextBox.Text");
+            this.AletorioTextBox.Visible = false;
+            // 
+            // RookieTextBox
+            // 
+            this.RookieTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RookieTextBox.Location = new System.Drawing.Point(41, 212);
+            this.RookieTextBox.Multiline = true;
+            this.RookieTextBox.Name = "RookieTextBox";
+            this.RookieTextBox.ReadOnly = true;
+            this.RookieTextBox.Size = new System.Drawing.Size(795, 248);
+            this.RookieTextBox.TabIndex = 351;
+            this.RookieTextBox.Text = resources.GetString("RookieTextBox.Text");
+            this.RookieTextBox.Visible = false;
+            // 
+            // JuniorTextBox
+            // 
+            this.JuniorTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.JuniorTextBox.Location = new System.Drawing.Point(41, 559);
+            this.JuniorTextBox.Multiline = true;
+            this.JuniorTextBox.Name = "JuniorTextBox";
+            this.JuniorTextBox.ReadOnly = true;
+            this.JuniorTextBox.Size = new System.Drawing.Size(795, 260);
+            this.JuniorTextBox.TabIndex = 352;
+            this.JuniorTextBox.Text = resources.GetString("JuniorTextBox.Text");
+            this.JuniorTextBox.Visible = false;
+            // 
+            // AmateurTextBox
+            // 
+            this.AmateurTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmateurTextBox.Location = new System.Drawing.Point(980, 212);
+            this.AmateurTextBox.Multiline = true;
+            this.AmateurTextBox.Name = "AmateurTextBox";
+            this.AmateurTextBox.ReadOnly = true;
+            this.AmateurTextBox.Size = new System.Drawing.Size(799, 250);
+            this.AmateurTextBox.TabIndex = 353;
+            this.AmateurTextBox.Text = resources.GetString("AmateurTextBox.Text");
+            this.AmateurTextBox.Visible = false;
+            // 
+            // SemiProTextBox
+            // 
+            this.SemiProTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SemiProTextBox.Location = new System.Drawing.Point(980, 561);
+            this.SemiProTextBox.Multiline = true;
+            this.SemiProTextBox.Name = "SemiProTextBox";
+            this.SemiProTextBox.ReadOnly = true;
+            this.SemiProTextBox.Size = new System.Drawing.Size(797, 253);
+            this.SemiProTextBox.TabIndex = 354;
+            this.SemiProTextBox.Text = resources.GetString("SemiProTextBox.Text");
+            this.SemiProTextBox.Visible = false;
+            // 
+            // ProfesionalTextbox
+            // 
+            this.ProfesionalTextbox.BackColor = System.Drawing.SystemColors.Control;
+            this.ProfesionalTextbox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfesionalTextbox.Location = new System.Drawing.Point(41, 212);
+            this.ProfesionalTextbox.Multiline = true;
+            this.ProfesionalTextbox.Name = "ProfesionalTextbox";
+            this.ProfesionalTextbox.ReadOnly = true;
+            this.ProfesionalTextbox.Size = new System.Drawing.Size(799, 250);
+            this.ProfesionalTextbox.TabIndex = 355;
+            this.ProfesionalTextbox.Text = resources.GetString("ProfesionalTextbox.Text");
+            this.ProfesionalTextbox.Visible = false;
+            // 
+            // EstrellaTextBox
+            // 
+            this.EstrellaTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EstrellaTextBox.Location = new System.Drawing.Point(41, 559);
+            this.EstrellaTextBox.Multiline = true;
+            this.EstrellaTextBox.Name = "EstrellaTextBox";
+            this.EstrellaTextBox.ReadOnly = true;
+            this.EstrellaTextBox.Size = new System.Drawing.Size(795, 260);
+            this.EstrellaTextBox.TabIndex = 356;
+            this.EstrellaTextBox.Text = resources.GetString("EstrellaTextBox.Text");
+            this.EstrellaTextBox.Visible = false;
+            // 
+            // LeyendaTextBox
+            // 
+            this.LeyendaTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LeyendaTextBox.Location = new System.Drawing.Point(980, 212);
+            this.LeyendaTextBox.Multiline = true;
+            this.LeyendaTextBox.Name = "LeyendaTextBox";
+            this.LeyendaTextBox.ReadOnly = true;
+            this.LeyendaTextBox.Size = new System.Drawing.Size(799, 250);
+            this.LeyendaTextBox.TabIndex = 357;
+            this.LeyendaTextBox.Text = resources.GetString("LeyendaTextBox.Text");
+            this.LeyendaTextBox.Visible = false;
             // 
             // gastosDiarios5
             // 
@@ -3605,344 +3912,12 @@ namespace Touge_App
             this.alquileres1.TituloDepa = "ALQUILERES EN AKINA";
             this.alquileres1.Visible = false;
             // 
-            // BiografiaPilotosTextBox
-            // 
-            this.BiografiaPilotosTextBox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BiografiaPilotosTextBox.Location = new System.Drawing.Point(19, 34);
-            this.BiografiaPilotosTextBox.Multiline = true;
-            this.BiografiaPilotosTextBox.Name = "BiografiaPilotosTextBox";
-            this.BiografiaPilotosTextBox.ReadOnly = true;
-            this.BiografiaPilotosTextBox.Size = new System.Drawing.Size(880, 504);
-            this.BiografiaPilotosTextBox.TabIndex = 331;
-            this.BiografiaPilotosTextBox.Visible = false;
-            // 
-            // NombreMiauto
-            // 
-            this.NombreMiauto.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreMiauto.Location = new System.Drawing.Point(11, 756);
-            this.NombreMiauto.Name = "NombreMiauto";
-            this.NombreMiauto.ReadOnly = true;
-            this.NombreMiauto.Size = new System.Drawing.Size(1264, 74);
-            this.NombreMiauto.TabIndex = 332;
-            this.NombreMiauto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NombreMiauto.Visible = false;
-            // 
-            // NombreCircuito
-            // 
-            this.NombreCircuito.Font = new System.Drawing.Font("Segoe UI", 33F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreCircuito.Location = new System.Drawing.Point(41, 716);
-            this.NombreCircuito.Name = "NombreCircuito";
-            this.NombreCircuito.ReadOnly = true;
-            this.NombreCircuito.Size = new System.Drawing.Size(1153, 81);
-            this.NombreCircuito.TabIndex = 333;
-            this.NombreCircuito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NombreCircuito.Visible = false;
-            // 
-            // PaisTextBox
-            // 
-            this.PaisTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PaisTextBox.Location = new System.Drawing.Point(1229, 762);
-            this.PaisTextBox.Name = "PaisTextBox";
-            this.PaisTextBox.ReadOnly = true;
-            this.PaisTextBox.Size = new System.Drawing.Size(549, 38);
-            this.PaisTextBox.TabIndex = 334;
-            this.PaisTextBox.Visible = false;
-            // 
-            // ModalidadTextBox
-            // 
-            this.ModalidadTextBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModalidadTextBox.Location = new System.Drawing.Point(1229, 716);
-            this.ModalidadTextBox.Name = "ModalidadTextBox";
-            this.ModalidadTextBox.ReadOnly = true;
-            this.ModalidadTextBox.Size = new System.Drawing.Size(340, 38);
-            this.ModalidadTextBox.TabIndex = 335;
-            this.ModalidadTextBox.Visible = false;
-            // 
-            // DistanciaTextbox
-            // 
-            this.DistanciaTextbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DistanciaTextbox.Location = new System.Drawing.Point(1592, 716);
-            this.DistanciaTextbox.Name = "DistanciaTextbox";
-            this.DistanciaTextbox.ReadOnly = true;
-            this.DistanciaTextbox.Size = new System.Drawing.Size(187, 34);
-            this.DistanciaTextbox.TabIndex = 336;
-            this.DistanciaTextbox.Visible = false;
-            // 
-            // PistasBiografia
-            // 
-            this.PistasBiografia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PistasBiografia.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PistasBiografia.Location = new System.Drawing.Point(1229, 50);
-            this.PistasBiografia.Multiline = true;
-            this.PistasBiografia.Name = "PistasBiografia";
-            this.PistasBiografia.ReadOnly = true;
-            this.PistasBiografia.Size = new System.Drawing.Size(555, 646);
-            this.PistasBiografia.TabIndex = 337;
-            this.PistasBiografia.Visible = false;
-            // 
-            // NombreAutoTextbox
-            // 
-            this.NombreAutoTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NombreAutoTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NombreAutoTextbox.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombreAutoTextbox.Location = new System.Drawing.Point(11, 716);
-            this.NombreAutoTextbox.Name = "NombreAutoTextbox";
-            this.NombreAutoTextbox.ReadOnly = true;
-            this.NombreAutoTextbox.Size = new System.Drawing.Size(1212, 58);
-            this.NombreAutoTextbox.TabIndex = 338;
-            this.NombreAutoTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NombreAutoTextbox.Visible = false;
-            // 
-            // FTextbox
-            // 
-            this.FTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.FTextbox.Location = new System.Drawing.Point(27, 190);
-            this.FTextbox.Multiline = true;
-            this.FTextbox.Name = "FTextbox";
-            this.FTextbox.ReadOnly = true;
-            this.FTextbox.Size = new System.Drawing.Size(419, 242);
-            this.FTextbox.TabIndex = 339;
-            this.FTextbox.Text = "En esta Categoria se Encuentran los autos con una relacion de Peso/Potencia Mayor" +
-    " a 15 Kg/. Los Corredores deberan apostar 250 USD cada uno, y el ganador se qued" +
-    "ara con el pozo acumulado de 500 USD.";
-            this.FTextbox.Visible = false;
-            // 
-            // ETextbox
-            // 
-            this.ETextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.ETextbox.Location = new System.Drawing.Point(473, 190);
-            this.ETextbox.Multiline = true;
-            this.ETextbox.Name = "ETextbox";
-            this.ETextbox.ReadOnly = true;
-            this.ETextbox.Size = new System.Drawing.Size(419, 242);
-            this.ETextbox.TabIndex = 340;
-            this.ETextbox.Text = resources.GetString("ETextbox.Text");
-            this.ETextbox.Visible = false;
-            // 
-            // DTextbox
-            // 
-            this.DTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.DTextbox.Location = new System.Drawing.Point(919, 190);
-            this.DTextbox.Multiline = true;
-            this.DTextbox.Name = "DTextbox";
-            this.DTextbox.ReadOnly = true;
-            this.DTextbox.Size = new System.Drawing.Size(419, 242);
-            this.DTextbox.TabIndex = 341;
-            this.DTextbox.Text = resources.GetString("DTextbox.Text");
-            this.DTextbox.Visible = false;
-            // 
-            // CTextbox
-            // 
-            this.CTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.CTextbox.Location = new System.Drawing.Point(1365, 190);
-            this.CTextbox.Multiline = true;
-            this.CTextbox.Name = "CTextbox";
-            this.CTextbox.ReadOnly = true;
-            this.CTextbox.Size = new System.Drawing.Size(419, 242);
-            this.CTextbox.TabIndex = 342;
-            this.CTextbox.Text = resources.GetString("CTextbox.Text");
-            this.CTextbox.Visible = false;
-            // 
-            // BTextbox
-            // 
-            this.BTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.BTextbox.Location = new System.Drawing.Point(27, 572);
-            this.BTextbox.Multiline = true;
-            this.BTextbox.Name = "BTextbox";
-            this.BTextbox.ReadOnly = true;
-            this.BTextbox.Size = new System.Drawing.Size(419, 242);
-            this.BTextbox.TabIndex = 343;
-            this.BTextbox.Text = resources.GetString("BTextbox.Text");
-            this.BTextbox.Visible = false;
-            // 
-            // ATextbox
-            // 
-            this.ATextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.ATextbox.Location = new System.Drawing.Point(473, 572);
-            this.ATextbox.Multiline = true;
-            this.ATextbox.Name = "ATextbox";
-            this.ATextbox.ReadOnly = true;
-            this.ATextbox.Size = new System.Drawing.Size(419, 242);
-            this.ATextbox.TabIndex = 344;
-            this.ATextbox.Text = resources.GetString("ATextbox.Text");
-            this.ATextbox.Visible = false;
-            // 
-            // STextbox
-            // 
-            this.STextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.STextbox.Location = new System.Drawing.Point(919, 572);
-            this.STextbox.Multiline = true;
-            this.STextbox.Name = "STextbox";
-            this.STextbox.ReadOnly = true;
-            this.STextbox.Size = new System.Drawing.Size(419, 242);
-            this.STextbox.TabIndex = 345;
-            this.STextbox.Text = resources.GetString("STextbox.Text");
-            this.STextbox.Visible = false;
-            // 
-            // SPlusTextbox
-            // 
-            this.SPlusTextbox.Font = new System.Drawing.Font("Franklin Gothic Heavy", 13F, System.Drawing.FontStyle.Bold);
-            this.SPlusTextbox.Location = new System.Drawing.Point(1357, 572);
-            this.SPlusTextbox.Multiline = true;
-            this.SPlusTextbox.Name = "SPlusTextbox";
-            this.SPlusTextbox.ReadOnly = true;
-            this.SPlusTextbox.Size = new System.Drawing.Size(419, 242);
-            this.SPlusTextbox.TabIndex = 346;
-            this.SPlusTextbox.Text = resources.GetString("SPlusTextbox.Text");
-            this.SPlusTextbox.Visible = false;
-            // 
-            // SideTextBox
-            // 
-            this.SideTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SideTextBox.Location = new System.Drawing.Point(32, 238);
-            this.SideTextBox.Multiline = true;
-            this.SideTextBox.Name = "SideTextBox";
-            this.SideTextBox.ReadOnly = true;
-            this.SideTextBox.Size = new System.Drawing.Size(788, 454);
-            this.SideTextBox.TabIndex = 347;
-            this.SideTextBox.Text = resources.GetString("SideTextBox.Text");
-            this.SideTextBox.Visible = false;
-            // 
-            // GatoTextbox
-            // 
-            this.GatoTextbox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GatoTextbox.Location = new System.Drawing.Point(1005, 238);
-            this.GatoTextbox.Multiline = true;
-            this.GatoTextbox.Name = "GatoTextbox";
-            this.GatoTextbox.ReadOnly = true;
-            this.GatoTextbox.Size = new System.Drawing.Size(785, 453);
-            this.GatoTextbox.TabIndex = 348;
-            this.GatoTextbox.Text = resources.GetString("GatoTextbox.Text");
-            this.GatoTextbox.Visible = false;
-            // 
-            // SubitaTextBox
-            // 
-            this.SubitaTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubitaTextBox.Location = new System.Drawing.Point(1007, 239);
-            this.SubitaTextBox.Multiline = true;
-            this.SubitaTextBox.Name = "SubitaTextBox";
-            this.SubitaTextBox.ReadOnly = true;
-            this.SubitaTextBox.Size = new System.Drawing.Size(791, 403);
-            this.SubitaTextBox.TabIndex = 350;
-            this.SubitaTextBox.Text = resources.GetString("SubitaTextBox.Text");
-            this.SubitaTextBox.Visible = false;
-            // 
-            // AletorioTextBox
-            // 
-            this.AletorioTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AletorioTextBox.Location = new System.Drawing.Point(33, 238);
-            this.AletorioTextBox.Multiline = true;
-            this.AletorioTextBox.Name = "AletorioTextBox";
-            this.AletorioTextBox.ReadOnly = true;
-            this.AletorioTextBox.Size = new System.Drawing.Size(788, 454);
-            this.AletorioTextBox.TabIndex = 349;
-            this.AletorioTextBox.Text = resources.GetString("AletorioTextBox.Text");
-            this.AletorioTextBox.Visible = false;
-            // 
-            // RookieTextBox
-            // 
-            this.RookieTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RookieTextBox.Location = new System.Drawing.Point(41, 212);
-            this.RookieTextBox.Multiline = true;
-            this.RookieTextBox.Name = "RookieTextBox";
-            this.RookieTextBox.ReadOnly = true;
-            this.RookieTextBox.Size = new System.Drawing.Size(795, 248);
-            this.RookieTextBox.TabIndex = 351;
-            this.RookieTextBox.Text = resources.GetString("RookieTextBox.Text");
-            this.RookieTextBox.Visible = false;
-            // 
-            // JuniorTextBox
-            // 
-            this.JuniorTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JuniorTextBox.Location = new System.Drawing.Point(41, 559);
-            this.JuniorTextBox.Multiline = true;
-            this.JuniorTextBox.Name = "JuniorTextBox";
-            this.JuniorTextBox.ReadOnly = true;
-            this.JuniorTextBox.Size = new System.Drawing.Size(795, 260);
-            this.JuniorTextBox.TabIndex = 352;
-            this.JuniorTextBox.Text = resources.GetString("JuniorTextBox.Text");
-            this.JuniorTextBox.Visible = false;
-            // 
-            // AmateurTextBox
-            // 
-            this.AmateurTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AmateurTextBox.Location = new System.Drawing.Point(980, 212);
-            this.AmateurTextBox.Multiline = true;
-            this.AmateurTextBox.Name = "AmateurTextBox";
-            this.AmateurTextBox.ReadOnly = true;
-            this.AmateurTextBox.Size = new System.Drawing.Size(799, 250);
-            this.AmateurTextBox.TabIndex = 353;
-            this.AmateurTextBox.Text = resources.GetString("AmateurTextBox.Text");
-            this.AmateurTextBox.Visible = false;
-            // 
-            // SemiProTextBox
-            // 
-            this.SemiProTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SemiProTextBox.Location = new System.Drawing.Point(980, 561);
-            this.SemiProTextBox.Multiline = true;
-            this.SemiProTextBox.Name = "SemiProTextBox";
-            this.SemiProTextBox.ReadOnly = true;
-            this.SemiProTextBox.Size = new System.Drawing.Size(797, 253);
-            this.SemiProTextBox.TabIndex = 354;
-            this.SemiProTextBox.Text = resources.GetString("SemiProTextBox.Text");
-            this.SemiProTextBox.Visible = false;
-            // 
-            // ProfesionalTextbox
-            // 
-            this.ProfesionalTextbox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfesionalTextbox.Location = new System.Drawing.Point(41, 212);
-            this.ProfesionalTextbox.Multiline = true;
-            this.ProfesionalTextbox.Name = "ProfesionalTextbox";
-            this.ProfesionalTextbox.ReadOnly = true;
-            this.ProfesionalTextbox.Size = new System.Drawing.Size(799, 250);
-            this.ProfesionalTextbox.TabIndex = 355;
-            this.ProfesionalTextbox.Text = resources.GetString("ProfesionalTextbox.Text");
-            this.ProfesionalTextbox.Visible = false;
-            // 
-            // EstrellaTextBox
-            // 
-            this.EstrellaTextBox.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EstrellaTextBox.Location = new System.Drawing.Point(41, 559);
-            this.EstrellaTextBox.Multiline = true;
-            this.EstrellaTextBox.Name = "EstrellaTextBox";
-            this.EstrellaTextBox.ReadOnly = true;
-            this.EstrellaTextBox.Size = new System.Drawing.Size(795, 260);
-            this.EstrellaTextBox.TabIndex = 356;
-            this.EstrellaTextBox.Text = resources.GetString("EstrellaTextBox.Text");
-            this.EstrellaTextBox.Visible = false;
-            // 
-            // LeyendaTextBox
-            // 
-            this.LeyendaTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeyendaTextBox.Location = new System.Drawing.Point(980, 212);
-            this.LeyendaTextBox.Multiline = true;
-            this.LeyendaTextBox.Name = "LeyendaTextBox";
-            this.LeyendaTextBox.ReadOnly = true;
-            this.LeyendaTextBox.Size = new System.Drawing.Size(799, 250);
-            this.LeyendaTextBox.TabIndex = 357;
-            this.LeyendaTextBox.Text = resources.GetString("LeyendaTextBox.Text");
-            this.LeyendaTextBox.Visible = false;
-            // 
-            // PromocionTextBox
-            // 
-            this.PromocionTextBox.Font = new System.Drawing.Font("Segoe UI", 15.2F, System.Drawing.FontStyle.Bold);
-            this.PromocionTextBox.Location = new System.Drawing.Point(980, 561);
-            this.PromocionTextBox.Multiline = true;
-            this.PromocionTextBox.Name = "PromocionTextBox";
-            this.PromocionTextBox.ReadOnly = true;
-            this.PromocionTextBox.Size = new System.Drawing.Size(797, 253);
-            this.PromocionTextBox.TabIndex = 358;
-            this.PromocionTextBox.Text = resources.GetString("PromocionTextBox.Text");
-            this.PromocionTextBox.Visible = false;
-            // 
             // TougeForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1811, 884);
-            this.Controls.Add(this.PromocionTextBox);
+            this.ClientSize = new System.Drawing.Size(1811, 966);
             this.Controls.Add(this.LeyendaTextBox);
             this.Controls.Add(this.EstrellaTextBox);
             this.Controls.Add(this.ProfesionalTextbox);
@@ -3970,7 +3945,6 @@ namespace Touge_App
             this.Controls.Add(this.NombreCircuito);
             this.Controls.Add(this.NombreMiauto);
             this.Controls.Add(this.BiografiaPilotosTextBox);
-            this.Controls.Add(this.UpdateBoton);
             this.Controls.Add(this.FiltrarPilotosPistasAutos);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CargaPistasAutosPilotosEconomia);
@@ -3993,8 +3967,6 @@ namespace Touge_App
             this.Controls.Add(this.Higiene3);
             this.Controls.Add(this.Higiene2);
             this.Controls.Add(this.Higiene1);
-            this.Controls.Add(this.VolverBoton);
-            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.DineroMostrarLabel);
             this.Controls.Add(this.DineroPb);
             this.Controls.Add(this.NextComida);
@@ -4061,7 +4033,6 @@ namespace Touge_App
             this.Controls.Add(this.JuniorLabel);
             this.Controls.Add(this.RankingPilotosLabel);
             this.Controls.Add(this.RookieLabel);
-            this.Controls.Add(this.NombrePilotoLabel);
             this.Controls.Add(this.SubitaTitulo);
             this.Controls.Add(this.RandomTitulo);
             this.Controls.Add(this.BackModalidad);
@@ -4211,19 +4182,19 @@ namespace Touge_App
         private System.Windows.Forms.Label Reflexes;
         private System.Windows.Forms.Label Braking;
         private System.Windows.Forms.Label Overall;
-        private ZBobb.AlphaBlendTextBox NombrePilotoTextBox;
-        private ZBobb.AlphaBlendTextBox EquipoTextBox;
-        private ZBobb.AlphaBlendTextBox ApodoTextBox;
+        private System.Windows.Forms.TextBox NombrePilotoTextBox;
+        private System.Windows.Forms.TextBox EquipoTextBox;
+        private System.Windows.Forms.TextBox ApodoTextBox;
         private System.Windows.Forms.Button BackDriver;
         private System.Windows.Forms.Button NextDriver;
-        private ZBobb.AlphaBlendTextBox TotalTextBox;
-        private ZBobb.AlphaBlendTextBox WinRateTextBox;
-        private ZBobb.AlphaBlendTextBox DerrotaTextBox;
-        private ZBobb.AlphaBlendTextBox VictoriaTextBox;
-        private ZBobb.AlphaBlendTextBox PesoTextBox;
-        private ZBobb.AlphaBlendTextBox AlturaTextBox;
-        private ZBobb.AlphaBlendTextBox RivalTextBox;
-        private ZBobb.AlphaBlendTextBox EdadTextBox;
+        private System.Windows.Forms.TextBox TotalTextBox;
+        private System.Windows.Forms.TextBox WinRateTextBox;
+        private System.Windows.Forms.TextBox DerrotaTextBox;
+        private System.Windows.Forms.TextBox VictoriaTextBox;
+        private System.Windows.Forms.TextBox PesoTextBox;
+        private System.Windows.Forms.TextBox AlturaTextBox;
+        private System.Windows.Forms.TextBox RivalTextBox;
+        private System.Windows.Forms.TextBox EdadTextBox;
         private System.Windows.Forms.PictureBox BanderasPictureBox;
         private System.Windows.Forms.PictureBox AutosPictureBox;
         private System.Windows.Forms.Button BackAuto;
@@ -4239,14 +4210,14 @@ namespace Touge_App
         private System.Windows.Forms.Label PesoPotenciaLabel;
         private System.Windows.Forms.Label PesoLabel;
         private System.Windows.Forms.Label PotenciaLabel;
-        private ZBobb.AlphaBlendTextBox YearLabel;
-        private ZBobb.AlphaBlendTextBox NmLabel;
-        private ZBobb.AlphaBlendTextBox CatLabel;
-        private ZBobb.AlphaBlendTextBox KmLabel;
-        private ZBobb.AlphaBlendTextBox TopLabel;
-        private ZBobb.AlphaBlendTextBox KgHp;
-        private ZBobb.AlphaBlendTextBox KgLabel;
-        private ZBobb.AlphaBlendTextBox HpLabel;
+        private System.Windows.Forms.TextBox YearLabel;
+        private System.Windows.Forms.TextBox NmLabel;
+        private System.Windows.Forms.TextBox CatLabel;
+        private System.Windows.Forms.TextBox KmLabel;
+        private System.Windows.Forms.TextBox TopLabel;
+        private System.Windows.Forms.TextBox KgHp;
+        private System.Windows.Forms.TextBox KgLabel;
+        private System.Windows.Forms.TextBox HpLabel;
         private System.Windows.Forms.Label SPlusLabel;
         private System.Windows.Forms.Label SLabel;
         private System.Windows.Forms.Label ALabel;
@@ -4266,7 +4237,6 @@ namespace Touge_App
         private System.Windows.Forms.Button NextModalidad;
         private System.Windows.Forms.Label SubitaTitulo;
         private System.Windows.Forms.Label RandomTitulo;
-        private System.Windows.Forms.Label NombrePilotoLabel;
         private System.Windows.Forms.Label SemiProLabel;
         private System.Windows.Forms.Label AmateurLabel;
         private System.Windows.Forms.Label JuniorLabel;
