@@ -14,6 +14,22 @@ namespace Touge_App
     public partial class TougeForms : Form
     {
         //SONIDOS, AUDIO Y MUSICA
+        enum Precios
+        {
+            aceite = 85,
+            manMotor = 125,
+            manAuto = 75,
+            makeAWD = 2500,
+            turbo = 5000,
+            repro = 750,
+            swapEngine = 0,
+            reduccionWeight = 235,
+            carWash = 50,
+            seguro = 750,
+            dryTyres = 1120,
+            rainTyres = 1260,
+            vinilos = 35
+        }
         private readonly WaveOutEvent waveOutDevice = new WaveOutEvent();
         readonly private SoundPlayer compraSonido = new SoundPlayer("C:/Users/Santino/Desktop/Repositorio GITHUB/Proyectos Finales/P4_Touge-App/Touge_App/Touge_App/Musica/Mp3Sounds/Buying.wav");
         readonly private SoundPlayer aceiteSonido = new SoundPlayer(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\Musica\Mp3Sounds\AceiteSonido.wav");
@@ -49,20 +65,7 @@ namespace Touge_App
         List<Electronicos> listaElectro = new List<Electronicos>();
         List<EShopPanels> listaMisCosas; //Lista De Paneles (8-Max)
         List<MisObjetos> listaObjetosAux = null; //Lista de Mis Objetos
-        //PRECIOS
-        readonly int aceite = 85;
-        readonly int manMotor = 125;
-        readonly int manAuto = 75;
-        readonly int makeAWD = 2500;
-        readonly int turbo = 5000;
-        readonly int repro = 750;
-        readonly int swapEngine = 0;
-        readonly int reduccionWeight = 235;
-        readonly int carWash = 50;
-        readonly int seguro = 750;
-        readonly int dryTyres = 1120;
-        readonly int rainTyres = 1260;
-        readonly int vinilos = 35;
+
         //Fecha
         Fecha fechaAux;
         DateTime fechaManager;
@@ -205,13 +208,13 @@ namespace Touge_App
             alquileres1.ButtonClick += MiUserControl_ButtonClick;
             alquileres2.ButtonClick += MiUserControl2_ButtonClick;
             ShopPanel1.ButtonClick += ShopPanel1_ButtonClick; ShopPanel2.ButtonClick += ShopPanel1_ButtonClick; ShopPanel3.ButtonClick += ShopPanel1_ButtonClick; ShopPanel4.ButtonClick += ShopPanel1_ButtonClick; ShopPanel5.ButtonClick += ShopPanel1_ButtonClick; ShopPanel6.ButtonClick += ShopPanel1_ButtonClick; ShopPanel7.ButtonClick += ShopPanel1_ButtonClick; ShopPanel8.ButtonClick += ShopPanel1_ButtonClick;
-            PanelComida1.ButtonClick += PanelComida1_ButtonClick;PanelComida2.ButtonClick += PanelComida1_ButtonClick; PanelComida3.ButtonClick += PanelComida1_ButtonClick;PanelComida4.ButtonClick += PanelComida1_ButtonClick;
-            mecanico1.ButtonClick += Mecanico1_ButtonClick;mecanico2.ButtonClick += Mecanico2_ButtonClick;mecanico3.ButtonClick += Mecanico3_ButtonClick;mecanico4.ButtonClick += Mecanico4_ButtonClick;
+            PanelComida1.ButtonClick += PanelComida1_ButtonClick; PanelComida2.ButtonClick += PanelComida1_ButtonClick; PanelComida3.ButtonClick += PanelComida1_ButtonClick; PanelComida4.ButtonClick += PanelComida1_ButtonClick;
+            mecanico1.ButtonClick += Mecanico1_ButtonClick; mecanico2.ButtonClick += Mecanico2_ButtonClick; mecanico3.ButtonClick += Mecanico3_ButtonClick; mecanico4.ButtonClick += Mecanico4_ButtonClick;
             timerCompra.Tick += Timer1_Tick;
             timerCursor.Tick += Timer2_Tick;
             timerCompra.Enabled = false;
-            Higiene1.ButtonClick += Higiene1_ButtonClick; Higiene2.ButtonClick += Higiene2_ButtonClick;Higiene3.ButtonClick += Higiene3_ButtonClick;
-            gastosDiarios1.ButtonClick += GastosDiarios1_ButtonClick;gastosDiarios2.ButtonClick += GastosDiarios2_ButtonClick;gastosDiarios3.ButtonClick += GastosDiarios3_ButtonClick;gastosDiarios4.ButtonClick += GastosDiarios4_ButtonClick;gastosDiarios5.ButtonClick += GastosDiarios5_ButtonClick;gastosDiarios6.ButtonClick += GastosDiarios6_ButtonClick;
+            Higiene1.ButtonClick += Higiene1_ButtonClick; Higiene2.ButtonClick += Higiene2_ButtonClick; Higiene3.ButtonClick += Higiene3_ButtonClick;
+            gastosDiarios1.ButtonClick += GastosDiarios1_ButtonClick; gastosDiarios2.ButtonClick += GastosDiarios2_ButtonClick; gastosDiarios3.ButtonClick += GastosDiarios3_ButtonClick; gastosDiarios4.ButtonClick += GastosDiarios4_ButtonClick; gastosDiarios5.ButtonClick += GastosDiarios5_ButtonClick; gastosDiarios6.ButtonClick += GastosDiarios6_ButtonClick;
             // HAGO GET A  ROPA, MUEBLES, ELECTRONICOS, COMIDA, HIGIENE
             listaRopa = negocioRopa.DevolverRopa();
             listaMuebles = negocioMuebles.DevolverMuebles();
@@ -247,7 +250,7 @@ namespace Touge_App
             estadoSeguro = negocioMiAuto.LeerSeguro();
             //VERIFICACIONES DE LAS OLBIGACIONES A PAGAR PAGOS
             FechaLabel.Text = Formato;
-            
+
             if (!estadoSeguro)
             {
                 mensajeBox.Mostrar("Necesita Pagar el Seguro! Si su auto se destroza no percibira nada de dinero");
@@ -2043,38 +2046,38 @@ namespace Touge_App
         private void ComidaPaginaUno(int valor)
         {
             PanelComida1.Titulo = ListaComida[valor].NombrePack;
-            PanelComida2.Titulo = ListaComida[valor+1].NombrePack;
-            PanelComida3.Titulo = ListaComida[valor+2].NombrePack;
-            PanelComida4.Titulo = ListaComida[valor+3].NombrePack;
+            PanelComida2.Titulo = ListaComida[valor + 1].NombrePack;
+            PanelComida3.Titulo = ListaComida[valor + 2].NombrePack;
+            PanelComida4.Titulo = ListaComida[valor + 3].NombrePack;
             PanelComida1.Id = ListaComida[valor].Id;
-            PanelComida2.Id = ListaComida[valor+1].Id;
-            PanelComida3.Id = ListaComida[valor+2].Id;
-            PanelComida4.Id = ListaComida[valor+3].Id;
+            PanelComida2.Id = ListaComida[valor + 1].Id;
+            PanelComida3.Id = ListaComida[valor + 2].Id;
+            PanelComida4.Id = ListaComida[valor + 3].Id;
             PanelComida1.Comprado = ListaComida[valor].Comprado;
-            PanelComida2.Comprado = ListaComida[valor+1].Comprado;
-            PanelComida3.Comprado = ListaComida[valor+2].Comprado;
-            PanelComida4.Comprado = ListaComida[valor+3].Comprado;
+            PanelComida2.Comprado = ListaComida[valor + 1].Comprado;
+            PanelComida3.Comprado = ListaComida[valor + 2].Comprado;
+            PanelComida4.Comprado = ListaComida[valor + 3].Comprado;
             PanelComida1.Precio = "$ " + (ListaComida[valor].Precio - 1).ToString() + ".99";
-            PanelComida2.Precio = "$ " + (ListaComida[valor+1].Precio - 1).ToString() + ".99";
-            PanelComida3.Precio = "$ " + (ListaComida[valor+2].Precio - 1).ToString() + ".99";
-            PanelComida4.Precio = "$ " + (ListaComida[valor+3].Precio - 1).ToString() + ".99";
+            PanelComida2.Precio = "$ " + (ListaComida[valor + 1].Precio - 1).ToString() + ".99";
+            PanelComida3.Precio = "$ " + (ListaComida[valor + 2].Precio - 1).ToString() + ".99";
+            PanelComida4.Precio = "$ " + (ListaComida[valor + 3].Precio - 1).ToString() + ".99";
             PanelComida1.CargarImagenes(ListaComida[valor].Imagen);
-            PanelComida2.CargarImagenes(ListaComida[valor+1].Imagen);
-            PanelComida3.CargarImagenes(ListaComida[valor+2].Imagen);
-            PanelComida4.CargarImagenes(ListaComida[valor+3].Imagen);
+            PanelComida2.CargarImagenes(ListaComida[valor + 1].Imagen);
+            PanelComida3.CargarImagenes(ListaComida[valor + 2].Imagen);
+            PanelComida4.CargarImagenes(ListaComida[valor + 3].Imagen);
             if (!ListaComida[valor].Comprado)
                 PanelComida1.SoldOut();
             else
                 PanelComida1.OcultarSold();
-            if (!ListaComida[valor+1].Comprado)
+            if (!ListaComida[valor + 1].Comprado)
                 PanelComida2.SoldOut();
             else
                 PanelComida2.OcultarSold();
-            if (!ListaComida[valor+2].Comprado)
+            if (!ListaComida[valor + 2].Comprado)
                 PanelComida3.SoldOut();
             else
                 PanelComida3.OcultarSold();
-            if (!ListaComida[valor+3].Comprado)
+            if (!ListaComida[valor + 3].Comprado)
                 PanelComida4.SoldOut();
             else
                 PanelComida4.OcultarSold();
@@ -2390,7 +2393,7 @@ namespace Touge_App
             bool pagado = false;
             DialogResult resultado = MessageBox.Show("¿Desea Pagar estos servicios?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult.Yes == resultado)
-            {         
+            {
                 while (pagado)
                 {
                     if (!estadoFacturas)
@@ -2497,7 +2500,7 @@ namespace Touge_App
                         mensajeBox.Mostrar("Usted Ya abono los servicios este mes!");
                         pagado = true;
                     }
-                        
+
                 }
                 if (!estadoComida)
                 {
@@ -2555,59 +2558,59 @@ namespace Touge_App
                 ShopPanel1.SoldOut();
             else
                 ShopPanel1.OcultarSold();
-            ShopPanel2.Precio = "$ " + (listaRopa[validador+1].Precio - 1).ToString() + ".99";
-            ShopPanel2.CargarImagenes(listaRopa[validador+1].Imagen);
-            ShopPanel2.NombreProducto = listaRopa[validador+1].NombreRopa;
-            ShopPanel2.Id = listaRopa[validador+1].Id;
-            if (!listaRopa[validador+1].Comprado)
+            ShopPanel2.Precio = "$ " + (listaRopa[validador + 1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaRopa[validador + 1].Imagen);
+            ShopPanel2.NombreProducto = listaRopa[validador + 1].NombreRopa;
+            ShopPanel2.Id = listaRopa[validador + 1].Id;
+            if (!listaRopa[validador + 1].Comprado)
                 ShopPanel2.SoldOut();
             else
                 ShopPanel2.OcultarSold();
-            ShopPanel3.Precio = "$ " + (listaRopa[validador+2].Precio - 1).ToString() + ".99";
-            ShopPanel3.CargarImagenes(listaRopa[validador+2].Imagen);
-            ShopPanel3.NombreProducto = listaRopa[validador+2].NombreRopa;
-            ShopPanel3.Id = listaRopa[validador+2].Id;
-            if (!listaRopa[validador+2].Comprado)
+            ShopPanel3.Precio = "$ " + (listaRopa[validador + 2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaRopa[validador + 2].Imagen);
+            ShopPanel3.NombreProducto = listaRopa[validador + 2].NombreRopa;
+            ShopPanel3.Id = listaRopa[validador + 2].Id;
+            if (!listaRopa[validador + 2].Comprado)
                 ShopPanel3.SoldOut();
             else
                 ShopPanel3.OcultarSold();
-            ShopPanel4.Precio = "$ " + (listaRopa[validador+3].Precio - 1).ToString() + ".99";
-            ShopPanel4.CargarImagenes(listaRopa[validador+3].Imagen);
-            ShopPanel4.NombreProducto = listaRopa[validador+3].NombreRopa;
-            ShopPanel4.Id = listaRopa[validador+3].Id;
-            if (!listaRopa[validador+3].Comprado)
+            ShopPanel4.Precio = "$ " + (listaRopa[validador + 3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaRopa[validador + 3].Imagen);
+            ShopPanel4.NombreProducto = listaRopa[validador + 3].NombreRopa;
+            ShopPanel4.Id = listaRopa[validador + 3].Id;
+            if (!listaRopa[validador + 3].Comprado)
                 ShopPanel4.SoldOut();
             else
                 ShopPanel4.OcultarSold();
-            ShopPanel5.Precio = "$ " + (listaRopa[validador+4].Precio - 1).ToString() + ".99";
-            ShopPanel5.CargarImagenes(listaRopa[validador+4].Imagen);
-            ShopPanel5.NombreProducto = listaRopa[validador+4].NombreRopa;
-            ShopPanel5.Id = listaRopa[validador+4].Id;
-            if (!listaRopa[validador+4].Comprado)
+            ShopPanel5.Precio = "$ " + (listaRopa[validador + 4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaRopa[validador + 4].Imagen);
+            ShopPanel5.NombreProducto = listaRopa[validador + 4].NombreRopa;
+            ShopPanel5.Id = listaRopa[validador + 4].Id;
+            if (!listaRopa[validador + 4].Comprado)
                 ShopPanel5.SoldOut();
             else
                 ShopPanel5.OcultarSold();
-            ShopPanel6.Precio = "$ " + (listaRopa[validador+5].Precio - 1).ToString() + ".99";
-            ShopPanel6.CargarImagenes(listaRopa[validador+5].Imagen);
-            ShopPanel6.NombreProducto = listaRopa[validador+5].NombreRopa;
-            ShopPanel6.Id = listaRopa[validador+5].Id;
-            if (!listaRopa[validador+5].Comprado)
+            ShopPanel6.Precio = "$ " + (listaRopa[validador + 5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaRopa[validador + 5].Imagen);
+            ShopPanel6.NombreProducto = listaRopa[validador + 5].NombreRopa;
+            ShopPanel6.Id = listaRopa[validador + 5].Id;
+            if (!listaRopa[validador + 5].Comprado)
                 ShopPanel6.SoldOut();
             else
                 ShopPanel6.OcultarSold();
-            ShopPanel7.Precio = "$ " + (listaRopa[validador+6].Precio - 1).ToString() + ".99";
-            ShopPanel7.CargarImagenes(listaRopa[validador+6].Imagen);
-            ShopPanel7.NombreProducto = listaRopa[validador+6].NombreRopa;
-            ShopPanel7.Id = listaRopa[validador+6].Id;
-            if (!listaRopa[validador+6].Comprado)
+            ShopPanel7.Precio = "$ " + (listaRopa[validador + 6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaRopa[validador + 6].Imagen);
+            ShopPanel7.NombreProducto = listaRopa[validador + 6].NombreRopa;
+            ShopPanel7.Id = listaRopa[validador + 6].Id;
+            if (!listaRopa[validador + 6].Comprado)
                 ShopPanel7.SoldOut();
             else
                 ShopPanel7.OcultarSold();
-            ShopPanel8.Precio = "$ " + (listaRopa[validador+7].Precio - 1).ToString() + ".99";
-            ShopPanel8.CargarImagenes(listaRopa[validador+7].Imagen);
-            ShopPanel8.NombreProducto = listaRopa[validador+7].NombreRopa;
-            ShopPanel8.Id = listaRopa[validador+7].Id;
-            if (!listaRopa[validador+7].Comprado)
+            ShopPanel8.Precio = "$ " + (listaRopa[validador + 7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaRopa[validador + 7].Imagen);
+            ShopPanel8.NombreProducto = listaRopa[validador + 7].NombreRopa;
+            ShopPanel8.Id = listaRopa[validador + 7].Id;
+            if (!listaRopa[validador + 7].Comprado)
                 ShopPanel8.SoldOut();
             else
                 ShopPanel8.OcultarSold();
@@ -2637,59 +2640,59 @@ namespace Touge_App
                 ShopPanel1.SoldOut();
             else
                 ShopPanel1.OcultarSold();
-            ShopPanel2.Precio = "$ " + (listaMuebles[valor+1].Precio - 1).ToString() + ".99";
-            ShopPanel2.CargarImagenes(listaMuebles[valor+1].Imagen);
-            ShopPanel2.NombreProducto = listaMuebles[valor+1].NombreMueble;
-            ShopPanel2.Id = listaMuebles[valor+1].Id;
-            if (!listaMuebles[valor+1].Comprado)
+            ShopPanel2.Precio = "$ " + (listaMuebles[valor + 1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaMuebles[valor + 1].Imagen);
+            ShopPanel2.NombreProducto = listaMuebles[valor + 1].NombreMueble;
+            ShopPanel2.Id = listaMuebles[valor + 1].Id;
+            if (!listaMuebles[valor + 1].Comprado)
                 ShopPanel2.SoldOut();
             else
                 ShopPanel2.OcultarSold();
-            ShopPanel3.Precio = "$ " + (listaMuebles[valor+2].Precio - 1).ToString() + ".99";
-            ShopPanel3.CargarImagenes(listaMuebles[valor+2].Imagen);
-            ShopPanel3.NombreProducto = listaMuebles[valor+2].NombreMueble;
-            ShopPanel3.Id = listaMuebles[valor+2].Id;
-            if (!listaMuebles[valor+2].Comprado)
+            ShopPanel3.Precio = "$ " + (listaMuebles[valor + 2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaMuebles[valor + 2].Imagen);
+            ShopPanel3.NombreProducto = listaMuebles[valor + 2].NombreMueble;
+            ShopPanel3.Id = listaMuebles[valor + 2].Id;
+            if (!listaMuebles[valor + 2].Comprado)
                 ShopPanel3.SoldOut();
             else
                 ShopPanel3.OcultarSold();
-            ShopPanel4.Precio = "$ " + (listaMuebles[valor+3].Precio - 1).ToString() + ".99";
-            ShopPanel4.CargarImagenes(listaMuebles[valor+3].Imagen);
-            ShopPanel4.NombreProducto = listaMuebles[valor+3].NombreMueble;
-            ShopPanel4.Id = listaMuebles[valor+3].Id;
-            if (!listaMuebles[valor+3].Comprado)
+            ShopPanel4.Precio = "$ " + (listaMuebles[valor + 3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaMuebles[valor + 3].Imagen);
+            ShopPanel4.NombreProducto = listaMuebles[valor + 3].NombreMueble;
+            ShopPanel4.Id = listaMuebles[valor + 3].Id;
+            if (!listaMuebles[valor + 3].Comprado)
                 ShopPanel4.SoldOut();
             else
                 ShopPanel4.OcultarSold();
-            ShopPanel5.Precio = "$ " + (listaMuebles[valor+4].Precio - 1).ToString() + ".99";
-            ShopPanel5.CargarImagenes(listaMuebles[valor+4].Imagen);
-            ShopPanel5.NombreProducto = listaMuebles[valor+4].NombreMueble;
-            ShopPanel5.Id = listaMuebles[valor+4].Id;
-            if (!listaMuebles[valor+4].Comprado)
+            ShopPanel5.Precio = "$ " + (listaMuebles[valor + 4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaMuebles[valor + 4].Imagen);
+            ShopPanel5.NombreProducto = listaMuebles[valor + 4].NombreMueble;
+            ShopPanel5.Id = listaMuebles[valor + 4].Id;
+            if (!listaMuebles[valor + 4].Comprado)
                 ShopPanel5.SoldOut();
             else
                 ShopPanel5.OcultarSold();
-            ShopPanel6.Precio = "$ " + (listaMuebles[valor+5].Precio - 1).ToString() + ".99";
-            ShopPanel6.CargarImagenes(listaMuebles[valor+5].Imagen);
-            ShopPanel6.NombreProducto = listaMuebles[valor+5].NombreMueble;
-            ShopPanel6.Id = listaMuebles[valor+5].Id;
-            if (!listaMuebles[valor+5].Comprado)
+            ShopPanel6.Precio = "$ " + (listaMuebles[valor + 5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaMuebles[valor + 5].Imagen);
+            ShopPanel6.NombreProducto = listaMuebles[valor + 5].NombreMueble;
+            ShopPanel6.Id = listaMuebles[valor + 5].Id;
+            if (!listaMuebles[valor + 5].Comprado)
                 ShopPanel6.SoldOut();
             else
                 ShopPanel6.OcultarSold();
-            ShopPanel7.Precio = "$ " + (listaMuebles[valor+6].Precio - 1).ToString() + ".99";
-            ShopPanel7.CargarImagenes(listaMuebles[valor+6].Imagen);
-            ShopPanel7.NombreProducto = listaMuebles[valor+6].NombreMueble;
-            ShopPanel7.Id = listaMuebles[valor+6].Id;
-            if (!listaMuebles[valor+6].Comprado)
+            ShopPanel7.Precio = "$ " + (listaMuebles[valor + 6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaMuebles[valor + 6].Imagen);
+            ShopPanel7.NombreProducto = listaMuebles[valor + 6].NombreMueble;
+            ShopPanel7.Id = listaMuebles[valor + 6].Id;
+            if (!listaMuebles[valor + 6].Comprado)
                 ShopPanel7.SoldOut();
             else
                 ShopPanel7.OcultarSold();
-            ShopPanel8.Precio = "$ " + (listaMuebles[valor+7].Precio - 1).ToString() + ".99";
-            ShopPanel8.CargarImagenes(listaMuebles[valor+7].Imagen);
-            ShopPanel8.NombreProducto = listaMuebles[valor+7].NombreMueble;
-            ShopPanel8.Id = listaMuebles[valor+7].Id;
-            if (!listaMuebles[valor+7].Comprado)
+            ShopPanel8.Precio = "$ " + (listaMuebles[valor + 7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaMuebles[valor + 7].Imagen);
+            ShopPanel8.NombreProducto = listaMuebles[valor + 7].NombreMueble;
+            ShopPanel8.Id = listaMuebles[valor + 7].Id;
+            if (!listaMuebles[valor + 7].Comprado)
                 ShopPanel8.SoldOut();
             else
                 ShopPanel8.OcultarSold();
@@ -2719,59 +2722,59 @@ namespace Touge_App
                 ShopPanel1.SoldOut();
             else
                 ShopPanel1.OcultarSold();
-            ShopPanel2.Precio = "$ " + (listaElectro[validador+1].Precio - 1).ToString() + ".99";
-            ShopPanel2.CargarImagenes(listaElectro[validador+1].Imagen);
-            ShopPanel2.NombreProducto = listaElectro[validador+1].NombreElectronicos;
-            ShopPanel2.Id = listaElectro[validador+1].Id;
-            if (!listaElectro[validador+1].Comprado)
+            ShopPanel2.Precio = "$ " + (listaElectro[validador + 1].Precio - 1).ToString() + ".99";
+            ShopPanel2.CargarImagenes(listaElectro[validador + 1].Imagen);
+            ShopPanel2.NombreProducto = listaElectro[validador + 1].NombreElectronicos;
+            ShopPanel2.Id = listaElectro[validador + 1].Id;
+            if (!listaElectro[validador + 1].Comprado)
                 ShopPanel2.SoldOut();
             else
                 ShopPanel2.OcultarSold();
-            ShopPanel3.Precio = "$ " + (listaElectro[validador+2].Precio - 1).ToString() + ".99";
-            ShopPanel3.CargarImagenes(listaElectro[validador+2].Imagen);
-            ShopPanel3.NombreProducto = listaElectro[validador+2].NombreElectronicos;
-            ShopPanel3.Id = listaElectro[validador+2].Id;
-            if (!listaElectro[validador+2].Comprado)
+            ShopPanel3.Precio = "$ " + (listaElectro[validador + 2].Precio - 1).ToString() + ".99";
+            ShopPanel3.CargarImagenes(listaElectro[validador + 2].Imagen);
+            ShopPanel3.NombreProducto = listaElectro[validador + 2].NombreElectronicos;
+            ShopPanel3.Id = listaElectro[validador + 2].Id;
+            if (!listaElectro[validador + 2].Comprado)
                 ShopPanel3.SoldOut();
             else
                 ShopPanel3.OcultarSold();
-            ShopPanel4.Precio = "$ " + (listaElectro[validador+3].Precio - 1).ToString() + ".99";
-            ShopPanel4.CargarImagenes(listaElectro[validador+3].Imagen);
-            ShopPanel4.NombreProducto = listaElectro[validador+3].NombreElectronicos;
-            ShopPanel4.Id = listaElectro[validador+3].Id;
-            if (!listaElectro[validador+3].Comprado)
+            ShopPanel4.Precio = "$ " + (listaElectro[validador + 3].Precio - 1).ToString() + ".99";
+            ShopPanel4.CargarImagenes(listaElectro[validador + 3].Imagen);
+            ShopPanel4.NombreProducto = listaElectro[validador + 3].NombreElectronicos;
+            ShopPanel4.Id = listaElectro[validador + 3].Id;
+            if (!listaElectro[validador + 3].Comprado)
                 ShopPanel4.SoldOut();
             else
                 ShopPanel4.OcultarSold();
-            ShopPanel5.Precio = "$ " + (listaElectro[validador+4].Precio - 1).ToString() + ".99";
-            ShopPanel5.CargarImagenes(listaElectro[validador+4].Imagen);
-            ShopPanel5.NombreProducto = listaElectro[validador+4].NombreElectronicos;
-            ShopPanel5.Id = listaElectro[validador+4].Id;
-            if (!listaElectro[validador+4].Comprado)
+            ShopPanel5.Precio = "$ " + (listaElectro[validador + 4].Precio - 1).ToString() + ".99";
+            ShopPanel5.CargarImagenes(listaElectro[validador + 4].Imagen);
+            ShopPanel5.NombreProducto = listaElectro[validador + 4].NombreElectronicos;
+            ShopPanel5.Id = listaElectro[validador + 4].Id;
+            if (!listaElectro[validador + 4].Comprado)
                 ShopPanel5.SoldOut();
             else
                 ShopPanel5.OcultarSold();
-            ShopPanel6.Precio = "$ " + (listaElectro[validador+5].Precio - 1).ToString() + ".99";
-            ShopPanel6.CargarImagenes(listaElectro[validador+5].Imagen);
-            ShopPanel6.NombreProducto = listaElectro[validador+5].NombreElectronicos;
-            ShopPanel6.Id = listaElectro[validador+5].Id;
-            if (!listaElectro[validador+5].Comprado)
+            ShopPanel6.Precio = "$ " + (listaElectro[validador + 5].Precio - 1).ToString() + ".99";
+            ShopPanel6.CargarImagenes(listaElectro[validador + 5].Imagen);
+            ShopPanel6.NombreProducto = listaElectro[validador + 5].NombreElectronicos;
+            ShopPanel6.Id = listaElectro[validador + 5].Id;
+            if (!listaElectro[validador + 5].Comprado)
                 ShopPanel6.SoldOut();
             else
                 ShopPanel6.OcultarSold();
-            ShopPanel7.Precio = "$ " + (listaElectro[validador+6].Precio - 1).ToString() + ".99";
-            ShopPanel7.CargarImagenes(listaElectro[validador+6].Imagen);
-            ShopPanel7.NombreProducto = listaElectro[validador+6].NombreElectronicos;
-            ShopPanel7.Id = listaElectro[validador+6].Id;
-            if (!listaElectro[validador+6].Comprado)
+            ShopPanel7.Precio = "$ " + (listaElectro[validador + 6].Precio - 1).ToString() + ".99";
+            ShopPanel7.CargarImagenes(listaElectro[validador + 6].Imagen);
+            ShopPanel7.NombreProducto = listaElectro[validador + 6].NombreElectronicos;
+            ShopPanel7.Id = listaElectro[validador + 6].Id;
+            if (!listaElectro[validador + 6].Comprado)
                 ShopPanel7.SoldOut();
             else
                 ShopPanel7.OcultarSold();
-            ShopPanel8.Precio = "$ " + (listaElectro[validador+7].Precio - 1).ToString() + ".99";
-            ShopPanel8.CargarImagenes(listaElectro[validador+7].Imagen);
-            ShopPanel8.NombreProducto = listaElectro[validador+7].NombreElectronicos;
-            ShopPanel8.Id = listaElectro[validador+7].Id;
-            if (!listaElectro[validador+7].Comprado)
+            ShopPanel8.Precio = "$ " + (listaElectro[validador + 7].Precio - 1).ToString() + ".99";
+            ShopPanel8.CargarImagenes(listaElectro[validador + 7].Imagen);
+            ShopPanel8.NombreProducto = listaElectro[validador + 7].NombreElectronicos;
+            ShopPanel8.Id = listaElectro[validador + 7].Id;
+            if (!listaElectro[validador + 7].Comprado)
                 ShopPanel8.SoldOut();
             else
                 ShopPanel8.OcultarSold();
@@ -3064,10 +3067,10 @@ namespace Touge_App
             mecanico2.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Car-Service-Boton.png");
             mecanico3.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Motor.png");
             mecanico4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Peso.png");
-            mecanico1.Precio = string.Format("$ {0:N0}", aceite);
-            mecanico2.Precio = string.Format("$ {0:N0}", manAuto);
-            mecanico3.Precio = string.Format("$ {0:N0}", manMotor);
-            mecanico4.Precio = string.Format("$ {0:N0}", reduccionWeight);
+            mecanico1.Precio = string.Format("$ {0:N0}", (int)Precios.aceite);
+            mecanico2.Precio = string.Format("$ {0:N0}", (int)Precios.manAuto);
+            mecanico3.Precio = string.Format("$ {0:N0}", (int)Precios.manMotor);
+            mecanico4.Precio = string.Format("$ {0:N0}", (int)Precios.reduccionWeight);
             if (mecanico1.Visible == false)
             {
                 mecanico1.Visible = true;
@@ -3088,10 +3091,10 @@ namespace Touge_App
             mecanico2.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Turbo.Png");
             mecanico3.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\AWD.png");
             mecanico4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\Mecanico\Botones\Swap.png");
-            mecanico1.Precio = string.Format("$ {0:N0}", repro);
-            mecanico2.Precio = string.Format("$ {0:N0}", turbo);
-            mecanico3.Precio = string.Format("$ {0:N0}", makeAWD);
-            mecanico4.Precio = string.Format("$ {0:N0}", swapEngine);
+            mecanico1.Precio = string.Format("$ {0:N0}", (int)Precios.repro);
+            mecanico2.Precio = string.Format("$ {0:N0}", (int)Precios.turbo);
+            mecanico3.Precio = string.Format("$ {0:N0}", (int)Precios.makeAWD);
+            mecanico4.Precio = string.Format("$ {0:N0}", (int)Precios.swapEngine);
         }
         bool banderaPaginaMecanico = false;
         private void BackMecanico_Click(object sender, EventArgs e)
@@ -3114,7 +3117,7 @@ namespace Touge_App
         {
             if (!banderaPaginaMecanico)
             {
-                if (miDinero.MiDinero - aceite > 0)
+                if (miDinero.MiDinero - (int)Precios.aceite > 0)
                 {
                     if (!estadoAceite)
                     {
@@ -3122,7 +3125,7 @@ namespace Touge_App
                         estadoAceite = true;
                         NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
                         negocioMecanico.UpEstadoAuto(7);
-                        miDinero.MiDinero -= aceite;
+                        miDinero.MiDinero -= (int)Precios.aceite;
                         SonidosMecanico(1);
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
@@ -3141,7 +3144,7 @@ namespace Touge_App
             }
             else
             {
-                if (miDinero.MiDinero - repro > 0)
+                if (miDinero.MiDinero - (int)Precios.repro > 0)
                 {
 
                     if (!estadoRepro)
@@ -3150,7 +3153,7 @@ namespace Touge_App
                         compraSonido.Play();
                         NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
                         negocioMecanico.UpEstadoAuto(4);
-                        miDinero.MiDinero -= repro;
+                        miDinero.MiDinero -= (int)Precios.repro;
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         negocioMecanico.UpPesoPotencia();
                         plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
@@ -3178,14 +3181,14 @@ namespace Touge_App
         {
             if (!banderaPaginaMecanico)
             {
-                if (miDinero.MiDinero - manAuto > 0)
+                if (miDinero.MiDinero - (int)Precios.manAuto > 0)
                 {
                     if (!estadoAuto)
                     {
                         estadoAuto = true;
                         compraSonido.Play();
                         NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                        miDinero.MiDinero -= manAuto;
+                        miDinero.MiDinero -= (int)Precios.manAuto;
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         negocioMecanico.UpEstadoAuto(9);
                         plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
@@ -3205,7 +3208,7 @@ namespace Touge_App
             }
             else
             {
-                if (miDinero.MiDinero - turbo > 0)
+                if (miDinero.MiDinero - (int)Precios.turbo > 0)
                 {
                     if (!estadoTurbo && MiAuto.Aspiracion != "T")
                     {
@@ -3217,7 +3220,7 @@ namespace Touge_App
                         SonidosMecanico(3);
                         MiAuto = negocioMecanico.DevolverMiAuto();
                         negocioMecanico.UpPesoPotencia();
-                        miDinero.MiDinero -= turbo;
+                        miDinero.MiDinero -= (int)Precios.turbo;
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                         DineroMostrarLabel.Text = plataFormato;
@@ -3243,14 +3246,14 @@ namespace Touge_App
         {
             if (!banderaPaginaMecanico)
             {
-                if (miDinero.MiDinero - manMotor > 0)
+                if (miDinero.MiDinero - (int)Precios.manMotor > 0)
                 {
                     if (!estadoMotor)
                     {
                         estadoMotor = true;
                         compraSonido.Play();
                         NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                        miDinero.MiDinero -= manMotor;
+                        miDinero.MiDinero -= (int)Precios.manMotor;
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         negocioMecanico.UpEstadoAuto(8);
                         SonidosMecanico(2);
@@ -3271,7 +3274,7 @@ namespace Touge_App
             }
             else
             {
-                if (miDinero.MiDinero - makeAWD > 0)
+                if (miDinero.MiDinero - (int)Precios.makeAWD > 0)
                 {
                     if (!estadoAWD && MiAuto.Traccion != "AWD")
                     {
@@ -3280,7 +3283,7 @@ namespace Touge_App
                         NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
                         negocioMecanico.UpEstadoAuto(6);
                         negocioMecanico.UpdateMiAuto("AWD", 2);
-                        miDinero.MiDinero -= makeAWD;
+                        miDinero.MiDinero -= (int)Precios.makeAWD;
                         negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                         plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                         DineroMostrarLabel.Text = plataFormato;
@@ -3307,11 +3310,11 @@ namespace Touge_App
         {
             if (!banderaPaginaMecanico)
             {
-                if (miDinero.MiDinero - reduccionWeight > 0)
+                if (miDinero.MiDinero - (int)Precios.reduccionWeight > 0)
                 {
                     compraSonido.Play();
                     NegocioBaseDatos negocioMecanico = new NegocioBaseDatos();
-                    miDinero.MiDinero -= reduccionWeight;
+                    miDinero.MiDinero -= (int)Precios.reduccionWeight;
                     negocioMecanico.ActualizarDinero(miDinero.MiDinero);
                     negocioMecanico.UpEstadoAuto(11, MiAuto.Peso);
                     negocioMecanico.UpPesoPotencia();
@@ -3356,12 +3359,12 @@ namespace Touge_App
             gastosDiarios4.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Tyres.png");
             gastosDiarios5.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\Seguro.png");
             gastosDiarios6.CargarImagenesBoton(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Economia\\GastosDiarios\Botones\BBS.png");
-            gastosDiarios1.Precio = string.Format("$ {0:N0}", carWash);
+            gastosDiarios1.Precio = string.Format("$ {0:N0}", (int)Precios.carWash);
             gastosDiarios2.Precio = "$2,5 C/L";
-            gastosDiarios3.Precio = string.Format("$ {0:N0}", dryTyres);
-            gastosDiarios4.Precio = string.Format("$ {0:N0}", rainTyres);
-            gastosDiarios5.Precio = string.Format("$ {0:N0}", seguro);
-            gastosDiarios6.Precio = string.Format("$ {0:N0}", vinilos);
+            gastosDiarios3.Precio = string.Format("$ {0:N0}", (int)Precios.dryTyres);
+            gastosDiarios4.Precio = string.Format("$ {0:N0}", (int)Precios.rainTyres);
+            gastosDiarios5.Precio = string.Format("$ {0:N0}", (int)Precios.seguro);
+            gastosDiarios6.Precio = string.Format("$ {0:N0}", (int)Precios.vinilos);
             if (gastosDiarios1.Visible == false)
             {
                 gastosDiarios1.Visible = true;
@@ -3374,13 +3377,13 @@ namespace Touge_App
         }
         private void GastosDiarios1_ButtonClick(object sender, EventArgs e)
         {
-            if (miDinero.MiDinero - carWash >= 0)
+            if (miDinero.MiDinero - (int)Precios.carWash >= 0)
             {
                 compraSonido.Play();
                 SonidosMecanico(4);
                 NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
                 negocioGastos.UpEstadoAuto(12, 0, true);
-                miDinero.MiDinero -= carWash;
+                miDinero.MiDinero -= (int)Precios.carWash;
                 negocioGastos.ActualizarDinero(miDinero.MiDinero);
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
@@ -3417,13 +3420,13 @@ namespace Touge_App
         }
         private void GastosDiarios3_ButtonClick(object sender, EventArgs e)
         {
-            if (miDinero.MiDinero - dryTyres >= 0)
+            if (miDinero.MiDinero - (int)Precios.dryTyres >= 0)
             {
                 compraSonido.Play();
                 SonidosMecanico(5);
                 NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
                 negocioGastos.UpEstadoAuto(14);
-                miDinero.MiDinero -= dryTyres;
+                miDinero.MiDinero -= (int)Precios.dryTyres;
                 negocioGastos.ActualizarDinero(miDinero.MiDinero);
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
@@ -3434,13 +3437,13 @@ namespace Touge_App
         }
         private void GastosDiarios4_ButtonClick(object sender, EventArgs e)
         {
-            if (miDinero.MiDinero - rainTyres >= 0)
+            if (miDinero.MiDinero - (int)Precios.rainTyres >= 0)
             {
                 compraSonido.Play();
                 SonidosMecanico(5);
                 NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
                 negocioGastos.UpEstadoAuto(16);
-                miDinero.MiDinero -= rainTyres;
+                miDinero.MiDinero -= (int)Precios.rainTyres;
                 negocioGastos.ActualizarDinero(miDinero.MiDinero);
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
@@ -3451,12 +3454,12 @@ namespace Touge_App
         }
         private void GastosDiarios5_ButtonClick(object sender, EventArgs e)
         {
-            if (miDinero.MiDinero - seguro >= 0)
+            if (miDinero.MiDinero - (int)Precios.seguro >= 0)
             {
                 compraSonido.Play();
                 NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
                 negocioGastos.UpdateSeguro(true);
-                miDinero.MiDinero -= seguro;
+                miDinero.MiDinero -= (int)Precios.seguro;
                 negocioGastos.ActualizarDinero(miDinero.MiDinero);
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
@@ -3465,12 +3468,12 @@ namespace Touge_App
         }
         private void GastosDiarios6_ButtonClick(object sender, EventArgs e)
         {
-            if (miDinero.MiDinero - vinilos >= 0)
+            if (miDinero.MiDinero - (int)Precios.vinilos >= 0)
             {
                 compraSonido.Play();
                 NegocioBaseDatos negocioGastos = new NegocioBaseDatos();
                 negocioGastos.Vinilos();
-                miDinero.MiDinero -= vinilos;
+                miDinero.MiDinero -= (int)Precios.vinilos;
                 negocioGastos.ActualizarDinero(miDinero.MiDinero);
                 plataFormato = string.Format("$ {0:N0}", miDinero.MiDinero);
                 DineroMostrarLabel.Text = plataFormato;
@@ -3893,7 +3896,7 @@ namespace Touge_App
                             listaMisCosas[0].NombreProducto = listaObjetosAux[indexM].NombreProducto;
                             listaMisCosas[0].CargarImagenes(listaObjetosAux[indexM].Imagen);
                             listaMisCosas[1].Location = ShopPanel2.Location;
-                            listaMisCosas[ 1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
+                            listaMisCosas[1].NombreProducto = listaObjetosAux[indexM + 1].NombreProducto;
                             listaMisCosas[1].CargarImagenes(listaObjetosAux[indexM + 1].Imagen);
                             listaMisCosas[2].Location = ShopPanel3.Location;
                             listaMisCosas[2].NombreProducto = listaObjetosAux[indexM + 2].NombreProducto;
@@ -4399,7 +4402,6 @@ namespace Touge_App
                     ventanaPilotos.ShowDialog();
                     CargaPilotos();
                 }
-
             }
             else
             {

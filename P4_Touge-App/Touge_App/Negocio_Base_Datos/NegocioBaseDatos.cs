@@ -1911,7 +1911,7 @@ namespace Negocio_Base_Datos
         public void Vinilos()
         {
             FuncionesNegocio vinilosBD = new FuncionesNegocio();
-            vinilosBD.SQLQuery("Update MiAuto set VinilosDisponible = VinilosDisponible+1");
+            vinilosBD.SQLQuery("Update MiAuto set VinilosDisponibles += 1");
             vinilosBD.EjecutarAccion();
         }
 
