@@ -1,0 +1,9 @@
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Debug\ClasesStatic.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Debug\ClasesStatic.pdb
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Debug\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Debug\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Debug\ClasesStatic.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Debug\ClasesStatic.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Debug\ClasesStatic.csproj.CopyComplete
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Debug\ClasesStatic.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Debug\ClasesStatic.pdb

@@ -23,7 +23,7 @@ namespace NegocioConDB
         public AccesoCentralBD()
         {
             comandoSQL = new SqlCommand();
-            conexionBD = new SqlConnection("server=.\\SQLEXPRESS01; database= CATALOGO_DB; integrated security= true");
+            conexionBD = new SqlConnection("server=.\\SQLEXPRESS01; database= CATALOGO_WEB_DB; integrated security= true");
         }
 
         //Con esta funcion seteamos el comando a Texto y la pasamos la linea de comando a ejecutar por parametro.
@@ -33,6 +33,20 @@ namespace NegocioConDB
             {
                 comandoSQL.CommandType = System.Data.CommandType.Text;
                 comandoSQL.CommandText = inyeccion;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public void SQLqueryStoreProcedure(string sp)
+        {
+            try
+            {
+                comandoSQL.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoSQL.CommandText = sp;
             }
             catch (Exception ex)
             {
@@ -53,6 +67,10 @@ namespace NegocioConDB
             }
             catch (Exception ex)
             { throw ex; }
+            finally
+            {
+                CerrarConexion();
+            }
         }
 
         //Similar al anterior con la diferencia de que no ejecutamos una accion de lectura, sino de modificacion contra la BD
@@ -74,7 +92,26 @@ namespace NegocioConDB
                 CerrarConexion();
             }
         }
-        //Cierra COnexion con la BD
+
+        public void EjecutarAccionContraBdOutPut()
+        {
+            try
+            {
+                comandoSQL.Connection = conexionBD;
+                conexionBD.Open();
+                comandoSQL.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+
+        //Cierra Conexion con la BD
         public void CerrarConexion()
         {
             try
