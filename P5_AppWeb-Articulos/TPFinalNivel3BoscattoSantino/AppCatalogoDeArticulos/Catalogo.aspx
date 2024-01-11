@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <%} %>
-                <div class="botones-container mt-1">
+                <div class="botones-container">
                     <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" />
                 </div>
             </div>
@@ -70,16 +70,16 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpCatalogo" runat="server" UpdateMode="Conditional" CssClass="d-none">
         <ContentTemplate>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4 align-items-start">
                 <asp:Repeater ID="RepetidorCatalogo" runat="server">
                     <ItemTemplate>
                         <div class="col mb-3">
-                            <div class="card h-100 mt-2 bg-warning <%--text-white bg-dark--%>">
+                            <div class="card h-100 bg-warning <%--text-white bg-dark--%> ">
                                 <img src="<%#Eval("ImagenDelProducto") %>" class="card-img-top MyImage " alt="...">
                                 <div class="card-body">
                                     <h4 class="card-title "><%#Eval("NombreDeArticulo") %></h4>
                                     <p class="card-text"><%#Eval("DescripcionDeArticulo") %></p>
-                                    <a href="#" class="text-start pe-auto mt-auto align-self-end">Mas Detalles</a>
+                                    <asp:Button  ID="MasDetalles" runat="server" Text="Mas Detalles" CssClass="btn btn-dark Info" OnClientClick='<%# "MasDetalles_Click(" + Container.ItemIndex + "); return true;" %>' OnClick="MasDetalles_Click" />
                                     <p class="Plata mt-auto align-self-end">$ <%#Eval("PrecioDelProducto") %></p>
                                 </div>
                             </div>
@@ -93,4 +93,13 @@
             <asp:AsyncPostBackTrigger ControlID="Clean" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
+    <script>
+        function MasDetalles_Click(index) {
+            // Capturar el valor en JavaScript usando el índice
+            var idValue = document.getElementById('idValue_' + index).textContent;
+            alert(idValue);
+            // Imprimir el valor en la consola para verificar
+
+        }
+    </script>
 </asp:Content>

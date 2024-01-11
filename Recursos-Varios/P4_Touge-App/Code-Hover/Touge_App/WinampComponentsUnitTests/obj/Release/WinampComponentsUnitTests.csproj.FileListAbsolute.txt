@@ -1,7 +1,0 @@
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\bin\Release\WinampComponentsUnitTests.dll
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\bin\Release\WinampComponentsUnitTests.pdb
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\bin\Release\Winamp.Components.dll
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\bin\Release\Winamp.Components.pdb
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\obj\Release\WinampComponentsUnitTests.csprojResolveAssemblyReference.cache
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\obj\Release\WinampComponentsUnitTests.dll
-C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\WinampComponentsUnitTests\obj\Release\WinampComponentsUnitTests.pdb

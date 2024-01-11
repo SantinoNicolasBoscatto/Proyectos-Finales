@@ -17,13 +17,39 @@
         }
     </script>
 
-    <asp:UpdatePanel ID="UpMO" runat="server">
+    <div class="pt-3">
+        <div class="col-2 mb-2">
+            <asp:Button ID="AgregarBoton" runat="server" Text="Agregar" CssClass="btn btn-outline-success" OnClick="AgregarBoton_Click"/>
+        </div>
+        
+    <asp:UpdatePanel ID="UpdateDGV" runat="server" >
+        <ContentTemplate>
+            <asp:GridView ID="DGV" runat="server" PageSize="5" AllowPaging="true" DataKeyNames="Id" OnSelectedIndexChanged="DGV_SelectedIndexChanged"
+                OnPageIndexChanging="DGV_PageIndexChanging" AutoGenerateColumns="false" CssClass="table table-dark table-striped">
+                <Columns>
+                    <asp:BoundField DataField="CodigoDeArticulo" HeaderText="Codigo" />
+                    <asp:BoundField DataField="NombreDeArticulo" HeaderText="Nombre" />
+                    <asp:BoundField DataField="PrecioDelProducto" HeaderText="Precio" />
+                    <asp:BoundField DataField="MarcaDelProducto" HeaderText="Marca" />
+                    <asp:BoundField DataField="CategoriaDelProducto" HeaderText="Categoria" />
+                    <asp:CommandField ShowSelectButton="true" SelectText="Editar" HeaderText="Editor" />
+                </Columns>
+            </asp:GridView>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="FiltroAvanzado" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="Clean" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="DGV" EventName="PageIndexChanging" />
+        </Triggers>
+    </asp:UpdatePanel>
+        </div>
+        <asp:UpdatePanel ID="UpMO" runat="server">
         <ContentTemplate>
             <div class="row">
                 <% if (!((bool)ViewState["MostrarOcultar"]))
                     {%>
                 <div class="col-4">
-                    <div class="mt-3 mb-3">
+                    <div class="mt-2 mb-3">
                         <label for="CampoBox" class="form-label text-white ms-1">Campo</label>
                         <asp:DropDownList ID="CampoBox" CssClass="dropdown form-control" runat="server" OnSelectedIndexChanged="CampoBox_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem Text="Nombre" Value="1" />
@@ -36,7 +62,7 @@
 
                 </div>
                 <div class="col-4">
-                    <div class="mt-3 mb-3">
+                    <div class="mt-2 mb-3">
                         <label for="CriterioBox" class="form-label text-white ">Criterio</label>
                         <asp:DropDownList ID="CriterioBox" CssClass="dropdown form-control" runat="server">
                             <asp:ListItem Text="Empieza Por" Value="1" />
@@ -46,7 +72,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="mt-3 mb-3">
+                    <div class="mt-2 mb-3">
                         <label for="FiltroBox" class="form-label text-white">Filtro</label>
                         <asp:TextBox ID="FiltroBox" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
                     </div>
@@ -69,27 +95,5 @@
             <asp:AsyncPostBackTrigger ControlID="MostrarOcultar" EventName="Click" />
         </Triggers>
     </asp:UpdatePanel>
-    <asp:UpdatePanel ID="UpdateDGV" runat="server">
-        <ContentTemplate>
-            <asp:GridView ID="DGV" runat="server" PageSize="5" AllowPaging="true" DataKeyNames="Id" OnSelectedIndexChanged="DGV_SelectedIndexChanged"
-                OnPageIndexChanging="DGV_PageIndexChanging" AutoGenerateColumns="false" CssClass="table table-dark table-striped">
-                <Columns>
-                    <asp:BoundField DataField="CodigoDeArticulo" HeaderText="Codigo" />
-                    <asp:BoundField DataField="NombreDeArticulo" HeaderText="Nombre" />
-                    <asp:BoundField DataField="PrecioDelProducto" HeaderText="Precio" />
-                    <asp:BoundField DataField="MarcaDelProducto" HeaderText="Marca" />
-                    <asp:BoundField DataField="CategoriaDelProducto" HeaderText="Categoria" />
-                    <asp:CommandField ShowSelectButton="true" SelectText="Editar" HeaderText="Editor" />
-                </Columns>
-            </asp:GridView>
-        </ContentTemplate>
-        <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="FiltroAvanzado" EventName="Click" />
-            <asp:AsyncPostBackTrigger ControlID="Clean" EventName="Click" />
-            <asp:AsyncPostBackTrigger ControlID="DGV" EventName="PageIndexChanging" />
-        </Triggers>
-    </asp:UpdatePanel>
-
-
 
 </asp:Content>

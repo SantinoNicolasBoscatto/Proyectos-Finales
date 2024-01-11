@@ -13,11 +13,6 @@
     margin-top: -5%;
 }
 
-a {
-    display: inline;
-    float: right;
-}
-
 .Plata {
     font-size: 21px;
     font-weight: 900;
@@ -29,6 +24,7 @@ a {
     transition: transform 0.3s ease-in-out, border-radius 1s;
     max-height: 450px;
     border-radius: 25px;
+    margin-top: -15px;
 }
 
 .MyImage {
@@ -67,4 +63,19 @@ a {
 .boton-derecha {
     display: inline-block;
     margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+
+.Info {
+    display: inline;
+    float: right;
+}
+
+.card{
+    overflow-y:hidden;
+}
+
+.Centrar{
+    display: grid;
+    place-items: center
 }

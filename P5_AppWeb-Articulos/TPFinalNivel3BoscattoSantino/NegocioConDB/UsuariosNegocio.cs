@@ -36,6 +36,10 @@ namespace NegocioConDB
             {
                 throw ex;
             }
+            finally
+            {
+                negocio.CerrarConexion();
+            }
         }
 
         public int RegistroUsuario(Usuario user)
@@ -48,9 +52,36 @@ namespace NegocioConDB
                 negocio.SetearParametros("@pass", user.Pass);
                 return negocio.EjecutarAccionContraBdOutPut();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                negocio.CerrarConexion();
+            }
+        }
+
+        public void UpdateUsuario(Usuario user)
+        {
+            object imagen;
+            AccesoCentralBD accesoCentral = new AccesoCentralBD();
+            try
+            {
+                accesoCentral.SQLqueryStoreProcedure("UpUsuario");
+                accesoCentral.SetearParametros("@pass", user.Pass);
+                accesoCentral.SetearParametros("@nombre", user.Nombre);
+                accesoCentral.SetearParametros("@apellido", user.Apellido);
+                accesoCentral.SetearParametros("@urlImagenPerfil", imagen = user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
+                accesoCentral.EjecutarAccionContraBD();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoCentral.CerrarConexion();
             }
         }
     }

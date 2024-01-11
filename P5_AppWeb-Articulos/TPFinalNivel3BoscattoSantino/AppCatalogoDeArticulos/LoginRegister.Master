@@ -41,9 +41,7 @@
         </asp:ScriptManager>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <asp:Image runat="server" ID="Logo" src="Images/Logo.jpeg" Width="60px" Height="60px" class="rounded-circle" />
-                </a>
+                <asp:Image runat="server" ID="Logo" src="Images/Logo.jpeg" Width="60px" Height="60px" class="rounded-circle" />
             </div>
             <div class="me-3">
                 <% if (Page is AppCatalogoDeArticulos.Login)

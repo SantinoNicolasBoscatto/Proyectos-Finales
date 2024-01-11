@@ -78,13 +78,49 @@ namespace AppCatalogoDeArticulos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PrecioBoxVerificador;
 
         /// <summary>
-        /// Control ModificarBoton.
+        /// Control EliminarUp.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ModificarBoton;
+        protected global::System.Web.UI.UpdatePanel EliminarUp;
+
+        /// <summary>
+        /// Control AgregarBoton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AgregarBoton;
+
+        /// <summary>
+        /// Control EliminarBoton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EliminarBoton;
+
+        /// <summary>
+        /// Control EliminarLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EliminarLabel;
+
+        /// <summary>
+        /// Control CheckDelete.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckDelete;
 
         /// <summary>
         /// Control CategoriaBox.
@@ -159,13 +195,13 @@ namespace AppCatalogoDeArticulos
         protected global::System.Web.UI.WebControls.TextBox URLBox;
 
         /// <summary>
-        /// Control URLBoxVerificador.
+        /// Control ImagenPorUrl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator URLBoxVerificador;
+        protected global::System.Web.UI.WebControls.Image ImagenPorUrl;
 
         /// <summary>
         /// Control SeleccionarImagen.
@@ -174,15 +210,33 @@ namespace AppCatalogoDeArticulos
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AjaxControlToolkit.AsyncFileUpload SeleccionarImagen;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile SeleccionarImagen;
 
         /// <summary>
-        /// Control ImagenProducto.
+        /// Control UpRadio2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImagenProducto;
+        protected global::System.Web.UI.UpdatePanel UpRadio2;
+
+        /// <summary>
+        /// Control UpImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpImagen;
+
+        /// <summary>
+        /// Control ImagenPorLocal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImagenPorLocal;
     }
 }

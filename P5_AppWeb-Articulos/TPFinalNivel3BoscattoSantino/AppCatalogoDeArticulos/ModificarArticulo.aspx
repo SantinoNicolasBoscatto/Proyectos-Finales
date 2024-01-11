@@ -26,10 +26,23 @@
                 <asp:RequiredFieldValidator ID="PrecioBoxVerificador" ControlToValidate="PrecioBox" runat="server" ErrorMessage="Porfavor Complete el Campo" ForeColor="Red"></asp:RequiredFieldValidator>
 
             </div>
-            <div class="mb-3">
-                <asp:Button ID="ModificarBoton" runat="server" Text="Modificar" OnClick="ModificarBoton_Click" CssClass="btn btn-warning" />
-                <a href="GrillaArticulos.aspx">Volver </a>
-            </div>
+            
+            <asp:UpdatePanel ID="EliminarUp" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="mb-3">
+                        <asp:Button ID="AgregarBoton" runat="server" Text="Agregar" OnClick="ModificarBoton_Click" CssClass="btn btn-success" />
+                        <asp:Button ID="EliminarBoton" runat="server" Text="Eliminar" OnClick="EliminarBoton_Click" CssClass="btn btn-warning" Visible="false" />
+                        <asp:Label ID="EliminarLabel" Visible="false" for="CheckDelete" CssClass="form-label text-white" runat="server">Confirme Eliminacion</asp:Label>
+                        <asp:CheckBox ID="CheckDelete" runat="server" Visible="false" />
+                        <br />
+                        <br />
+                        <a href="GrillaArticulos.aspx" class="ms-3">Volver </a>
+                    </div>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="AgregarBoton" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
         <div class="col-2"></div>
         <div class="col-5">
@@ -58,21 +71,36 @@
                         <asp:RadioButton runat="server" ID="ImagenServer" Text="" GroupName="Image" AutoPostBack="true" OnCheckedChanged="ImagenServer_CheckedChanged" />
                     </div>
                     <div class="mb-3 Centrado">
-                        <% if (ImagenWeb.Checked)
+                        <% if (ImagenWeb.Checked == true)
                             {%>
                         <label for="URLBox" class="form-label text-white">URL</label>
                         <asp:TextBox ID="URLBox" CssClass="form-control" MaxLength="1000" runat="server" OnTextChanged="URLBox_TextChanged" AutoPostBack="true"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="URLBoxVerificador" ControlToValidate="URLBox" runat="server" ErrorMessage="Porfavor Complete el Campo" ForeColor="Red"></asp:RequiredFieldValidator>
-
+                        <asp:Image ID="ImagenPorUrl" runat="server" CssClass="" />
                         <%} %>
-                        <% if (ImagenServer.Checked)
+
+                        <% if (ImagenWeb.Checked == false)
                             {%>
                         <label for="ServerBox" class="form-label text-white">Archivo</label>
-                        <ajaxToolkit:AsyncFileUpload ID="SeleccionarImagen" CssClass="form-control mb-3" runat="server" ThrobberID="ImagenProducto" OnUploadedComplete="SeleccionarImagen_UploadedComplete" />
+                        <input id="SeleccionarImagen" runat="server" type="file" class="form-control mb-3" />
                         <%} %>
-                        <asp:Image ID="ImagenProducto" runat="server" CssClass="" />
                     </div>
                 </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpRadio2" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+                <ContentTemplate>
+                    <div class="Centrado">
+                        <% if (ImagenWeb.Checked == false)
+                            {%>
+                        <asp:Button ID="UpImagen" runat="server" Text="Cambiar Imagen" OnClick="UpImagen_Click" CssClass="btn btn-warning" />
+                        <asp:Image ID="ImagenPorLocal" runat="server" CssClass="btn btn-secondary" />
+                        <%} %>
+                    </div>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="UpImagen" />
+                    <asp:AsyncPostBackTrigger ControlID="ImagenServer" EventName="CheckedChanged" />
+                    <asp:AsyncPostBackTrigger ControlID="ImagenWeb" EventName="CheckedChanged" />
+                </Triggers>
             </asp:UpdatePanel>
         </div>
     </div>

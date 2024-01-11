@@ -40,6 +40,7 @@ namespace AppCatalogoDeArticulos
                 }
                 RepetidorCatalogo.DataSource = ListaArticulos;
                 RepetidorCatalogo.DataBind();
+                
             }
             catch (Exception ex)
             {
@@ -108,11 +109,38 @@ namespace AppCatalogoDeArticulos
 
         protected void Clean_Click(object sender, EventArgs e)
         {
-            NegocioProductos negocio = new NegocioProductos();
-            List<Articulo> ListaArticulos = negocio.ListarArticulos();
-            CargarProductos(ListaArticulos);
-            Clean.Visible = false;
-            FiltroBox.Text = "";
+            try
+            {
+                NegocioProductos negocio = new NegocioProductos();
+                List<Articulo> ListaArticulos = negocio.ListarArticulos();
+                CargarProductos(ListaArticulos);
+                Clean.Visible = false;
+                FiltroBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+        }
+
+        protected void MasDetalles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = ((RepeaterItem)((Button)sender).NamingContainer).ItemIndex;
+                NegocioProductos negocio = new NegocioProductos();
+                List<Articulo> ListaArticulos = negocio.ListarArticulos();
+                //string id = ListaArticulos[index].Id.ToString();
+                Session.Add("ArticuloDetalle", ListaArticulos[index]);
+                Response.Redirect("DetalleCatalogo.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+            
         }
     }
 }

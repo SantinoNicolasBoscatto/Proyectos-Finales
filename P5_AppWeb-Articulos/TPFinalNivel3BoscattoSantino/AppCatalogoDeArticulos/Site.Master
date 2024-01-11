@@ -8,8 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
-
-
+    <link href="Css/NavImg.css" rel="stylesheet" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -34,10 +33,11 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
+            
         </asp:ScriptManager>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="Catalogo.aspx">
                     <asp:Image runat="server" ID="Logo" src="Images/Logo.jpeg" Width="60px" Height="60px" class="rounded-circle" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,9 +49,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Favoritos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Perfil</a>
                         </li>
                         <% if (CallSeguridad())
                             {%>
@@ -67,19 +64,23 @@
                         <asp:TextBox placeholder="Search" aria-label="Search" ID="FiltroRapido" TextMode="Search" runat="server" CssClass="form-control me-2"></asp:TextBox>
                         <asp:Button ID="Buscar" CssClass="btn btn-success me-2" runat="server" Text="Buscar" OnClick="Buscar_Click" />
                         <asp:Button ID="LimpiarFiltroBasico" CssClass="btn btn-warning me-2" runat="server" Text="Limpiar Filtro" Visible="false" OnClick="LimpiarFiltroBasico_Click" />
-                         <%}%>
+                        <%}%>
+                        <% if (!(Page is AppCatalogoDeArticulos.MiPerfil))
+                        {%>
                         <asp:Button ID="Desloguear" CssClass="btn btn-outline-danger me-2" runat="server" Text="Log Out" OnClick="Desloguear_Click" />
+                        <%}%>
                     </div>
-                   
+                    <asp:ImageButton ImageUrl="https://media.tycsports.com/files/2021/05/07/278783/messi-toty-fifa-21_w416.png" 
+                        ID="ImagenPerfilMini" runat="server"  class="ImagenPerfilMini rounded-circle" OnClick="ImagenPerfilMini_Click"/>
                 </div>
             </div>
         </nav>
-                <div class="BackDinamico">
-                    <div class="container">
-                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </div>
-                </div>
+        <div class="BackDinamico">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
     </form>
 </body>
 </html>

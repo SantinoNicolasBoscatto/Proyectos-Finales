@@ -110,7 +110,11 @@
     <Content Include="Catalogo.aspx" />
     <Content Include="Css\BackGroundLogin.css" />
     <Content Include="Css\Catalogo.css" />
+    <Content Include="Css\Detalle.css" />
     <Content Include="Css\Grilla.css" />
+    <Content Include="Css\MiPerfil.css" />
+    <Content Include="Css\NavImg.css" />
+    <Content Include="DetalleCatalogo.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -124,6 +128,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="GrillaArticulos.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MiPerfil.aspx" />
     <Content Include="ModificarArticulo.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -170,6 +175,13 @@
     <Compile Include="Catalogo.aspx.designer.cs">
       <DependentUpon>Catalogo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleCatalogo.aspx.cs">
+      <DependentUpon>DetalleCatalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCatalogo.aspx.designer.cs">
+      <DependentUpon>DetalleCatalogo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +212,13 @@
     </Compile>
     <Compile Include="LoginRegister.Master.designer.cs">
       <DependentUpon>LoginRegister.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarArticulo.aspx.cs">
       <DependentUpon>ModificarArticulo.aspx</DependentUpon>

@@ -135,6 +135,11 @@ namespace AppCatalogoDeArticulos
             Clean.Visible = false;
             FiltroBox.Text = "";
         }
+
+        protected void AgregarBoton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificarArticulo.aspx");
+        }
     }
 
 }

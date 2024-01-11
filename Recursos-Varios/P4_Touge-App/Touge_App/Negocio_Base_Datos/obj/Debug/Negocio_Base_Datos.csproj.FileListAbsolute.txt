@@ -1,9 +1,0 @@
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Negocio_Base_Datos.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Negocio_Base_Datos.pdb
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Modelo_Clases.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Modelo_Clases.pdb
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.csproj.AssemblyReference.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.csproj.CoreCompileInputs.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.csproj.CopyComplete
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.pdb
