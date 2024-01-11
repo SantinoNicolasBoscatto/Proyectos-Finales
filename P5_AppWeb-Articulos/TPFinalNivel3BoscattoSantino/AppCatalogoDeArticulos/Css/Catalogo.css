@@ -14,10 +14,10 @@
 }
 
 .Plata {
-    font-size: 21px;
+    font-size: 24px;
     font-weight: 900;
-    letter-spacing: 1px;
     color: forestgreen;
+    height: 45px;
 }
 
 .card {
@@ -26,7 +26,9 @@
     border-radius: 25px;
     margin-top: -15px;
 }
-
+.ColorCard {
+    background-color: #630b57;
+}
 .MyImage {
     max-height: 280px;
     min-height: 280px;
@@ -38,6 +40,7 @@
     outline: 2px solid black;
     border-radius: 20px;
     transition: border-radius 1s ease-in-out;
+    padding: 15px;
 }
 
 .card:hover {
@@ -78,4 +81,42 @@
 .Centrar{
     display: grid;
     place-items: center
+}
+
+.h5{
+    font-size: 20px;
+}
+
+.Centrar_Responsive {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Dos columnas: una para el texto y otra para el botón */
+    gap: 10px; /* Espaciado entre las columnas */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+}
+
+
+
+@media (max-width: 991px) {
+    /* Aplicar estilos específicos para pantallas más pequeñas si es necesario */
+    .Centrar_Responsive {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas más pequeñas */
+        text-align: left; /* Alinea el texto a la izquierda en pantallas más pequeñas */
+    }
+    .card-body {
+        margin-top: -3%;
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .h5 {
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    .card {
+        max-height: 500px;
+    }
+
 }

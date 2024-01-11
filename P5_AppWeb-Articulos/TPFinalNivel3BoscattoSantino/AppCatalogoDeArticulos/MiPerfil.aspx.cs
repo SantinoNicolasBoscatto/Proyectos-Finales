@@ -132,6 +132,7 @@ namespace AppCatalogoDeArticulos
                 aux.Pass = PassBox.Text;
                 aux.Nombre = NombreBox.Text;
                 aux.Apellido = ApellidoBox.Text;
+                aux.Id = ((Usuario)Session["Usuario"]).Id;
                 if (ImagenWeb.Checked && URLBox.Text != "")
                 {
                     aux.ImagenPerfil = ImagenPorUrl.ImageUrl;
@@ -142,6 +143,7 @@ namespace AppCatalogoDeArticulos
                 else
                     aux.ImagenPerfil = Session["auxFoto"] != null ? (string)Session["auxFoto"] : "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
                 negocio.UpdateUsuario(aux);
+                aux.Email = EmailBox.Text;
                 Session.Add("Usuario", aux);
                 Response.Redirect("Catalogo.aspx", false);
             }

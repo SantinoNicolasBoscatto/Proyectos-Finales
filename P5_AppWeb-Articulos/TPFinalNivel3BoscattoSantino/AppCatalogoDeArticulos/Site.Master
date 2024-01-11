@@ -48,7 +48,7 @@
                             <a class="nav-link active" aria-current="page" href="Catalogo.aspx">Catalogo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Favoritos</a>
+                            <a class="nav-link active" aria-current="page" href="MisFavoritos.aspx">Favoritos</a>
                         </li>
                         <% if (CallSeguridad())
                             {%>

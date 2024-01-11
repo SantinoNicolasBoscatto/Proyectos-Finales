@@ -34,8 +34,11 @@
                         <asp:Button ID="EliminarBoton" runat="server" Text="Eliminar" OnClick="EliminarBoton_Click" CssClass="btn btn-warning" Visible="false" />
                         <asp:Label ID="EliminarLabel" Visible="false" for="CheckDelete" CssClass="form-label text-white" runat="server">Confirme Eliminacion</asp:Label>
                         <asp:CheckBox ID="CheckDelete" runat="server" Visible="false" />
+                        <% if (EliminarBoton.Visible)
+                            {%>
                         <br />
                         <br />
+                        <%} %>
                         <a href="GrillaArticulos.aspx" class="ms-3">Volver </a>
                     </div>
                 </ContentTemplate>

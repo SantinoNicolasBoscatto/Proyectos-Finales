@@ -69,12 +69,39 @@ namespace AppCatalogoDeArticulos
         protected global::System.Web.UI.WebControls.Label PrecioLabel;
 
         /// <summary>
-        /// Control MasDetalles.
+        /// Control VolverBoton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MasDetalles;
+        protected global::System.Web.UI.WebControls.Button VolverBoton;
+
+        /// <summary>
+        /// Control UpFavoritos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpFavoritos;
+
+        /// <summary>
+        /// Control NoFav.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button NoFav;
+
+        /// <summary>
+        /// Control Fav.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Fav;
     }
 }

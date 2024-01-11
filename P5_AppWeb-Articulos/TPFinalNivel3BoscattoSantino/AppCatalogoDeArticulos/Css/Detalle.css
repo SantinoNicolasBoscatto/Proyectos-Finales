@@ -16,7 +16,7 @@
     border-radius: 20px;
     place-items: center;
     background-color: rgba(0,128,128,.33);
-    transition: background-color ease-in .8s;
+    transition: background-color ease-in .8s, transform ease .5s;
     height: auto;
     width: 100%;
     min-height: 450px;
@@ -26,6 +26,7 @@
 
     .MyImg:hover {
         background-color: rgba(106,90,205,.6);
+        transform:  scale(1.05);
     }
 
 .ContenedorImg {
@@ -38,14 +39,15 @@
     place-items: center;
     border: 2px solid rgba(128,128,128,.9);
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 10px;
     background-color: rgba(255,255,255,.7);
-    transition: background-color ease-in .5s;
+    transition: background-color ease-in .5s, transform ease .5s;
 }
 
-.ContenedorDatos:hover {
+    .ContenedorDatos:hover {
         background-color: rgba(255,255,255,.8);
+        transform: scale(1.05);
     }
 
 .Money {
@@ -62,12 +64,18 @@
     padding: 0 30px;
     text-align: justify;
     font-size: 21px;
+    padding-bottom: 10px;
 }
 
 .Myh3 {
     display: inline-block;
     margin-right: 50px; /* Espacio entre los h3, ajusta según sea necesario */
     font-size: 21px;
+    
+}
+
+.h2 {
+    padding: 5px 15px;
 }
 
 .Volver {
@@ -75,7 +83,11 @@
     margin-right: 20px;
 }
 
-@media screen and (min-width: 901px) and (max-width: 1195px) {
+.Centrar{
+    display: grid;
+    place-items: center;
+}
+@media screen and (min-width: 768px) and (max-width: 1195px) {
     .MyImg {
         min-height: 380px;
         max-height: 430px;
@@ -87,10 +99,32 @@
         font-size: 18px;
     }
 
-
     .Descripcion {
         padding: 0 15px;
         text-align: justify;
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .Money {
+        font-size: 27px;
+    }
+
+    .Myh3 {
+        margin-right: 10px; /* Espacio entre los h3, ajusta según sea necesario */
+        font-size: 16px;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 769px) {
+    .col-6 {
+        width: 100%;
     }
 }

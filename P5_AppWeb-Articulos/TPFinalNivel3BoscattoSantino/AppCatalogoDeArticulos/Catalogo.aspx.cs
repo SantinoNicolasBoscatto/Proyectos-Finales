@@ -133,7 +133,8 @@ namespace AppCatalogoDeArticulos
                 List<Articulo> ListaArticulos = negocio.ListarArticulos();
                 //string id = ListaArticulos[index].Id.ToString();
                 Session.Add("ArticuloDetalle", ListaArticulos[index]);
-                Response.Redirect("DetalleCatalogo.aspx", false);
+                Response.Redirect("DetalleCatalogo.aspx?Back=1", false);
+
             }
             catch (Exception ex)
             {

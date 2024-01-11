@@ -342,5 +342,88 @@ namespace NegocioConDB
             }
             return aux;
         }
+
+        public void AgregarFavoritos(int IdUser, int IdArticulo)
+        {
+            try
+            {
+                AccesoCentralBD acceso = new AccesoCentralBD();
+                acceso.SQLqueryStoreProcedure("AddFav");
+                acceso.SetearParametros("@IdUsuario", IdUser);
+                acceso.SetearParametros("@IdArticulo", IdArticulo);
+                acceso.EjecutarAccionContraBD();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void BorrarFavoritos(int IdUser, int IdArticulo)
+        {
+            try
+            {
+                AccesoCentralBD acceso = new AccesoCentralBD();
+                acceso.SQLqueryStoreProcedure("RemoveFav");
+                acceso.SetearParametros("@IdUsuario", IdUser);
+                acceso.SetearParametros("@IdArticulo", IdArticulo);
+                acceso.EjecutarAccionContraBD();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool DevolverFav(int IdUser, int IdArticulo)
+        {
+            try
+            {
+                AccesoCentralBD acceso = new AccesoCentralBD();
+                acceso.SQLqueryStoreProcedure("VerFavorito");
+                acceso.SetearParametros("@IdUsuario", IdUser);
+                acceso.SetearParametros("@IdArticulo", IdArticulo);
+                acceso.EjecutarLecturaBD();
+                if (acceso.Guardador.Read())
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Articulo> ListaFav(int UserId)
+        {
+            try
+            {
+                AccesoCentralBD acceso = new AccesoCentralBD();
+                List<Articulo> listaArticulos = new List<Articulo>();
+                acceso.SQLqueryStoreProcedure("ListaFav");
+                acceso.SetearParametros("@IdUsuario", UserId);
+                acceso.EjecutarLecturaBD();
+                while (acceso.Guardador.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.NombreDeArticulo = (string)acceso.Guardador["Nombre"];
+                    aux.ImagenDelProducto = (string)acceso.Guardador["ImagenUrl"];
+                    aux.CodigoDeArticulo = (string)acceso.Guardador["Codigo"];
+                    aux.CategoriaDelProducto.NombreCategoria = (string)acceso.Guardador["Cat"];
+                    aux.MarcaDelProducto.NombreMarca = (string)acceso.Guardador["Mar"];
+                    aux.DescripcionDeArticulo = (string)acceso.Guardador["Descri"];
+                    aux.Id = (int)acceso.Guardador["MyID"];
+                    aux.PrecioDelProducto = (decimal)acceso.Guardador["Precio"];
+                    listaArticulos.Add(aux);
+                }
+                return listaArticulos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
     }
 }

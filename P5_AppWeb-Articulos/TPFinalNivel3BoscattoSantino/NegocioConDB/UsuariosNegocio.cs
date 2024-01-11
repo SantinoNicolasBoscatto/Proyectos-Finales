@@ -70,6 +70,7 @@ namespace NegocioConDB
             {
                 accesoCentral.SQLqueryStoreProcedure("UpUsuario");
                 accesoCentral.SetearParametros("@pass", user.Pass);
+                accesoCentral.SetearParametros("@MyId", user.Id);
                 accesoCentral.SetearParametros("@nombre", user.Nombre);
                 accesoCentral.SetearParametros("@apellido", user.Apellido);
                 accesoCentral.SetearParametros("@urlImagenPerfil", imagen = user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
