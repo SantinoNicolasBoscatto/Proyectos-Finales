@@ -71,6 +71,7 @@ namespace Touge_App
             CargarImagen4.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargarImagen5.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
             CargaCombos();
+           
             if (aux != null)
             {
                 Agregar.Text = "Mod";
@@ -117,12 +118,13 @@ namespace Touge_App
                         i = Aspiracion.Items.Count;
                     }
                 }
+                Marca.SelectedIndex = -1;
                 for (int i = 0; i < Marca.Items.Count; i++)
                 {
-                    if (Marca.Items[i].ToString() == aux.MarcaAuto.NombreMarca)
+                    if ((int)Marca.Items[i].GetType().GetProperty(Marca.ValueMember).GetValue(Marca.Items[i]) == aux.MarcaAuto.IdMarca)
                     {
                         Marca.SelectedIndex = i;
-                        i = Marca.Items.Count;
+                        break;
                     }
                 }
             }
@@ -159,10 +161,10 @@ namespace Touge_App
             NegocioBaseDatos negociobaseMarca = new NegocioBaseDatos();
             List<Marca> listaMarca;
             listaMarca =  negociobaseMarca.DevolverMarca();
-            for (int i = 0; i < listaMarca.Count; i++)
-            {
-                Marca.Items.Add(listaMarca[i].NombreMarca);
-            }
+            Marca.DataSource = listaMarca;
+            Marca.ValueMember = "IdMarca";
+            Marca.DisplayMember = "NombreMarca";
+            Marca.SelectedItem = Marca.ValueMember;
         }
         private void HpAuto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -349,17 +351,14 @@ namespace Touge_App
         {
             CargarOpen(CargarImagen3, Img3);
         }
-
         private void Imagen4Boton_Click(object sender, EventArgs e)
         {
             CargarOpen(CargarImagen4, Img4);
         }
-
         private void Imagen5Boton_Click(object sender, EventArgs e)
         {
             CargarOpen(CargarImagen5, Img5);
         }
-
         private void Imagen6Boton_Click(object sender, EventArgs e)
         {
             CargarOpen(CargarImagen6, Img6);
@@ -385,7 +384,7 @@ namespace Touge_App
                 if (aux == null)
                 {
                     Autos aux2 = new Autos();
-                    int index = Marca.SelectedIndex + 1;
+                    int marcaId = (int)Marca.SelectedValue;
                     aux2.NombreModelo = NombreAuto.Text;
                     aux2.Anio = int.Parse(AnioAuto.Text);
                     aux2.PaisFabricacion = PaisImagen.Text;
@@ -400,7 +399,7 @@ namespace Touge_App
                     aux2.Tanque = int.Parse(TanqueAuto.Text);
                     aux2.Piloto = PilotoAuto.Text;
                     aux2.Aspiracion = Aspiracion.Text;
-                    aux2.MarcaAuto.IdMarca = index;
+                    aux2.MarcaAuto.IdMarca = marcaId;
                     aux2.ImagenAuto = Img1.Text;
                     aux2.ImagenAutoSecundaria = Img2.Text;
                     aux2.ImagenAutoTres = Img3.Text;
@@ -415,7 +414,7 @@ namespace Touge_App
 
                 else
                 {
-                    int index = Marca.SelectedIndex + 1;
+                    int marcaId = (int)Marca.SelectedValue;
                     aux.NombreModelo = NombreAuto.Text;
                     aux.Anio = int.Parse(AnioAuto.Text);
                     aux.PaisFabricacion = PaisImagen.Text;
@@ -430,7 +429,7 @@ namespace Touge_App
                     aux.Tanque = int.Parse(TanqueAuto.Text);
                     aux.Piloto = PilotoAuto.Text;
                     aux.Aspiracion = Aspiracion.Text;
-                    aux.MarcaAuto.IdMarca = index;
+                    aux.MarcaAuto.IdMarca = marcaId;
                     aux.ImagenAuto = Img1.Text;
                     aux.ImagenAutoSecundaria = Img2.Text;
                     aux.ImagenAutoTres = Img3.Text;

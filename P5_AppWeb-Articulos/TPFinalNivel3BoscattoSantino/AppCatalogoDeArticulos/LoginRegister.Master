@@ -42,12 +42,11 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <asp:Image runat="server" ID="Logo" src="Images/Logo.jpeg" Width="60px" Height="60px" class="rounded-circle" />
-            </div>
-            <div class="me-3">
+                <div class="me-3">
                 <% if (Page is AppCatalogoDeArticulos.Login)
                     {%>
                 <asp:Button ID="Registrarse" runat="server" Text="Registrarse" CssClass="btn btn-outline-primary"
-                    OnClick="Registrarse_Click" />
+                    OnClick="Registrarse_Click" TabIndex="9999" />
                 <%}
                     else
                     {%>
@@ -55,6 +54,8 @@
                     OnClick="Loguearse_Click" />
                 <%} %>
             </div>
+            </div>
+            
         </nav>
         <div class="BackGround">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

@@ -49,7 +49,7 @@
                             <asp:ListItem Text="Nombre" Value="1" />
                             <asp:ListItem Text="Descripcion" Value="2" />
                             <asp:ListItem Text="Marca" Value="3" />
-                            <asp:ListItem Text="Producto" Value="4" />
+                            <asp:ListItem Text="Categoria" Value="4" />
                             <asp:ListItem Text="Precio" Value="5" />
                         </asp:DropDownList>
                     </div>
@@ -61,7 +61,7 @@
                         <asp:DropDownList ID="CriterioBox" CssClass="dropdown form-control" runat="server">
                             <asp:ListItem Text="Empieza Por" Value="1" />
                             <asp:ListItem Text="Termina Por" Value="2" />
-                            <asp:ListItem Text="Contiene Por" Value="3" />
+                            <asp:ListItem Text="Contiene" Value="3" />
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpFA" runat="server" UpdateMode="Conditional" CssClass="d-none">
         <ContentTemplate>
-            <div class="botones-container mb-3">
+            <div class="botones-container mb-5">
                 <asp:Button OnClientClick="return validarFiltro();" ID="FiltroAvanzado" runat="server" Text="Filtrar" CssClass="btn btn-danger boton-derecha" OnClick="FiltroAvanzado_Click" Visible="false" />
                 <asp:Button ID="Clean" runat="server" Text="Desfiltrar" CssClass="btn btn-warning boton-derecha" OnClick="Clean_Click" Visible="false" />
             </div>

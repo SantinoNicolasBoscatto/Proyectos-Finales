@@ -36,6 +36,7 @@ namespace AppCatalogoDeArticulos
                     Session.Add("Usuario", user);
                 else
                     LabelError.Visible = true;
+                    
             }
             catch (Exception ex)
             {

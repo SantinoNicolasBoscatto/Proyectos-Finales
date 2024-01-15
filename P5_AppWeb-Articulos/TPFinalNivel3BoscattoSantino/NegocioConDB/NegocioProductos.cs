@@ -289,9 +289,6 @@ namespace NegocioConDB
                             case "Es Menor a":
                                 inyeccion = inyeccion += "Precio <" + textoFiltrado;
                                 break;
-                            case "Es Igual a":
-                                inyeccion = inyeccion += "Precio =" + textoFiltrado;
-                                break;
                             default:
                                 inyeccion = inyeccion += "Precio =" + textoFiltrado;
                                 break;

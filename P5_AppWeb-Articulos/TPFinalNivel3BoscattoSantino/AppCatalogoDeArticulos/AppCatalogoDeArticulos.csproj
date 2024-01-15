@@ -111,6 +111,7 @@
     <Content Include="Css\BackGroundLogin.css" />
     <Content Include="Css\Catalogo.css" />
     <Content Include="Css\Detalle.css" />
+    <Content Include="Css\Error.css" />
     <Content Include="Css\Grilla.css" />
     <Content Include="Css\MiPerfil.css" />
     <Content Include="Css\NavImg.css" />
@@ -125,6 +126,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Images\Logo.jpeg" />
     <Content Include="LoginRegister.Master" />
+    <Content Include="ErrorMaster.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="GrillaArticulos.aspx" />
     <Content Include="Login.aspx" />
@@ -189,6 +191,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorMaster.Master.cs">
+      <DependentUpon>ErrorMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorMaster.Master.designer.cs">
+      <DependentUpon>ErrorMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

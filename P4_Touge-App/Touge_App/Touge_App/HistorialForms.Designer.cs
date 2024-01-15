@@ -309,7 +309,7 @@ namespace Touge_App
             this.CancelarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelarBoton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelarBoton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CancelarBoton.Location = new System.Drawing.Point(377, 801);
+            this.CancelarBoton.Location = new System.Drawing.Point(375, 765);
             this.CancelarBoton.Name = "CancelarBoton";
             this.CancelarBoton.Size = new System.Drawing.Size(101, 51);
             this.CancelarBoton.TabIndex = 29;
@@ -328,7 +328,7 @@ namespace Touge_App
             this.AgregarBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AgregarBoton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgregarBoton.ForeColor = System.Drawing.Color.Black;
-            this.AgregarBoton.Location = new System.Drawing.Point(482, 801);
+            this.AgregarBoton.Location = new System.Drawing.Point(481, 766);
             this.AgregarBoton.Name = "AgregarBoton";
             this.AgregarBoton.Size = new System.Drawing.Size(101, 51);
             this.AgregarBoton.TabIndex = 28;

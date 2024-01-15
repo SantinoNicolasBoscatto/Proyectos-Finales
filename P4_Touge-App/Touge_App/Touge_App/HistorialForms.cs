@@ -136,7 +136,7 @@ namespace Touge_App
                 }
                 if (aux.Ganador == Player)
                 {
-                    int dineroGanador;
+                    int dineroGanador=0;
                     PlayerBool = true;
                     switch (aux.Clase)
                     {
@@ -165,7 +165,7 @@ namespace Touge_App
                             dineroGanador = 20000;
                             break;
                         default:
-                            dineroGanador = 0;
+                            MessageBox.Show("ERROR");
                             break;
                     }
                     NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();
@@ -175,7 +175,7 @@ namespace Touge_App
                 }
                 else if (aux.Perdedor == Player)
                 {
-                    int dineroPerdedor;
+                    int dineroPerdedor=0;
                     PlayerBool = true;
                     switch (aux.Clase)
                     {
@@ -204,7 +204,6 @@ namespace Touge_App
                             dineroPerdedor = 20000;
                             break;
                         default:
-                            dineroPerdedor = 0;
                             break;
                     }
                     NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();

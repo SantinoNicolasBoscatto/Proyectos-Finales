@@ -38,8 +38,10 @@
                     ErrorMessage="Por Favor Coloque su apellido" ControlToValidate="NombreBox" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="">
-                <asp:Button ID="GuardarCambios" runat="server" Text="Guardar" OnClick="GuardarCambios_Click" CssClass="btn btn-secondary" />
-                <a href="Catalogo.aspx">Ir a Catalogo</a>
+                <asp:Button ID="GuardarCambios" runat="server" Text="Guardar" OnClick="GuardarCambios_Click" CssClass="btn btn-dark" />
+                <asp:Button ID="Volver" runat="server" Text="Volver" OnClick="Volver_Click" CssClass="btn btn-secondary" />
+
+                <%--<a href="Catalogo.aspx">Ir a Catalogo</a>--%>
             </div>
 
         </div>
@@ -89,5 +91,5 @@
             </asp:UpdatePanel>
         </div>
     </div>
-
+ipt>
 </asp:Content>

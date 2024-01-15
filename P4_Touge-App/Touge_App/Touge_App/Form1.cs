@@ -979,27 +979,23 @@ namespace Touge_App
         //MUESTRA Y CARGA DE PISTAS
         private void BotonPistas_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
-                Ocultar();
-                PistaPictureBox.Visible = true;
-                NombreCircuito.Visible = true;
-                DistanciaTextbox.Visible = true;
-                PaisTextBox.Visible = true;
-                PistasBiografia.Visible = true;
-                ModalidadTextBox.Visible = true;
-                DistanciaTextbox.Visible = true;
-                SiguientePistaBoton.Visible = true;
-                AnteriorPistaBoton.Visible = true;
-                CargaPistasAutosPilotosEconomia.Visible = true;
-            }
+            Ocultar();
+            PistaPictureBox.Visible = true;
+            NombreCircuito.Visible = true;
+            DistanciaTextbox.Visible = true;
+            PaisTextBox.Visible = true;
+            PistasBiografia.Visible = true;
+            ModalidadTextBox.Visible = true;
+            DistanciaTextbox.Visible = true;
+            SiguientePistaBoton.Visible = true;
+            AnteriorPistaBoton.Visible = true;
+            CargaPistasAutosPilotosEconomia.Visible = true;
+            listaPistas = negocioBD.DevolverPistas();
             CargaBasePistas();
 
         }
         private void CargaBasePistas()
         {
-            //NegocioBaseDatos negocioBd; //AsignacionCorreccion
-            listaPistas = negocioBD.DevolverPistas();
             PistaPictureBox.Load(listaPistas[indexPistas].Imagenes);
             PistasBiografia.Text = listaPistas[indexPistas].BiografiaPista;
             PaisTextBox.Text = "Ubicación: " + listaPistas[indexPistas].Pais;
@@ -1448,13 +1444,13 @@ namespace Touge_App
             DerrotaTextBox.Visible = true;
             WinRateTextBox.Visible = true;
             TotalTextBox.Visible = true;
-
+            listaPilotos = negocioBDPilotos.DevolverPilotos();
             CargaPilotos();
 
         }
         private void CargaPilotos()
         {
-            listaPilotos = negocioBDPilotos.DevolverPilotos();
+            
             PilotosPictureBox.Load(listaPilotos[indexPilotos].Foto);
             BiografiaPilotosTextBox.Text = listaPilotos[indexPilotos].Biografia;
             AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].Auto);
@@ -1594,33 +1590,42 @@ namespace Touge_App
         {
             Ocultar();
             CargaPistasAutosPilotosEconomia.Visible = true;
+            negocioBDAutos = new NegocioBaseDatos();
+            listaAutos = negocioBDAutos.DevolverAutos();
             CargarAutos();
         }
         private void CargarAutos()
         {
-            AutosPictureBox.Visible = true;
-            //FichaTecnicaTextBox.Visible = true;
-            BanderasPictureBox.Visible = true;
-            NombreAutoTextbox.Visible = true;
-            BackAuto.Visible = true;
-            NextAuto.Visible = true;
-            FichaTecnicaPb.Visible = true;
-            negocioBDAutos = new NegocioBaseDatos();
-            listaAutos = negocioBDAutos.DevolverAutos();
-            NombreAutoTextbox.Text = listaAutos[indexAutos].NombreModelo;
-            AutosPictureBox.Load(listaAutos[indexAutos].ImagenAuto);
-            MarcaPictureBox.Load(listaAutos[indexAutos].MarcaAuto.ImagenMarca);
-            BanderasPictureBox.Load(listaAutos[indexAutos].PaisFabricacion);
-            YearLabel.Text = listaAutos[indexAutos].Anio.ToString();
-            NmLabel.Text = listaAutos[indexAutos].Torque.ToString() + "  Nm";
-            HpLabel.Text = listaAutos[indexAutos].HP.ToString() + "  Hp";
-            KgLabel.Text = listaAutos[indexAutos].Peso.ToString() + "  Kg";
-            string formato = "0.00";
-            KgHp.Text = listaAutos[indexAutos].RelacionPesoPotencia.ToString(formato) + "  Kg/Hp";
-            TopLabel.Text = listaAutos[indexAutos].TopSpeed.ToString() + "  Km/H";
-            KmLabel.Text = listaAutos[indexAutos].Kilometraje.ToString() + "  Km";
-            CatLabel.Text = listaAutos[indexAutos].Categoria;
-            PilotoNameAuto.Text = listaAutos[indexAutos].Piloto;
+            try
+            {
+                AutosPictureBox.Visible = true;
+                //FichaTecnicaTextBox.Visible = true;
+                BanderasPictureBox.Visible = true;
+                NombreAutoTextbox.Visible = true;
+                BackAuto.Visible = true;
+                NextAuto.Visible = true;
+                FichaTecnicaPb.Visible = true;
+                NombreAutoTextbox.Text = listaAutos[indexAutos].NombreModelo;
+                AutosPictureBox.Load(listaAutos[indexAutos].ImagenAuto);
+                MarcaPictureBox.Load(listaAutos[indexAutos].MarcaAuto.ImagenMarca);
+                BanderasPictureBox.Load(listaAutos[indexAutos].PaisFabricacion);
+                YearLabel.Text = listaAutos[indexAutos].Anio.ToString();
+                NmLabel.Text = listaAutos[indexAutos].Torque.ToString() + "  Nm";
+                HpLabel.Text = listaAutos[indexAutos].HP.ToString() + "  Hp";
+                KgLabel.Text = listaAutos[indexAutos].Peso.ToString() + "  Kg";
+                string formato = "0.00";
+                KgHp.Text = listaAutos[indexAutos].RelacionPesoPotencia.ToString(formato) + "  Kg/Hp";
+                TopLabel.Text = listaAutos[indexAutos].TopSpeed.ToString() + "  Km/H";
+                KmLabel.Text = listaAutos[indexAutos].Kilometraje.ToString() + "  Km";
+                CatLabel.Text = listaAutos[indexAutos].Categoria;
+                PilotoNameAuto.Text = listaAutos[indexAutos].Piloto;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
         private void AutosPictureBox_Click(object sender, EventArgs e)
         {
@@ -1900,7 +1905,7 @@ namespace Touge_App
                     historialDGV.DataSource = listaHistorial;
                     if (historialDGV.Rows.Count > filas)
                     {
-                        fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(5);
+                        fechaAux.FechaManager = negocioUpFecha.UpdatearFecha(3);
                         FormatearFecha(fechaAux);
                         FechaLabel.Text = Formato;
                         NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
@@ -1949,9 +1954,12 @@ namespace Touge_App
                         {
                             negocioUpdateComponentes.UpEstadoAuto(12);
                             estadoLimpieza = false;
-                            mensajeBox.Mostrar("Limpialo Sucio");
+                            mensajeBox.Mostrar("El Auto Se encuentra Sucio! Porfavor vaya al lavadero");
                         }
                     }
+                    NegocioBaseDatos negocio = new NegocioBaseDatos();
+                    plataFormato = string.Format("$ {0:N0}", negocio.DevolverDinero());
+                    DineroMostrarLabel.Text = plataFormato;
                 }
                 else
                 {
@@ -4192,6 +4200,7 @@ namespace Touge_App
                     {
                         CargaPista ventanaPistas = new CargaPista();
                         ventanaPistas.ShowDialog();
+                        listaPistas = negocioBD.DevolverPistas();
                         CargaBasePistas();
                     }
 
@@ -4200,6 +4209,8 @@ namespace Touge_App
 
                         CargaAutos ventanaAutos = new CargaAutos();
                         ventanaAutos.ShowDialog();
+                        negocioBDAutos = new NegocioBaseDatos();
+                        listaAutos = negocioBDAutos.DevolverAutos();
                         CargarAutos();
                     }
 
@@ -4207,6 +4218,7 @@ namespace Touge_App
                     {
                         CargaPilotos ventanaPistas = new CargaPilotos();
                         ventanaPistas.ShowDialog();
+                        listaPilotos = negocioBDPilotos.DevolverPilotos();
                         CargaPilotos();
                     }
 
@@ -4387,12 +4399,14 @@ namespace Touge_App
                 {
                     CargaPista ventanaPistas = new CargaPista(listaPistas[indexPistas]);
                     ventanaPistas.ShowDialog();
+                    listaPistas = negocioBD.DevolverPistas();
                     CargaBasePistas();
                 }
                 else if (AutosPictureBox.Visible == true)
                 {
                     CargaAutos ventanaAutos = new CargaAutos(listaAutos[indexAutos]);
                     ventanaAutos.ShowDialog();
+                    listaAutos = negocioBDAutos.DevolverAutos();
                     CargarAutos();
                 }
 
@@ -4400,6 +4414,7 @@ namespace Touge_App
                 {
                     CargaPilotos ventanaPilotos = new CargaPilotos(listaPilotos[indexPilotos]);
                     ventanaPilotos.ShowDialog();
+                    listaPilotos = negocioBDPilotos.DevolverPilotos();
                     CargaPilotos();
                 }
             }

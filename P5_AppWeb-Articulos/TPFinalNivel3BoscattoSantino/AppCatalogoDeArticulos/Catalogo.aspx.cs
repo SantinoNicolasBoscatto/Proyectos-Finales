@@ -21,6 +21,7 @@ namespace AppCatalogoDeArticulos
                     List<Articulo> ListaArticulos = negocio.ListarArticulos();
                     CargarProductos(ListaArticulos);
                     ViewState.Add("MostrarOcultar", true);
+
                 }
             }
             catch (Exception ex)
@@ -130,8 +131,13 @@ namespace AppCatalogoDeArticulos
             {
                 int index = ((RepeaterItem)((Button)sender).NamingContainer).ItemIndex;
                 NegocioProductos negocio = new NegocioProductos();
-                List<Articulo> ListaArticulos = negocio.ListarArticulos();
-                //string id = ListaArticulos[index].Id.ToString();
+                List<Articulo> ListaArticulos = null;
+                if (Clean.Visible)
+                    ListaArticulos = negocio.ListaFiltrada(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text);
+                else
+                    ListaArticulos = negocio.ListarArticulos();
+
+                CargarProductos(ListaArticulos);
                 Session.Add("ArticuloDetalle", ListaArticulos[index]);
                 Response.Redirect("DetalleCatalogo.aspx?Back=1", false);
 

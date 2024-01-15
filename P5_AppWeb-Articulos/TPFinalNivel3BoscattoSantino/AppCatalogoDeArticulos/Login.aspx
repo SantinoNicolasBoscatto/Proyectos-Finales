@@ -15,12 +15,12 @@
                         <asp:RegularExpressionValidator CssClass="RegularExp" ClientIDMode="Static" ID="EmailFormat" runat="server" Text="Ingrese un Email Valido" ToolTip="Porfavor Ingrese un Mail valido" ControlToValidate="EmailBox" ValidationExpression="(\w)+@(\w)+.com(.(\w)+)*" ForeColor="Red"/>
                     </div>
                     <div class="user-box">
-                        <asp:TextBox PlaceHolder="Contraseña" ID="PassBox" runat="server" TextMode="Password" ></asp:TextBox>
+                        <asp:TextBox  PlaceHolder="Contraseña" ID="PassBox" runat="server" TextMode="Password" ></asp:TextBox>
                         <asp:Label ID="LabelError" ClientIDMode="Static" runat="server" Text="Error en el Login, el Email y\o la Clave son Erroneas"
                             CssClass="RegularExp" Visible="false" ForeColor="Red"></asp:Label>
                     </div>
                     <center class="mt-3">
-                        <a href="#" onclick="enviarPostback(); return false;">Login
+                        <a href="#" onclick="enviarPostback(); return false;" TabIndex="0">Login
                         <span></span>
                         </a>
                     </center>

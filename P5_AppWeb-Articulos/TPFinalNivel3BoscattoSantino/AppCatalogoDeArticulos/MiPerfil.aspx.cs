@@ -64,16 +64,25 @@ namespace AppCatalogoDeArticulos
 
         protected void ImagenServer_CheckedChanged(object sender, EventArgs e)
         {
-            if (ImagenWeb.Checked && URLBox.Text != "")
+            try
             {
-                CargarImagen();
+                if (ImagenWeb.Checked && URLBox.Text != "")
+                {
+                    CargarImagen();
+                }
+                else if (ImagenServer.Checked && Session["auxFoto"] != null)
+                {
+                    if (ImagenPorLocal.CssClass != "MyImg")
+                        ImagenPorLocal.CssClass = "MyImg";
+                    ImagenPorLocal.ImageUrl = (string)Session["auxFoto"];
+                }
             }
-            else if (ImagenServer.Checked && Session["auxFoto"] != null)
+            catch (Exception ex)
             {
-                if (ImagenPorLocal.CssClass != "MyImg")
-                    ImagenPorLocal.CssClass = "MyImg";
-                ImagenPorLocal.ImageUrl = (string)Session["auxFoto"];
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
+
         }
 
         public void CargarImagen()
@@ -152,6 +161,12 @@ namespace AppCatalogoDeArticulos
                 Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
             }
+        }
+
+        protected void Volver_Click(object sender, EventArgs e)
+        {
+            File.Delete(Server.MapPath("./Images/Perfiles/Usuario-" + ((Usuario)Session["Usuario"]).Id + ".png"));
+            Response.Redirect("Catalogo.aspx", false);
         }
     }
 

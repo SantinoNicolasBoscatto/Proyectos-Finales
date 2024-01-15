@@ -55,7 +55,7 @@
                             <asp:ListItem Text="Nombre" Value="1" />
                             <asp:ListItem Text="Descripcion" Value="2" />
                             <asp:ListItem Text="Marca" Value="3" />
-                            <asp:ListItem Text="Producto" Value="4" />
+                            <asp:ListItem Text="Categoria" Value="4" />
                             <asp:ListItem Text="Precio" Value="5" />
                         </asp:DropDownList>
                     </div>
@@ -67,7 +67,7 @@
                         <asp:DropDownList ID="CriterioBox" CssClass="dropdown form-control" runat="server">
                             <asp:ListItem Text="Empieza Por" Value="1" />
                             <asp:ListItem Text="Termina Por" Value="2" />
-                            <asp:ListItem Text="Contiene Por" Value="3" />
+                            <asp:ListItem Text="Contiene" Value="3" />
                         </asp:DropDownList>
                     </div>
                 </div>

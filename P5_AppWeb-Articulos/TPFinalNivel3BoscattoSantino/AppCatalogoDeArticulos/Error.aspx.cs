@@ -11,7 +11,8 @@ namespace AppCatalogoDeArticulos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Error"] != null)
+                ErrorLabel.Text = Session["Error"].ToString(); 
         }
     }
 }

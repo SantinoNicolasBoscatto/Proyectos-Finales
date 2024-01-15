@@ -335,7 +335,7 @@ namespace Negocio_Base_Datos
             FuncionesNegocio negocioBD = new FuncionesNegocio();
             try
             {
-                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P, Tanque as Tank, Price as Precio from Autos a, Marca m where a.Marca = m.ID ");
+                negocioBD.SQLQuery("select a.AutoID ID, a.Nombre Nom, a.Anio An, a.Traccion Trac, a.PaisFabricacion Pais, HP, Torque, Peso, a.PesoPotencia PP, a.TopSpeed TS, a.Categoria Cat, a.Kilometraje K, m.NombreMarca NM, m.ImagenMarca IM, m.ID IdM,  a.auto1 f1, a.auto2 f2, a.auto3 f3, a.auto4 f4, a.Auto5 f5, Aspiracion Asp, IdealHP as IHP, Piloto as P, Tanque as Tank, Price as Precio from Autos a, Marca m where a.Marca = m.ID ");
                 negocioBD.LecturaBase();
                 while (negocioBD.Guardador.Read())
                 {
@@ -345,7 +345,7 @@ namespace Negocio_Base_Datos
                         Anio = (int)negocioBD.Guardador["An"],
                         Traccion = (string)negocioBD.Guardador["Trac"],
                         PaisFabricacion = (string)negocioBD.Guardador["Pais"],
-                        HP = (int)negocioBD.Guardador["IHP"],
+                        HP = (int)negocioBD.Guardador["HP"],
                         Torque = (int)negocioBD.Guardador["Torque"],
                         Peso = (int)negocioBD.Guardador["Peso"],
                         RelacionPesoPotencia = (double)negocioBD.Guardador["PP"],
@@ -365,6 +365,7 @@ namespace Negocio_Base_Datos
                     };
                     auxiliar.MarcaAuto.NombreMarca = (string)negocioBD.Guardador["NM"];
                     auxiliar.MarcaAuto.ImagenMarca = (string)negocioBD.Guardador["IM"];
+                    auxiliar.MarcaAuto.IdMarca = (int)negocioBD.Guardador["IdM"];
                     listaAutos.Add(auxiliar);
                 }
 
@@ -2149,7 +2150,7 @@ namespace Negocio_Base_Datos
         {
             List<Marca> listaMarcas = new List<Marca>();
             FuncionesNegocio negocioMarcas = new FuncionesNegocio();
-            negocioMarcas.SQLQuery("select ID, NombreMarca from Marca");
+            negocioMarcas.SQLQuery("select ID, NombreMarca from Marca Order By NombreMarca");
             negocioMarcas.LecturaBase();
             while (negocioMarcas.Guardador.Read())
             {
