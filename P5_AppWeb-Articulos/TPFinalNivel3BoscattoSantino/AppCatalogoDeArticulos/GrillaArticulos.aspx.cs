@@ -98,6 +98,9 @@ namespace AppCatalogoDeArticulos
                 CriterioBox.Items.Add("Es Menor a");
                 CriterioBox.Items.Add("Es Igual a");
                 FiltroBox.TextMode = TextBoxMode.Number;
+                CriterioBox.Items[0].Value = "1";
+                CriterioBox.Items[1].Value = "2";
+                CriterioBox.Items[2].Value = "3";
             }
             else
             {
@@ -105,6 +108,9 @@ namespace AppCatalogoDeArticulos
                 CriterioBox.Items.Add("Termina Por");
                 CriterioBox.Items.Add("Contiene");
                 FiltroBox.TextMode = TextBoxMode.SingleLine;
+                CriterioBox.Items[0].Value = "1";
+                CriterioBox.Items[1].Value = "2";
+                CriterioBox.Items[2].Value = "3";
             }
         }
 

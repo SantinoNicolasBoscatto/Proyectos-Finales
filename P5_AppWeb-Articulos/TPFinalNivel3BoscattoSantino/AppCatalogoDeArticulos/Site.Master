@@ -17,6 +17,7 @@
 
         .child:last-child {
              height: 60px;
+             object-fit: contain;
         }
 
         .flexea {
@@ -75,14 +76,17 @@
                         </li>
                         <%} %>
                     </ul>
-                    <% if (Page is AppCatalogoDeArticulos.MisFavoritos)
+                    <% if (Page is AppCatalogoDeArticulos.MisFavoritos || Page is AppCatalogoDeArticulos.Catalogo)
                         {%>
                     <div class="flexea">
                         <asp:TextBox placeholder="Search" aria-label="Search" ID="FiltroRapido" TextMode="Search" runat="server" CssClass="form-control me-2 child"></asp:TextBox>
-                        <asp:Button ID="Buscar" CssClass="btn btn-success me-2 child" runat="server" Text="Buscar" OnClick="Buscar_Click" />
+                        <asp:Button ID="Buscar" CssClass="btn btn-success me-2 child" runat="server" Text="Buscar" OnClick="Buscar_Click" TabIndex="15"/>
+                         <% if (Page is AppCatalogoDeArticulos.MisFavoritos)
+                        {%>
                         <asp:Button ID="LimpiarFiltroBasico" CssClass="btn btn-warning me-2 d-inline" runat="server" Text="Limpiar Filtro" Visible="false" OnClick="LimpiarFiltroBasico_Click" />
                         <%}%>
-                        <asp:Button ID="Desloguear" CssClass="btn btn-outline-danger me-2 child" runat="server" Text="Log Out" OnClick="Desloguear_Click" CausesValidation="false"/>
+                        <%}%>
+                        <asp:Button ID="Desloguear" CssClass="btn btn-outline-danger me-2 child" runat="server" Text="Log Out" OnClick="Desloguear_Click" CausesValidation="false" TabIndex="500"/>
                         <asp:ImageButton ImageUrl="https://media.tycsports.com/files/2021/05/07/278783/messi-toty-fifa-21_w416.png"
                             ID="ImagenPerfilMini" runat="server" class="ImagenPerfilMini rounded-circle child" Width="60px" OnClick="ImagenPerfilMini_Click" />
                     </div>

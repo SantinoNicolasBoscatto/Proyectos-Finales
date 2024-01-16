@@ -16,3 +16,12 @@ C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\Negoci
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.csproj.CopyComplete
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.dll
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Debug\NegocioConDB.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Debug\NegocioConDB.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Debug\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Debug\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.csproj.CopyComplete
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Debug\NegocioConDB.pdb

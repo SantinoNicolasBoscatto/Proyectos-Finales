@@ -22,6 +22,7 @@ namespace AppCatalogoDeArticulos
                     CargarProductos(ListaArticulos);
                     ViewState.Add("MostrarOcultar", true);
                 }
+
             }
             catch (Exception ex)
             {
@@ -54,8 +55,11 @@ namespace AppCatalogoDeArticulos
             try
             {
                 NegocioProductos negocio = new NegocioProductos();
-                CargarProductos(negocio.ListaFiltrada(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text));
-                Clean.Visible = true;
+                CargarProductos(negocio.ListaFiltradaDoble(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text, ((SiteMaster)Master).Search));
+                Session.Add("FiltroDoble", true);
+                if (Session["FiltroSimple"] != null)
+                    Session.Remove("FiltroSimple");
+                //Clean.Visible = true;
             }
             catch (Exception ex)
             {
@@ -70,15 +74,11 @@ namespace AppCatalogoDeArticulos
             {
                 if ((bool)ViewState["MostrarOcultar"])
                 {
-                    MostrarOcultar.Text = "Ocultar Filtros";
-                    ViewState.Add("MostrarOcultar", false);
-                    FiltroAvanzado.Visible = true;
+                    RestaurarMostrarOcultar(false, "Ocultar Filtros", true);
                 }
                 else
                 {
-                    MostrarOcultar.Text = "Mostrar Filtros";
-                    ViewState.Add("MostrarOcultar", true);
-                    FiltroAvanzado.Visible = false;
+                    RestaurarMostrarOcultar(true, "Mostrar Filtros", false);
                 }
             }
             catch (Exception ex)
@@ -97,6 +97,9 @@ namespace AppCatalogoDeArticulos
                 CriterioBox.Items.Add("Es Menor a");
                 CriterioBox.Items.Add("Es Igual a");
                 FiltroBox.TextMode = TextBoxMode.Number;
+                CriterioBox.Items[0].Value = "1";
+                CriterioBox.Items[1].Value = "2";
+                CriterioBox.Items[2].Value = "3";
             }
             else
             {
@@ -104,18 +107,34 @@ namespace AppCatalogoDeArticulos
                 CriterioBox.Items.Add("Termina Por");
                 CriterioBox.Items.Add("Contiene");
                 FiltroBox.TextMode = TextBoxMode.SingleLine;
+                CriterioBox.Items[0].Value = "1";
+                CriterioBox.Items[1].Value = "2";
+                CriterioBox.Items[2].Value = "3";
             }
         }
 
-        protected void Clean_Click(object sender, EventArgs e)
+        public void RestaurarMostrarOcultar(bool MO, string text, bool visi)
+        {
+            ViewState.Add("MostrarOcultar", MO);
+            MostrarOcultar.Text = text;
+            FiltroAvanzado.Visible = visi;
+        }
+
+        public void Clean_Click(object sender, EventArgs e)
         {
             try
             {
                 NegocioProductos negocio = new NegocioProductos();
                 List<Articulo> ListaArticulos = negocio.ListarArticulos();
                 CargarProductos(ListaArticulos);
-                Clean.Visible = false;
-                FiltroBox.Text = "";
+                //Clean.Visible = false;
+                ((SiteMaster)Master).LimpiarFiltroBasico_Click(sender, e);
+                Session.Add("SeFiltro", false);
+                RestaurarMostrarOcultar(true, "Mostrar Filtros", false);
+                if (Session["FiltroSimple"] != null)
+                    Session.Remove("FiltroSimple");
+                if (Session["FiltroDoble"] != null)
+                    Session.Remove("FiltroDoble");
             }
             catch (Exception ex)
             {
@@ -131,15 +150,24 @@ namespace AppCatalogoDeArticulos
                 int index = ((RepeaterItem)((Button)sender).NamingContainer).ItemIndex;
                 NegocioProductos negocio = new NegocioProductos();
                 List<Articulo> ListaArticulos = null;
-                if (Clean.Visible)
-                    ListaArticulos = negocio.ListaFiltrada(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text);
+                if (Session["FiltroSimple"] != null)
+                {
+                    ListaArticulos = ((SiteMaster)Master).FiltroFast();
+                    Session.Remove("FiltroSimple");
+                }
+                                   
+                else if (Session["FiltroDoble"] != null)
+                {
+                    ListaArticulos = negocio.ListaFiltradaDoble(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text, ((SiteMaster)Master).Search);
+                    Session.Remove("FiltroDoble");
+                }               
                 else
-                    ListaArticulos = negocio.ListarArticulos();
-
+                ListaArticulos = negocio.ListarArticulos();
+                    
+                    //ListaArticulos = negocio.ListaFiltrada(CampoBox.SelectedValue, CriterioBox.SelectedValue, FiltroBox.Text);
                 CargarProductos(ListaArticulos);
                 Session.Add("ArticuloDetalle", ListaArticulos[index]);
                 Response.Redirect("DetalleCatalogo.aspx?Back=1", false);
-
             }
             catch (Exception ex)
             {

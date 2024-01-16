@@ -271,10 +271,10 @@ namespace NegocioConDB
                     case "1": //Nombre
                         switch (criterio)
                         {
-                            case "Empieza Por":
+                            case "1":
                                 inyeccion = inyeccion += "Nombre like '" + textoFiltrado + "%'";
                                 break;
-                            case "Termina Por":
+                            case "2":
                                 inyeccion = inyeccion += "Nombre like'%" + textoFiltrado + "'";
                                 break;
                             default:
@@ -285,10 +285,10 @@ namespace NegocioConDB
                     case "2": //Descripcion
                         switch (criterio)
                         {
-                            case "Empieza Por":
+                            case "1":
                                 inyeccion = inyeccion += "A.Descripcion like '" + textoFiltrado + "%'";
                                 break;
-                            case "Termina Por":
+                            case "2":
                                 inyeccion = inyeccion += "A.Descripcion like'%" + textoFiltrado + "'";
                                 break;
                             default:
@@ -299,10 +299,10 @@ namespace NegocioConDB
                     case "3": //Marca
                         switch (criterio)
                         {
-                            case "Empieza Por":
+                            case "1":
                                 inyeccion = inyeccion += "M.Descripcion like '" + textoFiltrado + "%'";
                                 break;
-                            case "Termina Por":
+                            case "2":
                                 inyeccion = inyeccion += "M.Descripcion like'%" + textoFiltrado + "'"; 
                                 break;
                             default:
@@ -313,10 +313,10 @@ namespace NegocioConDB
                     case "4": //Categoria
                         switch (criterio)
                         {
-                            case "Empieza Por":
+                            case "1":
                                 inyeccion = inyeccion += "C.Descripcion like '" + textoFiltrado + "%'";
                                 break;
-                            case "Termina Por":
+                            case "2":
                                 inyeccion = inyeccion += "C.Descripcion like'%" + textoFiltrado + "'";
                                 break;
                             default:
@@ -327,10 +327,10 @@ namespace NegocioConDB
                     case "5": //Precio
                         switch (criterio)
                         {
-                            case "Es Mayor a":
+                            case "1":
                                 inyeccion = inyeccion += "Precio >" + textoFiltrado;
                                 break;
-                            case "Es Menor a":
+                            case "2":
                                 inyeccion = inyeccion += "Precio <" + textoFiltrado;
                                 break;
                             default:
@@ -364,6 +364,110 @@ namespace NegocioConDB
             }
         }
 
+
+        public List<Articulo> ListaFiltradaDoble(string campo, string criterio, string textoFiltrado, string filtroFast)
+        {
+            List<Articulo> listaArticulosFiltrada = new List<Articulo>();
+            AccesoCentralBD AccesoBaseDeDatos = new AccesoCentralBD();
+            try
+            {
+                string inyeccion = "select Codigo, Nombre, A.Descripcion Entrada, C.Descripcion Categoria, M.Descripcion Marca, ImagenUrl, A.Id Id, Precio From ARTICULOS A, CATEGORIAS C, MARCAS M where C.Id = A.IdCategoria AND M.Id = A.IdMarca AND ";
+                switch (campo)
+                {
+                    case "1": //Nombre
+                        switch (criterio)
+                        {
+                            case "1":
+                                inyeccion = inyeccion += "Nombre like '" + textoFiltrado + "%' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            case "2":
+                                inyeccion = inyeccion += "Nombre like'%" + textoFiltrado + "' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            default:
+                                inyeccion = inyeccion += "Nombre like'%" + textoFiltrado + "%' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                        }
+                        break;
+                    case "2": //Descripcion
+                        switch (criterio)
+                        {
+                            case "1":
+                                inyeccion = inyeccion += "A.Descripcion like '" + textoFiltrado + "%'" + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            case "2":
+                                inyeccion = inyeccion += "A.Descripcion like'%" + textoFiltrado + "' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            default:
+                                inyeccion = inyeccion += "A.Descripcion like'%" + textoFiltrado + "%' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                        }
+                        break;
+                    case "3": //Marca
+                        switch (criterio)
+                        {
+                            case "1":
+                                inyeccion = inyeccion += "M.Descripcion like '" + textoFiltrado + "%'" + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            case "2":
+                                inyeccion = inyeccion += "M.Descripcion like'%" + textoFiltrado + "' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            default:
+                                inyeccion = inyeccion += "M.Descripcion like'%" + textoFiltrado + "%' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                        }
+                        break;
+                    case "4": //Categoria
+                        switch (criterio)
+                        {
+                            case "1":
+                                inyeccion = inyeccion += "C.Descripcion like '" + textoFiltrado + "%'" + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            case "2":
+                                inyeccion = inyeccion += "C.Descripcion like'%" + textoFiltrado + "' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            default:
+                                inyeccion = inyeccion += "C.Descripcion like'%" + textoFiltrado + "%' AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                        }
+                        break;
+                    case "5": //Precio
+                        switch (criterio)
+                        {
+                            case "1":
+                                inyeccion = inyeccion += "Precio >" + textoFiltrado + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            case "2":
+                                inyeccion = inyeccion += "Precio <" + textoFiltrado + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                            default:
+                                inyeccion = inyeccion += "Precio =" + textoFiltrado + " AND Nombre like'%" + filtroFast + "%'";
+                                break;
+                        }
+                        break;
+
+                }//Fin del switch
+                AccesoBaseDeDatos.SQLquery(inyeccion);
+                AccesoBaseDeDatos.EjecutarLecturaBD();
+                while (AccesoBaseDeDatos.Guardador.Read())
+                {
+                    Articulo auxiliar = new Articulo();
+                    auxiliar.Id = (int)AccesoBaseDeDatos.Guardador["Id"];
+                    auxiliar.CodigoDeArticulo = (string)AccesoBaseDeDatos.Guardador["Codigo"];
+                    auxiliar.NombreDeArticulo = (string)AccesoBaseDeDatos.Guardador["Nombre"];
+                    auxiliar.DescripcionDeArticulo = (string)AccesoBaseDeDatos.Guardador["Entrada"];
+                    auxiliar.ImagenDelProducto = (string)AccesoBaseDeDatos.Guardador["ImagenUrl"];
+                    auxiliar.CategoriaDelProducto.NombreCategoria = (string)AccesoBaseDeDatos.Guardador["Categoria"];
+                    auxiliar.MarcaDelProducto.NombreMarca = (string)AccesoBaseDeDatos.Guardador["Marca"];
+                    auxiliar.PrecioDelProducto = (decimal)AccesoBaseDeDatos.Guardador["Precio"];
+                    listaArticulosFiltrada.Add(auxiliar);
+                }
+                return listaArticulosFiltrada;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Articulo ListaPorID(int id)
         {
             AccesoCentralBD accesoCentral = new AccesoCentralBD();
