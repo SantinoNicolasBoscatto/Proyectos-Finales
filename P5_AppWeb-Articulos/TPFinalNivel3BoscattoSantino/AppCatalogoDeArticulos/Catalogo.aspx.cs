@@ -22,6 +22,7 @@ namespace AppCatalogoDeArticulos
                     CargarProductos(ListaArticulos);
                     ViewState.Add("MostrarOcultar", true);
                 }
+                Form.DefaultButton = this.FiltroAvanzado.UniqueID;
 
             }
             catch (Exception ex)
@@ -68,6 +69,11 @@ namespace AppCatalogoDeArticulos
             }
         }
 
+        public string ReturnId()
+        {
+           return FiltroAvanzado.UniqueID;
+        }
+
         protected void MostrarOcultar_Click(object sender, EventArgs e)
         {
             try
@@ -75,6 +81,7 @@ namespace AppCatalogoDeArticulos
                 if ((bool)ViewState["MostrarOcultar"])
                 {
                     RestaurarMostrarOcultar(false, "Ocultar Filtros", true);
+                    Session.Add("Def", true);
                 }
                 else
                 {

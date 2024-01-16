@@ -7,6 +7,6 @@
     <br />
     <asp:Label ID="ErrorLabel" runat="server" Text="" class="text-white Error"></asp:Label>
     </div>
-    
+    <br />
 
 </asp:Content>

@@ -7,3 +7,12 @@ C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\Clases
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.csproj.CopyComplete
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.dll
 C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Release\ClasesStatic.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Release\ClasesStatic.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Release\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\bin\Release\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.csproj.CopyComplete
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.dll
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ClasesStatic\obj\Release\ClasesStatic.pdb

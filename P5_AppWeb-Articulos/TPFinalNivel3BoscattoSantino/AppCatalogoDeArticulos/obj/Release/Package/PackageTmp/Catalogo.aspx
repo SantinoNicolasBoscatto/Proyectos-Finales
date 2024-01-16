@@ -68,25 +68,35 @@
                 <div class="col-4">
                     <div class="mt-3 mb-3">
                         <label for="FiltroBox" class="form-label text-white">Filtro</label>
-                        <asp:TextBox ID="FiltroBox" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="FiltroBox" CssClass="form-control" ClientIDMode="Static" runat="server" TabIndex="20"
+                            >
+                        </asp:TextBox>
                     </div>
                 </div>
                 <%} %>
+                 <% if (Session["SeFiltro"] != null && (bool)Session["SeFiltro"])
+                    { %>
                 <div class="botones-container">
-                    <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" />
+                    <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" TabIndex="8"/>                                  
+
                 </div>
+                 <%} %>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpFA" runat="server" UpdateMode="Conditional" CssClass="d-none">
         <ContentTemplate>
             <div class="botones-container mb-5">
-                <asp:Button OnClientClick="return validarFiltro(); enviarPostback()   </script>" ID="FiltroAvanzado" runat="server" Text="Filtrar" CssClass="btn btn-danger boton-derecha" OnClick="FiltroAvanzado_Click" Visible="false" />
-                <asp:Button ID="Clean" runat="server" Text="Desfiltrar" CssClass="btn btn-warning boton-derecha" OnClick="Clean_Click" Visible="false" />
+                <asp:Button OnClientClick="return validarFiltro();" ID="FiltroAvanzado" runat="server" Text="Filtrar" CssClass="btn btn-danger boton-derecha" OnClick="FiltroAvanzado_Click" Visible="false" TabIndex="21"/>
+                <% if (Session["SeFiltro"] != null && (bool)Session["SeFiltro"])
+                    { %>
+                <asp:Button ID="Clean" runat="server" Text="Desfiltrar" CssClass="btn btn-warning boton-derecha" OnClick="Clean_Click" TabIndex="10"/>
+                <%} %>
             </div>
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="MostrarOcultar" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="Buscar" EventName="Click"/>
         </Triggers>
     </asp:UpdatePanel>
     <asp:UpdatePanel ID="UpCatalogo" runat="server" UpdateMode="Conditional" CssClass="d-none">
@@ -113,6 +123,7 @@
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="FiltroAvanzado" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="Clean" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="Buscar" EventName="Click"/>
         </Triggers>
     </asp:UpdatePanel>
 </asp:Content>

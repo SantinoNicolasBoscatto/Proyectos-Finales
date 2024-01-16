@@ -29,6 +29,7 @@
             </div>
             <asp:Button ID="Registrarse" CssClass="btn btn-primary" runat="server" Text="Registrarse" OnClick="Registrarse_Click" />
         </div>
-        <div class="col-3"></div>
+        <div class="col-3">
+        </div>
     </div>
 </asp:Content>

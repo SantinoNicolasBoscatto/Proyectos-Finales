@@ -23,6 +23,7 @@
                         <a href="#" onclick="enviarPostback(); return false;" id="btnLog" TabIndex="0">Login
                         <span></span>
                         </a>
+                        <asp:Button ID="Defaultbtn" runat="server" Text="Button" CssClass="d-none" OnClick="Login_Click"/>
                     </center>
                 </div>
             </div>

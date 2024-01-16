@@ -68,14 +68,17 @@
                 <div class="col-4">
                     <div class="mt-3 mb-3">
                         <label for="FiltroBox" class="form-label text-white">Filtro</label>
-                        <asp:TextBox ID="FiltroBox" CssClass="form-control" ClientIDMode="Static" runat="server" TabIndex="20"></asp:TextBox>
+                        <asp:TextBox ID="FiltroBox" CssClass="form-control" ClientIDMode="Static" runat="server" TabIndex="20"
+                            >
+                        </asp:TextBox>
                     </div>
                 </div>
                 <%} %>
                  <% if (Session["SeFiltro"] != null && (bool)Session["SeFiltro"])
                     { %>
                 <div class="botones-container">
-                    <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" TabIndex="8"/>
+                    <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" TabIndex="8"/>                                  
+
                 </div>
                  <%} %>
             </div>

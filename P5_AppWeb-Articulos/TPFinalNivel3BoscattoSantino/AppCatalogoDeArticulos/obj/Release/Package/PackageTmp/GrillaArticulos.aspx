@@ -18,8 +18,9 @@
     </script>
 
     <div class="pt-3">
-        <div class="col-2 mb-2">
+        <div class="d-flex mb-2">
             <asp:Button ID="AgregarBoton" runat="server" Text="Agregar" CssClass="btn btn-outline-success" OnClick="AgregarBoton_Click" />
+            <asp:Button ID="GMC" runat="server" Text="GV Marcas y Cat." CssClass="btn btn-secondary boton-derecha" OnClick="GMC_Click" />
         </div>
 
         <asp:UpdatePanel ID="UpdateDGV" runat="server">
@@ -80,7 +81,6 @@
                 <%} %>
                 <div class="botones-container d-inline">
                     <asp:Button ID="MostrarOcultar" runat="server" Text="Mostrar Filtros" CssClass="btn btn-primary boton-izquierda" OnClick="MostrarOcultar_Click" />
-                    <asp:Button ID="GMC" runat="server" Text="GV Marcas y Cat." CssClass="btn btn-secondary boton-izquierda" OnClick="GMC_Click" />
                 </div>
             </div>
         </ContentTemplate>

@@ -15,7 +15,6 @@ namespace AppCatalogoDeArticulos
         public string Search { get { return FiltroRapido.Text; } }
         public void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (Session["Usuario"] == null)
@@ -24,13 +23,6 @@ namespace AppCatalogoDeArticulos
                 {
                     ImagenPerfilMini.ImageUrl = ((Usuario)Session["Usuario"]).ImagenPerfil != null ? ((Usuario)Session["Usuario"]).ImagenPerfil : "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
                     Session.Add("SeFiltro", false);
-                }
-            }
-            if (Page is Catalogo)
-            {
-                if (Request.Form["__EVENTTARGET"] == "MF")
-                {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "LimpiarEventTarget", "__doPostBack('', '');", true);
                 }
             }
         }

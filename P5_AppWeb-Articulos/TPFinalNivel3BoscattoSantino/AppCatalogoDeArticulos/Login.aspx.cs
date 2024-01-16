@@ -14,6 +14,7 @@ namespace AppCatalogoDeArticulos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Form.DefaultButton = this.Defaultbtn.UniqueID;
             if (IsPostBack)
             {
                 if (Request.Form["__EVENTTARGET"] == "Log")
@@ -33,7 +34,13 @@ namespace AppCatalogoDeArticulos
                 user.Email = EmailBox.Text;
                 user.Pass = PassBox.Text;
                 if (negocio.ValidadorLogin(user))
+                {
                     Session.Add("Usuario", user);
+                    if (Seguridad.VerificarAdmin((Usuario)Session["Usuario"]))
+                        Response.Redirect("GrillaArticulos.aspx", false);
+                    else
+                        Response.Redirect("Catalogo.aspx", false);
+                }          
                 else
                     LabelError.Visible = true;
                     

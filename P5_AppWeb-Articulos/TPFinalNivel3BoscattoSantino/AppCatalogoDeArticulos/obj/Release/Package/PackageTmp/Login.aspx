@@ -20,9 +20,10 @@
                             CssClass="RegularExp" Visible="false" ForeColor="Red"></asp:Label>
                     </div>
                     <center class="mt-3">
-                        <a href="#" onclick="enviarPostback(); return false;" TabIndex="0">Login
+                        <a href="#" onclick="enviarPostback(); return false;" id="btnLog" TabIndex="0">Login
                         <span></span>
                         </a>
+                        <asp:Button ID="Defaultbtn" runat="server" Text="Button" CssClass="d-none" OnClick="Login_Click"/>
                     </center>
                 </div>
             </div>

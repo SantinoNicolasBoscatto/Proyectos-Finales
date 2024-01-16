@@ -25,11 +25,11 @@
             display: flex;
         }
     </style>
-    <script>
+<%--    <script>
         function enviarPostback() {
             __doPostBack('MF', '');
         }
-    </script>
+    </script>--%>
    
 </head>
 <body>
