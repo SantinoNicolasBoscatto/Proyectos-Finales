@@ -45,6 +45,9 @@ namespace NegocioConDB
                 AccesoBaseDeDatos.CerrarConexion();
             }
         }
+
+       
+
         public List<Categoria> ListarCategorias()
         {
             List<Categoria> listaDeCategorias = new List<Categoria>();
@@ -153,6 +156,47 @@ namespace NegocioConDB
             {
                 AccesoBaseDeDatos.SQLquery("insert into CATEGORIAS (Descripcion) values (@Descripcion)");
                 AccesoBaseDeDatos.SetearParametros("@Descripcion", nuevaCategoria);
+                AccesoBaseDeDatos.EjecutarAccionContraBD();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                AccesoBaseDeDatos.CerrarConexion();
+            }
+        }
+
+
+        public void UpCategoria(string update, int id)
+        {
+            AccesoCentralBD AccesoBaseDeDatos = new AccesoCentralBD();
+            try
+            {
+                AccesoBaseDeDatos.SQLquery("Update Categorias Set Descripcion = @Descripcion Where Id = @MyId");
+                AccesoBaseDeDatos.SetearParametros("@Descripcion", update);
+                AccesoBaseDeDatos.SetearParametros("@MyId", id);
+                AccesoBaseDeDatos.EjecutarAccionContraBD();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                AccesoBaseDeDatos.CerrarConexion();
+            }
+        }
+
+        public void UpMarca(string update, int id)
+        {
+            AccesoCentralBD AccesoBaseDeDatos = new AccesoCentralBD();
+            try
+            {
+                AccesoBaseDeDatos.SQLquery("Update Marcas Set Descripcion = @Descripcion Where Id = @MyId");
+                AccesoBaseDeDatos.SetearParametros("@Descripcion", update);
+                AccesoBaseDeDatos.SetearParametros("@MyId", id);
                 AccesoBaseDeDatos.EjecutarAccionContraBD();
             }
             catch (Exception ex)

@@ -116,6 +116,8 @@
     <Content Include="Css\MiPerfil.css" />
     <Content Include="Css\NavImg.css" />
     <Content Include="DetalleCatalogo.aspx" />
+    <Content Include="DetalleCategoria.aspx" />
+    <Content Include="DetalleMarca.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -124,6 +126,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="GrillaMC.aspx" />
     <Content Include="Images\Logo.jpeg" />
     <Content Include="LoginRegister.Master" />
     <Content Include="ErrorMaster.Master" />
@@ -185,6 +188,20 @@
     <Compile Include="DetalleCatalogo.aspx.designer.cs">
       <DependentUpon>DetalleCatalogo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleCategoria.aspx.cs">
+      <DependentUpon>DetalleCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCategoria.aspx.designer.cs">
+      <DependentUpon>DetalleCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleMarca.aspx.cs">
+      <DependentUpon>DetalleMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleMarca.aspx.designer.cs">
+      <DependentUpon>DetalleMarca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,6 +225,13 @@
     </Compile>
     <Compile Include="GrillaArticulos.aspx.designer.cs">
       <DependentUpon>GrillaArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GrillaMC.aspx.cs">
+      <DependentUpon>GrillaMC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrillaMC.aspx.designer.cs">
+      <DependentUpon>GrillaMC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

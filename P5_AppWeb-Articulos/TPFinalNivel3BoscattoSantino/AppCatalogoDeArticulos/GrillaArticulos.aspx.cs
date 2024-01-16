@@ -140,6 +140,12 @@ namespace AppCatalogoDeArticulos
         {
             Response.Redirect("ModificarArticulo.aspx");
         }
+
+        protected void GMC_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GrillaMC.aspx", false);
+        }
+
     }
 
 }

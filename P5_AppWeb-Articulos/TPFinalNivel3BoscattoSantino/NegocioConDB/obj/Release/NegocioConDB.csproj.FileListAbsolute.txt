@@ -1,0 +1,9 @@
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Release\NegocioConDB.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Release\NegocioConDB.pdb
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Release\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\bin\Release\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Release\NegocioConDB.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Release\NegocioConDB.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Release\NegocioConDB.csproj.CopyComplete
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Release\NegocioConDB.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\NegocioConDB\obj\Release\NegocioConDB.pdb

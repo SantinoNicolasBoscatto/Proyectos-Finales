@@ -25,6 +25,7 @@ namespace AppCatalogoDeArticulos
                         PassBox.Text = aux.Pass;
                         NombreBox.Text = aux.Nombre;
                         ApellidoBox.Text = aux.Apellido;
+
                         if (aux.ImagenPerfil != null)
                         {
                             if (aux.ImagenPerfil.ToLower().Contains("http"))
@@ -142,6 +143,7 @@ namespace AppCatalogoDeArticulos
                 aux.Nombre = NombreBox.Text;
                 aux.Apellido = ApellidoBox.Text;
                 aux.Id = ((Usuario)Session["Usuario"]).Id;
+                aux.Permiso = ((Usuario)Session["Usuario"]).Permiso;
                 if (ImagenWeb.Checked && URLBox.Text != "")
                 {
                     aux.ImagenPerfil = ImagenPorUrl.ImageUrl;
@@ -165,7 +167,6 @@ namespace AppCatalogoDeArticulos
 
         protected void Volver_Click(object sender, EventArgs e)
         {
-            File.Delete(Server.MapPath("./Images/Perfiles/Usuario-" + ((Usuario)Session["Usuario"]).Id + ".png"));
             Response.Redirect("Catalogo.aspx", false);
         }
     }

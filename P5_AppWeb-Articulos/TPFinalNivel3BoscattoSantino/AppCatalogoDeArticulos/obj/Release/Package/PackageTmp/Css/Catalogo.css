@@ -1,0 +1,122 @@
+﻿.BackDinamico {
+    width: 100%;
+    height: 110%;
+    min-height: 100vh;
+    /* Add your background pattern here */
+    background-color: #313131;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px
+}
+
+.card-body {
+    margin-top: -5%;
+}
+
+.Plata {
+    font-size: 24px;
+    font-weight: 900;
+    color: forestgreen;
+    height: 45px;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out, border-radius 1s;
+    max-height: 450px;
+    border-radius: 25px;
+    margin-top: -15px;
+}
+.ColorCard {
+    background-color: #630b57;
+}
+.MyImage {
+    max-height: 280px;
+    min-height: 280px;
+    width: auto;
+    object-fit: contain;
+    border: 2px solid white;
+    margin: 5px;
+    background-color: #444;
+    outline: 2px solid black;
+    border-radius: 20px;
+    transition: border-radius 1s ease-in-out;
+    padding: 15px;
+}
+
+.card:hover {
+    transform: scaleX(1.03) translateY(-20px);
+    border-radius: 5px;
+}
+
+.MyImage:hover {
+    border-radius: 5px;
+}
+
+.botones-container {
+    text-align: center; /* Esto centrará los botones horizontalmente */
+    padding: 10px;
+}
+
+.boton-izquierda {
+    display: inline-block;
+    margin-right: auto; /* Empuja el botón a la izquierda */
+    max-width: 150px;
+}
+
+.boton-derecha {
+    display: inline-block;
+    margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+
+.Info {
+    display: inline;
+    float: right;
+}
+
+.card{
+    overflow-y:hidden;
+}
+
+.Centrar{
+    display: grid;
+    place-items: center
+}
+
+.h5{
+    font-size: 20px;
+}
+
+.Centrar_Responsive {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Dos columnas: una para el texto y otra para el botón */
+    gap: 10px; /* Espaciado entre las columnas */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+}
+
+
+
+@media (max-width: 991px) {
+    /* Aplicar estilos específicos para pantallas más pequeñas si es necesario */
+    .Centrar_Responsive {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas más pequeñas */
+        text-align: left; /* Alinea el texto a la izquierda en pantallas más pequeñas */
+    }
+    .card-body {
+        margin-top: -3%;
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .h5 {
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    .card {
+        max-height: 500px;
+    }
+
+}

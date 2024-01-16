@@ -12,15 +12,30 @@ namespace AppCatalogoDeArticulos
 {
     public partial class SiteMaster : MasterPage
     {
+        public bool Limpiar
+        {
+            get { return LimpiarFiltroBasico.Visible; }
+            set { Limpiar = value; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null)
+            
+            if (!IsPostBack)
+            {
+                if (Session["Usuario"] == null)
                     Response.Redirect("Login.aspx", false);
-            else
-                ImagenPerfilMini.ImageUrl = ((Usuario)Session["Usuario"]).ImagenPerfil != null? ((Usuario)Session["Usuario"]).ImagenPerfil : "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
+                else
+                    ImagenPerfilMini.ImageUrl = ((Usuario)Session["Usuario"]).ImagenPerfil != null ? ((Usuario)Session["Usuario"]).ImagenPerfil : "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
+            }
+            if (Page is Catalogo)
+            {
+                if (Request.Form["__EVENTTARGET"] == "MF")
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "LimpiarEventTarget", "__doPostBack('', '');", true);
+                }
+            }
 
         }
-
         protected void Desloguear_Click(object sender, EventArgs e)
         {
             try
@@ -39,11 +54,7 @@ namespace AppCatalogoDeArticulos
         {
             try
             {
-                NegocioProductos negocio = new NegocioProductos();
-                List<Articulo>  ListaArticulos = negocio.ListarArticulos();
-                ListaArticulos = ListaArticulos.FindAll(aux => aux.NombreDeArticulo.ToLower().Contains(FiltroRapido.Text.ToLower()));
-                ((Catalogo)Page).CargarProductos(ListaArticulos);
-                LimpiarFiltroBasico.Visible = true;
+               FiltroFast();
             }
             catch (Exception ex)
             {
@@ -53,15 +64,34 @@ namespace AppCatalogoDeArticulos
             
         }
 
+        public List<Articulo> FiltroFast()
+        {
+            NegocioProductos negocio = new NegocioProductos();
+            List<Articulo> ListaArticulos = new List<Articulo>();
+            ListaArticulos = negocio.ListaFav(((Usuario)Session["Usuario"]).Id).FindAll(aux => aux.NombreDeArticulo.ToLower().Contains(FiltroRapido.Text.ToLower()));
+            ((MisFavoritos)Page).CargarProductos(ListaArticulos);
+            LimpiarFiltroBasico.Visible = true;
+            return ListaArticulos;
+            
+        }
+
         protected void LimpiarFiltroBasico_Click(object sender, EventArgs e)
         {
-            if (LimpiarFiltroBasico.Visible == true)
+            try
             {
-                LimpiarFiltroBasico.Visible = false;
-                NegocioProductos negocio = new NegocioProductos();
-                ((Catalogo)Page).CargarProductos(negocio.ListarArticulos());
-                FiltroRapido.Text = "";
-            } 
+                if (LimpiarFiltroBasico.Visible == true)
+                {
+                    LimpiarFiltroBasico.Visible = false;
+                    NegocioProductos negocio = new NegocioProductos();
+                    ((MisFavoritos)Page).CargarProductos(negocio.ListaFav(((Usuario)Session["Usuario"]).Id));
+                    FiltroRapido.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
         }
 
         public bool CallSeguridad()
@@ -73,5 +103,7 @@ namespace AppCatalogoDeArticulos
         {
             Response.Redirect("MiPerfil.aspx");
         }
+
+        
     }
 }

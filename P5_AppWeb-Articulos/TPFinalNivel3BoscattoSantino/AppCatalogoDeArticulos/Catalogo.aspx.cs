@@ -21,7 +21,6 @@ namespace AppCatalogoDeArticulos
                     List<Articulo> ListaArticulos = negocio.ListarArticulos();
                     CargarProductos(ListaArticulos);
                     ViewState.Add("MostrarOcultar", true);
-
                 }
             }
             catch (Exception ex)
@@ -41,7 +40,7 @@ namespace AppCatalogoDeArticulos
                 }
                 RepetidorCatalogo.DataSource = ListaArticulos;
                 RepetidorCatalogo.DataBind();
-                
+
             }
             catch (Exception ex)
             {
@@ -147,7 +146,7 @@ namespace AppCatalogoDeArticulos
                 Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
             }
-            
+
         }
     }
 }

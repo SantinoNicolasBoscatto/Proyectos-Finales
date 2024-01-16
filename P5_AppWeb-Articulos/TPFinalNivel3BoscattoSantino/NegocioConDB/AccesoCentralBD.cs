@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace NegocioConDB
 {
@@ -23,7 +24,7 @@ namespace NegocioConDB
         public AccesoCentralBD()
         {
             comandoSQL = new SqlCommand();
-            conexionBD = new SqlConnection("server=.\\SQLEXPRESS01; database= CATALOGO_WEB_DB; integrated security= true");
+            conexionBD = new SqlConnection(ConfigurationManager.AppSettings["CadenaConexion"]);
         }
 
         //Con esta funcion seteamos el comando a Texto y la pasamos la linea de comando a ejecutar por parametro.

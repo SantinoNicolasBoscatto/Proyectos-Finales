@@ -1,0 +1,6 @@
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\bin\Release\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\bin\Release\ModeloDeDominio.pdb
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\obj\Release\ModeloDeDominio.csproj.AssemblyReference.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\obj\Release\ModeloDeDominio.csproj.CoreCompileInputs.cache
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\obj\Release\ModeloDeDominio.dll
+C:\Users\Santino\Desktop\P5_AppWeb-Articulos\TPFinalNivel3BoscattoSantino\ModeloDeDominio\obj\Release\ModeloDeDominio.pdb

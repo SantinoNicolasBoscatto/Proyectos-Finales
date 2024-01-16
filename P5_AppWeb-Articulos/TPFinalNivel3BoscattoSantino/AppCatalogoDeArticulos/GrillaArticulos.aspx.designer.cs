@@ -87,6 +87,15 @@ namespace AppCatalogoDeArticulos
         protected global::System.Web.UI.WebControls.Button MostrarOcultar;
 
         /// <summary>
+        /// Control GMC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GMC;
+
+        /// <summary>
         /// Control UpFA.
         /// </summary>
         /// <remarks>

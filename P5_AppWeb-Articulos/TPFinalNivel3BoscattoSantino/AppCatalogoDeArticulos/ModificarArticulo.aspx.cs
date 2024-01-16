@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NegocioConDB;
 using ModeloDeDominio;
+using ClasesStatic;
 
 namespace AppCatalogoDeArticulos
 {
@@ -17,53 +18,57 @@ namespace AppCatalogoDeArticulos
             {
                 if (!IsPostBack)
                 {
-                    NegocioProductos negocio = new NegocioProductos();
-                    CategoriaBox.DataSource = negocio.ListarCategorias();
-                    CategoriaBox.DataValueField = "IdCategoria";
-                    CategoriaBox.DataTextField = "NombreCategoria";
-                    CategoriaBox.DataBind();
-                    MarcaBox.DataSource = negocio.ListarMarcas();
-                    MarcaBox.DataValueField = "IdMarca";
-                    MarcaBox.DataTextField = "NombreMarca";
-                    MarcaBox.DataBind();
-                    if (Request.QueryString["Id"] != null)
+                    if (!Seguridad.VerificarAdmin((Usuario)Session["Usuario"]))
+                        Response.Redirect("Catalogo.aspx", false);
+                    else
                     {
-                        AgregarBoton.Text = "Modificar";
-                        AgregarBoton.CssClass = "btn btn-secondary";
-                        EliminarBoton.Visible = true;
-                        IdBox.Text = Request.QueryString["Id"];
-                        Articulo aux = negocio.ListaPorID(int.Parse(IdBox.Text));
-                        CodigoBox.Text = aux.CodigoDeArticulo;
-                        NombreBox.Text = aux.NombreDeArticulo;
-                        DescripcionBox.Text = aux.DescripcionDeArticulo;
-                        URLBox.Text = aux.ImagenDelProducto;
-                        PrecioBox.Text = Math.Round(aux.PrecioDelProducto).ToString();
-                        MarcaBox.SelectedValue = aux.MarcaDelProducto.IdMarca.ToString();
-                        CategoriaBox.SelectedValue = aux.CategoriaDelProducto.IdCategoria.ToString();
-                        if (aux.ImagenDelProducto.ToLower().Contains("http"))
+                        NegocioProductos negocio = new NegocioProductos();
+                        CategoriaBox.DataSource = negocio.ListarCategorias();
+                        CategoriaBox.DataValueField = "IdCategoria";
+                        CategoriaBox.DataTextField = "NombreCategoria";
+                        CategoriaBox.DataBind();
+                        MarcaBox.DataSource = negocio.ListarMarcas();
+                        MarcaBox.DataValueField = "IdMarca";
+                        MarcaBox.DataTextField = "NombreMarca";
+                        MarcaBox.DataBind();
+                        if (Request.QueryString["Id"] != null)
                         {
+                            AgregarBoton.Text = "Modificar";
+                            AgregarBoton.CssClass = "btn btn-secondary";
+                            EliminarBoton.Visible = true;
+                            IdBox.Text = Request.QueryString["Id"];
+                            Articulo aux = negocio.ListaPorID(int.Parse(IdBox.Text));
+                            CodigoBox.Text = aux.CodigoDeArticulo;
+                            NombreBox.Text = aux.NombreDeArticulo;
+                            DescripcionBox.Text = aux.DescripcionDeArticulo;
                             URLBox.Text = aux.ImagenDelProducto;
-                            CargarImagen();
-                            ImagenWeb.Checked = true;
+                            PrecioBox.Text = Math.Round(aux.PrecioDelProducto).ToString();
+                            MarcaBox.SelectedValue = aux.MarcaDelProducto.IdMarca.ToString();
+                            CategoriaBox.SelectedValue = aux.CategoriaDelProducto.IdCategoria.ToString();
+                            if (aux.ImagenDelProducto.ToLower().Contains("http"))
+                            {
+                                URLBox.Text = aux.ImagenDelProducto;
+                                CargarImagen();
+                                ImagenWeb.Checked = true;
+                            }
+                            else
+                            {
+                                ImagenPorLocal.ImageUrl = URLBox.Text;
+                                ImagenServer.Checked = true;
+                                Session.Add("auxFoto", URLBox.Text);
+                                URLBox.Text = "";
+                                ImagenPorLocal.CssClass = "MyImg";
+                                ImagenPorUrl.CssClass = "d-none";
+                            }
+
                         }
                         else
                         {
-                            ImagenPorLocal.ImageUrl = URLBox.Text;
-                            ImagenServer.Checked = true;
-                            Session.Add("auxFoto", URLBox.Text);
-                            URLBox.Text = "";
-                            ImagenPorLocal.CssClass = "MyImg";
-                            ImagenPorUrl.CssClass = "d-none";
+                            ImagenWeb.Checked = true;
+                            ImagenPorLocal.CssClass = "d-none";
                         }
-
                     }
-                    else
-                    {
-                        ImagenWeb.Checked = true;
-                        ImagenPorLocal.CssClass = "d-none";
-                    }
-
-
+                    
                 }
             }
             catch (Exception ex)
@@ -152,7 +157,7 @@ namespace AppCatalogoDeArticulos
                 aux.MarcaDelProducto.IdMarca = int.Parse(MarcaBox.SelectedValue);
                 aux.CategoriaDelProducto.IdCategoria = int.Parse(CategoriaBox.SelectedValue);
                 aux.PrecioDelProducto = int.Parse(PrecioBox.Text);
-                if (IdBox.Text != "")
+                if (Request.QueryString["Id"] != null)
                 {
                     aux.Id = int.Parse(IdBox.Text);
                     negocio.Modificar(aux);
