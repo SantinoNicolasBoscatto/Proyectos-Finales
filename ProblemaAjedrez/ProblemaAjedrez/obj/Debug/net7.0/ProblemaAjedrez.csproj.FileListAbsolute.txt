@@ -1,0 +1,14 @@
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\bin\Debug\net7.0\ProblemaAjedrez.exe
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\bin\Debug\net7.0\ProblemaAjedrez.deps.json
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\bin\Debug\net7.0\ProblemaAjedrez.runtimeconfig.json
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\bin\Debug\net7.0\ProblemaAjedrez.dll
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\bin\Debug\net7.0\ProblemaAjedrez.pdb
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.AssemblyInfo.cs
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.dll
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\refint\ProblemaAjedrez.dll
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.pdb
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ProblemaAjedrez.genruntimeconfig.cache
+C:\Users\Santino\source\repos\ProblemaAjedrez\ProblemaAjedrez\obj\Debug\net7.0\ref\ProblemaAjedrez.dll

@@ -1,0 +1,10 @@
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\bin\Release\TrackbarTestApplication.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\bin\Release\TrackbarTestApplication.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\bin\Release\Winamp.Components.dll
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\bin\Release\Winamp.Components.pdb
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTestApplication.csprojResolveAssemblyReference.cache
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTest.Form1.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTest.Properties.Resources.resources
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTestApplication.csproj.GenerateResource.Cache
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTestApplication.exe
+C:\Users\Johnny\Documents\_Visual Studio Projects\TrackbarTest\TrackbarTest\obj\Release\TrackbarTestApplication.pdb

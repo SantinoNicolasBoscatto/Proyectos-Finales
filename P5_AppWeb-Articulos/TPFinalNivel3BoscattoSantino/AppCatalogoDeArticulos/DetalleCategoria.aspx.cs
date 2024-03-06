@@ -36,6 +36,9 @@ namespace AppCatalogoDeArticulos
 
         protected void ModificarBoton_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid)
+                return;
             NegocioProductos negocio = new NegocioProductos();
             if (Request.QueryString["CatID"] == null)
                 negocio.AgregarCategoria(NombreCategoria.Text);

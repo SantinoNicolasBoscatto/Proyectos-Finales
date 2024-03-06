@@ -29,6 +29,9 @@ namespace AppCatalogoDeArticulos
         {
             Usuario user = new Usuario();
             UsuariosNegocio negocio = new UsuariosNegocio();
+            Page.Validate();
+            if (!Page.IsValid)
+                return;
             try
             {
                 user.Email = EmailBox.Text;

@@ -40,6 +40,35 @@ namespace Negocio_Base_Datos
             
         }
 
+        public List<Autos> DevolverVentas()
+        {
+            FuncionesNegocio negocio = new FuncionesNegocio();
+            List<Autos> Lista = new List<Autos>();
+            negocio.SQLQuerySP("Select_Venta");
+            negocio.LecturaBase();
+            while(negocio.Guardador.Read())
+            {
+                Autos aux = new Autos();
+                aux.NombreModelo = (string)negocio.Guardador["Nombre"];
+                aux.Id = (int)negocio.Guardador["Iden"];
+                aux.Anio = (int)negocio.Guardador["Anio"];
+                aux.HP = (int)negocio.Guardador["Hp"];
+                aux.Peso = (int)negocio.Guardador["Peso"];
+                aux.RelacionPesoPotencia =  (double)aux.Peso / (double)aux.HP ;
+                aux.Torque = (int)negocio.Guardador["Torque"];   
+                aux.Tanque= (int)negocio.Guardador["Tanque"];
+                aux.Kilometraje= (double)negocio.Guardador["Kilometraje"];
+                aux.Precio= (int)negocio.Guardador["Price"];
+                aux.Traccion = (string)negocio.Guardador["Traccion"];
+                aux.MarcaAuto.ImagenMarca = (string)negocio.Guardador["IPA"];
+                aux.ImagenVenta = (string)negocio.Guardador["Auto1"];
+                aux.Aspiracion = (string)negocio.Guardador["Aspiracion"];
+                aux.TopSpeed = (double)negocio.Guardador["TopSpeed"];
+                Lista.Add(aux);
+            }
+            return Lista;
+        }
+
         public void AgregarCancion(Musica aux)
         {
             try
@@ -1614,103 +1643,7 @@ namespace Negocio_Base_Datos
             
         }
 
-        public void UpEstadoAuto(int componente, int peso=0, bool limpieza=false)
-        {
-            FuncionesNegocio negocioAuto = new FuncionesNegocio();
-            string inyeccion = "";
-            string inyeccion2 = "";
-            string inyeccion3 = "";
-            try
-            {
-                switch (componente)
-                {
-                    case 1:
-                        inyeccion = "UPDATE MiAuto set Aceite = 0";
-                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
-                        break;
-                    case 2:
-                        inyeccion = "UPDATE MiAuto set Motor = 0";
-                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
-                        break;
-                    case 3:
-                        inyeccion = "UPDATE MiAuto set Mantenimiento = 0";
-                        inyeccion2 = "UPDATE Autos set HP = HP*0.97 where dueno = 1";
-                        break;
-                    case 4:
-                        inyeccion = "UPDATE MiAuto set Repro = 1";
-                        inyeccion2 = "UPDATE Autos set HP = HP*1.1 where dueno = 1";
-                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.1 where dueno = 1";
-                        break;
-                    case 5:
-                        inyeccion = "UPDATE MiAuto set Turbo = 1";
-                        inyeccion2 = "UPDATE Autos set HP = HP*1.2 where dueno = 1";
-                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.2 where dueno = 1";
-                        break;
-                    case 6:
-                        inyeccion = "UPDATE MiAuto set AWD = 1";
-                        inyeccion2 = "UPDATE Autos set Traccion = @parametro where dueno = 1";
-                        negocioAuto.SetearParametros("@parametro", "AWD");
-                        break;
-                    case 7:
-                        inyeccion = "UPDATE MiAuto set Aceite = 1";
-                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
-                        break;
-                    case 8:
-                        inyeccion = "UPDATE MiAuto set Motor = 1";
-                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
-                        break;
-                    case 9:
-                        inyeccion = "UPDATE MiAuto set Mantenimiento = 1";
-                        inyeccion2 = "UPDATE Autos set HP = HP*1.0335 where dueno = 1";
-                        break;
-                    case 10:
-                        inyeccion = "UPDATE Autos set HP = IdealHp where dueno = 1";
-                        break;
-                    case 11:
-                        inyeccion = "UPDATE Autos set Peso = @Peso where dueno = 1";
-                        peso--;
-                        negocioAuto.SetearParametros("@Peso", peso);
-                        break;
-                    case 12:
-                        inyeccion = "UPDATE MiAuto set Lavado = @Parametro";
-                        negocioAuto.SetearParametros("@Parametro", limpieza);
-                        break;
-                    case 13:
-                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco - 4";
-                        inyeccion2 =  "UPDATE estadoAutoManager set gomas = 0";
-                        break;
-                    case 14:
-                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco + 4";
-                        break;
-                    case 15:
-                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia - 4";
-                        inyeccion2 = "UPDATE estadoAutoManager set GomasLluvia = 0";
-                        break;
-                    case 16:
-                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia + 4";
-                        break;
-                    default:
-                        break;
-                }
-                negocioAuto.SQLQuery(inyeccion);
-                negocioAuto.EjecutarAccion();
-                if (componente<10 || componente==13 || componente==15)
-                {
-                    negocioAuto.SQLQuery(inyeccion2);
-                    negocioAuto.EjecutarAccion();
-                }
-                if (componente==4 || componente == 5)
-                {
-                    negocioAuto.SQLQuery(inyeccion3);
-                    negocioAuto.EjecutarAccion();
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
 
         public List<int> DevolverEstadoComponentes()
         {
@@ -1809,7 +1742,7 @@ namespace Negocio_Base_Datos
         public int CombustibleMiAuto(bool verificador = false)
         {
             FuncionesNegocio negociobasedatos = new FuncionesNegocio();
-            negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual - 12");
+            negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual - 10");
             negociobasedatos.EjecutarAccion();
             negociobasedatos.SQLQuery("Select TanqueActual from miauto");
             negociobasedatos.LecturaBase();
@@ -1821,7 +1754,7 @@ namespace Negocio_Base_Datos
             negociobasedatos.Guardador.Close();
             if (!verificador)
             {
-                negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual + 12");
+                negociobasedatos.SQLQuery("Update miauto set TanqueActual = TanqueActual + 10");
                 negociobasedatos.EjecutarAccion();
             }
             return devolver;
@@ -1926,7 +1859,7 @@ namespace Negocio_Base_Datos
             {
                 aux.Hp = (int)funcionGet.Guardador["Hp"];
                 aux.Peso = (int)funcionGet.Guardador["Peso"];
-                aux.PesoPotencia = (double)funcionGet.Guardador["PesoPotencia"];
+                aux.PesoPotencia = (float)aux.Peso / (float)aux.Hp;
                 aux.Torque = (int)funcionGet.Guardador["Torque"];
                 aux.Traccion = (string)funcionGet.Guardador["Traccion"];
                 aux.Imagen = (string)funcionGet.Guardador["Auto1"];
@@ -1942,6 +1875,103 @@ namespace Negocio_Base_Datos
                 aux.Nombre = (string)funcionGet.Guardador["Nombre"];
             }
             return aux;
+        }
+        public void UpEstadoAuto(int componente, int peso = 0, bool limpieza = false)
+        {
+            FuncionesNegocio negocioAuto = new FuncionesNegocio();
+            string inyeccion = "";
+            string inyeccion2 = "";
+            string inyeccion3 = "";
+            try
+            {
+                switch (componente)
+                {
+                    case 1:
+                        inyeccion = "UPDATE MiAuto set Aceite = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
+                        break;
+                    case 2:
+                        inyeccion = "UPDATE MiAuto set Motor = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.95 where dueno = 1";
+                        break;
+                    case 3:
+                        inyeccion = "UPDATE MiAuto set Mantenimiento = 0";
+                        inyeccion2 = "UPDATE Autos set HP = HP*0.97 where dueno = 1";
+                        break;
+                    case 4:
+                        inyeccion = "UPDATE MiAuto set Repro = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.1 where dueno = 1";
+                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.1 where dueno = 1";
+                        break;
+                    case 5:
+                        inyeccion = "UPDATE MiAuto set Turbo = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.2 where dueno = 1";
+                        inyeccion3 = "UPDATE Autos set IdealHP = IdealHP*1.2 where dueno = 1";
+                        break;
+                    case 6:
+                        inyeccion = "UPDATE MiAuto set AWD = 1";
+                        inyeccion2 = "UPDATE Autos set Traccion = @parametro where dueno = 1";
+                        negocioAuto.SetearParametros("@parametro", "AWD");
+                        break;
+                    case 7:
+                        inyeccion = "UPDATE MiAuto set Aceite = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
+                        break;
+                    case 8:
+                        inyeccion = "UPDATE MiAuto set Motor = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0535 where dueno = 1";
+                        break;
+                    case 9:
+                        inyeccion = "UPDATE MiAuto set Mantenimiento = 1";
+                        inyeccion2 = "UPDATE Autos set HP = HP*1.0335 where dueno = 1";
+                        break;
+                    case 10:
+                        inyeccion = "UPDATE Autos set HP = IdealHp where dueno = 1";
+                        break;
+                    case 11:
+                        inyeccion = "UPDATE Autos set Peso = @Peso where dueno = 1";
+                        peso--;
+                        negocioAuto.SetearParametros("@Peso", peso);
+                        break;
+                    case 12:
+                        inyeccion = "UPDATE MiAuto set Lavado = @Parametro";
+                        negocioAuto.SetearParametros("@Parametro", limpieza);
+                        break;
+                    case 13:
+                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco - 4";
+                        inyeccion2 = "UPDATE estadoAutoManager set gomas = 0";
+                        break;
+                    case 14:
+                        inyeccion = "UPDATE MiAuto set GomasDeSeco = GomasDeSeco + 4";
+                        break;
+                    case 15:
+                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia - 4";
+                        inyeccion2 = "UPDATE estadoAutoManager set GomasLluvia = 0";
+                        break;
+                    case 16:
+                        inyeccion = "UPDATE MiAuto set GomasDeLluvia = GomasDeLluvia + 4";
+                        break;
+                    default:
+                        break;
+                }
+                negocioAuto.SQLQuery(inyeccion);
+                negocioAuto.EjecutarAccion();
+                if (componente < 10 || componente == 13 || componente == 15)
+                {
+                    negocioAuto.SQLQuery(inyeccion2);
+                    negocioAuto.EjecutarAccion();
+                }
+                if (componente == 4 || componente == 5)
+                {
+                    negocioAuto.SQLQuery(inyeccion3);
+                    negocioAuto.EjecutarAccion();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int NumeroDeMisObjetos()

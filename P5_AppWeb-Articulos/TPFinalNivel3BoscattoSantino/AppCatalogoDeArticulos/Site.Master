@@ -17,7 +17,7 @@
 
         .child:last-child {
              height: 60px;
-             object-fit: contain;
+             object-fit: cover;           
         }
 
         .flexea {
@@ -87,8 +87,8 @@
                         <%}%>
                         <%}%>
                         <asp:Button ID="Desloguear" CssClass="btn btn-outline-danger me-2 child" runat="server" Text="Log Out" OnClick="Desloguear_Click" CausesValidation="false" TabIndex="500"/>
-                        <asp:ImageButton ImageUrl="https://media.tycsports.com/files/2021/05/07/278783/messi-toty-fifa-21_w416.png"
-                            ID="ImagenPerfilMini" runat="server" class="ImagenPerfilMini rounded-circle child" Width="60px" OnClick="ImagenPerfilMini_Click" />
+                            <asp:ImageButton ImageUrl="https://media.tycsports.com/files/2021/05/07/278783/messi-toty-fifa-21_w416.png"
+                            ID="ImagenPerfilMini" runat="server" class="ImagenPerfilMini child rounded-circle" OnClick="ImagenPerfilMini_Click" />                        
                     </div>
 
                 </div>

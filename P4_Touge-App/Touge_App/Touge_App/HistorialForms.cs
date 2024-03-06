@@ -180,30 +180,31 @@ namespace Touge_App
                     switch (aux.Clase)
                     {
                         case "F":
-                            dineroPerdedor = 250;
+                            dineroPerdedor = -250;
                             break;
                         case "E":
-                            dineroPerdedor = 500;
+                            dineroPerdedor = -500;
                             break;
                         case "D":
-                            dineroPerdedor = 750;
+                            dineroPerdedor = -750;
                             break;
                         case "C":
-                            dineroPerdedor = 1250;
+                            dineroPerdedor = -1250;
                             break;
                         case "B":
-                            dineroPerdedor = 2250;
+                            dineroPerdedor = -2250;
                             break;
                         case "A":
-                            dineroPerdedor = 4000;
+                            dineroPerdedor = -4000;
                             break;
                         case "S":
-                            dineroPerdedor = 10000;
+                            dineroPerdedor = -10000;
                             break;
                         case "S++":
-                            dineroPerdedor = 20000;
+                            dineroPerdedor = -20000;
                             break;
                         default:
+                            MessageBox.Show("ERROR");
                             break;
                     }
                     NegocioBaseDatos dineroNegocio = new NegocioBaseDatos();

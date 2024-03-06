@@ -15,7 +15,7 @@ namespace Negocio_Base_Datos
         public SqlDataReader Guardador { get { return GuardadorDatos; } }
         public FuncionesNegocio()
         {
-            ConexionBaseDatos = new SqlConnection("server=.\\SQLEXPRESS01; database= TougeBD; integrated security= true");
+            ConexionBaseDatos = new SqlConnection("server=.\\; database= Touge_DB; User Id=Touge;Password=TougeAdmin;");
             ComandoDeBaseDatos = new SqlCommand();
         }
 
@@ -31,8 +31,36 @@ namespace Negocio_Base_Datos
                 throw;
             }
         }
-
-
+        public int? EjecutarAccionContraBdOutPut()
+        {
+            try
+            {
+                ComandoDeBaseDatos.Connection = ConexionBaseDatos;
+                ConexionBaseDatos.Open();
+                int? hola = (int?)ComandoDeBaseDatos.ExecuteScalar();
+                return hola;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
+        public void SQLQuerySP(string inyeccion)
+        {
+            try
+            {
+                ComandoDeBaseDatos.CommandType = System.Data.CommandType.StoredProcedure;
+                ComandoDeBaseDatos.CommandText = inyeccion;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public void EjecutarAccion()
         {
             try
@@ -54,12 +82,10 @@ namespace Negocio_Base_Datos
                 ConexionBaseDatos.Close();
             }
         }
-
         public void SetearParametros(string Nombre, object valor)
         {
             ComandoDeBaseDatos.Parameters.AddWithValue(Nombre, valor);
         }
-
         public void LecturaBase()
         {
             try

@@ -80,5 +80,10 @@ namespace Touge_App
                 ButtonClick?.Invoke(this, EventArgs.Empty);
             }
         }
+
+        public void SetearColores(Color plata)
+        {
+            PrecioLabel.ForeColor = plata;
+        }
     }
 }

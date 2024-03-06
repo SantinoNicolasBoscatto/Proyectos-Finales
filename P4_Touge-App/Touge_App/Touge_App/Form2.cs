@@ -39,6 +39,16 @@ namespace Touge_App
             this.ShowDialog();
         }
 
+        public void Mostrar(string aux, Color color, Color Back)
+        {
+            panel1.BackColor = color;
+            panel2.BackColor = color;
+            this.BackColor = Back;
+            label1.Text = aux;
+            this.ShowDialog();
+        }
+
+
         private void Form2_Load(object sender, EventArgs e)
         {
             if(Screen.AllScreens.Length >= 2)

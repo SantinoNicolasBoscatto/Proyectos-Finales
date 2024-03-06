@@ -250,7 +250,10 @@ namespace Touge_App
             estadoSeguro = negocioMiAuto.LeerSeguro();
             //VERIFICACIONES DE LAS OLBIGACIONES A PAGAR PAGOS
             FechaLabel.Text = Formato;
-
+            VolumenControl.Size = new Size(250, 50);
+            NextBoton.Location = new Point(380, 625);
+            BackBoton.Location = new Point(334, 625);
+            VolumenControl.Location = new Point(80, 625);
             if (!estadoSeguro)
             {
                 mensajeBox.Mostrar("Necesita Pagar el Seguro! Si su auto se destroza no percibira nada de dinero");
@@ -286,7 +289,7 @@ namespace Touge_App
             {
                 Ocultar();
                 HigienePagina();
-                mensajeBox.Mostrar("Debe Pagar Sus Facturas Moroso!");
+                mensajeBox.Mostrar("Debe Comprar sus productos de higiene!");
                 VolverBoton.Visible = false;
             }
         }
@@ -498,6 +501,8 @@ namespace Touge_App
             Boton2.BackColor = Color.Transparent;
             Boton2.Parent = PictureBoxBack;
             Boton2.Visible = true;
+            AnteriorPistaBoton.Location = new Point(986, 570);
+            SiguientePistaBoton.Location = new Point(1151, 570);
             NextDriver.BackColor = Color.Transparent;
             NextDriver.Parent = PictureBoxBack;
             BackDriver.BackColor = Color.Transparent;
@@ -696,6 +701,7 @@ namespace Touge_App
             LeyendaTextBox.Parent = PictureBoxBack;
             PromocionLabel.Parent = PictureBoxBack;
             PromocionTextBox.Parent = PictureBoxBack;
+            PromocionTextBox.Location = SemiProTextBox.Location;
             RankingPilotosLabel.Parent = PictureBoxBack;
             BackRanking.Parent = PictureBoxBack;
             NextRanking.Parent = PictureBoxBack;
@@ -1045,377 +1051,369 @@ namespace Touge_App
         bool banderaVolverReglas = true;
         private void VolverBoton_Click(object sender, EventArgs e)
         {
-            banderaVolverReglas = true;
-
-            if (PistaPictureBox.Visible == true)
+            try
             {
-                VolverBoton.Visible = false;
-                PistaPictureBox.Visible = false;
-                NombreCircuito.Visible = false;
-                DistanciaTextbox.Visible = false;
-                PaisTextBox.Visible = false;
-                PistasBiografia.Visible = false;
-                ModalidadTextBox.Visible = false;
-                DistanciaTextbox.Visible = false;
-                SiguientePistaBoton.Visible = false;
-                AnteriorPistaBoton.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = true;
-                imagen = 1;
-            }
-            else if (PilotosPictureBox.Visible == true)
-            {
-                PilotosPictureBox.Visible = false;
-                BiografiaPilotosTextBox.Visible = false;
-                AutoPilotoPictureBox.Visible = false;
-                PaisPictureBox.Visible = false;
-                NombrePilotoTextBox.Visible = false;
-                ApodoTextBox.Visible = false;
-                EquipoTextBox.Visible = false;
-                RivalTextBox.Visible = false;
-                BackDriver.Visible = false;
-                NextDriver.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = true;
-            }
-            else if (BanderasPictureBox.Visible == true)
-            {
-                FichaTecnicaPb.Visible = false;
-                NombreAutoTextbox.Visible = false;
-                BanderasPictureBox.Visible = false;
-                AutosPictureBox.Visible = false;
-                NextAuto.Visible = false;
-                BackAuto.Visible = false;
-                CargaPistasAutosPilotosEconomia.Visible = true;
-            }
-            else if (ModalidadesBoton.Visible == true)
-            {
-                ModalidadesBoton.Visible = false;
-                CategoriasBoton.Visible = false;
-                RankingBoton.Visible = false;
-            }
-
-            else if (FLabel.Visible == true)
-            {
-                ModalidadesBoton.Visible = true;
-                CategoriasBoton.Visible = true;
-                RankingBoton.Visible = true;
-                FLabel.Visible = false;
-                ELabel.Visible = false;
-                DLabel.Visible = false;
-                CLabel.Visible = false;
-                Blabel.Visible = false;
-                ALabel.Visible = false;
-                SLabel.Visible = false;
-                SPlusLabel.Visible = false;
-                FTextbox.Visible = false;
-                ETextbox.Visible = false;
-                DTextbox.Visible = false;
-                CTextbox.Visible = false;
-                BTextbox.Visible = false;
-                ATextbox.Visible = false;
-                STextbox.Visible = false;
-                SPlusTextbox.Visible = false;
-                banderaVolverReglas = false;
-                CategoriaTitulo.Visible = false;
-            }
-            else if (GatoTitulo.Visible == true || AletorioTextBox.Visible == true)
-            {
-                ModalidadesBoton.Visible = true;
-                CategoriasBoton.Visible = true;
-                RankingBoton.Visible = true;
-                SideTextBox.Visible = false;
-                SideTitulo.Visible = false;
-                GatoTextbox.Visible = false;
-                GatoTitulo.Visible = false;
-                AletorioTextBox.Visible = false;
-                RandomTitulo.Visible = false;
-                SubitaTextBox.Visible = false;
-                SubitaTitulo.Visible = false;
-                ModalidadesTitulo.Visible = false;
-                NextModalidad.Visible = false;
-                BackModalidad.Visible = false;
-                banderaVolverReglas = false;
-            }
-            else if (RookieLabel.Visible == true || LeyendaLabel.Visible == true)
-            {
-                ModalidadesBoton.Visible = true;
-                CategoriasBoton.Visible = true;
-                RankingBoton.Visible = true;
-                RankingPilotosLabel.Visible = false;
-                RookieLabel.Visible = false;
-                RookieTextBox.Visible = false;
-                JuniorLabel.Visible = false;
-                JuniorTextBox.Visible = false;
-                AmateurLabel.Visible = false;
-                AmateurTextBox.Visible = false;
-                SemiProLabel.Visible = false;
-                SemiProTextBox.Visible = false;
-                BackRanking.Visible = false;
-                NextRanking.Visible = false;
-                ProfesionalLabel.Visible = false;
-                ProfesionalTextbox.Visible = false;
-                EstrellaLabel.Visible = false;
-                EstrellaTextBox.Visible = false;
-                LeyendaLabel.Visible = false;
-                LeyendaTextBox.Visible = false;
-                PromocionLabel.Visible = false;
-                PromocionTextBox.Visible = false;
-                banderaVolverReglas = false;
-            }
-
-            else if (ComidaPictureBox.Visible == true || MecanicoPictureBox.Visible == true)
-            {
-                ComidaPictureBox.Visible = false;
-                AlquilerPictureBox.Visible = false;
-                FacturasPictureBox.Visible = false;
-                RopaPictureBox.Visible = false;
-                MueblesPictureBox.Visible = false;
-                ElectroPictureBox.Visible = false;
-                MecanicoPictureBox.Visible = false;
-                GastosVariosPictureBox.Visible = false;
-                CarDealerPictureBox.Visible = false;
-                HigienePictureBox.Visible = false;
-                GarajePictureBox.Visible = false;
-                MisCosasPictureBox.Visible = false;
-                BackEconomia.Visible = false;
-                NextEconomia.Visible = false;
-            }
-            else if (historialDGV.Visible == true)
-            {
-                historialDGV.Visible = false;
-                FiltrosLabel.Visible = false;
-                CampoCombo.Visible = false;
-                CampoLabel.Visible = false;
-                CriterioCombo.Visible = false;
-                CriterioLabel.Visible = false;
-                FiltroBusquedaLabel.Visible = false;
-                FiltroTextBox.Visible = false;
-                AgregarRegistroBoton.Visible = false;
-                BorrarRegistroBoton.Visible = false;
-                BuscarRegistroBoton.Visible = false;
-                CampoCombo.Items.Clear();
-                CriterioCombo.Items.Clear();
-            }
-            else if (alquileres1.Visible == true)
-            {
-                alquileres1.Visible = false;
-                alquileres2.Visible = false;
-                VolverAlquiler.Visible = false;
-                SiguienteAlquiler.Visible = false;
-                paginaAlquiler = 0;
-            }
-
-            else if (ShopPanel1.Visible == true)
-            {
-                ShopPanel1.Visible = false;
-                ShopPanel2.Visible = false;
-                ShopPanel3.Visible = false;
-                ShopPanel4.Visible = false;
-                ShopPanel5.Visible = false;
-                ShopPanel6.Visible = false;
-                ShopPanel7.Visible = false;
-                ShopPanel8.Visible = false;
-                NextRopaMuebleTecno.Visible = false;
-                BackRopaMuebleTecno.Visible = false;
-                bdCargaRopa = false;
-                bdCargaMueble = false;
-                bdCargaElectro = false;
-                CargaPistasAutosPilotosEconomia.Visible = false;
-            }
-
-            else if (PagoLabel.Visible == true)
-            {
-                Servicios1.Visible = false;
-                Servicios2.Visible = false;
-                Servicios3.Visible = false;
-                Servicios4.Visible = false;
-                Servicios5.Visible = false;
-                AbonarFacturas.Visible = false;
-                PagoLabel.Visible = false;
-            }
-
-            else if (PanelComida1.Visible == true)
-            {
-                PanelComida1.Visible = false;
-                PanelComida2.Visible = false;
-                PanelComida4.Visible = false;
-                PanelComida3.Visible = false;
-                BackComida.Visible = false;
-                NextComida.Visible = false;
-            }
-
-            else if (Higiene1.Visible == true)
-            {
-                Higiene1.Visible = false;
-                Higiene2.Visible = false;
-                Higiene3.Visible = false;
-                EconomiaMostrar = false;
-            }
-
-            else if (mecanico1.Visible == true)
-            {
-                mecanico1.Visible = false;
-                mecanico2.Visible = false;
-                mecanico3.Visible = false;
-                mecanico4.Visible = false;
-                BackMecanico.Visible = false;
-                NextMecanico.Visible = false;
-                EconomiaMostrar = false;
-                banderaPaginaMecanico = false;
-            }
-
-            else if (gastosDiarios1.Visible == true)
-            {
-                gastosDiarios1.Visible = false;
-                gastosDiarios2.Visible = false;
-                gastosDiarios3.Visible = false;
-                gastosDiarios4.Visible = false;
-                gastosDiarios5.Visible = false;
-                gastosDiarios6.Visible = false;
-                EconomiaMostrar = false;
-            }
-
-            else if (MiAutoPB.Visible == true)
-            {
-                MiAutoPB.Visible = false;
-                PanelGaraje.Visible = false;
-                BanderaMiAuto.Visible = false;
-                PlusBoton.Visible = false;
-                NombreMiauto.Visible = false;
-                HpMiauto.Visible = false;
-                HpMiauto2.Visible = false;
-                PesoMiAuto.Visible = false;
-                PesoMiAuto2.Visible = false;
-                PPMiAuto.Visible = false;
-                PPMiAuto2.Visible = false;
-                TorqueMiAuto.Visible = false;
-                TorqueLabel2.Visible = false;
-                AceiteMiAuto.Visible = false;
-                AceiteMiAuto2.Visible = false;
-                MotorMiAuto.Visible = false;
-                MotorMiAuto2.Visible = false;
-                MantMiAuto.Visible = false;
-                MantMiAuto2.Visible = false;
-                LimpMiAuto.Visible = false;
-                LimpMiAuto2.Visible = false;
-                ReproMiAuto.Visible = false;
-                ReproMiAuto2.Visible = false;
-                ASpMiAuto.Visible = false;
-                ASpMiAuto2.Visible = false;
-                GomasMojado.Visible = false;
-                GomasMojado2.Visible = false;
-                GomasSeco.Visible = false;
-                GomasSeco2.Visible = false;
-                TraccionMiauto.Visible = false;
-                TraccionMiauto2.Visible = false;
-                GasofaMiauto.Visible = false;
-                GasofaMiauto2.Visible = false;
-                EconomiaMostrar = false;
-            }
-
-            else if (listaMisCosas[0].Visible == true)
-            {
-                BackObjeto.Visible = false;
-                NextObjeto.Visible = false;
-                MisObjetosPaginaManager = 1;
-                switch (listaMisCosas.Count)
+                banderaVolverReglas = true;
+                if (PistaPictureBox.Visible == true)
                 {
-                    case 1:
-                        listaMisCosas[0].Visible = false;
-                        break;
-                    case 2:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        break;
-                    case 3:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        break;
-                    case 4:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        listaMisCosas[3].Visible = false;
-                        break;
-                    case 5:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        listaMisCosas[3].Visible = false;
-                        listaMisCosas[4].Visible = false;
-                        break;
-                    case 6:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        listaMisCosas[3].Visible = false;
-                        listaMisCosas[4].Visible = false;
-                        listaMisCosas[5].Visible = false;
-                        break;
-                    case 7:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        listaMisCosas[3].Visible = false;
-                        listaMisCosas[4].Visible = false;
-                        listaMisCosas[5].Visible = false;
-                        listaMisCosas[6].Visible = false;
-                        break;
-                    case 8:
-                        listaMisCosas[0].Visible = false;
-                        listaMisCosas[1].Visible = false;
-                        listaMisCosas[2].Visible = false;
-                        listaMisCosas[3].Visible = false;
-                        listaMisCosas[4].Visible = false;
-                        listaMisCosas[5].Visible = false;
-                        listaMisCosas[6].Visible = false;
-                        listaMisCosas[7].Visible = false;
-                        break;
-                    default:
-                        break;
+                    VolverBoton.Visible = false;
+                    PistaPictureBox.Visible = false;
+                    NombreCircuito.Visible = false;
+                    DistanciaTextbox.Visible = false;
+                    PaisTextBox.Visible = false;
+                    PistasBiografia.Visible = false;
+                    ModalidadTextBox.Visible = false;
+                    DistanciaTextbox.Visible = false;
+                    SiguientePistaBoton.Visible = false;
+                    AnteriorPistaBoton.Visible = false;
+                    CargaPistasAutosPilotosEconomia.Visible = true;
+                    imagen = 1;
                 }
-                EconomiaMostrar = false;
-            }
-
-            if (banderaVolverReglas && banderaEconomiaParaMostrar)
-            {
-                BotonPistas.Visible = true;
-                PilotosBoton.Visible = true;
-                ReglasBoton.Visible = true;
-                EconomiaBoton.Visible = true;
-                HistorialBoton.Visible = true;
-                AutosBoton.Visible = true;
-                CloseButton.Visible = true;
-                panel1.Visible = true;
-            }
-
-            else if (banderaEconomiaParaMostrar == false)
-            {
-                if (EconomiaMostrar)
+                else if (PilotosPictureBox.Visible == true)
                 {
-                    ComidaPictureBox.Visible = true;
-                    AlquilerPictureBox.Visible = true;
-                    FacturasPictureBox.Visible = true;
-                    RopaPictureBox.Visible = true;
-                    MueblesPictureBox.Visible = true;
-                    ElectroPictureBox.Visible = true;
+                    PilotosPictureBox.Visible = false;
+                    BiografiaPilotosTextBox.Visible = false;
+                    AutoPilotoPictureBox.Visible = false;
+                    PaisPictureBox.Visible = false;
+                    NombrePilotoTextBox.Visible = false;
+                    ApodoTextBox.Visible = false;
+                    EquipoTextBox.Visible = false;
+                    RivalTextBox.Visible = false;
+                    BackDriver.Visible = false;
+                    NextDriver.Visible = false;
+                    CargaPistasAutosPilotosEconomia.Visible = true;
                 }
-                else
+                else if (BanderasPictureBox.Visible == true)
                 {
-                    GastosVariosPictureBox.Visible = true;
-                    MecanicoPictureBox.Visible = true;
-                    CarDealerPictureBox.Visible = true;
-                    HigienePictureBox.Visible = true;
-                    MisCosasPictureBox.Visible = true;
-                    GarajePictureBox.Visible = true;
-                    EconomiaMostrar = true;
+                    FichaTecnicaPb.Visible = false;
+                    NombreAutoTextbox.Visible = false;
+                    BanderasPictureBox.Visible = false;
+                    AutosPictureBox.Visible = false;
+                    NextAuto.Visible = false;
+                    BackAuto.Visible = false;
+                    CargaPistasAutosPilotosEconomia.Visible = true;
                 }
-                NextEconomia.Visible = true;
-                BackEconomia.Visible = true;
-                banderaEconomiaParaMostrar = true;
+                else if (ModalidadesBoton.Visible == true)
+                {
+                    ModalidadesBoton.Visible = false;
+                    CategoriasBoton.Visible = false;
+                    RankingBoton.Visible = false;
+                }
+                else if (FLabel.Visible == true)
+                {
+                    ModalidadesBoton.Visible = true;
+                    CategoriasBoton.Visible = true;
+                    RankingBoton.Visible = true;
+                    FLabel.Visible = false;
+                    ELabel.Visible = false;
+                    DLabel.Visible = false;
+                    CLabel.Visible = false;
+                    Blabel.Visible = false;
+                    ALabel.Visible = false;
+                    SLabel.Visible = false;
+                    SPlusLabel.Visible = false;
+                    FTextbox.Visible = false;
+                    ETextbox.Visible = false;
+                    DTextbox.Visible = false;
+                    CTextbox.Visible = false;
+                    BTextbox.Visible = false;
+                    ATextbox.Visible = false;
+                    STextbox.Visible = false;
+                    SPlusTextbox.Visible = false;
+                    banderaVolverReglas = false;
+                    CategoriaTitulo.Visible = false;
+                }
+                else if (GatoTitulo.Visible == true || AletorioTextBox.Visible == true)
+                {
+                    ModalidadesBoton.Visible = true;
+                    CategoriasBoton.Visible = true;
+                    RankingBoton.Visible = true;
+                    SideTextBox.Visible = false;
+                    SideTitulo.Visible = false;
+                    GatoTextbox.Visible = false;
+                    GatoTitulo.Visible = false;
+                    AletorioTextBox.Visible = false;
+                    RandomTitulo.Visible = false;
+                    SubitaTextBox.Visible = false;
+                    SubitaTitulo.Visible = false;
+                    ModalidadesTitulo.Visible = false;
+                    NextModalidad.Visible = false;
+                    BackModalidad.Visible = false;
+                    banderaVolverReglas = false;
+                }
+                else if (RookieLabel.Visible == true || LeyendaLabel.Visible == true)
+                {
+                    ModalidadesBoton.Visible = true;
+                    CategoriasBoton.Visible = true;
+                    RankingBoton.Visible = true;
+                    RankingPilotosLabel.Visible = false;
+                    RookieLabel.Visible = false;
+                    RookieTextBox.Visible = false;
+                    JuniorLabel.Visible = false;
+                    JuniorTextBox.Visible = false;
+                    AmateurLabel.Visible = false;
+                    AmateurTextBox.Visible = false;
+                    SemiProLabel.Visible = false;
+                    SemiProTextBox.Visible = false;
+                    BackRanking.Visible = false;
+                    NextRanking.Visible = false;
+                    ProfesionalLabel.Visible = false;
+                    ProfesionalTextbox.Visible = false;
+                    EstrellaLabel.Visible = false;
+                    EstrellaTextBox.Visible = false;
+                    LeyendaLabel.Visible = false;
+                    LeyendaTextBox.Visible = false;
+                    PromocionLabel.Visible = false;
+                    PromocionTextBox.Visible = false;
+                    banderaVolverReglas = false;
+                }
+                else if (ComidaPictureBox.Visible == true || MecanicoPictureBox.Visible == true)
+                {
+                    ComidaPictureBox.Visible = false;
+                    AlquilerPictureBox.Visible = false;
+                    FacturasPictureBox.Visible = false;
+                    RopaPictureBox.Visible = false;
+                    MueblesPictureBox.Visible = false;
+                    ElectroPictureBox.Visible = false;
+                    MecanicoPictureBox.Visible = false;
+                    GastosVariosPictureBox.Visible = false;
+                    CarDealerPictureBox.Visible = false;
+                    HigienePictureBox.Visible = false;
+                    GarajePictureBox.Visible = false;
+                    MisCosasPictureBox.Visible = false;
+                    BackEconomia.Visible = false;
+                    NextEconomia.Visible = false;
+                }
+                else if (historialDGV.Visible == true)
+                {
+                    historialDGV.Visible = false;
+                    FiltrosLabel.Visible = false;
+                    CampoCombo.Visible = false;
+                    CampoLabel.Visible = false;
+                    CriterioCombo.Visible = false;
+                    CriterioLabel.Visible = false;
+                    FiltroBusquedaLabel.Visible = false;
+                    FiltroTextBox.Visible = false;
+                    AgregarRegistroBoton.Visible = false;
+                    BorrarRegistroBoton.Visible = false;
+                    BuscarRegistroBoton.Visible = false;
+                    CampoCombo.Items.Clear();
+                    CriterioCombo.Items.Clear();
+                }
+                else if (alquileres1.Visible == true)
+                {
+                    alquileres1.Visible = false;
+                    alquileres2.Visible = false;
+                    VolverAlquiler.Visible = false;
+                    SiguienteAlquiler.Visible = false;
+                    paginaAlquiler = 0;
+                }
+                else if (ShopPanel1.Visible == true)
+                {
+                    ShopPanel1.Visible = false;
+                    ShopPanel2.Visible = false;
+                    ShopPanel3.Visible = false;
+                    ShopPanel4.Visible = false;
+                    ShopPanel5.Visible = false;
+                    ShopPanel6.Visible = false;
+                    ShopPanel7.Visible = false;
+                    ShopPanel8.Visible = false;
+                    NextRopaMuebleTecno.Visible = false;
+                    BackRopaMuebleTecno.Visible = false;
+                    bdCargaRopa = false;
+                    bdCargaMueble = false;
+                    bdCargaElectro = false;
+                    CargaPistasAutosPilotosEconomia.Visible = false;
+                }
+                else if (PagoLabel.Visible == true)
+                {
+                    Servicios1.Visible = false;
+                    Servicios2.Visible = false;
+                    Servicios3.Visible = false;
+                    Servicios4.Visible = false;
+                    Servicios5.Visible = false;
+                    AbonarFacturas.Visible = false;
+                    PagoLabel.Visible = false;
+                }
+                else if (PanelComida1.Visible == true)
+                {
+                    PanelComida1.Visible = false;
+                    PanelComida2.Visible = false;
+                    PanelComida4.Visible = false;
+                    PanelComida3.Visible = false;
+                    BackComida.Visible = false;
+                    NextComida.Visible = false;
+                }
+                else if (Higiene1.Visible == true)
+                {
+                    Higiene1.Visible = false;
+                    Higiene2.Visible = false;
+                    Higiene3.Visible = false;
+                    EconomiaMostrar = false;
+                }
+                else if (mecanico1.Visible == true)
+                {
+                    mecanico1.Visible = false;
+                    mecanico2.Visible = false;
+                    mecanico3.Visible = false;
+                    mecanico4.Visible = false;
+                    BackMecanico.Visible = false;
+                    NextMecanico.Visible = false;
+                    EconomiaMostrar = false;
+                    banderaPaginaMecanico = false;
+                }
+                else if (gastosDiarios1.Visible == true)
+                {
+                    gastosDiarios1.Visible = false;
+                    gastosDiarios2.Visible = false;
+                    gastosDiarios3.Visible = false;
+                    gastosDiarios4.Visible = false;
+                    gastosDiarios5.Visible = false;
+                    gastosDiarios6.Visible = false;
+                    EconomiaMostrar = false;
+                }
+                else if (MiAutoPB.Visible == true)
+                {
+                    MiAutoPB.Visible = false;
+                    PanelGaraje.Visible = false;
+                    BanderaMiAuto.Visible = false;
+                    PlusBoton.Visible = false;
+                    NombreMiauto.Visible = false;
+                    HpMiauto.Visible = false;
+                    HpMiauto2.Visible = false;
+                    PesoMiAuto.Visible = false;
+                    PesoMiAuto2.Visible = false;
+                    PPMiAuto.Visible = false;
+                    PPMiAuto2.Visible = false;
+                    TorqueMiAuto.Visible = false;
+                    TorqueLabel2.Visible = false;
+                    AceiteMiAuto.Visible = false;
+                    AceiteMiAuto2.Visible = false;
+                    MotorMiAuto.Visible = false;
+                    MotorMiAuto2.Visible = false;
+                    MantMiAuto.Visible = false;
+                    MantMiAuto2.Visible = false;
+                    LimpMiAuto.Visible = false;
+                    LimpMiAuto2.Visible = false;
+                    ReproMiAuto.Visible = false;
+                    ReproMiAuto2.Visible = false;
+                    ASpMiAuto.Visible = false;
+                    ASpMiAuto2.Visible = false;
+                    GomasMojado.Visible = false;
+                    GomasMojado2.Visible = false;
+                    GomasSeco.Visible = false;
+                    GomasSeco2.Visible = false;
+                    TraccionMiauto.Visible = false;
+                    TraccionMiauto2.Visible = false;
+                    GasofaMiauto.Visible = false;
+                    GasofaMiauto2.Visible = false;
+                    EconomiaMostrar = false;
+                }
+                else if (listaMisCosas[0].Visible == true && listaMisCosas[0] != null)
+                {
+                    BackObjeto.Visible = false;
+                    NextObjeto.Visible = false;
+                    MisObjetosPaginaManager = 1;
+                    switch (listaMisCosas.Count)
+                    {
+                        case 1:
+                            listaMisCosas[0].Visible = false;
+                            break;
+                        case 2:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            break;
+                        case 3:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            break;
+                        case 4:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            listaMisCosas[3].Visible = false;
+                            break;
+                        case 5:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            listaMisCosas[3].Visible = false;
+                            listaMisCosas[4].Visible = false;
+                            break;
+                        case 6:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            listaMisCosas[3].Visible = false;
+                            listaMisCosas[4].Visible = false;
+                            listaMisCosas[5].Visible = false;
+                            break;
+                        case 7:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            listaMisCosas[3].Visible = false;
+                            listaMisCosas[4].Visible = false;
+                            listaMisCosas[5].Visible = false;
+                            listaMisCosas[6].Visible = false;
+                            break;
+                        case 8:
+                            listaMisCosas[0].Visible = false;
+                            listaMisCosas[1].Visible = false;
+                            listaMisCosas[2].Visible = false;
+                            listaMisCosas[3].Visible = false;
+                            listaMisCosas[4].Visible = false;
+                            listaMisCosas[5].Visible = false;
+                            listaMisCosas[6].Visible = false;
+                            listaMisCosas[7].Visible = false;
+                            break;
+                        default:
+                            break;
+                    }
+                    EconomiaMostrar = false;
+                }
+                if (banderaVolverReglas && banderaEconomiaParaMostrar)
+                {
+                    BotonPistas.Visible = true;
+                    PilotosBoton.Visible = true;
+                    ReglasBoton.Visible = true;
+                    EconomiaBoton.Visible = true;
+                    HistorialBoton.Visible = true;
+                    AutosBoton.Visible = true;
+                    CloseButton.Visible = true;
+                    panel1.Visible = true;
+                }
+                else if (banderaEconomiaParaMostrar == false)
+                {
+                    if (EconomiaMostrar)
+                    {
+                        ComidaPictureBox.Visible = true;
+                        AlquilerPictureBox.Visible = true;
+                        FacturasPictureBox.Visible = true;
+                        RopaPictureBox.Visible = true;
+                        MueblesPictureBox.Visible = true;
+                        ElectroPictureBox.Visible = true;
+                    }
+                    else
+                    {
+                        GastosVariosPictureBox.Visible = true;
+                        MecanicoPictureBox.Visible = true;
+                        CarDealerPictureBox.Visible = true;
+                        HigienePictureBox.Visible = true;
+                        MisCosasPictureBox.Visible = true;
+                        GarajePictureBox.Visible = true;
+                        EconomiaMostrar = true;
+                    }
+                    NextEconomia.Visible = true;
+                    BackEconomia.Visible = true;
+                    banderaEconomiaParaMostrar = true;
+                }
             }
-
-
+            catch (Exception)
+            {
+            }
+            
         }
 
         //CONFIGURACION DEL MODULO PILOTOS Y SUS MANEJADORES
@@ -1450,7 +1448,7 @@ namespace Touge_App
         }
         private void CargaPilotos()
         {
-            
+
             PilotosPictureBox.Load(listaPilotos[indexPilotos].Foto);
             BiografiaPilotosTextBox.Text = listaPilotos[indexPilotos].Biografia;
             AutoPilotoPictureBox.Load(listaPilotos[indexPilotos].Auto);
@@ -1460,7 +1458,7 @@ namespace Touge_App
             Cornering.Text = listaPilotos[indexPilotos].Cornering.ToString();
             if (listaPilotos[indexPilotos].Braking < 10)
                 Braking.Location = new Point(163, 42);
-            Braking.Text = listaPilotos[0].Braking.ToString();
+            Braking.Text = listaPilotos[indexPilotos].Braking.ToString();
             if (listaPilotos[indexPilotos].Reflexes < 10)
                 Reflexes.Location = new Point(270, 42);
             Reflexes.Text = listaPilotos[indexPilotos].Reflexes.ToString();
@@ -1513,6 +1511,7 @@ namespace Touge_App
                 ApodoTextBox.Location = new Point(118, 577);
                 EquipoTextBox.Location = new Point(118, 615);
                 RivalTextBox.Location = new Point(118, 650);
+
                 EdadTextBox.Location = new Point(425, 540);
                 AlturaTextBox.Location = new Point(429, 580);
                 PesoTextBox.Location = new Point(425, 615);
@@ -1524,7 +1523,7 @@ namespace Touge_App
             NombrePilotoTextBox.Text = listaPilotos[indexPilotos].NombrePiloto;
             ApodoTextBox.Text = listaPilotos[indexPilotos].Apodo;
             EquipoTextBox.Text = listaPilotos[indexPilotos].Equipo;
-            RivalTextBox.Text = listaPilotos[indexPilotos].Rival;
+            RivalTextBox.Text = listaPilotos[indexPilotos].Ranking;
             EdadTextBox.Text = listaPilotos[indexPilotos].Edad.ToString();
             AlturaTextBox.Text = listaPilotos[indexPilotos].Altura;
             PesoTextBox.Text = listaPilotos[indexPilotos].Peso;
@@ -1909,52 +1908,53 @@ namespace Touge_App
                         FormatearFecha(fechaAux);
                         FechaLabel.Text = Formato;
                         NegocioBaseDatos negocioUpdateComponentes = new NegocioBaseDatos();
-                        if (registroVentana.PlayerBool)
-                        {
-                            aceiteManager++;
-                            motorManager++;
-                            autoManager++;
-                            limpiezaManager++;
-                            if (registroVentana.IndiceSeleccionado < 4)
-                                gomasManager++;
-                            else
-                                gomasDeLluviaManager++;
-                            negocioUpFecha.CombustibleMiAuto(true);
-                            negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
-                            registroVentana.PlayerBool = false;
-                        }
+                        aceiteManager++;
+                        motorManager++;
+                        autoManager++;
+                        limpiezaManager++;
 
+                        if (registroVentana.IndiceSeleccionado < 4)
+                            gomasManager++;
+                        else
+                            gomasDeLluviaManager++;
+
+                        negocioUpFecha.CombustibleMiAuto(true);
+                        negocioUpdateComponentes.UpdatearComponentes(aceiteManager, motorManager, autoManager, gomasManager, gomasDeLluviaManager, limpiezaManager);
+                        //registroVentana.PlayerBool = false;
                         if (aceiteManager >= 5)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(1);
                             estadoAceite = false;
-                            //MessageBox.Show("Cambie Aceite");
+                            mensajeBox.Mostrar("Necesita Un Cambio de Aceite", Color.Red, Color.Gold);
                         }
                         if (motorManager >= 4)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(2);
                             estadoMotor = false;
-                            //MessageBox.Show("Cambie Motor");
+
+                            mensajeBox.Mostrar("Necesita hacerle un Mantenimiento al Motor", Color.Red, Color.Gold);
                         }
                         if (autoManager >= 3)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(3);
                             estadoAuto = false;
-                            //MessageBox.Show("Cambie Auto");
+                            mensajeBox.Mostrar("Necesita hacerle un Mantenimiento al Auto", Color.Red, Color.Gold);
                         }
                         if (gomasManager >= 7)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(13);
+                            mensajeBox.Mostrar("Se Gasto El Set de Gomas De Seco", Color.Red, Color.Gold);
                         }
                         if (gomasDeLluviaManager >= 4)
                         {
-                            mensajeBox.Mostrar("Cambie gomas de lluvia!");
+                            negocioUpdateComponentes.UpEstadoAuto(15);
+                            mensajeBox.Mostrar("Se Gasto El Set de Gomas De Lluvia", Color.Red, Color.Gold);
                         }
                         if (limpiezaManager >= 2)
                         {
                             negocioUpdateComponentes.UpEstadoAuto(12);
                             estadoLimpieza = false;
-                            mensajeBox.Mostrar("El Auto Se encuentra Sucio! Porfavor vaya al lavadero");
+                            mensajeBox.Mostrar("El Auto Se encuentra Sucio! Porfavor vaya al lavadero", Color.Orange, Color.White);
                         }
                     }
                     NegocioBaseDatos negocio = new NegocioBaseDatos();
@@ -2402,7 +2402,7 @@ namespace Touge_App
             DialogResult resultado = MessageBox.Show("¿Desea Pagar estos servicios?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult.Yes == resultado)
             {
-                while (pagado)
+                while (!pagado)
                 {
                     if (!estadoFacturas)
                     {
@@ -2968,21 +2968,21 @@ namespace Touge_App
         }
         private void HigienePagina()
         {
-            Higiene1.NombreProducto = ListaHigiene[0].NombrePack;
-            Higiene2.NombreProducto = ListaHigiene[1].NombrePack;
-            Higiene3.NombreProducto = ListaHigiene[2].NombrePack;
+            Higiene1.NombreProducto = "Pack Basico Higiene Personal";
+            Higiene2.NombreProducto = "Pack Mediano Higiene Personal";
+            Higiene3.NombreProducto = "Pack Deluxe Higiene Personal";
             Higiene1.Id = ListaHigiene[0].Id;
             Higiene2.Id = ListaHigiene[1].Id;
             Higiene3.Id = ListaHigiene[2].Id;
             Higiene1.Comprado = ListaHigiene[0].Comprado;
             Higiene2.Comprado = ListaHigiene[1].Comprado;
             Higiene3.Comprado = ListaHigiene[2].Comprado;
-            Higiene1.Precio = "$ " + (ListaHigiene[0].Precio - 1).ToString() + ".99";
-            Higiene2.Precio = "$ " + (ListaHigiene[1].Precio - 1).ToString() + ".99";
-            Higiene3.Precio = "$ " + (ListaHigiene[2].Precio - 1).ToString() + ".99";
-            Higiene1.CargarImagenes(ListaHigiene[0].Imagen);
-            Higiene2.CargarImagenes(ListaHigiene[1].Imagen);
-            Higiene3.CargarImagenes(ListaHigiene[2].Imagen);
+            Higiene1.Precio = "$ " + (150 - 1).ToString() + ".99";
+            Higiene2.Precio = "$ " + (195 - 1).ToString() + ".99";
+            Higiene3.Precio = "$ " + (250 - 1).ToString() + ".99";
+            Higiene1.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Higiene\Pack1.png");
+            Higiene2.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Higiene\Pack2.png");
+            Higiene3.CargarImagenes(@"C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Touge_App\img\BASEDATOS\Higiene\Pack3.png");
             if (!ListaHigiene[0].Comprado)
                 Higiene1.SoldOut();
             else
@@ -2998,6 +2998,9 @@ namespace Touge_App
             Higiene1.Visible = true;
             Higiene2.Visible = true;
             Higiene3.Visible = true;
+            Higiene1.SetearColores(Color.Black);
+            Higiene2.SetearColores(Color.Black);
+            Higiene3.SetearColores(Color.Black);
         }
         private void Higiene1_ButtonClick(object sender, EventArgs e)
         {
@@ -3017,6 +3020,14 @@ namespace Touge_App
                     VolverBoton.Visible = true;
                     Higiene1.SoldOut();
                 }
+                else
+                {
+                    mensajeBox.Mostrar("No me alcanza el dinero");
+                }
+            }
+            else
+            {
+                mensajeBox.Mostrar("Todavia Tengo productos de Higiene, no es necesario");
             }
         }
         private void Higiene2_ButtonClick(object sender, EventArgs e)
@@ -3037,6 +3048,14 @@ namespace Touge_App
                     VolverBoton.Visible = true;
                     Higiene2.SoldOut();
                 }
+                else
+                {
+                    mensajeBox.Mostrar("No me alcanza el dinero");
+                }
+            }
+            else
+            {
+                mensajeBox.Mostrar("Todavia Tengo productos de Higiene, no es necesario");
             }
         }
         private void Higiene3_ButtonClick(object sender, EventArgs e)
@@ -3057,6 +3076,14 @@ namespace Touge_App
                     VolverBoton.Visible = true;
                     Higiene3.SoldOut();
                 }
+                else
+                {
+                    mensajeBox.Mostrar("No me alcanza el dinero");
+                }
+            }
+            else
+            {
+                mensajeBox.Mostrar("Todavia Tengo productos de Higiene, no es necesario");
             }
         }
         //MOSTRAR MODULO MECANICO, NEXT-BACK, PAGINAS Y EVENTOS INDICE: 4.9
@@ -3596,6 +3623,7 @@ namespace Touge_App
         {
             NegocioBaseDatos negocioMiAuto = new NegocioBaseDatos();
             MiAuto myCar;
+
             myCar = negocioMiAuto.GetMiAuto();
             MiAutoPB.Load(myCar.Imagen);
             HpMiauto2.Text = myCar.Hp.ToString() + " Hp";
@@ -3606,25 +3634,45 @@ namespace Touge_App
             GomasSeco2.Text = myCar.GomasSemiSlick.ToString();
             GomasMojado2.Text = myCar.GomasWet.ToString();
             TraccionMiauto2.Text = myCar.Traccion;
-            if (myCar.Aceite)
+            if (myCar.Aceite && estadoAceite)
             {
                 AceiteMiAuto2.Text = "OK";
                 AceiteMiAuto2.ForeColor = Color.LimeGreen;
             }
-            if (myCar.Motor)
+            else
+            {
+                AceiteMiAuto2.Text = "Cambio";
+                AceiteMiAuto2.ForeColor = Color.FromArgb(128,120,0);
+            }
+            if (myCar.Motor && estadoMotor)
             {
                 MotorMiAuto2.Text = "OK";
                 MotorMiAuto2.ForeColor = Color.LimeGreen;
             }
-            if (myCar.Mantenimiento)
+            else
+            {
+                MotorMiAuto2.Text = "Malo";
+                MotorMiAuto2.ForeColor = Color.Red;
+            }
+            if (myCar.Mantenimiento && estadoAuto)
             {
                 MantMiAuto2.Text = "OK";
                 MantMiAuto2.ForeColor = Color.LimeGreen;
+            }
+            else
+            {
+                MantMiAuto2.Text = "Malo";
+                MantMiAuto2.ForeColor = Color.Red;
             }
             if (!myCar.Lavado)
             {
                 LimpMiAuto2.Text = "Limpio";
                 LimpMiAuto2.ForeColor = Color.SpringGreen;
+            }
+            else
+            {
+                AceiteMiAuto2.Text = "Sucio";
+                AceiteMiAuto2.ForeColor = Color.SaddleBrown;
             }
             if (myCar.Repro)
             {
@@ -3657,6 +3705,13 @@ namespace Touge_App
                 GasofaMiauto2.ForeColor = Color.OrangeRed;
             else
                 GasofaMiauto2.ForeColor = Color.OrangeRed;
+            estadoAceite = negocioMiAuto.DevolverEstadosAuto(1);
+            estadoMotor = negocioMiAuto.DevolverEstadosAuto(2);
+            estadoAuto = negocioMiAuto.DevolverEstadosAuto(3);
+            estadoRepro = negocioMiAuto.DevolverEstadosAuto(4);
+            estadoTurbo = negocioMiAuto.DevolverEstadosAuto(5);
+            estadoAWD = negocioMiAuto.DevolverEstadosAuto(6);
+            estadoLimpieza = negocioMiAuto.DevolverEstadosAuto(7);
         }
         bool plus = true;
         private void PlusBoton_Click(object sender, EventArgs e)
@@ -4245,7 +4300,7 @@ namespace Touge_App
                 }
                 catch (Exception)
                 {
-                    throw;
+                    MessageBox.Show("Error en la Carga, Revisa los datos");
                 }
 
             }
@@ -4370,15 +4425,17 @@ namespace Touge_App
                     DerrotaTextBox.Text = filtroPilotos.PilotoFiltrado.Derrotas.ToString();
                     string formatin = "0.0";
                     WinRateTextBox.Text = filtroPilotos.PilotoFiltrado.PorcentajeCarrerasGanadas.ToString(formatin) + "%";
-                    TotalTextBox.Text = filtroPilotos.PilotoFiltrado.CantidadDeCarreras.ToString();
+                    int aux = filtroPilotos.PilotoFiltrado.Victorias + filtroPilotos.PilotoFiltrado.Derrotas;
+                    TotalTextBox.Text = aux.ToString();
                 }
+                
 
             }
         }
         //Falta la configuracion de la pagina y subirla al Hosting 4.12
         private void CarDealerPictureBox_Click(object sender, EventArgs e)
         {
-            string url = "https://gtdb.io/gt7/used-cars/";
+            string url = "http://localhost:9095/";
             System.Diagnostics.Process.Start(url);
         }
 

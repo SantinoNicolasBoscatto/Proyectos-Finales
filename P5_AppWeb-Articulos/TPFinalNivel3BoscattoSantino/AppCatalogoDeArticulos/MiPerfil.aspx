@@ -35,7 +35,7 @@
                 <label for="ApellidoBox" class="form-label text-white">Apellido</label>
                 <asp:TextBox ID="ApellidoBox" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ValidarApellido" runat="server"
-                    ErrorMessage="Por Favor Coloque su apellido" ControlToValidate="NombreBox" ForeColor="Red"></asp:RequiredFieldValidator>
+                    ErrorMessage="Por Favor Coloque su apellido" ControlToValidate="ApellidoBox" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="">
                 <asp:Button ID="GuardarCambios" runat="server" Text="Guardar" OnClick="GuardarCambios_Click" CssClass="btn btn-dark" />

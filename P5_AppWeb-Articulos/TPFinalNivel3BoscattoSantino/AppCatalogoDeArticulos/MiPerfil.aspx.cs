@@ -137,8 +137,12 @@ namespace AppCatalogoDeArticulos
         {
             Usuario aux = new Usuario();
             UsuariosNegocio negocio = new UsuariosNegocio();
+            Page.Validate();
+            if (!Page.IsValid)
+                return;
             try
             {
+                
                 aux.Pass = PassBox.Text;
                 aux.Nombre = NombreBox.Text;
                 aux.Apellido = ApellidoBox.Text;
@@ -147,7 +151,7 @@ namespace AppCatalogoDeArticulos
                 if (ImagenWeb.Checked && URLBox.Text != "")
                 {
                     aux.ImagenPerfil = ImagenPorUrl.ImageUrl;
-                    File.Delete(Server.MapPath("./Images/Perfiles/Usuario-" + ((Usuario)Session["Usuario"]).Id + ".png"));
+                    //File.Delete(Server.MapPath("./Images/Perfiles/Usuario-" + ((Usuario)Session["Usuario"]).Id + ".png"));
                 }
                 else if (ImagenServer.Checked && Session["IMG"] != null)
                     aux.ImagenPerfil = (string)Session["IMG"];

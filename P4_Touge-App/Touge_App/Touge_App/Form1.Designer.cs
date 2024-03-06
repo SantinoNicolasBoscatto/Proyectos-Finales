@@ -29,8 +29,8 @@ namespace Touge_App
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TougeForms));
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.PilotosBoton = new System.Windows.Forms.Button();
@@ -49,7 +49,6 @@ namespace Touge_App
             this.PilotosPictureBox = new System.Windows.Forms.PictureBox();
             this.AutoPilotoPictureBox = new System.Windows.Forms.PictureBox();
             this.PaisPictureBox = new System.Windows.Forms.PictureBox();
-            this.VolumenControl = new Winamp.Components.WinampTrackBar();
             this.Cornering = new System.Windows.Forms.Label();
             this.Braking = new System.Windows.Forms.Label();
             this.Reflexes = new System.Windows.Forms.Label();
@@ -242,6 +241,7 @@ namespace Touge_App
             this.ProfesionalTextbox = new System.Windows.Forms.TextBox();
             this.EstrellaTextBox = new System.Windows.Forms.TextBox();
             this.LeyendaTextBox = new System.Windows.Forms.TextBox();
+            this.VolumenControl = new Winamp.Components.WinampTrackBar();
             this.gastosDiarios5 = new Touge_App.GastosDiarios();
             this.gastosDiarios4 = new Touge_App.GastosDiarios();
             this.gastosDiarios6 = new Touge_App.GastosDiarios();
@@ -566,23 +566,6 @@ namespace Touge_App
             this.PaisPictureBox.TabIndex = 29;
             this.PaisPictureBox.TabStop = false;
             this.PaisPictureBox.Visible = false;
-            // 
-            // VolumenControl
-            // 
-            this.VolumenControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.VolumenControl.BackColor = System.Drawing.Color.Transparent;
-            this.VolumenControl.EmptyTrackColor = System.Drawing.Color.Red;
-            this.VolumenControl.Location = new System.Drawing.Point(50, 625);
-            this.VolumenControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.VolumenControl.Name = "VolumenControl";
-            this.VolumenControl.ScaleType = Winamp.Components.WinampTrackBar.WinampTrackBarScaleType.None;
-            this.VolumenControl.ShowSlider = Winamp.Components.WinampTrackBar.WinampTrackBarShowSlider.OnHover;
-            this.VolumenControl.Size = new System.Drawing.Size(289, 54);
-            this.VolumenControl.SmallChange = 1;
-            this.VolumenControl.TabIndex = 30;
-            this.VolumenControl.TrackLowerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.VolumenControl.TrackUpperColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.VolumenControl.Visible = false;
             // 
             // Cornering
             // 
@@ -995,7 +978,7 @@ namespace Touge_App
             this.RivalTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RivalTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.RivalTextBox.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RivalTextBox.ForeColor = System.Drawing.Color.DimGray;
+            this.RivalTextBox.ForeColor = System.Drawing.Color.White;
             this.RivalTextBox.Location = new System.Drawing.Point(1068, 759);
             this.RivalTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RivalTextBox.Multiline = true;
@@ -1003,6 +986,7 @@ namespace Touge_App
             this.RivalTextBox.ReadOnly = true;
             this.RivalTextBox.Size = new System.Drawing.Size(277, 39);
             this.RivalTextBox.TabIndex = 59;
+            this.RivalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.RivalTextBox.WordWrap = false;
             // 
             // EdadTextBox
@@ -2120,17 +2104,17 @@ namespace Touge_App
             this.historialDGV.Location = new System.Drawing.Point(13, 27);
             this.historialDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.historialDGV.Name = "historialDGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.historialDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.historialDGV.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            this.historialDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.historialDGV.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.historialDGV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.GreenYellow;
             this.historialDGV.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3539,6 +3523,29 @@ namespace Touge_App
             this.LeyendaTextBox.Text = resources.GetString("LeyendaTextBox.Text");
             this.LeyendaTextBox.Visible = false;
             // 
+            // VolumenControl
+            // 
+            this.VolumenControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.VolumenControl.BackColor = System.Drawing.Color.Transparent;
+            this.VolumenControl.EmptyTrackColor = System.Drawing.Color.Red;
+            this.VolumenControl.ForeColor = System.Drawing.Color.Red;
+            this.VolumenControl.LargeChange = 20;
+            this.VolumenControl.Location = new System.Drawing.Point(92, 904);
+            this.VolumenControl.Name = "VolumenControl";
+            this.VolumenControl.ScaleFieldColor = System.Drawing.Color.Red;
+            this.VolumenControl.ScaleType = Winamp.Components.WinampTrackBar.WinampTrackBarScaleType.None;
+            this.VolumenControl.SeekSliderTransparency = 0;
+            this.VolumenControl.Size = new System.Drawing.Size(592, 50);
+            this.VolumenControl.SmallChange = 1;
+            this.VolumenControl.TabIndex = 358;
+            this.VolumenControl.TickColor = System.Drawing.Color.LimeGreen;
+            this.VolumenControl.TickEmphasizedColor = System.Drawing.Color.Lime;
+            this.VolumenControl.ToolTipForeColor = System.Drawing.Color.Red;
+            this.VolumenControl.TrackLowerColor = System.Drawing.Color.Lime;
+            this.VolumenControl.TrackUpperColor = System.Drawing.Color.Lime;
+            this.VolumenControl.Visible = false;
+            // 
             // gastosDiarios5
             // 
             this.gastosDiarios5.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -3690,6 +3697,8 @@ namespace Touge_App
             // Higiene1
             // 
             this.Higiene1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Higiene1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Higiene1.BackgroundImage")));
+            this.Higiene1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Higiene1.Comprado = false;
             this.Higiene1.Id = 0;
             this.Higiene1.Location = new System.Drawing.Point(117, 212);
@@ -3918,6 +3927,7 @@ namespace Touge_App
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1811, 966);
+            this.Controls.Add(this.VolumenControl);
             this.Controls.Add(this.LeyendaTextBox);
             this.Controls.Add(this.EstrellaTextBox);
             this.Controls.Add(this.ProfesionalTextbox);
@@ -4101,7 +4111,6 @@ namespace Touge_App
             this.Controls.Add(this.Reflexes);
             this.Controls.Add(this.Braking);
             this.Controls.Add(this.Cornering);
-            this.Controls.Add(this.VolumenControl);
             this.Controls.Add(this.PaisPictureBox);
             this.Controls.Add(this.AutoPilotoPictureBox);
             this.Controls.Add(this.PilotosPictureBox);
@@ -4168,7 +4177,7 @@ namespace Touge_App
         private System.Windows.Forms.PictureBox AutoPilotoPictureBox;
         private System.Windows.Forms.PictureBox PilotosPictureBox;
         private System.Windows.Forms.PictureBox PaisPictureBox;
-        private Winamp.Components.WinampTrackBar VolumenControl;
+        //private Winamp.Components.WinampTrackBar VolumenControl;
         private System.Windows.Forms.Label Cornering;
         private System.Windows.Forms.Label Defending;
         private System.Windows.Forms.Label Rain;
@@ -4388,6 +4397,7 @@ namespace Touge_App
         private System.Windows.Forms.TextBox EstrellaTextBox;
         private System.Windows.Forms.TextBox LeyendaTextBox;
         private System.Windows.Forms.TextBox PromocionTextBox;
+        private Winamp.Components.WinampTrackBar VolumenControl;
     }
 }
 

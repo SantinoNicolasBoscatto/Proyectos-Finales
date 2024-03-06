@@ -44,9 +44,15 @@
   <ItemGroup>
     <Compile Include="FuncionesNegocio.cs" />
     <Compile Include="NegocioBaseDatos.cs" />
+    <Compile Include="NegocioPagina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\source\repos\CarDealer\Dominio\Dominio.csproj">
+      <Project>{125e0c21-9f93-40d9-aa7e-c87a6ac72f62}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelo_Clases\Modelo_Clases.csproj">
       <Project>{4af56b84-0bcc-4dcd-af45-6804951755ea}</Project>
       <Name>Modelo_Clases</Name>

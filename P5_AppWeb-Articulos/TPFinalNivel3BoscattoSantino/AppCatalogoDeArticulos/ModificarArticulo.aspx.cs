@@ -140,6 +140,9 @@ namespace AppCatalogoDeArticulos
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
                 Articulo aux = new Articulo();
                 NegocioProductos negocio = new NegocioProductos();
                 aux.CodigoDeArticulo = CodigoBox.Text;
@@ -147,7 +150,7 @@ namespace AppCatalogoDeArticulos
                 if (ImagenWeb.Checked && URLBox.Text != "")
                 {
                     aux.ImagenDelProducto = ImagenPorUrl.ImageUrl;
-                    File.Delete(Server.MapPath("./Images/Articulos/Articulo-" + IdBox.Text + ".png"));
+                    //File.Delete(Server.MapPath("./Images/Articulos/Articulo-" + IdBox.Text + ".png"));
                 }
                 else if (ImagenServer.Checked && Session["IMG"] != null)
                     aux.ImagenDelProducto = (string)Session["IMG"];

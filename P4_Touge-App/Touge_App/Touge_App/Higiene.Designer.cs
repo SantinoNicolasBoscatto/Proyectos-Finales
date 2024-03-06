@@ -66,7 +66,7 @@ namespace Touge_App
             this.PrecioLabel.AutoSize = true;
             this.PrecioLabel.BackColor = System.Drawing.Color.Transparent;
             this.PrecioLabel.Font = new System.Drawing.Font("Microsoft YaHei", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrecioLabel.ForeColor = System.Drawing.Color.ForestGreen;
+            this.PrecioLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.PrecioLabel.Location = new System.Drawing.Point(36, 439);
             this.PrecioLabel.Name = "PrecioLabel";
             this.PrecioLabel.Size = new System.Drawing.Size(187, 45);

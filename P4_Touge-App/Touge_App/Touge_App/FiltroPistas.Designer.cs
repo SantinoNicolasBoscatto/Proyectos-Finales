@@ -39,10 +39,9 @@ namespace Touge_App
             // AutoComboBox
             // 
             this.AutoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.AutoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AutoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.AutoComboBox.BackColor = System.Drawing.Color.Orange;
             this.AutoComboBox.DropDownHeight = 150;
-            this.AutoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AutoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AutoComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AutoComboBox.ForeColor = System.Drawing.Color.Black;
