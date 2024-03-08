@@ -72,7 +72,7 @@ namespace Negocio_Base_Datos
                 accesoCentral.SetearParametros("@pass", user.Pass);
                 accesoCentral.SetearParametros("@MyId", user.Id);
                 accesoCentral.SetearParametros("@nombre", user.Nombre);
-                accesoCentral.SetearParametros("@apellido", user.Apellido);
+                accesoCentral.SetearParametros("@Email", user.Email);
                 accesoCentral.SetearParametros("@urlImagenPerfil", imagen = user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
                 accesoCentral.EjecutarAccion();
             }
@@ -84,6 +84,25 @@ namespace Negocio_Base_Datos
             {
                 accesoCentral.CerrarConexion();
             }
+        }
+
+        public Usuario DevolverUsuario(int id)
+        {
+            FuncionesNegocio negocio = new FuncionesNegocio();
+            negocio.SQLQuery("select Email, Pass, ImagenUrl, Nombre from Usuario where Id = @Id");
+            negocio.SetearParametros("@Id", id);
+            negocio.LecturaBase();
+            Usuario usuario = new Usuario();
+            if (negocio.Guardador.Read())
+            {
+                if(negocio.Guardador["Nombre"] != DBNull.Value)
+                    usuario.Nombre = (string)negocio.Guardador["Nombre"];
+                usuario.Email = (string)negocio.Guardador["Email"];
+                usuario.Pass = (string)negocio.Guardador["Pass"];
+                if (negocio.Guardador["ImagenUrl"] != DBNull.Value)
+                    usuario.ImagenPerfil = (string)negocio.Guardador["ImagenUrl"];
+            }
+            return usuario;
         }
     }
 }
