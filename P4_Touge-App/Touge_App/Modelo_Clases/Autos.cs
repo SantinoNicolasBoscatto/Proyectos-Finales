@@ -26,6 +26,8 @@ namespace Modelo_Clases
         public string ImagenAutoCuatro { get; set; }
         public string ImagenAutoCinco { get; set; }
         public string ImagenVenta { get; set; }
+        public string ImagenVenta2 { get; set; }
+        public string ImagenVenta3 { get; set; }
         public string Categoria { get; set; }
         public string Traccion { get; set; }
         public string Aspiracion { get; set; }

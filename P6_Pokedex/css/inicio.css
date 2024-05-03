@@ -1,0 +1,77 @@
+
+
+
+body{
+    background-image: url("../img/back.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+}
+/* body::after {
+    content: "";
+    background: rgba(20, 20, 20);
+    opacity: 0.6; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+} */
+
+html{
+    margin: 0;
+}
+
+
+.notvisible{
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 55px;
+    color: antiquewhite;
+    font-family: 'Montserrat';
+    margin-top: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.nosotros{
+    display: block;
+    margin: 0 10vw;
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+    color: azure;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+.homeB{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    position: fixed;
+    margin-left: 93vw;
+    bottom: 2.5vh;
+    background-color: yellow;
+    border: 3px solid black;
+    cursor: pointer;
+    transition: background-color .5s, visibility 1s, opacity .6s;
+}
+
+.homeB:hover{
+    background-color: aqua;
+}
+
+h2{
+    text-align: center;
+    font-size: 40px;
+    color: antiquewhite;
+    font-family: 'Montserrat';
+    margin-top: 1.75rem;
+    margin-bottom: 0;
+}

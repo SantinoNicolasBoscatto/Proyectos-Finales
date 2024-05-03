@@ -1,0 +1,87 @@
+nav{
+    width: 100%;
+    background-color: rgb(21, 21, 21);
+    margin: 0;
+    height: 15.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+li{
+    cursor: pointer;
+    padding: 1.8rem  .25rem;
+    transition: background-color .8s ease ;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 85px;
+    min-width: 85px;
+    margin: 0 3px;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: color .8s ease;
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+
+#gen-i:hover{
+    background-color: red;
+}
+#gen-i:hover a{
+    color: blue;
+}
+#gen-ii:hover{
+    background-color: #e3ae0d;
+}
+#gen-ii:hover a{
+    color: #636768;
+}
+#gen-iii:hover{
+    background-color: #00994d;
+}
+#gen-iii:hover a{
+    color: rgb(204, 9, 9);
+}
+#gen-iv:hover{
+    background-color: #7f7679;
+}
+#gen-iv:hover a{
+    color: #dea9f3;
+}
+#gen-v:hover{
+    background-color: #ffffff;
+}
+#gen-v:hover a{
+    color: #000;
+}
+#gen-vi:hover{
+    background-color: rgb(13, 13, 182);
+}
+#gen-vi:hover a{
+    color: rgb(189, 15, 15);
+}
+#gen-vii:hover{
+    background-color: #f18643;
+}
+#gen-vii:hover a{
+    color: #3A0A4E;
+}
+#gen-viii:hover{
+    background-color: #ff0040;
+}
+#gen-viii:hover a{
+    color: #630b57;
+}
