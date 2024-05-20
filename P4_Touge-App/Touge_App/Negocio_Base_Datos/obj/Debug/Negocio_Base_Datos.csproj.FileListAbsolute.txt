@@ -8,4 +8,4 @@ C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge
 C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.pdb
 C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Dominio.dll
 C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\bin\Debug\Dominio.pdb
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_Base_Datos.csproj.CopyComplete
+C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Negocio_Base_Datos\obj\Debug\Negocio_.745CCF0D.Up2Date
