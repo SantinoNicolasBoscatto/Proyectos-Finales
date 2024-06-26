@@ -1,0 +1,14 @@
+﻿
+.MyNavText
+{
+    font-size: 21px;
+
+}
+
+
+body {
+    background-image: url("https://i.pinimg.com/originals/f8/19/75/f8197554be5cf16f6d0fe577b14a8a32.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
