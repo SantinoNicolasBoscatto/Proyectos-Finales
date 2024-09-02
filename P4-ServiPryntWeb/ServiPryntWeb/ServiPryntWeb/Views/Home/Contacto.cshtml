@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "ServiPrynt - Contacto";
+}
+
+<section>
+    <div class="contacto-image">
+        <div class="over-img-contacto">
+            <h2 class="m-0 text-white">Contacto</h2>
+        </div>
+    </div>
+</section>
+<section>
+    <div id="MiMapa"></div>
+</section>
+<section class="formulario-seccion">
+    <div class="d-flex justify-content-lg-center flex-wrap contenedor-contact  flex-lg-row">
+        <form class="col-lg-5 mt-5 pt-sm-3 d-grid ms-lg-1 formu">
+            <div class="mb-4">
+                <label for="Nombre_Campo" class="form-label">Tu Nombre</label>
+                <input type="text" class="form-control" id="Nombre_Campo">
+                <span id="Nombre-error" class="text-danger" style="font-weight: 700;"></span>
+            </div>
+            <div class="mb-4">
+                <label for="Mail_Campo" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="Mail_Campo" aria-describedby="emailHelp">
+                <span id="Mail-error" class="text-danger" style="font-weight: 700;"></span>
+            </div>
+            <div class="mb-4">
+                <label for="Telefono_Campo" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="Telefono_Campo" aria-describedby="emailHelp">
+                <span id="Telefono-error" class="text-danger" style="font-weight: 700;"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label for="Mensaje_Campo" class="mb-1">Mensaje</label>
+                <textarea class="form-control" id="Mensaje_Campo" rows="7"></textarea>
+                <span id="Mensaje-error" class="text-danger" style="font-weight: 700;"></span>
+            </div>
+            <button class="submitBtn mb-3">
+                Enviar
+                <svg fill="white" viewBox="0 0 448 512" height="1em" class="arrow"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg>
+            </button>
+        </form>
+        <div class="col-lg-5 mt-md-5 ms-lg-5 pt-3 d-grid mb-5 side">
+            <div class="side-panel">
+                <div class="over-panel text-white">
+                    <h2 class="contacto-h2">Esperamos sus consultas</h2>
+                    <p class="title-p">Servicio Técnico</p>
+                    <p class="mb-4" style="font-weight: 800; font-size: 18px">
+                        <a href="mailto:serviprynt@gmail.com" style="color: white; text-decoration:underline;">
+                        serviprynt@gmail.com</a> / 351 xxx-xxxx</p>
+                    <p class="title-p" style="color:#eec60a;">Comercial</p>
+                    <p style="font-size: 18px">
+                        <a href="mailto:serviprynt@gmail.com" style="color: white; text-decoration:underline;">
+                            leonardoboscatto@gmail.com
+                        </a> / 351 xxx-xxxx
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/js/Contacto.js" asp-append-version="true"></script>
+}

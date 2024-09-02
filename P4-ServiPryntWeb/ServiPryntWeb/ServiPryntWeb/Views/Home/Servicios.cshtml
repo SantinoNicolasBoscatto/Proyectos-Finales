@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "ServiPrynt - Servicios";
+}
+
+<style>
+    .patern {
+        background: #222 radial-gradient(rgba(255, 255, 255, 1) 0%, transparent 1%);
+        background-size: 11px 11px;
+    }
+</style>
+
+<section>
+    <div class="service-image">
+        <div class="over-img-service">
+            <h2 class="m-0 text-white">SERVICIOS</h2>
+            <br />
+            <p class="text-white">Tecnología de Impresión</p>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="service-container">
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+        <div class="my-services dummy">
+            <i class="fa-solid fa-print fa-3x m-4 p-2 mb-2"></i>
+            <h4 class="me-5 ms-5 mt-3 mb-2">Abono Mensual</h4>
+            <p class="me-5 ms-5">Ofrecemos un servicio integral de alquiler, que incluye el mantenimiento y entrega de los insumos.</p>
+        </div>
+    </div>
+
+</section>
+<section class="marcas">
+    <div class="over-brand">
+        <h2 class="text-white marcas-h2 ms-sm-5 mb-4">
+            Nos respaldan años de experiencia en el rubro y el apoyo de las marcas más importantes del mercado de impresión.
+        </h2>
+        <div class="logos">
+            <div class="logos-slide">
+                <img src="~/src/logos/Brother_logo.png" />
+                <img src="~/src/logos/Hp_logo.png" />
+                <img src="~/src/logos/Canon-Logo.png" />
+                <img src="~/src/logos/Lexmark.jpg" />
+                <img src="~/src/logos/Epson_logo.png" />
+                <img src="~/src/logos/Samsung_Logo.png" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var copy = document.querySelector(".logos-slide").cloneNode(true);
+    document.querySelector(".logos").appendChild(copy);
+</script>

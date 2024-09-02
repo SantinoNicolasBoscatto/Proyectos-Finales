@@ -1,0 +1,147 @@
+﻿@using ServiPryntWeb.Models.DTO
+@using System.Globalization
+@{
+    ViewData["Title"] = "ServiPrynt - Productos";
+    var ofertCount = Model.ProductosQueryable!.Count();
+}
+@model ProductosListVm
+
+<style>
+    .patern {
+        background: rgba(10, 10, 10, 1) radial-gradient(rgba(255, 255, 255, .5) 5%, transparent 1%);
+        background-size: 10px 10px;
+    }
+</style>
+
+@if(ofertCount != 0)
+{
+    <section style="position: relative;" class="pt-lg-5 mt-5">
+        <h1 class="text-white h1-Productos mb-3" style="text-align:center">Ofertas Dia @DateTime.Now.ToString("dddd")</h1>
+        <div class="d-flex justify-content-evenly flex-wrap">
+            @if (ViewBag.size == 1)
+            {
+                foreach (var imp in Model.ProductosQueryable!)
+                {
+                    <div class="wrapper">
+                        <div class="product-img">
+                            <img style="object-fit: contain" src="~/Imp-Img/@imp.Imagen">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-text" style="position:relative">
+                                <h1 class="mb-2">@imp.Nombre</h1>
+                                <p class="mb-3">@imp.Descripcion</p>
+                                <div class="pre-cont">
+                                    <div class="d-flex justify-content-around cont-w">
+                                        <span class="precio-span">$@imp.Precio.ToString("N0", new CultureInfo("es-ES"))</span>
+                                        @if (imp.Pdf != null)
+                                        {
+                                            <a href="~/pdf/@imp.Pdf" download="@DateTime.Now-@imp.Pdf"
+                                               style="align-self:center;">Mas Detalles</a>
+                                        }
+                                        else
+                                        {
+                                            <a style="align-self:center; visibility: hidden;">Mas Detalles</a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (var imp in Model.ProductosQueryable!)
+                {
+                    <div class="card-redux mt-4 ms-2 me-2 mb-5">
+                        <div class="imgBox">
+                            <img src="~/Imp-Img/@imp.Imagen" alt="@imp.Nombre" class="mouse">
+                        </div>
+                        <div class="contentBox">
+                            <h3 class="mb-3">@imp.Nombre</h3>
+                            <h2 class="price">$@imp.Precio.ToString("N0", new CultureInfo("es-ES"))</h2>
+                            @if (imp.Pdf != null)
+                            {
+                                <div class="pre-cont-mov">
+                                    <a href="~/pdf/@imp.Pdf" download="@DateTime.Now-@imp.Pdf" class="buy">Mas Detalles</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+    </section>
+}
+else
+{
+    <br />
+    <br />
+}
+
+
+<section style="position: relative; min-height: 100vh" class=" mt-lg-5 mb-4" id="Producto-Container">
+</section>
+
+@section Scripts {
+    <script>
+        function FiltrarProductos(valueType, valueMarca, dataBool = true) {
+            $.ajax({
+                url: '/Home/FiltrarProductos',
+                type: 'POST',
+                data: {
+                    valueType: valueType,
+                    valueMarca: valueMarca
+                },
+                success: function (data) {
+                    window.location.hash = data.hash;
+                    if (dataBool) {
+                        let valueType = $("#FiltrosProductoBox select:eq(0)").val();
+                        let valueStock = $("#FiltrosProductoBox select:eq(1)").val();
+                        let valueOferta = $("#FiltrosProductoBox select:eq(2)").val();
+                    }
+                    else {
+                        $('#FiltrosProductoBox select:eq(0)').val('0');
+                        $('#FiltrosProductoBox select:eq(1)').val('0');
+                        $('#FiltrosProductoBox select:eq(2)').val('0');
+                    }
+                    let size = location.href.split("size=")[1].split("#")[0]
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Home/ProductosAJAX', // Ruta a la acción que devuelve la vista
+                        data: { index: 1, valueType: valueType, valueMarca: valueMarca, size: size },
+                        success: function (data) {
+                            $('#Producto-Container').html(data); // Inserta el contenido en un contenedor específico
+                        }
+                    });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('ERROR');
+                }
+            });
+        }
+        function ClickFiltro() {
+            let valueType = $("#FiltrosProductoBox select:eq(0)").val();
+            let valueMarca = $("#FiltrosProductoBox select:eq(1)").val();
+            FiltrarProductos(valueType, valueMarca, true);
+        }
+        function LimpiarFiltro() {
+            d.querySelector("#LimpiarFiltroboton").classList.remove("d-none")
+            FiltrarProductos(0, 0, false);
+        }
+        $(document).ready(function () {
+            let size = location.href.split("size=")[1].split("#")[0]
+            $.ajax({
+                type: 'GET',
+                url: '/Home/ProductosAJAX', // Ruta a la acción que devuelve la vista
+                data: { index: 1, size: size },
+                success: function (data) {
+                    $('#Producto-Container').html(data); // Inserta el contenido en un contenedor específico
+                }
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Santino\\source\\repos\\ServiPryntWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{73CCEBE9-418B-4BC4-A3BB-EC8EEC5C3E27}|ServiPryntWeb\\ServiPryntWeb.csproj|c:\\users\\santino\\source\\repos\\servipryntweb\\servipryntweb\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{73CCEBE9-418B-4BC4-A3BB-EC8EEC5C3E27}|ServiPryntWeb\\ServiPryntWeb.csproj|solutionrelative:servipryntweb\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73CCEBE9-418B-4BC4-A3BB-EC8EEC5C3E27}|ServiPryntWeb\\ServiPryntWeb.csproj|c:\\users\\santino\\source\\repos\\servipryntweb\\servipryntweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73CCEBE9-418B-4BC4-A3BB-EC8EEC5C3E27}|ServiPryntWeb\\ServiPryntWeb.csproj|solutionrelative:servipryntweb\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\ServiPryntWeb\\ServiPryntWeb\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "ServiPryntWeb\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\ServiPryntWeb\\ServiPryntWeb\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "ServiPryntWeb\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowE8AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-07-16T18:47:43.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\ServiPryntWeb\\ServiPryntWeb\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ServiPryntWeb\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\ServiPryntWeb\\ServiPryntWeb\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ServiPryntWeb\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAgwEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T15:57:52.301Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

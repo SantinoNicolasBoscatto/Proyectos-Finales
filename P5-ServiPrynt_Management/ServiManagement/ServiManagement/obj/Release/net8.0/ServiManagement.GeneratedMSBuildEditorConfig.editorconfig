@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ServiManagement
+build_property.RootNamespace = ServiManagement
+build_property.ProjectDir = C:\Users\Santino\source\repos\ServiManagement\ServiManagement\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Santino\source\repos\ServiManagement\ServiManagement
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/BuscarOrden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCdXNjYXJPcmRlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/DetalleTecnico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhbGxlVGVjbmljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/MisRegistros.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNaXNSZWdpc3Ryb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/Orden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPcmRlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/PanelDeControl.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYW5lbERlQ29udHJvbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/_DetalleTecnicoPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfRGV0YWxsZVRlY25pY29QYXJ0aWFsVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Home/_PanelDeControlPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUGFuZWxEZUNvbnRyb2xQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Santino/source/repos/ServiManagement/ServiManagement/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-v52h21q7mg

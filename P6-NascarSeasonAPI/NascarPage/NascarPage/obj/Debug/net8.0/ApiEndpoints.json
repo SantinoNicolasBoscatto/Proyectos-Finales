@@ -1,0 +1,1948 @@
+[
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "Get",
+    "RelativePath": "api/autos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaAutoDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "Post",
+    "RelativePath": "api/autos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "PilotoId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MarcaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaAutoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "GetPorId",
+    "RelativePath": "api/autos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaAutoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "AutoPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "Put",
+    "RelativePath": "api/autos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "PilotoId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MarcaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "Patch",
+    "RelativePath": "api/autos/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patchDocument",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.AutosController",
+    "Method": "Delete",
+    "RelativePath": "api/autos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "Get",
+    "RelativePath": "api/campeones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Pagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "RecordsPorPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaCampeonDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "Post",
+    "RelativePath": "api/campeones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AutoCampeon",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PilotoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaCampeonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "GetPorId",
+    "RelativePath": "api/campeones/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaCampeonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "CampeonPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "Put",
+    "RelativePath": "api/campeones/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AutoCampeon",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PilotoId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "Patch",
+    "RelativePath": "api/campeones/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patchDocument",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "Delete",
+    "RelativePath": "api/campeones/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CampeonesController",
+    "Method": "GetPorYear",
+    "RelativePath": "api/campeones/year/{ChampYear}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ChampYear",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaCampeonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "CampeonPorYear"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "Get",
+    "RelativePath": "api/galeria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Pagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "RecordsPorPagina",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaGaleriaDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "Post",
+    "RelativePath": "api/galeria",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ronda",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoUno",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoDos",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoTres",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaGaleriaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "GetPorId",
+    "RelativePath": "api/galeria/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaGaleriaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "RondaFotosPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "Put",
+    "RelativePath": "api/galeria/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ronda",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoUno",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoDos",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoTres",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "Delete",
+    "RelativePath": "api/galeria/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.GaleriaController",
+    "Method": "GetPorRonda",
+    "RelativePath": "api/galeria/ronda/{ronda}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ronda",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaGaleriaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "RondaFotosPorRonda"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.MarcasController",
+    "Method": "Get",
+    "RelativePath": "api/marcas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaMarcaDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.MarcasController",
+    "Method": "Post",
+    "RelativePath": "api/marcas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.MarcasController",
+    "Method": "GetPorId",
+    "RelativePath": "api/marcas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaMarcaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "MarcaPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.MarcasController",
+    "Method": "Put",
+    "RelativePath": "api/marcas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.MarcasController",
+    "Method": "Delete",
+    "RelativePath": "api/marcas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.NacionalidadController",
+    "Method": "Get",
+    "RelativePath": "api/nacionalidad",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaNacionalidadDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.NacionalidadController",
+    "Method": "Post",
+    "RelativePath": "api/nacionalidad",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bandera",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaNacionalidadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.NacionalidadController",
+    "Method": "GetPorId",
+    "RelativePath": "api/nacionalidad/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaNacionalidadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "NacionPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.NacionalidadController",
+    "Method": "Put",
+    "RelativePath": "api/nacionalidad/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bandera",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.NacionalidadController",
+    "Method": "Delete",
+    "RelativePath": "api/nacionalidad/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "Get",
+    "RelativePath": "api/pilotos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaPilotoDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "Post",
+    "RelativePath": "api/pilotos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FotoPiloto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Numero",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CarrerasGanadas",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Poles",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Campeonatos",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "EnActivo",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "NacionalidadId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Edad",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaPilotoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "GetPorId",
+    "RelativePath": "api/pilotos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaPilotoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "PilotoPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "Put",
+    "RelativePath": "api/pilotos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FotoPiloto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Numero",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CarrerasGanadas",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Poles",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Campeonatos",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "EnActivo",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "NacionalidadId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Edad",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "Patch",
+    "RelativePath": "api/pilotos/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patchDocument",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PilotosController",
+    "Method": "Delete",
+    "RelativePath": "api/pilotos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaPilotoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "Get",
+    "RelativePath": "api/pistas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "calendario",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaPistaDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "Post",
+    "RelativePath": "api/pistas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FotoPrimaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoSecundaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoTerciaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Distancia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Vueltas",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Orden",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Disputada",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "EnElCalendario",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaAutoDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "GetPorId",
+    "RelativePath": "api/pistas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaPistaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "PistaPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "Put",
+    "RelativePath": "api/pistas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FotoPrimaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoSecundaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "FotoTerciaria",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Distancia",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Vueltas",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Orden",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Disputada",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "EnElCalendario",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "Patch",
+    "RelativePath": "api/pistas/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patchDocument",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "Delete",
+    "RelativePath": "api/pistas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "PutOrden",
+    "RelativePath": "api/pistas/{id}/intercambio/{idIntercambio}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idIntercambio",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "ModficarCalendario",
+    "RelativePath": "api/pistas/entra/{idEntra}/sale/{idSale}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEntra",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idSale",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.PistasController",
+    "Method": "GetPorOrden",
+    "RelativePath": "api/pistas/orden/{Orden}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Orden",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NascarPage.DTOs.LecturaPistaDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "PistaPorOrden"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "Post",
+    "RelativePath": "api/posiciones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "listcrearCarreraDTO",
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.CrearCarreraDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "GetCarrera",
+    "RelativePath": "api/posiciones/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaCarreraDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 0
+      }
+    ],
+    "EndpointName": "CarreraPorId"
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "ReiniciarTemporada",
+    "RelativePath": "api/posiciones/ReiniciarTemporada",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "GetCampeonatoManofactura",
+    "RelativePath": "api/posiciones/TablaPosicionesManofactura",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaManofacturaDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "GetCampeonatoPlayoff",
+    "RelativePath": "api/posiciones/TablaPosicionesPlayoff",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaPlayoffDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "GetCampeonatoPlayoffReducido",
+    "RelativePath": "api/posiciones/TablaPosicionesPlayoffReducida",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaPlayoffDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NascarPage.Controllers.CarreraController",
+    "Method": "GetCampeonatoRegular",
+    "RelativePath": "api/posiciones/TablaPosicionesRegular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[NascarPage.DTOs.LecturaRegularDTO, NascarPage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

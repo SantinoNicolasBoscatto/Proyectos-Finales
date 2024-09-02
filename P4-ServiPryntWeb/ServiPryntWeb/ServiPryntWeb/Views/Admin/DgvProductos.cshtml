@@ -1,0 +1,144 @@
+﻿@using ServiPryntWeb.Models.DTO
+@{
+    ViewData["Title"] = "Productos - ServiPrynt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var valueType = ViewBag.valueType;
+    var valueStock = ViewBag.valueStock;
+    var valueOferta = ViewBag.valueOferta;
+}
+@model ProductosListVm
+<style>
+    .form-select {
+        min-width: 250px;
+        max-width: 250px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-md-8">
+        <section class=" justify-content-center mt-4">
+            <div id="FiltrosBox" class="d-flex justify-content-between mb-3 d-none">
+                <div>
+                    <label class="mb-2 text-white"><strong>Tipo Producto</strong></label>
+                    <select class="form-select" aria-label="Default select example">
+
+                        <option value="0" selected>Todos Los Tipos</option>
+                        @foreach (var item in ViewBag.Type.TypesQueryable)
+                        {
+                            <option value="@item.TypeId">@item.TypeName</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label class="mb-2 text-white"><strong>Stock</strong></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Todas</option>
+                        <option value="1">En Stock</option>
+                        <option value="2">Fuera de Stock</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="mb-2 text-white"><strong>Oferta</strong></label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="0" selected>Todas</option>
+                        <option value="1">En Oferta</option>
+                        <option value="2">No Oferta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+                <button class="btn btn-secondary btn-filtro">Mostrar Filtros</button>
+                <button class="btn btn-primary d-none btn-filtrado">Filtrar</button>
+                <button class="btn btn-primary d-none btn-desfiltrar">Limpiar Filtro</button>
+            </div>
+            <div id="DgvProductos">
+
+            </div>
+        </section>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+
+@section Scripts {
+    <script>
+        // FUNCION ELIMINAR
+        function confirmarEliminacion(id) {
+            var respuesta = confirm("¿Estás seguro de que quieres eliminar este elemento?");
+            if (respuesta) {
+                $.ajax({
+                    url: '/Admin/Eliminar',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (data) {
+                        window.location.href = "/Admin/DgvProductos#index=1";
+                        location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Hubo un error al eliminar el elemento.');
+                    }
+                });
+            }
+        }
+        // FUNCION FILTRAR
+        function Filtrar(valueType, valueStock, valueOferta, dataBool=true) {
+            $.ajax({
+                url: '/Admin/Filtrar',
+                type: 'POST',
+                data: {
+                    valueType: valueType,
+                    valueStock: valueStock,
+                    valueOferta: valueOferta
+                },
+                success: function (data) {
+                    window.location.hash = data.hash;
+                    if (dataBool) {
+                        let valueType = $("#FiltrosBox select:eq(0)").val();
+                        let valueStock = $("#FiltrosBox select:eq(1)").val();
+                        let valueOferta = $("#FiltrosBox select:eq(2)").val();
+                    }
+                    else {
+                        $('#FiltrosBox select:eq(0)').val('0');
+                        $('#FiltrosBox select:eq(1)').val('0');
+                        $('#FiltrosBox select:eq(2)').val('0');
+                    }
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Admin/DgvProductosPartial', // Ruta a la acción que devuelve la vista
+                        data: { index: 1, valueType: valueType, valueStock: valueStock, valueOferta: valueOferta},
+                        success: function (data) {
+                            $('#DgvProductos').html(data); // Inserta el contenido en un contenedor específico
+                        }
+                    });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Hubo un error al eliminar el elemento.');
+                }
+            });
+        }
+
+        // DECLARACION DE EVENTOS CARGA LA TABLA AL PRINCIPIO Y DECLARA LOS EVENTOS DE FILTRAR Y DESFILTRAR
+        $(document).ready(function () {
+            $('.btn-filtrado').click(function () {
+                document.querySelector(".btn-desfiltrar").classList.remove("d-none");
+                let valueType = $("#FiltrosBox select:eq(0)").val();
+                let valueStock = $("#FiltrosBox select:eq(1)").val();
+                let valueOferta = $("#FiltrosBox select:eq(2)").val();
+                Filtrar(valueType, valueStock, valueOferta, true);
+            });
+            $('.btn-desfiltrar').click(function () {
+                Filtrar(0, 0, 0, false);
+            });
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/DgvProductosPartial', // Ruta a la acción que devuelve la vista
+                data: { index: 1 },
+                success: function (data) {
+                    $('#DgvProductos').html(data); // Inserta el contenido en un contenedor específico
+                }
+            });
+        });
+    </script>
+}

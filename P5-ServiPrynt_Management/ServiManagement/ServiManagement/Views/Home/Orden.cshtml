@@ -1,0 +1,134 @@
+﻿@using ServiManagement.Models.Entidades
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Agregar Orden";
+    int count = 0;
+    int auxList = 0;
+}
+@model Orden
+
+<form class="row" method="post">
+    <div class="col-3"></div>
+    <div class="col-sm-6">
+        <div class="mb-3">
+            <label for="NumeroDeOrden" class="form-label text-white">Numero de Orden</label>
+            <input type="text" class="form-control" id="NumeroDeOrden" asp-for="NumeroDeOrden">
+            <span asp-validation-for="NumeroDeOrden" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Modelo" class="form-label text-white">Modelo</label>
+            <select class="form-control" id="ModeloSelect" style="background-color:white" asp-for="Modelo">
+                @if(Model == null)
+                {
+                    foreach (var item in ViewBag.listaString)
+                    {
+                        count++;
+                        <option value="@count">@item</option>
+                    }
+                }
+                else
+                {
+                    foreach (var item in ViewBag.listaString)
+                    {
+                        count++;
+                        @if(item == Model.Modelo)
+                        {
+                            <option selected>@item</option>
+                            @* <option value="@count" selected>@item</option> *@
+                        }
+
+                        else
+                        {
+                            <option>@item</option>
+                            @* <option value="@count">@item</option> *@
+                            auxList++;
+                        }
+
+                    }
+                    if(auxList == count)
+                    {
+                        auxList++;
+                        <option selected>@Model.Modelo</option>
+                       @*  <option value="@auxList" selected>@Model.Modelo</option> *@
+                    }
+
+                }
+            </select>
+            <span asp-validation-for="Modelo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="NumeroDeOrden" class="form-label text-white">Marca</label>
+            <select class="form-control" id="Modelo" style="background-color:white" asp-for="Marca.Id">
+                @if (Model == null)
+                {
+                    foreach (var item in ViewBag.listaMarca)
+                    {
+                        <option value="@item.Id">@item.Nombre</option>
+                    }
+                }
+                else
+                {
+                    foreach (var item in ViewBag.listaMarca)
+                    {
+                        if (Model.Marca.Id == item.Id)
+                        {
+                            <option value="@item.Id" selected>@item.Nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Nombre</option>
+                        }
+                    }
+                }
+            </select>
+            <span asp-validation-for="Marca.Id" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="FechaCarga" style="color: white;">Fecha de Carga</label>
+            <input id="FechaCarga" type="date" class="form-control desde" style="min-width: 275px" asp-for="FechaDeCarga">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <span asp-validation-for="FechaDeCarga" class="text-danger"></span>
+        </div>
+        <div class="mb-5">
+            <label for="Monto" class="form-label text-white">Monto</label>
+            <input type="number" class="form-control" id="Monto" asp-for="Monto" required>
+            <span asp-validation-for="Monto" class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-evenly">
+            @if (Model == null || Model.Id == 0)
+            {
+                <button class="btn btn-success" action="Orden">Agregar</button>
+                <a asp-action="Index" class="btn btn-danger">Volver</a>
+            }
+            else
+            {
+                <button class="btn btn-success" action="Orden">Modificar</button>
+                if (!Boolean.Parse(Context.Session.GetString("EsAdmin")))
+                {
+                    <a asp-action="MisRegistros" class="btn btn-danger">Volver</a>
+                }
+                else
+                {
+                    <a asp-action="PanelDeControl" class="btn btn-danger">Volver</a>
+                }
+                
+            }
+            
+        </div>
+    </div>
+    <div class="col-3"></div>
+</form>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#ModeloSelect').editableSelect();
+        });
+
+    </script>
+}

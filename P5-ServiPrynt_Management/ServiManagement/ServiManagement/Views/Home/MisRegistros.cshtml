@@ -1,0 +1,74 @@
+﻿@using ServiManagement.Models.DTO
+@{
+    ViewData["Title"] = "Mis Registros";
+    var MyId = int.Parse(Context.Session.GetString("Id"));
+}
+@model ListOrdenes
+
+<div class="row mt-5">
+    <div class="col-1">
+    </div>
+    <div class="col-10">
+        <table class="table table-hover table-dark table-bordered mb-3">
+            <thead>
+                <tr>
+                    <th scope="col">Numero de orden</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Fecha de carga</th>
+                    <th scope="col">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model != null)
+                {
+                    @foreach (var item in Model.ListaOrdenes)
+                    {
+                        <tr style="cursor: pointer">
+                            <td data-id="@item.Id">@item.NumeroDeOrden</td>
+                            <td data-id="@item.Id">@item.Modelo</td>
+                            <td data-id="@item.Id">@item.Marca.Nombre</td>
+                            <td data-id="@item.Id">@item.FechaDeCarga.ToString("dd/MM/yyyy")</td>
+                            <td data-id="@item.Id">@item.Monto.ToString("N0").Replace(",", ".")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-around">
+            <a asp-action="Index">Volver</a>
+        </div>
+    </div>
+    <div class="col-1">
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        function ModificarRegistro(target) {
+            let id = target.getAttribute("data-id");
+            let dataToSend = {
+                id: id
+            };
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("Modificar", "Home")',
+                data: dataToSend,
+                success: function (data) {
+                    window.location.href = data.redirect;
+                },
+                error: function (error) {
+                    console.error("Error en la petición:", error);
+                }
+            });
+        }
+
+
+        document.addEventListener("click", e => {
+            if (e.target.matches("td")) {
+                ModificarRegistro(e.target);
+            }
+        })
+    </script>
+}

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/NavBar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Carousell.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/gridServices.css" asp-append-version="true" />
+    <link href="~/css/footer.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/service.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/Nosotros.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/Contacto.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/Productos.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="patern">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:name="tiempo">
+            <div class="container-fluid">
+                <div class="logo-container">
+                    <a class="text-white" asp-controller="Home" asp-action="Inicio"> <img src="~/src/ServiLogoFinal.png" alt="ServiPrynt" id="Logo" /></a>
+                </div>
+                <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navletter " id="navbarNav">
+                    <ul class="navbar-nav p-2">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" id="I" asp-area="" asp-controller="Home" asp-action="Inicio" >Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"  id="S" asp-controller="Home" asp-action="Servicios">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" id="P" style="cursor:pointer;" onclick="CargarService()">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" id="N" asp-area="" asp-controller="Home" asp-action="Nosotros">¿Quiénes Somos?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" id="C" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid p-0">
+        <main role="main">
+            @RenderBody()
+
+        </main>
+        <div style="width: 60px; height: 60px; position: fixed; border-radius: 50%; bottom: 20px; z-index: 9999; right: 20px;
+        background-color:#25D366; cursor: pointer; display: flex; align-items: center; justify-content: center;" class="wpp">
+            <a href="https://wa.me/3515281134" target="_blank">
+                <i class="fa-brands fa-whatsapp fa-2x" style="color: white;
+            padding: 15px"></i>
+            </a>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+    </div>
+    <footer class="" style="background-color:#111; min-height: 33vh; width:100%;">
+        <div class="d-flex justify-content-center align-content-end mb-4" target="_blank">
+            <a href="tel:3517310272" class="social phone mt-5 m-1">
+                <i class="fa-solid fa-phone" style="color: white"></i>
+            </a>
+
+            <a href="mailto:serviprynt@gmail.com" class="social mail mt-5 m-1" target="_blank">
+                <i class="fa-regular fa-envelope" style="color: white"></i>
+            </a>
+
+            <a href="https://www.facebook.com/serviprynt/?locale=es_LA" class="social facebook mt-5 m-1" target="_blank">
+                <svg height="1em" viewBox="0 0 320 512">
+                    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                </svg>
+            </a>
+
+            <a href="https://www.instagram.com/serviprynt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"
+               class="social instagram mt-5 m-1">
+                <svg height="1em" viewBox="0 0 448 512">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <p class="text-center text-white" style="font-weight: 700;">
+        © @DateTime.Now.Year ServiPrynt - Tel. (0351) xxx-xxxx - Rivera Indarte 630 - X5000 - Córdoba</p>
+
+    </footer>
+    <script src="https://kit.fontawesome.com/525da0697a.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers/dist/leaflet-color-markers.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        window.addEventListener("scroll", e => {
+            if (window.innerWidth > 991) {
+                $nav.style.transition = "height 0.3s ease";
+                $logo.style.transition = "width 0.3s ease, height 0.3s ease, margin-left 0.3s ease";
+                if (window.scrollY > 35) {
+                    $nav.style.height = "65px";
+                    $logo.style.width = "9vh";
+                    $logo.style.height = "9vh";
+                    $logo.style.marginLeft = "2.25rem";
+                }
+                else {
+                    $nav.style.height = "80px";
+                    $logo.style.width = "11vh";
+                    $logo.style.height = "11vh";
+                    $logo.style.marginLeft = "2rem";
+                }
+            }
+            VisibleObjets([".my-services:not(.visible)", ".flex-box:not(.visible)", ".carousel-item.active", ".marcas-h2"]);
+        })
+        window.addEventListener("load", async e => {
+            let $li = null;
+            if (location.href.includes("Servicios")) $li = document.getElementById("S");
+            else if (location.href.includes("Productos")) $li = document.getElementById("P");
+            else if (location.href.includes("Nosotros")) $li = document.getElementById("N");
+            else if (location.href.includes("Contacto")) $li = document.getElementById("C");
+            else $li = document.getElementById("I");
+            $li.classList.add("active");
+        })
+        function VisibleObjets(array = []) {
+            for (var object of array) {
+                if (!object.includes(".carousel-item.active")) {
+                    let $elementos = d.querySelectorAll(object);
+                    let ventanaAltura = window.innerHeight;
+                    $elementos.forEach((el, index) => {
+                        let distanciaDesdeArriba = el.getBoundingClientRect().top;
+                        if (distanciaDesdeArriba - ventanaAltura <= 0) {
+                            setTimeout(() => {
+                                el.classList.add('visible');
+                            }, index * 400);
+                        }
+                    });
+                }
+                else if (!location.href.includes("Home")) {
+                    let $h5Visible = d.querySelector("h5.visible");
+                    let $pVisible = d.querySelector("p.visible");
+                    if ($h5Visible !== null) $h5Visible.classList.remove("visible");
+                    if ($pVisible !== null) $pVisible.classList.remove("visible");
+
+                    let $h5 = d.querySelector(object + " div h5");
+                    let $p = d.querySelector(object + " div p");
+                    $h5.classList.add("visible");
+                    $p.classList.add("visible");
+
+                }
+            }
+        }
+        d.addEventListener("DOMContentLoaded", e => {
+            VisibleObjets([".my-services:not(.visible)", ".flex-box:not(.visible)", ".carousel-item.active",
+                ".nos-img:not(.visible)", ".nosotros-texto:not(.visible)"]);
+            let wpp = document.querySelector('.wpp');
+            function animacionSalto() {
+                wpp.style.transition = 'all 0.8s'; // Duración de la animación
+                wpp.style.transform = 'translateY(-12px)';
+                setTimeout(() => {
+                    wpp.style.transform = 'translateY(0)';
+                }, 800);
+            }
+            setInterval(animacionSalto, 12000);
+        })
+        let mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+                mybutton.style.visibility = "visible";
+                mybutton.style.opacity = 1;
+                mybutton.style.transition = "opacity 0.8s ease";
+            } else {
+                mybutton.style.visibility = "hidden";
+                mybutton.style.opacity = 0;
+                mybutton.style.transition = "opacity 0.8s ease";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <script>
+        var time = new Date().getTime();
+        $(document.body).bind("mousemove keypress", function (e) {
+            time = new Date().getTime();
+        });
+
+        function refresh() {
+            if (new Date().getTime() - time >= 120000)
+                window.location.reload();
+            else
+                setTimeout(refresh, 10000);
+        }
+
+        setTimeout(refresh, 10000);
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,134 @@
+.navbar {
+    position: relative;
+    z-index: 9999;
+    width: 100%;
+    top: 0;
+}
+
+
+#Logo{
+    max-height: 11vh;
+    cursor: pointer;
+    margin-left: 2rem;
+    opacity: 1;
+}
+
+.logo-container{
+    position: absolute;
+}
+
+@keyframes roll {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(10vw) rotate(360deg);
+    }
+  }
+
+
+.navletter{
+    font-size: 1.15rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav-item {
+    margin-right: .75vw;
+    margin-left: .75vw;
+}
+
+
+.nav-item a {
+    position: relative;
+    display: inline-block;
+    padding: 5px 5px;
+    margin: 5px 0;
+    text-decoration: none;
+    color: white;
+}
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 0, 255);
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+.nav-item a:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+.nav-item a.active::after {
+    visibility: visible;
+    width: 100%;
+    background-color: red
+}
+  
+
+ul{
+    margin-right: 1rem;
+    display: block;
+    margin: auto;
+}
+
+.fa-2x{
+    font-size: 2.33em;
+}
+
+.patern {
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 1) radial-gradient(rgba(255, 255, 255, 1) 5%, transparent 1%);
+    background-size: 11px 11px;
+    margin-bottom: 0;
+}
+
+
+@media screen and (min-width: 991px) {
+    .logo-container{
+        left: 0;
+    }
+
+    .navbar {
+        position: fixed;
+    }
+
+    #Logo{
+        animation: roll 2s normal backwards ease-in-out;
+    }
+    
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+    #Logo{
+        max-width: 45px;
+        max-height: 45px;
+        right: 15px;
+    }
+    
+    .logo-container{
+        right: 15px;
+        top: 5px;
+    }
+}
+@media screen and (max-width: 769px) {
+    #Logo{
+        max-width: 40px;
+        max-height: 40px;
+    }
+    
+    .logo-container{
+        right: 20px;
+        top: 5px;
+    }
+}
+
+
+
+
+
+
+
+  

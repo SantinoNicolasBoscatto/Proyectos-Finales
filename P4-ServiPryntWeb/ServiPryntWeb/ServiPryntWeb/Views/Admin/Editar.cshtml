@@ -1,0 +1,121 @@
+﻿@using ServiPryntWeb.Models.Entidades
+@{
+    ViewData["Title"] = "Productos - ServiPrynt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model Productos
+
+<form method="post" enctype="multipart/form-data" class="row mt-4">
+    <div class="col-1"></div>
+    <div class="col-4">
+        <div>
+            <div class="mb-3">
+                <label for="ProductoId" class="form-label text-white">Producto Id</label>
+                <input type="text" readonly class="form-control" id="ProductoId" value="@Model.IdProducto" asp-for="IdProducto">
+            </div>
+            <div class="mb-3">
+                <label for="NombreProducto" class="form-label text-white">Nombre</label>
+                <input type="text" class="form-control" id="NombreProducto" value="@Model.Nombre" asp-for="Nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="PrecioProducto" class="form-label text-white">Precio</label>
+                <input type="number" class="form-control" id="PrecioProducto" value="@Model.Precio" asp-for="Precio" required>
+            </div>
+            <div class="mb-3">
+            </div>
+            <div class="form-group mb-3">
+                <label for="DescProducto" class="form-label text-white">Descripcion</label>
+                <textarea class="form-control" id="DescProducto" rows="5" asp-for="Descripcion">@Model.Descripcion</textarea>
+            </div>
+            <div class="mb-3 form-check d-flex justify-content-between">
+                <div>
+                    <label for="StockProducto" class="form-label text-white">Stock</label>
+                    <input type="checkbox" class="form-check-input" id="StockProducto" checked="@Model.Stock" asp-for="Stock">
+                </div>
+                <div>
+                    <label for="OfertaProducto" class="form-label text-white">Oferta</label>
+                    <input type="checkbox" class="form-check-input" id="OfertaProducto" checked="@Model.Oferta" asp-for="Oferta">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-4">
+        <div class="position-relative">
+            <div class="mb-3">
+                <label for="PDFProducto" class="form-label text-white">PDF</label>
+                <input type="file" class="form-control" id="PDFProducto" accept=".pdf" asp-for="PdfFile">
+            </div>
+            <div class="form-group mb-3">
+                <label for="MarcaProducto" class="form-label text-white">Marca</label>
+                <select class="form-select" id="MarcaProducto" asp-for="IdMarca">
+                    @foreach (var item in ViewBag.Marca.MarcasQueryable)
+                    {
+                        if (item.IdMarca == Model.IdMarca)
+                        {
+                            <option value="@item.IdMarca" selected>@item.NombreMarca</option>
+                        }
+                        else
+                        {
+                            <option value="@item.IdMarca">@item.NombreMarca</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="TipoProducto" class="form-label text-white">Tipo Producto</label>
+                <select class="form-select" id="TipoProducto" asp-for="TypeId">
+                    @foreach (var item in ViewBag.Type.TypesQueryable)
+                    {
+                        if (item.TypeId == Model.TypeId)
+                        {
+                            <option value="@item.TypeId" selected>@item.TypeName</option>
+                        }
+                        else
+                        {
+                            <option value="@item.TypeId">@item.TypeName</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <div class="mb-3">
+                    <label for="ImagenProducto" class="form-label text-white">Imagen</label>
+                    <input type="file" class="form-control" id="ImagenProducto" accept=".png" asp-for="ImagenFile">
+                </div>
+                <div id="ImgPreview" style="width: 280px; height:300px; background-color:red; margin: auto; border-radius: 15px; display: flex;">
+                    <img id="previewImage" src="~/Imp-Img/@Model.Imagen" style="object-fit: contain; width: 100%; border-radius: 15px; border: 2px solid black"
+                         alt="ERROR AL CARGAR LA IMAGEN" />
+                </div>
+            </div>
+            @if(Model.IdProducto != 0)
+            {
+                <div class="d-flex justify-content-evenly align-items-center">
+                    <button type="submit" class="btn btn-success" asp-action="Editar">Modificar</button>
+                    <a href="/Admin/DgvProductos#index=1">Volver</a>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex justify-content-evenly align-items-center">
+                    <button type="submit" class="btn btn-success" asp-action="Editar">Agregar Producto</button>
+                    <a href="/Admin/DgvProductos#index=1">Volver</a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-1"></div>
+</form>
+
+
+
+@section Scripts {
+    <script>
+        document.getElementById('ImagenProducto').addEventListener('change', function (e) {
+            let file = e.target.files[0];
+            let imageUrl = URL.createObjectURL(file);
+            document.getElementById('previewImage').src = imageUrl;
+        });
+    </script>
+}

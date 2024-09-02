@@ -1,0 +1,6 @@
+@NascarPage_HostAddress = http://localhost:5053
+
+# GET {{NascarPage_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,44 @@
+﻿@using ServiManagement.Models.Entidades
+@{
+    ViewData["Title"] = "Buscar por Orden";
+}
+@model Orden
+
+<form method="post" class="row mt-5">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Tecnico</th>
+                    <th scope="col">Nº Orden</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Fecha De Carga</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Marca</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model != null)
+                {
+                    <tr>
+                        <td>@ViewBag.Name</td>
+                        <td>@Model.NumeroDeOrden</td>
+                        <td>@Model.Modelo</td>
+                        <td>@Model.FechaDeCarga.ToString("dd/MM/yyyy")</td>
+                        <td>$ @Model.Monto.ToString("N0").Replace(",", ".")</td>
+                        <td>@Model.Marca.Nombre</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="mt-5">
+            <div class="form-group">
+                <p style="text-align: center; color: white; font-size: 18px; margin: 0;">Buscar por Nº Orden</p>
+                <input type="text" class="form-control mt-2 mb-2 d-block m-auto" id="ord" name="ord" style="min-width: 250px; max-width: 350px;">
+            </div>
+            <button type="submit" class="btn btn-success mb-3 d-block m-auto">Buscar</button>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</form>

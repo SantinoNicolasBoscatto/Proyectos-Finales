@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NascarPage", "NascarPage\NascarPage.csproj", "{956BCF89-35B2-4C14-8187-83584A0FAB1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NascarPageTests", "NascarPageTests\NascarPageTests.csproj", "{2FA88280-FE16-485B-A639-4C1BC004E0ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{956BCF89-35B2-4C14-8187-83584A0FAB1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956BCF89-35B2-4C14-8187-83584A0FAB1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956BCF89-35B2-4C14-8187-83584A0FAB1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956BCF89-35B2-4C14-8187-83584A0FAB1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA88280-FE16-485B-A639-4C1BC004E0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA88280-FE16-485B-A639-4C1BC004E0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA88280-FE16-485B-A639-4C1BC004E0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA88280-FE16-485B-A639-4C1BC004E0ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58AB650B-E814-4B10-9EA8-D51DD7E3F20C}
+	EndGlobalSection
+EndGlobal

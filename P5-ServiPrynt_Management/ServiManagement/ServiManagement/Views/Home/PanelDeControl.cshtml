@@ -1,0 +1,115 @@
+﻿@using ServiManagement.Models.DTO
+
+@{
+    ViewData["Title"] = "Panel de Control";
+}
+@model List<OrdenesDTO>
+<div class="row mb-4">
+    <div class="col-1"></div>
+    <div class="col-10 d-flex justify-content-between">
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="color: white;" >Desde</label>
+            <input type="date" class="form-control desde" style="min-width: 20vw">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="color: white;">Hasta</label>
+            <input type="date" class="form-control hasta" style="min-width: 20vw">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="color: white;">Tecnico</label>
+            <select class="form-select tecnico-select" aria-label="Default select example" style="min-width: 20vw">
+                <option value="0" selected>Tecnico</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.TecnicoId">@item.TecnicoName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div id="Partial-Table">
+
+</div>
+
+
+
+@section Scripts{
+    <script>
+
+        function BuscarRegistros() {
+            let desde = document.querySelector(".desde").value;
+            let hasta = document.querySelector(".hasta").value
+            let tecnico = document.querySelector('.tecnico-select').value;
+            let dataToSend = {
+                desde: desde,
+                hasta: hasta,
+                tecnico: tecnico
+            };
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("PanelDeControlPartial", "Home")',
+                data: dataToSend,
+                success: function (result) {
+                    console.log("Respuesta del servidor:", result);
+                    $('#Partial-Table').html(result);
+                },
+                error: function (error) {
+                    console.error("Error en la petición:", error);
+                }
+            });
+        }
+
+        function RegistrosDeTecnico(target) {
+            let desde = document.querySelector(".desde").value;
+            let hasta = document.querySelector(".hasta").value;
+            let tecnico = target.getAttribute("data-id");
+            let dataToSend = {
+                desde: desde,
+                hasta: hasta,
+                tecnico: tecnico
+            };
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("PreDetalleTecnico", "Home")',
+                data: dataToSend,
+                success: function (data) {
+                   window.location.href = data.redirect + "#index=1";
+                },
+                error: function (error) {
+                    console.error("Error en la petición:", error);
+                }
+            });
+        }
+
+
+
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Home/PanelDeControlPartial', // Cambia esto por la ruta correcta
+                type: 'GET',
+                success: function (data) {
+                    $('#Partial-Table').html(data); // Inserta la vista parcial en el contenedor
+                },
+                error: function () {
+                    console.error('Error al cargar la vista parcial.');
+                }
+            });
+        });
+
+
+        document.addEventListener("click", e => {
+            if (e.target.matches("td")) {
+                RegistrosDeTecnico(e.target);
+            }
+        })
+    </script>
+}

@@ -1,6 +1,0 @@
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\bin\Release\Modelo_Clases.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\bin\Release\Modelo_Clases.pdb
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\obj\Release\Modelo_Clases.csproj.AssemblyReference.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\obj\Release\Modelo_Clases.csproj.CoreCompileInputs.cache
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\obj\Release\Modelo_Clases.dll
-C:\Users\Santino\Desktop\Repositorio GITHUB\Proyectos Finales\P4_Touge-App\Touge_App\Modelo_Clases\obj\Release\Modelo_Clases.pdb

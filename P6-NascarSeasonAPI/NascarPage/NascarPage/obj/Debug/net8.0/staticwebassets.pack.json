@@ -1,0 +1,325 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\0141d9a7-c260-4521-9a88-dbaa13d36e32.jfif",
+      "PackagePath": "staticwebassets\\autos\\0141d9a7-c260-4521-9a88-dbaa13d36e32.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\0494d3f5-4689-46d7-9444-fd340f114788.jfif",
+      "PackagePath": "staticwebassets\\autos\\0494d3f5-4689-46d7-9444-fd340f114788.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\082f4e14-6f07-46b7-a88b-621e0e829c00.jfif",
+      "PackagePath": "staticwebassets\\autos\\082f4e14-6f07-46b7-a88b-621e0e829c00.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\1b4e3ad2-c6e1-469e-a873-fa3d67e20b03.jfif",
+      "PackagePath": "staticwebassets\\autos\\1b4e3ad2-c6e1-469e-a873-fa3d67e20b03.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\2827bafd-910c-4052-92f1-a346b43b3f95.jfif",
+      "PackagePath": "staticwebassets\\autos\\2827bafd-910c-4052-92f1-a346b43b3f95.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\2ad36de5-2a14-4bcf-880c-5bcd1c18d968.jfif",
+      "PackagePath": "staticwebassets\\autos\\2ad36de5-2a14-4bcf-880c-5bcd1c18d968.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\33b971ff-9b10-433a-8b46-461e7e246782.jfif",
+      "PackagePath": "staticwebassets\\autos\\33b971ff-9b10-433a-8b46-461e7e246782.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\43326a9b-bbcf-4050-ade5-a182f42fd94c.jfif",
+      "PackagePath": "staticwebassets\\autos\\43326a9b-bbcf-4050-ade5-a182f42fd94c.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\43d0a41b-c882-481d-9784-9cb7f06872d6.jfif",
+      "PackagePath": "staticwebassets\\autos\\43d0a41b-c882-481d-9784-9cb7f06872d6.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\45a0c755-bfb6-442f-a113-bc0537cc4eca.jfif",
+      "PackagePath": "staticwebassets\\autos\\45a0c755-bfb6-442f-a113-bc0537cc4eca.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\58254690-07b0-4229-a311-7b170c9c8f18.jfif",
+      "PackagePath": "staticwebassets\\autos\\58254690-07b0-4229-a311-7b170c9c8f18.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\5d4d6586-7ea0-4637-bf63-74b9de377402.jfif",
+      "PackagePath": "staticwebassets\\autos\\5d4d6586-7ea0-4637-bf63-74b9de377402.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\6be812b2-f0d5-4234-a1c6-a4c706564921.jfif",
+      "PackagePath": "staticwebassets\\autos\\6be812b2-f0d5-4234-a1c6-a4c706564921.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\7490d91e-d85f-46ad-875b-a6db95619677.jfif",
+      "PackagePath": "staticwebassets\\autos\\7490d91e-d85f-46ad-875b-a6db95619677.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\82ae0dcb-0b4a-4d13-acf2-aa5348785de7.jfif",
+      "PackagePath": "staticwebassets\\autos\\82ae0dcb-0b4a-4d13-acf2-aa5348785de7.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\8bb5dd94-ce9b-4b49-8103-e14f9e1c575f.jpeg",
+      "PackagePath": "staticwebassets\\autos\\8bb5dd94-ce9b-4b49-8103-e14f9e1c575f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\9e8a85cc-a729-4a0a-b5c2-14fc709201b5.jfif",
+      "PackagePath": "staticwebassets\\autos\\9e8a85cc-a729-4a0a-b5c2-14fc709201b5.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\9fe7d763-a78a-4405-9edc-0feddb3639cd.jfif",
+      "PackagePath": "staticwebassets\\autos\\9fe7d763-a78a-4405-9edc-0feddb3639cd.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\a19d47e5-99a5-45ca-a9fe-ad10c3ab488a.jfif",
+      "PackagePath": "staticwebassets\\autos\\a19d47e5-99a5-45ca-a9fe-ad10c3ab488a.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\c952348b-85e1-4877-940c-127f10705cc3.jfif",
+      "PackagePath": "staticwebassets\\autos\\c952348b-85e1-4877-940c-127f10705cc3.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\d577c330-99e6-4d17-af04-e257de408d8e.jfif",
+      "PackagePath": "staticwebassets\\autos\\d577c330-99e6-4d17-af04-e257de408d8e.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\e5e6e69f-a733-4378-8436-ae31f6f9b96d.jfif",
+      "PackagePath": "staticwebassets\\autos\\e5e6e69f-a733-4378-8436-ae31f6f9b96d.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\e88c106c-afd1-4f2a-983e-73f2c6dfd28a.jfif",
+      "PackagePath": "staticwebassets\\autos\\e88c106c-afd1-4f2a-983e-73f2c6dfd28a.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\ebe4a624-8223-4e04-93dc-07640ddfdcba.jfif",
+      "PackagePath": "staticwebassets\\autos\\ebe4a624-8223-4e04-93dc-07640ddfdcba.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\ede07498-c49f-4641-bdd4-08451116ef46.jfif",
+      "PackagePath": "staticwebassets\\autos\\ede07498-c49f-4641-bdd4-08451116ef46.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\f06bc0a5-a9da-4799-a323-aa28f4db3a36.jfif",
+      "PackagePath": "staticwebassets\\autos\\f06bc0a5-a9da-4799-a323-aa28f4db3a36.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\autos\\f6571345-47d0-40ea-923e-424c27e8ca1b.jfif",
+      "PackagePath": "staticwebassets\\autos\\f6571345-47d0-40ea-923e-424c27e8ca1b.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\marcas\\040601e3-dcfa-400f-8e9f-ee0f1098440f.png",
+      "PackagePath": "staticwebassets\\marcas\\040601e3-dcfa-400f-8e9f-ee0f1098440f.png"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\marcas\\1336c905-8817-4c66-ae9a-f3945ec9232d.jfif",
+      "PackagePath": "staticwebassets\\marcas\\1336c905-8817-4c66-ae9a-f3945ec9232d.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\marcas\\bef4725e-7e54-4f28-b412-30f1aab30213.png",
+      "PackagePath": "staticwebassets\\marcas\\bef4725e-7e54-4f28-b412-30f1aab30213.png"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\marcas\\f104603e-53b0-46c5-8cfd-8d66e36bd060.jfif",
+      "PackagePath": "staticwebassets\\marcas\\f104603e-53b0-46c5-8cfd-8d66e36bd060.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\11482471-8b7c-45a6-b091-59d81114d614.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\11482471-8b7c-45a6-b091-59d81114d614.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\11c7ca03-1712-4476-a3e5-28df20f9e4e8.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\11c7ca03-1712-4476-a3e5-28df20f9e4e8.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\1f7bcd75-e1a5-467d-bccc-35e97252034f.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\1f7bcd75-e1a5-467d-bccc-35e97252034f.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\27afadf6-2a3f-430e-8144-49359a3c88a2.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\27afadf6-2a3f-430e-8144-49359a3c88a2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\348b5e8e-11b0-4dd7-9e46-56aa05419eb4.png",
+      "PackagePath": "staticwebassets\\pilotos\\348b5e8e-11b0-4dd7-9e46-56aa05419eb4.png"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\3901573f-57d4-4af1-800b-d35cba100ca1.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\3901573f-57d4-4af1-800b-d35cba100ca1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\42747c6f-c5b5-4003-8eee-f17e8e61448e.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\42747c6f-c5b5-4003-8eee-f17e8e61448e.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\4e794787-adcd-4e9d-a201-326f23ef49cd.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\4e794787-adcd-4e9d-a201-326f23ef49cd.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\55bbff49-b94b-4d9b-bcc7-c71c48892824.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\55bbff49-b94b-4d9b-bcc7-c71c48892824.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\57718c6f-4d3a-43d3-8b3a-aaa3b9e255ba.jfif",
+      "PackagePath": "staticwebassets\\pilotos\\57718c6f-4d3a-43d3-8b3a-aaa3b9e255ba.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\5cf6807e-3f8e-41cf-a298-b4a4fec331ff.jpg",
+      "PackagePath": "staticwebassets\\pilotos\\5cf6807e-3f8e-41cf-a298-b4a4fec331ff.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\6233d396-7e69-4934-823a-05f9ad7877c1.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\6233d396-7e69-4934-823a-05f9ad7877c1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\701d6d2d-dcfe-453c-9dbc-869c0e592710.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\701d6d2d-dcfe-453c-9dbc-869c0e592710.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\717a0e21-fd95-49a5-88d5-652c45cbe6cb.jpg",
+      "PackagePath": "staticwebassets\\pilotos\\717a0e21-fd95-49a5-88d5-652c45cbe6cb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\7c53e266-0478-4589-a2b4-826089b5fcde.jpg",
+      "PackagePath": "staticwebassets\\pilotos\\7c53e266-0478-4589-a2b4-826089b5fcde.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\7eb6e745-9ff9-4787-b01d-ddff0fa7b75c.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\7eb6e745-9ff9-4787-b01d-ddff0fa7b75c.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\81a937f1-6351-4429-8fac-77a56a2b4c85.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\81a937f1-6351-4429-8fac-77a56a2b4c85.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\847a4953-763a-47d6-8f4c-69aae67b24ad.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\847a4953-763a-47d6-8f4c-69aae67b24ad.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\8dcc0917-c84e-402d-81c6-9a1a342a42bd.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\8dcc0917-c84e-402d-81c6-9a1a342a42bd.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\8fe34e55-5f95-4fa5-aa62-e195f247f366.jpg",
+      "PackagePath": "staticwebassets\\pilotos\\8fe34e55-5f95-4fa5-aa62-e195f247f366.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\b11749ee-beb3-4a42-94b8-42a68e1f8356.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\b11749ee-beb3-4a42-94b8-42a68e1f8356.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\b5d8f350-d74b-45a6-91b3-a63ecefcdc15.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\b5d8f350-d74b-45a6-91b3-a63ecefcdc15.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\cf104b66-3e59-488c-aec1-7ef43c8d83b2.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\cf104b66-3e59-488c-aec1-7ef43c8d83b2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\e33b14f6-2dbc-4f43-9216-5835f9317ff9.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\e33b14f6-2dbc-4f43-9216-5835f9317ff9.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\e44997a8-13d5-4806-85b1-00875d31a096.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\e44997a8-13d5-4806-85b1-00875d31a096.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\f55d3bbf-afc6-4e7b-8d90-159fee07d1e0.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\f55d3bbf-afc6-4e7b-8d90-159fee07d1e0.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pilotos\\f976a8f6-f9b2-4a29-bcb4-622f76d2ac10.jpeg",
+      "PackagePath": "staticwebassets\\pilotos\\f976a8f6-f9b2-4a29-bcb4-622f76d2ac10.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\14b11092-f559-4552-b145-3f7a84958ddb.jfif",
+      "PackagePath": "staticwebassets\\pistas\\14b11092-f559-4552-b145-3f7a84958ddb.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\22de6a08-53fb-44a3-9e79-01a291d54e3a.jfif",
+      "PackagePath": "staticwebassets\\pistas\\22de6a08-53fb-44a3-9e79-01a291d54e3a.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\336eae03-139f-4a7d-ac25-e67f96cf5409.jfif",
+      "PackagePath": "staticwebassets\\pistas\\336eae03-139f-4a7d-ac25-e67f96cf5409.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\34e62ef7-6cdf-4ed2-8a49-9d08a1c8cf29.jfif",
+      "PackagePath": "staticwebassets\\pistas\\34e62ef7-6cdf-4ed2-8a49-9d08a1c8cf29.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\3b55924f-fa47-4a81-bda7-3419a9df407f.jfif",
+      "PackagePath": "staticwebassets\\pistas\\3b55924f-fa47-4a81-bda7-3419a9df407f.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\3cccb3d6-a75a-450a-9a6d-95aabd70132f.jfif",
+      "PackagePath": "staticwebassets\\pistas\\3cccb3d6-a75a-450a-9a6d-95aabd70132f.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\42f30ba5-c707-4d1b-a341-c26d4dce09c6.jfif",
+      "PackagePath": "staticwebassets\\pistas\\42f30ba5-c707-4d1b-a341-c26d4dce09c6.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\4d4cbaa6-3b48-43a0-b4f7-377ebaa027b6.jfif",
+      "PackagePath": "staticwebassets\\pistas\\4d4cbaa6-3b48-43a0-b4f7-377ebaa027b6.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\6539ef23-7383-4662-9c2f-3addea5078bc.jfif",
+      "PackagePath": "staticwebassets\\pistas\\6539ef23-7383-4662-9c2f-3addea5078bc.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\7856ea98-b9d0-4ac8-9a67-6c04bec2c20d.jfif",
+      "PackagePath": "staticwebassets\\pistas\\7856ea98-b9d0-4ac8-9a67-6c04bec2c20d.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\7ce3342e-ce33-461f-b947-a262ce151126.jfif",
+      "PackagePath": "staticwebassets\\pistas\\7ce3342e-ce33-461f-b947-a262ce151126.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\81a2c58d-b41d-404f-896c-12afcc5df1b6.jfif",
+      "PackagePath": "staticwebassets\\pistas\\81a2c58d-b41d-404f-896c-12afcc5df1b6.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\8a051966-4774-43a4-8cd6-05a51781b9a6.jfif",
+      "PackagePath": "staticwebassets\\pistas\\8a051966-4774-43a4-8cd6-05a51781b9a6.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\97a310d3-9eb7-4c54-843d-bf032286d7d2.jfif",
+      "PackagePath": "staticwebassets\\pistas\\97a310d3-9eb7-4c54-843d-bf032286d7d2.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\9e911d62-9525-4aad-bcf1-c850f55cf3b9.jfif",
+      "PackagePath": "staticwebassets\\pistas\\9e911d62-9525-4aad-bcf1-c850f55cf3b9.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\b5af3aa6-c881-467c-9695-7ed290050899.jfif",
+      "PackagePath": "staticwebassets\\pistas\\b5af3aa6-c881-467c-9695-7ed290050899.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\c329fa4d-e780-4433-b4d0-6496cd1ce0bd.jfif",
+      "PackagePath": "staticwebassets\\pistas\\c329fa4d-e780-4433-b4d0-6496cd1ce0bd.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Santino\\source\\repos\\NascarPage\\NascarPage\\wwwroot\\pistas\\ea97fa41-1c75-4c7b-b761-4cb37c99c86f.jfif",
+      "PackagePath": "staticwebassets\\pistas\\ea97fa41-1c75-4c7b-b761-4cb37c99c86f.jfif"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.NascarPage.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.NascarPage.props",
+      "PackagePath": "build\\NascarPage.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.NascarPage.props",
+      "PackagePath": "buildMultiTargeting\\NascarPage.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.NascarPage.props",
+      "PackagePath": "buildTransitive\\NascarPage.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

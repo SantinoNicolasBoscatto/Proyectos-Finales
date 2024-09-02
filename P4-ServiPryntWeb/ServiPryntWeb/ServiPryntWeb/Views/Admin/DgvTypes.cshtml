@@ -1,0 +1,51 @@
+﻿@using ServiPryntWeb.Models.DTO
+@{
+    ViewData["Title"] = "Tipos - ServiPrynt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model TypesListVm
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <section class=" justify-content-center mt-4">
+            <div id="DgvTypes">
+
+            </div>
+        </section>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+@section Scripts {
+    <script>
+        function EliminarType(id) {
+            var respuesta = confirm("¿Estás seguro de que quieres eliminar esta Marca?");
+            if (respuesta) {
+                $.ajax({
+                    url: '/Admin/EliminarType',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (data) {
+                        window.location.href = "/Admin/DgvTypes#index=1";
+                        location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Hubo un error al eliminar el elemento.');
+                    }
+                });
+            }
+        }
+        // DECLARACION DE EVENTOS CARGA LA TABLA AL PRINCIPIO Y DECLARA LOS EVENTOS DE FILTRAR Y DESFILTRAR
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/DgvTypesPartial', // Ruta a la acción que devuelve la vista
+                data: { index: location.hash == null ? 1 : location.hash.split("#index=")[1] },
+                success: function (data) {
+                    $('#DgvTypes').html(data); // Inserta el contenido en un contenedor específico
+                }
+            });
+        });
+    </script>
+}

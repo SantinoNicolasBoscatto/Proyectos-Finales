@@ -1,0 +1,40 @@
+﻿@using ServiManagement.Models.DTO
+
+@{
+    ViewData["Title"] = "Panel de Control";
+    int suma = 0;
+}
+@model List<OrdenesDTO>
+<div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10">
+        <table class="table table-dark table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Tecnico</th>
+                    <th scope="col">Ordenes Completadas</th>
+                    <th scope="col">Monto Generado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="cursor: pointer" >
+                        <td data-id="@item.TecnicoId">@item.TecnicoName</td>
+                        <td data-id="@item.TecnicoId">@item.OrdenesCompletadas</td>
+                        <td data-id="@item.TecnicoId">$ @item.MontoTotal.ToString("N0").Replace(",", ".")</td>
+                    </tr>
+                    suma += (int)item.MontoTotal;
+                }
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-around align-items-center">
+            <button class="btn btn-success" id="btnBuscar" onclick="BuscarRegistros();">Buscar</button>
+            <p style="font-size: 27px; color: limegreen; margin: 0">$@suma.ToString("N0").Replace(",", ".")</p>
+        </div>
+    </div>
+    <div class="col-1">
+    </div>
+</div>

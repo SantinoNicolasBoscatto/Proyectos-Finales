@@ -1,0 +1,34 @@
+﻿@using ServiPryntWeb.Models.Entidades
+@{
+    ViewData["Title"] = "Tipos - ServiPrynt";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model TypeProduct
+
+<form method="post" enctype="multipart/form-data" class="row mt-4">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div>
+            <div class="mb-3">
+                <label for="MarcaId" class="form-label text-white">Marca Id</label>
+                <input type="text" readonly class="form-control" id="MarcaId" value="@Model.TypeId" asp-for="TypeId">
+            </div>
+            <div class="mb-3">
+                <label for="NombreMarca" class="form-label text-white">Nombre Marca</label>
+                <input type="text" class="form-control" id="NombreMarca" value="@Model.TypeName" asp-for="TypeName" required>
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly align-items-center">
+            @if (Model.TypeId == 0)
+            {
+                <button class="btn btn-success">Agregar</button>
+            }
+            else
+            {
+                <button class="btn btn-success">Modificar</button>
+            }
+            <a href="/Admin/DgvTypes#index=1">Volver</a>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</form>

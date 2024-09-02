@@ -1,0 +1,56 @@
+﻿@using ServiPryntWeb.Models.DTO
+@{
+}
+@model MarcasListVm
+<table class="table table-dark table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col">IdMarca</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MarcasQueryable!)
+        {
+            <tr>
+                <td>@item.IdMarca</td>
+                <td>@item.NombreMarca</td>
+                <td><a asp-action="EditarMarca" asp-route-id="@item.IdMarca">✍️</a></td>
+                <td type="submit" onclick="EliminarMarca('@item.IdMarca')">
+                    ❌
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-around align-items-center">
+    <a asp-action="EditarMarca" class="btn btn-success">Agregar</a>
+    <nav data-index="@Model.CurrentPage">
+        <ul class="pagination pagination-sm justify-content-center mt-3">
+            @if (Model.CurrentPage != 1 && Model.CurrentPage != 0)
+            {
+                <li class="page-item"><a class="page-link back-pa" href="">Back</a></li>
+            }
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                if ((i <= 5 && Model.CurrentPage < 5) || (i <= Model.CurrentPage + 2 && i >= Model.CurrentPage - 3))
+                {
+                    if (Model.CurrentPage == i)
+                    {
+                        <li class="page-item active"><a class="page-link num" href="">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link num" href="">@i</a></li>
+                    }
+                }
+            }
+            @if (Model.TotalPages != Model.CurrentPage && Model.TotalPages != 0)
+            {
+                <li class="page-item"><a class="page-link next-pa" href="">Next</a></li>
+            }
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,185 @@
+﻿@using ServiPryntWeb.Models.DTO
+@using System.Globalization
+@{
+}
+@model ProductosListVm
+
+<h1 class="text-white mb-5 h1-Productos" style="text-align:center">Nuestros Productos</h1>
+<div class="d-flex justify-content-center mb-3 me-2">
+    <button class="btn btn-primary" id="filtrar-home">Mostrar Filtros</button>
+
+</div>
+<div id="FiltrosProductoBox" class="d-flex justify-content-evenly mb-3 d-none" style="flex-wrap: wrap;">
+    <div class="mb-3">
+        <label class="mb-2 text-white"><strong>Tipo Producto</strong></label>
+        <select class="form-select" aria-label="Default select example" style="min-width: 300px">
+            @if (ViewBag.valueType == null)
+            {
+                <option value="0" selected>Todos Los Tipos</option>
+                @foreach (var item in ViewBag.Type.TypesQueryable)
+                {
+                    <option value="@item.TypeId">@item.TypeName</option>
+                }
+            }
+            else
+            {
+                if (ViewBag.valueType == 0)
+                {
+                    <option value="0" selected>Todos Los Tipos</option>
+                }
+                else
+                {
+                    <option value="0">Todos Los Tipos</option>
+                }
+                @foreach (var item in ViewBag.Type.TypesQueryable)
+                {
+                    if (ViewBag.valueType == item.TypeId)
+                    {
+                        <option value="@item.TypeId" selected>@item.TypeName</option>
+                    }
+                    else
+                    {
+                        <option value="@item.TypeId">@item.TypeName</option>
+                    }
+                }
+            }
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="mb-2 text-white"><strong>Marca</strong></label>
+        <select class="form-select" aria-label="Default select example" style="min-width: 300px">
+            @if (ViewBag.valueMarca == null)
+            {
+                <option value="0" selected>Todas Las Marcas</option>
+                @foreach (var item in ViewBag.Marca.MarcasQueryable)
+                {
+                    <option value="@item.IdMarca">@item.NombreMarca</option>
+                }
+            }
+            else
+            {
+                if (ViewBag.valueMarca == 0)
+                {
+                    <option value="0" selected>Todas Las Marcas</option>
+                }
+                else
+                {
+                    <option value="0">Todas Las Marcas</option>
+                }
+                @foreach (var item in ViewBag.Marca.MarcasQueryable)
+                {
+                    if (ViewBag.valueMarca == item.IdMarca)
+                    {
+                        <option value="@item.IdMarca" selected>@item.NombreMarca</option>
+                    }
+                    else
+                    {
+                        <option value="@item.IdMarca">@item.NombreMarca</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+</div>
+<br />
+<div class="d-flex m-auto me-2 mb-3 justify-content-center d-none" id="Buscar-home">
+    <button class="btn btn-success" onclick="ClickFiltro()" id="BuscarBoton">Buscar</button>
+    <button class="btn btn-warning ms-4 d-none" onclick="LimpiarFiltro()" id="LimpiarFiltroboton">Limpiar Filtro</button>
+</div>
+
+<div class="d-flex justify-content-evenly flex-wrap">
+
+    @if (ViewBag.size == 1)
+    {
+        if (Model.ProductosQueryable!.Count() == 0)
+        {
+            <h3 class="text-white m-5"
+            style="font-size:40px; font-weight: 900; text-align:center">
+            No se encontraron resultados para su busqueda</h3>
+        }
+        foreach (var imp in Model.ProductosQueryable!)
+        {
+            <div class="wrapper">
+                <div class="product-img">
+                    <img style="object-fit: contain" src="~/Imp-Img/@imp.Imagen">
+                </div>
+                <div class="product-info">
+                    <div class="product-text" style="position:relative">
+                        <h1 class="mb-2">@imp.Nombre</h1>
+                        <p class="mb-3">@imp.Descripcion</p>
+                        <div class="pre-cont">
+                            <div class="d-flex justify-content-around cont-w">
+                                <span class="precio-span">$@imp.Precio.ToString("N0", new CultureInfo("es-ES"))</span>
+                                @if (imp.Pdf != null)
+                                {
+                                    <a href="~/pdf/@imp.Pdf" download="@DateTime.Now-@imp.Pdf"
+                                       style="align-self:center;">Mas Detalles</a>
+                                }
+                                else
+                                {
+                                    <a style="align-self:center; visibility: hidden;">Mas Detalles</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        if (Model.ProductosQueryable!.Count() == 0)
+        {
+            <h3 class="text-white m-5"
+                style="font-size:30px; font-weight: 900; text-align:center">
+                No se encontraron resultados para su busqueda
+            </h3>
+        }
+        foreach (var imp in Model.ProductosQueryable!)
+        {
+            <div class="card-redux mt-4 ms-2 me-2">
+                <div class="imgBox">
+                    <img src="~/Imp-Img/@imp.Imagen" alt="@imp.Nombre" class="mouse">
+                </div>
+                <div class="contentBox">
+                    <h3 class="mb-3">@imp.Nombre</h3>
+                    <h2 class="price">$@imp.Precio.ToString("N0", new CultureInfo("es-ES"))</h2>           
+                    @if (imp.Pdf != null)
+                    {
+                        <div class="pre-cont-mov">
+                            <a href="~/pdf/@imp.Pdf" download="@DateTime.Now-@imp.Pdf" class="buy">Mas Detalles</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+    }
+</div>
+<nav id="pagination container">
+    <ul class="pagination pagination-sm justify-content-center mt-3">
+        @if (Model.CurrentPage != 1)
+        {
+            <li class="page-item"><a class="page-link back-pa" href="">Back</a></li>
+        }
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if ((i <= 5 && Model.CurrentPage < 5) || (i <= Model.CurrentPage + 2 && i >= Model.CurrentPage - 3))
+            {
+                if (Model.CurrentPage == i)
+                {
+                    <li class="page-item active"><a class="page-link num" href="">@i</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link num" href="">@i</a></li>
+                }
+            }
+        }
+        @if (Model.TotalPages != Model.CurrentPage && Model.TotalPages != 0)
+        {
+            <li class="page-item"><a class="page-link next-pa" href="">Next</a></li>
+        }
+    </ul>
+</nav>

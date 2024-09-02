@@ -1,0 +1,115 @@
+﻿@using ServiManagement.Models.Entidades
+@{
+    ViewData["Title"] = "Detalle Por Tecnico";
+}
+<h1 style="text-align: center; color: white;">Registros</h1>
+<div id="TableRegister">
+
+</div>
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            let url = new URL(location.href);
+            let index = location.hash.replace("#index=", "");
+            let tecnico = url.searchParams.get("tecnico");
+            let desde = url.searchParams.get("desde");
+            let hasta = url.searchParams.get("hasta");
+            const parameters = {
+                index: index,
+                tecnico: tecnico,
+                desde: desde,
+                hasta: hasta
+            }
+            $.ajax({
+                url: '/Home/DetalleTecnicoPartialView',
+                type: 'GET',
+                data: parameters,
+                success: function (data) {
+                    $('#TableRegister').html(data); // Inserta la vista parcial en el contenedor
+                },
+                error: function () {
+                    console.error('Error al cargar la vista parcial.');
+                }
+            });
+        });
+
+        function ModificarAdminRegistro(target) {
+            let id = target.getAttribute("data-id");
+            let dataToSend = {
+                id: id
+            };
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("ModificarAdmin", "Home")',
+                data: dataToSend,
+                success: function (data) {
+                    window.location.href = data.redirect;
+                },
+                error: function (error) {
+                    console.error("Error en la petición:", error);
+                }
+            });
+        }
+
+        document.addEventListener("click", e => {
+            if (e.target.matches(".page-link.num")) {
+                e.preventDefault();           
+                location.hash = "#index=" + e.target.textContent;
+                let url = new URL(location.href);
+                let count = parseInt(e.target.textContent);
+                let tecnico = url.searchParams.get("tecnico");
+                let desde = url.searchParams.get("desde");
+                let hasta = url.searchParams.get("hasta");
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Home/DetalleTecnicoPartialView',
+                    data: {
+                        index: count, 
+                        tecnico: tecnico,
+                        desde: desde,
+                        hasta: hasta
+                    },
+                    success: function (data) {
+                        $('#TableRegister').html(data);
+                    }
+                });
+                location.hash = `#index=${count}`
+            }
+
+            else if (e.target.matches(".page-link")) {
+                e.preventDefault();
+                let url = new URL(location.href);
+                let count = window.location.href.split('index=')[1];
+                count = parseInt(count);
+                if (e.target.matches(".next-pa")) count++;
+                else count--;
+                let tecnico = url.searchParams.get("tecnico");
+                let desde = url.searchParams.get("desde");
+                let hasta = url.searchParams.get("hasta");
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/Home/DetalleTecnicoPartialView',
+                    data: {
+                        index: count,
+                        tecnico: tecnico,
+                        desde: desde,
+                        hasta: hasta
+                    },
+                    success: function (data) {
+                        $('#TableRegister').html(data);
+                    }
+                });
+                location.hash = `#index=${count}`
+
+            }
+
+            if (e.target.matches("td")) {
+                ModificarAdminRegistro(e.target);
+            }
+        })
+    </script>
+}

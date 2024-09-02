@@ -1,0 +1,71 @@
+﻿@using ServiManagement.Models.DTO
+@{
+}
+@model ListOrdenes
+
+<div class="row mt-5">
+    <div class="col-1">
+    </div>
+    <div class="col-10">
+        <table class="table table-hover table-dark table-bordered mb-3">
+            <thead>
+                <tr>
+                    <th scope="col">Numero de orden</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Fecha de carga</th>
+                    <th scope="col">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model != null)
+                {
+                    @foreach (var item in Model.ListaOrdenes)
+                    {
+                        <tr style="cursor:pointer">
+                            <td data-id="@item.Id">@item.NumeroDeOrden</td>
+                            <td data-id="@item.Id">@item.Modelo</td>
+                            <td data-id="@item.Id">@item.Marca.Nombre</td>
+                            <td data-id="@item.Id">@item.FechaDeCarga.ToString("dd/MM/yyyy")</td>
+                            <td data-id="@item.Id">@item.Monto.ToString("N0").Replace(",", ".")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+       <div class="d-flex justify-content-around">
+            <a asp-action="PanelDeControl">Volver</a>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-sm">
+                    @if(Model != null)
+                    {
+                        @if (Model.CurrentPage != 1 && Model.CurrentPage != 0)
+                        {
+                            <li class="page-item"><a class="page-link back-pa" href="">Back</a></li>
+                        }
+                        @for (int i = 1; i <= Model.TotalPages; i++)
+                        {
+                            if ((i <= 5 && Model.CurrentPage < 5) || (i <= Model.CurrentPage + 2 && i >= Model.CurrentPage - 3))
+                            {
+                                if (Model.CurrentPage == i)
+                                {
+                                    <li class="page-item active"><a class="page-link num" href="">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link num" href="">@i</a></li>
+                                }
+                            }
+                        }
+                        @if (Model.TotalPages != Model.CurrentPage && Model.TotalPages != 0)
+                        {
+                            <li class="page-item"><a class="page-link next-pa" href="">Next</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+       </div>
+    </div>
+    <div class="col-1">
+    </div>
+</div>

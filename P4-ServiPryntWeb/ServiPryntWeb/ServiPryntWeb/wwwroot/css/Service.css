@@ -1,0 +1,213 @@
+.service-image{
+    height: 30vh; 
+    position:relative; 
+    background-image: 
+    url('https://w7.pngwing.com/pngs/741/783/png-transparent-employee-option-business-company-graphy-meeting-company-service-people.png');
+    background-size: cover;
+    margin-top: 0;  
+    background-attachment: fixed;
+}
+
+.over-img-service{
+    height: 100%;
+    min-height: 30vh;
+    width: 100%;
+    background-color: rgba(143, 12, 12, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Lato", sans-serif;
+    font-weight: 800;
+}
+
+.over-img-service h2{
+    font-size: 2.75rem;
+    letter-spacing: 2px;
+}
+
+.over-img-service p{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.service-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-gap: 25px;
+    justify-items: center;
+    margin: 50px 0;
+}
+
+.my-services{
+    width: 325px;
+    min-height: 280px;
+    background-color: #eec60a; /* #c4c1e0 */
+    border-radius: 12px;
+    color: #111;
+    cursor: pointer;
+    transition: all .4s ease-out;
+    opacity: 0;
+    transform: scale(0.2)
+}
+
+.my-services.visible {
+    opacity: 1;
+    transform: scale(1)
+}
+
+.my-services h4{
+    text-align: left;
+    font-family: "Lato";
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+
+.my-services p{
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.my-services:hover{
+    background-color: #ff004d;
+    color: #fff;
+}
+
+.marcas-h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-right: 25%;
+    padding-top: 25px;
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all .8s ease;
+}
+
+.marcas-h2.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.marcas{
+    background-image: 
+    url("../src/logos/Brands-Fondo.jpg");
+    background-size: cover;
+    min-height: 20vh;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+} 
+
+.over-brand{
+    min-height: 20vh;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(35, 35, 35, .5);
+}
+
+@media screen and (min-width: 1550px) and (max-width: 1920px) {
+    .my-services{
+        width: 450px;
+        min-height: 350px;
+    }
+
+    .service-container{
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    }
+
+    .service-container div h4{
+        font-size: 2.25rem;
+    }
+
+    .service-container div p{
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 1295px) and (max-width: 1550px) {
+    .service-container div{
+        width: 390px;
+        min-height: 310px;
+    }
+
+    .service-container{
+        grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+    }
+
+    .service-container div h4{
+        font-size: 1.75rem;
+    }
+
+    .service-container div p{
+        font-size: 1.1rem;
+    }
+}
+@media screen and (min-width: 991px) {
+    .service-image{
+        margin-top: 78px;   
+    }
+
+    .marcas-h2{
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .service-image{
+        background-attachment: unset;
+    }
+
+    .marcas-h2{
+        text-align: justify;
+        margin-right: 25px;
+        margin-left: 25px;
+        font-size: 18px;
+    }
+    
+    .logos-slide img {
+        height: 20px;
+        margin: 0 40px;
+      }
+}
+
+
+
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: transparent;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }  
+  /* .logos:hover .logos-slide {
+    animation-play-state: paused;
+  } */
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 60s slide infinite linear;
+  }
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }

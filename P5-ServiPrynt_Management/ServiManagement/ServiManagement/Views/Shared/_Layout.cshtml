@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ServiManagement</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ServiManagement.styles.css" asp-append-version="true" />
+    <link rel="icon" href="~/ServiLogo.ico" />
+</head>
+<body class="index-pattern">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]!.ToString() == "Home" &&
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "Index"? "active" : "")"
+                            asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"]!.ToString() == "Home" &&
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "Orden"? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Orden">Agregar Orden</a>
+                        </li>
+                        @if (Boolean.Parse(Context.Session.GetString("EsAdmin")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"]!.ToString() == "Home" &&
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "PanelDeControl" || 
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "DetalleTecnico"? "active" : "")"
+                                   asp-area="" asp-controller="Home" asp-action="PanelDeControl">Panel de Control</a>
+                            </li>
+                        }
+                        @if (Boolean.Parse(Context.Session.GetString("EsAdmin")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"]!.ToString() == "Home" &&
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "BuscarOrden"? "active" : "")"
+                                   asp-area="" asp-controller="Home" asp-action="BuscarOrden">Buscar NºOrden</a>
+                            </li>
+                        }
+                        @if (!Boolean.Parse(Context.Session.GetString("EsAdmin")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["Controller"]!.ToString() == "Home" &&
+                            ViewContext.RouteData.Values["Action"]!.ToString() == "MisRegistros"? "active" : "")"
+                                   asp-area="" asp-controller="Home" asp-action="MisRegistros">Mis Registros</a>
+                            </li>
+                        }
+                    </ul>
+                    <a asp-controller="Home" asp-action="Logout" class="text-white">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js"></script>
+    <link href="//rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css" rel="stylesheet">
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
