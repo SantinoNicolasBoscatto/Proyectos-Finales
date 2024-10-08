@@ -1,0 +1,39 @@
+@if(listaPilotos){
+    @if(listaPilotos.length === 0){
+        <h1 class="text-white" style="text-align: center;">No hay pilotos cargados</h1>
+    }
+    @else {
+        <div class="row mb-s">
+            <div class="col-12 d-flex flex-wrap justify-content-evenly ">
+                @for (piloto of listaPilotos; track $index) {       
+                    <div class="card mb-3" style="max-width: 550px;">
+                        <div class="row g-0">
+                            <div class="col-md-7">
+                                <img [ngSrc]="piloto.fotoPiloto? piloto.fotoPiloto : '/Common/MysteriousDriver.jpeg'" class="img-fluid rounded-start w-100" alt="..." 
+                                height="330" width="500">
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{piloto.nombre}}</h5>
+                                    <ul>
+                                        <li>Wins: {{piloto.carrerasGanadas}}</li>
+                                        <li>Poles: {{piloto.poles}}</li>
+                                        <li>Top5s: {{piloto.top5s}}</li>
+                                        <li>Top10s: {{piloto.top10s}}</li>
+                                        <li>Country: {{piloto.nacionalidad.nombre}}</li>
+                                        <li>Campeonatos: {{piloto.campeonatos}}</li>
+                                    </ul>
+                                    <a routerLink="{{piloto.id}}" style="position: absolute; bottom: 5px; right: 20px;">Mas Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>         
+                }
+            </div>
+        </div> <br><br><br>
+    }
+}
+
+@else{
+    <app-loading></app-loading>
+}

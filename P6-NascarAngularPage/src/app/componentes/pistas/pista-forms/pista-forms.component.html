@@ -1,0 +1,42 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-md-5">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput [formControl]="form.controls.nombre">
+                <mat-error>{{ErrorCampoGenerico(form.controls.nombre)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Distancia</mat-label>
+                <input matInput type="number" [formControl]="form.controls.distancia">
+                <mat-error>{{ErrorCampoGenerico(form.controls.distancia)}}</mat-error>
+            </mat-form-field>
+            <mat-checkbox formControlName="enElCalendario"  #calendario>En el Calendario</mat-checkbox>
+
+        </div>
+        <div class="col-md-5">
+            <mat-form-field appearance="fill" [ngClass]="{'d-none': calendario.checked === false}">
+                <mat-label>Vueltas</mat-label>
+                <input matInput type="number" [formControl]="form.controls.vueltas">
+                <mat-error>{{ErrorCampoGenerico(form.controls.vueltas)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" [ngClass]="{'d-none': calendario.checked === false}">
+                <mat-label>Orden en el calendario</mat-label>
+                <input matInput type="number" [formControl]="form.controls.orden" >
+                <mat-error>{{ErrorCampoGenerico(form.controls.orden)}}</mat-error>
+            </mat-form-field>
+            <mat-checkbox formControlName="disputada" [ngClass]="{'d-none': calendario.checked === false}">Disputada</mat-checkbox>     
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="d-flex justify-content-evenly mt-5">
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, '1')" [urlImagen]="modelo?.fotoPrimaria"></app-selector-fotos>
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, '2')" [urlImagen]="modelo?.fotoSecundaria"></app-selector-fotos>
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, '3')" [urlImagen]="modelo?.fotoTerciaria"></app-selector-fotos>
+    </div>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <button mat-flat-button type="submit" class="me-2" [ngClass]="{'d-none': form.invalid === true}">Agregar</button>
+        <button [routerLink]="routeBack" mat-flat-button color="warn" class="ms-2">Volver</button>
+    </div>
+</form>

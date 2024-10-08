@@ -1,0 +1,13 @@
+<div class="d-flex">
+    <button (click)="cargadorArchivos.click()" mat-raised-button type="button" class="d-block m-auto">Cargar Foto</button>
+    <input type="file" hidden #cargadorArchivos accept="image/*" (change)="CambioInputTypeFile($event)"/> 
+</div>
+<div class="mt-3">
+    @if(imagenBase64 !== undefined){
+        <img [src]="imagenBase64" class="d-block m-auto">
+    }
+    @else if(urlImagen){
+        <img [src]="urlImagen" class="d-block m-auto" [ngClass]="{'fondo': fondo}">
+    }
+</div>
+

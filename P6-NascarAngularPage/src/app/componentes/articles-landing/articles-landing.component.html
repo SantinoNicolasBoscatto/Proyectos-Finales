@@ -1,0 +1,9 @@
+<article class="d-flex justify-content-around flex-wrap mb-4">
+    <img [src]="Imagen" width="710px" height="400px">
+    <div>
+        <h4 class="text-white">{{Titulo}}</h4>
+        <p class="text-white scroller" (mouseenter)="deslizarTexto($event)" (mouseleave)="detenerDeslizamiento()">
+            {{Detalles}}
+        </p>
+    </div>
+</article>

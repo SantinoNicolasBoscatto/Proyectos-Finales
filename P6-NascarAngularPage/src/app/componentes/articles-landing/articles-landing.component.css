@@ -1,0 +1,25 @@
+img{
+    border-radius: 15px;
+}
+
+h4, p{
+    text-align: center;
+    padding:  20px 30px 0px;
+    max-width: 400px;
+}
+p{
+    height: auto;
+    max-height: 280px;
+    overflow-y: scroll;
+    padding-top: 10px;
+    cursor: n-resize;
+}
+p::-webkit-scrollbar {
+    display: none;
+}
+
+article{
+    padding: 15px 0;
+    border: 2px solid #efefef;
+    border-radius: 15px;
+}

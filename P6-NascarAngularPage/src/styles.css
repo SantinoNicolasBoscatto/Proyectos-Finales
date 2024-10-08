@@ -1,0 +1,49 @@
+html, body { height: 100%; caret-color: transparent; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+background-color: #111; overflow-x: hidden; scroll-behavior: smooth;}
+
+.container-xxl {
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+}
+
+.mat-mdc-checkbox .mat-internal-form-field {
+    color: white !important;
+}
+.mdc-checkbox__background{
+    background-color: rgba(255, 255, 255, 1) !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
+    border-color: rgb(28, 185, 7) !important;
+    background-color: rgb(28, 185, 7) !important;
+}
+
+@font-face {
+    font-family: 'Stainless-Italic';
+    src: url('/fonts/Stainless-italic.ttf');
+}
+
+.mat-mdc-form-field-error{
+    color: rgb(234, 43, 43) !important;
+    font-weight: 600;
+}
+
+mat-form-field{
+    margin-bottom: 20px;
+}
+@media (max-width: 576px) {
+    h5 {
+        font-size: 24px !important;
+    }
+    p{
+        font-size: 12px !important;
+    }
+    .anchor-result{
+        font-size: 12px !important;
+    }
+    .pista-carousel{
+        padding-bottom: 0;
+    }
+}

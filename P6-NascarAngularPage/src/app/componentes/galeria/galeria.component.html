@@ -1,0 +1,21 @@
+@if (listaGaleria) {
+    @if(listaGaleria.length !== 0){
+        <div style="margin-bottom: 90px;">
+            @for (item of listaGaleria; track $index) {
+                <h2>{{listaNombrePista[$index]}}</h2>
+                <div class="d-flex justify-content-center flex-wrap mb-5">
+                    <img class="img-fluid img-thumbnail" [src]="item.fotoUno" alt="" style="width: 90%; height: 85vh; object-fit: cover;">
+                    <div class="d-flex justify-content-evenly mt-4">
+                        <img class="img-fluid img-thumbnail" [src]="item.fotoDos" alt="" style="width: 43%;  object-fit: cover;">
+                        <img class="img-fluid img-thumbnail" [src]="item.fotoTres" alt="" style="width: 43%;  object-fit: cover;">
+                    </div>
+                </div> 
+            }
+        </div>
+    }@else {
+        <h1 class="text-white" style="text-align: center;">No hay fotos cargadas</h1>
+    }
+}@else {
+    <app-loading></app-loading>
+}
+

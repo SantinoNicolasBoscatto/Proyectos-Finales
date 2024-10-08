@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center text-white">
+    <div class="MyCard d-flex justify-content-center m-1">
+        <div class="overlay-container">
+            <img src="/Common/Form/Auto.png" class="img-fluid">
+            <div class="overlay" (click)="seleccionar.click()">
+                <h5>Agregar Carrera</h5>
+            </div>
+        </div>
+    </div>  
+    <div class="MyCard d-flex justify-content-center m-1">
+        <div class="overlay-container">
+            <img src="/Common/Form/Auto.png" class="img-fluid">
+            <div class="overlay" [swal]="{title: 'Confirmacion', text: 'Desea reiniciar la temporada?', showCancelButton: true}" (confirm)="showAlert()">
+                <h5>Reiniciar Temporada</h5>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="d-flex justify-content-center">
+    @if(loader){
+        <app-loading></app-loading>
+    }
+</div>
+@if (errores.length > 0 || msgBase) {
+<app-errores-mostrar [listaErrores]="errores" [MensajeError]="msgBase"></app-errores-mostrar>
+}
+<input hidden type="file" accept=".html" (change)="onFileSelected($event)" #seleccionar>

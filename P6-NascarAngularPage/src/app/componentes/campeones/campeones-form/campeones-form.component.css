@@ -1,0 +1,10 @@
+mat-form-field{
+    display: block;
+}
+
+.pilotoImg{
+    object-fit: contain;
+    position: absolute;
+    right: 40px;
+    top: 4px;
+}

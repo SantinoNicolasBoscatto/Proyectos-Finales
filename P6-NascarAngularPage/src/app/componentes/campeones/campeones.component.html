@@ -1,0 +1,32 @@
+@if(listaCampeones === undefined){
+    <app-loading></app-loading>
+    
+}
+@else if (listaCampeones.length !== 0) {
+    <div class="row mt-4">
+        @for (campeon of listaCampeones; track $index) {
+        <div class="col-md-6 mb-5 d-flex justify-content-center">      
+            <div class="cardUI">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <div class="overlay"></div>
+                    <h3>{{campeon.year}}</h3>
+                    <h4>{{campeon.piloto.nombre}}</h4>
+                    <img [src]="campeon.piloto.fotoPiloto" alt="">
+                  </div>
+                  <div class="card-back">
+                    <div class="overlay"></div>
+                    <h3>{{campeon.year}}</h3>
+                    <img [src]="campeon.autoCampeon" alt="">
+                  </div>
+                </div>
+            </div>
+           
+        </div>
+        }
+    </div>
+}
+@else {
+    <h1 class="text-white" style="text-align: center;">No hay campeones cargados</h1>
+}
+  

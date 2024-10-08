@@ -1,0 +1,15 @@
+<div class="container-xxl">
+    <h3 class="text-white mb-4" style="text-align: center;">{{Titulo}}</h3>
+    <div class="row g-2 justify-content-center">
+        @for (item of FormMenuData; track $index) {
+            <div class="MyCard col-sm-3 d-flex justify-content-center m-1">
+                <div class="overlay-container">
+                    <img ngSrc="/Common/Form/{{item.foto}}" alt="{{item.nombre}}" class="img-fluid" width="320" height="200">
+                    <div class="overlay" routerLink="{{Titulo.toLocaleLowerCase()}}/{{item.nombre.toLocaleLowerCase()}}">
+                        <h5>{{item.nombre}}</h5>
+                    </div>
+                </div>
+            </div>  
+        }  
+    </div>
+</div>

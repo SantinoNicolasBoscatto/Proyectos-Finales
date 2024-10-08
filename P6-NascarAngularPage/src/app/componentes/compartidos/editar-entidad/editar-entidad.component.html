@@ -1,0 +1,14 @@
+@if (lodiang) {
+<h3 class="mb-4 text-white" style="text-align: center;">{{Titulo}}</h3>
+<ng-template #contenidoForms>
+
+   
+</ng-template>
+
+}
+@else {
+    <app-loading></app-loading>
+}
+@if (errores.length > 0 || msgBase) {
+    <app-errores-mostrar [listaErrores]="errores" [MensajeError]="msgBase"></app-errores-mostrar>
+}

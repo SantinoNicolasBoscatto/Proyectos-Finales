@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center">
+    <ul>
+        <li><a data-value="1" (click)="displayTablasActualizar($event)"  [ngClass]="{'active': isActiveTab(1)}">Pilotos Standing</a></li>
+        <li><a data-value="2" (click)="displayTablasActualizar($event)" [ngClass]="{'active': isActiveTab(2)}">Playoff Standing</a></li>
+        <li><a data-value="3" (click)="displayTablasActualizar($event)" [ngClass]="{'active': isActiveTab(3)}">Manufacturer Standing</a></li>
+    </ul>
+</div>
+
+@if(fechaActual){
+    <div class="mb-5">
+        @if (tablaValueManager === 1) {
+            <app-tabla-nascar [tablaLista]="tablaRegular" [displayedColumns]="devolverColumnas(1)" [calendario]="fechaActual"/>
+        }
+        @else if (tablaValueManager === 2) {
+            <app-tabla-nascar [tablaLista]="tablaPlayoff" [displayedColumns]="devolverColumnas(2)" [calendario]="fechaActual"/>
+        }
+        @else {
+            <app-tabla-nascar [tablaLista]="tablaMFR" [displayedColumns]="devolverColumnas(3)" [calendario]="fechaActual"/>
+        }
+    </div>
+    <br>
+}
+@else {
+    <app-loading></app-loading>
+}

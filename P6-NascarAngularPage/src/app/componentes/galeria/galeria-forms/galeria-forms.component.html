@@ -1,0 +1,18 @@
+<form [formGroup]="form" (submit)="guardarCambios()">
+    <div class="d-flex justify-content-center mb-3">
+        <mat-form-field appearance="fill">
+            <mat-label>Ronda del Campeonato</mat-label>
+            <input matInput type="number" [formControl]="form.controls.ronda">
+            <mat-error>{{ErrorCampoGenerico(form.controls.ronda)}}</mat-error>
+        </mat-form-field>  
+    </div>
+    <div class="d-flex justify-content-evenly mt-5">
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, 'first')" [urlImagen]="modelo?.fotoUno"></app-selector-fotos>
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, 'second')" [urlImagen]="modelo?.fotoDos"></app-selector-fotos>
+        <app-selector-fotos (archivoSeleccionado)="archivoSelect($event, 'third')" [urlImagen]="modelo?.fotoTres"></app-selector-fotos>
+    </div>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <button mat-flat-button type="submit" class="me-2" [ngClass]="{'d-none': form.invalid === true}">Agregar</button>
+        <button [routerLink]="routeBack" mat-flat-button color="warn" class="ms-2">Volver</button>
+    </div>
+</form>

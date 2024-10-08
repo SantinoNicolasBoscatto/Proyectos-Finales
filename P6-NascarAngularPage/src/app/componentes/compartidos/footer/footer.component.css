@@ -1,0 +1,35 @@
+footer{
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9998;
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(0);
+}
+
+footer.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.footerContent {
+    width: 100%;
+    background-color: #000; /* Fondo negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+.footerContent img {
+    max-width: 150px; 
+    height: auto;
+    cursor: pointer;
+    opacity: 1;
+}
+.footerContent img:hover{
+    opacity: 0.6;
+}
+
+

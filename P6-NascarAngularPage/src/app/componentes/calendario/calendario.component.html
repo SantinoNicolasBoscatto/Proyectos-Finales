@@ -1,0 +1,12 @@
+@if (listaPistas) {
+    <div class="d-flex justify-content-evenly flex-wrap mb-5">
+        @for (pista of listaPistas; track $index) {
+            <app-carousel class="carousel-custom m-0" [IdComponent]="pista.id.toString()"
+            [Img1]="pista.fotoPrimaria" [Img2]="pista.fotoSecundaria" [Img3]="pista.fotoTerciaria" [Disputada]="pista.disputada"
+            [Distancia]="pista.distancia" [NombrePista]="pista.nombre" [Vueltas]="pista.vueltas"></app-carousel>
+        }
+    </div><br>
+}
+@else {
+    <app-loading></app-loading>
+}

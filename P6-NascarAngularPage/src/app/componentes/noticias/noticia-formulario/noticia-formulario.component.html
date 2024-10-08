@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="mb-5" (submit)="guardarCambios()">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-sm-8">
+            <mat-form-field appearance="fill">
+                <mat-label>Titulo</mat-label>
+                <input matInput [formControl]="form.controls.titulo">
+                <mat-error>{{ErrorCampoGenerico(form.controls.titulo)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Detalles</mat-label>
+                <textarea rows="7" cols="20"  matInput [formControl]="form.controls.detalles"></textarea>
+                <mat-error>{{ErrorCampoGenerico(form.controls.detalles)}}</mat-error>
+            </mat-form-field>
+            <app-selector-fotos (archivoSeleccionado)="archivoSelect($event)" [urlImagen]="modelo?.foto"></app-selector-fotos>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button mat-flat-button type="submit" class="me-2" [ngClass]="{'d-none': form.invalid === true}">Agregar</button>
+        <button [routerLink]="routeBack" mat-flat-button color="warn" class="ms-2">Volver</button>
+    </div>
+</form>

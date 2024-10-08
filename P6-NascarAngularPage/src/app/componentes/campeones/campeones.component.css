@@ -1,0 +1,90 @@
+/* From Uiverse.io by vamsidevendrakumar */ 
+.cardUI {
+    width: 500px;
+    height: 320px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.cardUI:hover .card-inner {
+transform: rotateY(180deg);
+}
+
+.card-front {
+background-color: #6A2C70;
+color: #fff;
+display: flex;
+align-items: center;
+border: 10px solid #6A2C70;
+border-radius: 10px;
+justify-content: center;
+font-size: 24px;
+transform: rotateY(0deg);
+}
+
+.card-back {
+background-color: #F08A5D;
+color: #fff;
+display: flex;
+align-items: center;
+border: 10px solid #F08A5D;
+border-radius: 10px;
+justify-content: center;
+font-size: 24px;
+transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+border: 0;
+}
+  
+
+img{
+    width: 100%; 
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+
+h3{
+    position: absolute;
+    z-index: 9995;
+    top: 10px;
+    left: 20px;
+    font-size: 56px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #e8b923;
+}
+
+h4{
+    position: absolute;
+    z-index: 9995;
+    font-size: 56px;
+    bottom: 5%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente */
+    z-index: 1;
+}
+
+.card-front h3, .card-front h4, .card-back h3 {
+    z-index: 2;
+}

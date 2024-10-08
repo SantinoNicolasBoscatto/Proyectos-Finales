@@ -1,0 +1,79 @@
+@if(listaNacion){
+    <form [formGroup]="form" (submit)="guardarCambios()">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-md-5">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput [formControl]="form.controls.nombre">
+              <mat-error>{{ErrorCampoNombre()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Numero</mat-label>
+              <input matInput formControlName="numero">
+              <mat-error>{{ErrorCampoNumero()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Edad</mat-label>
+                <input matInput type="number" formControlName="edad">
+                <mat-error>{{ErrorCampoGenerico(form.controls.edad)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Victorias</mat-label>
+                <input matInput type="number" formControlName="carrerasGanadas">
+                <mat-error>{{ErrorCampoGenerico(form.controls.carrerasGanadas)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Poles</mat-label>
+                <input matInput type="number" formControlName="poles">
+                <mat-error>{{ErrorCampoGenerico(form.controls.poles)}}</mat-error>
+            </mat-form-field>   
+          </div>
+          <div class="col-md-5">
+            <mat-form-field appearance="fill">
+                <mat-label>Top5s</mat-label>
+                <input matInput type="number" formControlName="top5s">
+                <mat-error>{{ErrorCampoGenerico(form.controls.top5s)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Top10s</mat-label>
+                <input matInput type="number" formControlName="top10s">
+                <mat-error>{{ErrorCampoGenerico(form.controls.top10s)}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Campeonatos</mat-label>
+                <input matInput type="number" formControlName="campeonatos">
+                <mat-error>{{ErrorCampoGenerico(form.controls.campeonatos)}}</mat-error>
+            </mat-form-field>
+
+
+
+            <mat-form-field>
+                <mat-select [formControl]="form.controls.nacionalidad" [(ngModel)]="selectedNation">
+                    @for (nacion of listaNacion; track $index) {
+                        <mat-option [value]="nacion.id">{{nacion.nombre}} 
+                            <img [src]="nacion.bandera" alt="" height="45" width="45" class="banderaImg">
+                        </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-checkbox color="primary" formControlName="enActivo">Activo</mat-checkbox>    
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+            <app-selector-fotos (archivoSeleccionado)="archivoSelect($event)" [urlImagen]="modelo?.fotoPiloto"></app-selector-fotos>
+        </div>
+        <div class="d-flex justify-content-center mb-5">
+            <button mat-flat-button type="submit" class="me-2" [ngClass]="{'d-none': form.invalid === true}">Agregar</button>
+            <button [routerLink]="routeBack" mat-flat-button color="warn" class="ms-2">Volver</button>
+        </div>
+    </form>
+}
+@else {
+    <app-loading></app-loading>
+}

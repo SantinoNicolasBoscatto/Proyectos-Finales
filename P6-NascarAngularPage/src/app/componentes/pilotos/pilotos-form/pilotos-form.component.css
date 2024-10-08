@@ -1,0 +1,13 @@
+mat-form-field{
+    display: block;
+    margin-bottom: 12px;
+}
+mat-form-field-required-marker {
+    display: none;
+}
+.banderaImg{
+    object-fit: contain;
+    position: absolute;
+    right: 15px;
+    top: 2px;
+}

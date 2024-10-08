@@ -1,0 +1,26 @@
+@if(listaBig && halfCarga){
+    @if(listaBig.length === 0 && halfCarga.length === 0){
+        <h1 class="text-white" style="text-align: center;">No hay noticias cargadas</h1>
+    }
+    @else {
+        @for (big of listaBig; track $index) {
+            <div style="margin-bottom: 25px;">
+                <app-articles-landing [Imagen]="big.foto" [Titulo]="big.titulo" [Detalles]="big.detalles!"/>
+                <div class="d-flex justify-content-evenly flex-wrap mb-3">
+                    @for (half of halfCarga; track $index) {
+                        <app-articles-half [Imagen]="half.foto" [Titulo]="half.titulo"/>
+                        @if($index % 2 !== 0){
+                            {{RemoverHalfList()}}           
+                        }
+                    }
+                </div>
+            </div>
+        }
+        <br><br><br>
+    }
+    
+}@else {
+    <app-loading></app-loading>
+}
+
+<app-form-access></app-form-access>

@@ -1,0 +1,42 @@
+  
+  <div id="carousel{{IdComponent}}" class="carousel slide mb-3" data-bs-ride="carousel" style="max-width: 550px;" data-bs-interval="false">
+    <div class="carousel-indicators">
+      <button type="button" [attr.data-bs-target]="'#carousel' + IdComponent" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" [attr.data-bs-target]="'#carousel' + IdComponent" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" [attr.data-bs-target]="'#carousel' + IdComponent" data-bs-slide-to="2" aria-label="Slide 3"></button>     
+    </div>
+    
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        @if (Disputada) {
+          <img src="/Common/raced.png" alt="" width="85%" style="position: absolute; top: 50%; 
+          left: 50%; transform: translate(-50%, -50%);">
+        }
+          <div class="overlay"></div>
+          <img [src]="Img1? Img1:'/Common/UnknowTrack.jpg'" class="d-block w-100" alt="...">
+          <div class="carousel-caption pista-carousel d-block" style="text-align: center; position: absolute; bottom: 50px;">
+              <h5>{{NombrePista}}</h5>
+              <p>{{Distancia}}Km // {{Vueltas}} Vueltas</p>
+              @if (Disputada) {
+                <a [routerLink]="'/carrera/'+IdComponent" class="mt-5 anchor-result">Ver Resultados</a>
+              }
+          </div>
+      </div>
+
+      <div class="carousel-item">
+        <img [src]="Img2? Img2:'/Common/UnknowTrack.jpg'" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img [src]="Img3? Img3:'/Common/UnknowTrack.jpg'" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel' + IdComponent" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel' + IdComponent" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+

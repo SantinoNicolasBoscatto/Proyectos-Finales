@@ -1,0 +1,32 @@
+.MyCard{
+    height: 165px;
+    width: 285px;
+    padding: 0;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+.overlay-container {
+    position: relative;
+    width: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de transparencia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s;
+}
+
+.overlay:hover{
+    background-color: rgba(0, 0, 0, 0.75);
+}

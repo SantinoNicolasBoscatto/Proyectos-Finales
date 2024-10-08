@@ -1,0 +1,11 @@
+img{
+    object-fit: contain;
+    position: absolute;
+    right: 40px;
+    top: 8px;
+}
+
+.pilotoImg{
+    right: 10px;
+    top: 2px;
+}

@@ -1,0 +1,101 @@
+th{
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Slabo 13px",Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+td{
+    font-size: 18px;
+    font-family: "Slabo 13px",Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+}
+
+.td-num{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(213, 213, 213);
+    padding: 20px 0;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+li{
+    margin: 0 20px;
+}
+
+li a{
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Slabo 13px';
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+    color: black ;
+}
+
+ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fc0606; /* Cambia el color aquí */
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+ul li a.active::after,
+ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+ul li a.active{
+    color: darkblue;
+}
+
+img{
+    object-fit: contain;
+}
+
+@media  (max-width: 769px) {
+    li a{
+        padding: 5px;
+        font-size: 14px;
+    }
+    th{
+        font-weight: bolder;
+        font-size: 12px;
+        font-family: "Slabo 13px",Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    td{
+        font-size: 14px;
+        font-family: "Slabo 13px",Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 600;
+    }
+
+    ul{
+        background-color: rgb(213, 213, 213);
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    ul{
+        flex-direction: column;
+        align-items: center;
+    }
+    li{
+        padding: 7px;
+    }
+    li a{
+        padding: 5px;
+        font-size: 12px;
+    }
+}
