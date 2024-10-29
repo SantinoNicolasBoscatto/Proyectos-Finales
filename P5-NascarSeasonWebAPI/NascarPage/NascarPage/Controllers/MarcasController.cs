@@ -9,7 +9,6 @@ namespace NascarPage.Controllers
 {
     [ApiController]
     [Route("api/marcas")]
-    [ApiConventionType(typeof(DefaultApiConventions))]
     public class MarcasController : ControllerBase
     {
         private readonly IMarcaService marcaService;
@@ -39,7 +38,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -49,14 +48,14 @@ namespace NascarPage.Controllers
             try
             {
                 var marca = await marcaService.GetMarcaPorId(id);
-                if (marca == null) return NotFound("No se encontro esa marca");
+                if (marca == null) return NotFound(new { message = "No se encontro esa marca" });
                 var lectura = mapper.Map<LecturaMarcaDTO>(marca);
                 return Ok(lectura);
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -76,7 +75,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -85,12 +84,16 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await marcaService.Existe(id)) return BadRequest("No existe la marca que desea modificar");
+                if (!await marcaService.Existe(id)) return BadRequest(new { message = "No existe la marca que desea modificar" });
 
                 var marcaBD = await marcaService.GetMarcaPorId(id);
+                var fotoRespaldo = marcaBD!.Foto;
                 marcaBD = mapper.Map<Marca>(marcaDTO);
+                marcaBD.Id = id;
                 if (marcaDTO.Foto != null)
                     marcaBD.Foto = await filesService.Editar(marcaBD!.Foto, contenedorMarcas, marcaDTO.Foto);
+                else
+                    marcaBD.Foto = fotoRespaldo;
 
                 await marcaService.ActulizarMarca(marcaBD);
                 return NoContent();
@@ -98,7 +101,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -107,7 +110,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await marcaService.Existe(id)) return BadRequest("No existe la marca que desea eliminar");
+                if (!await marcaService.Existe(id)) return BadRequest(new { message = "No existe la marca que desea eliminar" });
 
                 var imgs = await marcaService.EliminarMarca(id);
                 await filesService.Borrar(imgs.Item1, contenedorMarcas);
@@ -120,7 +123,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
     }

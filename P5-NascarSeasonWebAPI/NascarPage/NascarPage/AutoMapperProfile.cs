@@ -8,6 +8,14 @@ namespace NascarPage
     {
         public AutoMapperProfile()
         {
+            // NOTICIA
+            CreateMap<CrearNoticiaDTO, Noticia>()
+                .ForMember(dest => dest.Foto, opt => opt.Ignore());
+            CreateMap<Noticia, LecturaNoticiaDTO>();
+
+            // Calendario
+            CreateMap<Calendario, CalendarioDTO>();
+
             // AUTO
             CreateMap<CrearAutoDTO, Auto>()
                 .ForMember(dest => dest.Foto, opt => opt.Ignore());
@@ -18,12 +26,14 @@ namespace NascarPage
             CreateMap<CrearPilotoDTO, Piloto>()
                 .ForMember(dest => dest.FotoPiloto, opt => opt.Ignore());
             CreateMap<Piloto, LecturaPilotoDTO>();
+            CreateMap<Piloto, LecturaNombrePilotoDTO>();
             CreateMap<Piloto, PatchPilotoDTO>().ReverseMap();
 
             // MARCA
             CreateMap<CrearMarcaDTO, Marca>()
                 .ForMember(dest => dest.Foto, opt => opt.Ignore());
             CreateMap<Marca, LecturaMarcaDTO>();
+            CreateMap<Marca, LecturaMarcaNombreDTO>();
 
             // PISTA
             CreateMap<CrearPistaDTO, Pista>()

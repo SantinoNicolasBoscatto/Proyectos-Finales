@@ -37,7 +37,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -47,13 +47,13 @@ namespace NascarPage.Controllers
             try
             {
                 var pista = await pistaService.GetPistaId(id);
-                if (pista == null) return NotFound("Pista No Encontrada");
+                if (pista == null) return NotFound(new { message = "Pista No Encontrada" });
                 return Ok(mapper.Map<LecturaPistaDTO>(pista));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -63,13 +63,13 @@ namespace NascarPage.Controllers
             try
             {
                 var pista = await pistaService.GetPistaOrden(Orden);
-                if (pista == null) return NotFound("Pista No Encontrada");
+                if (pista == null) return NotFound(new { message = "Pista No Encontrada" });
                 return Ok(mapper.Map<LecturaPistaDTO>(pista));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -78,8 +78,9 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (pistaDTO.FotoPrimaria == null || pistaDTO.FotoSecundaria == null || pistaDTO.FotoTerciaria == null) return BadRequest("Imagen no cargada");
-                if (await pistaService.ExisteFecha(pistaDTO.Orden)) return BadRequest("Ya existe un circuito con esa fecha asignada");
+                if (pistaDTO.Orden == 0) pistaDTO.Orden = null;
+                if (pistaDTO.FotoPrimaria == null || pistaDTO.FotoSecundaria == null || pistaDTO.FotoTerciaria == null) return BadRequest(new { message = "Imagen no cargada" });
+                if (await pistaService.ExisteFecha(pistaDTO.Orden)) return BadRequest(new { message = "Ya existe un circuito con esa fecha asignada" });
 
                 var pista = mapper.Map<Pista>(pistaDTO);
                 pista.FotoPrimaria = await filesService.GuardarImagen(contenedor, pistaDTO.FotoPrimaria!);
@@ -92,7 +93,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -101,21 +102,27 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await pistaService.Existe(id)) return BadRequest("No existe la Pista que desea modificar");
+                if (!await pistaService.Existe(id)) return BadRequest(new { message = "No existe la Pista que desea modificar" });
 
                 var pistaBD = await pistaService.GetPistaId(id);
+                var respaldoId = pistaBD!.Id;
+                string[] respaldoFoto = { pistaBD!.FotoPrimaria, pistaBD.FotoSecundaria, pistaBD.FotoTerciaria };
                 pistaBD = mapper.Map<Pista>(pistaDTO);
-                if (pistaDTO.FotoPrimaria is not null) pistaBD.FotoPrimaria = await filesService.Editar(pistaBD!.FotoPrimaria, contenedor, pistaDTO.FotoPrimaria);
-                if (pistaDTO.FotoSecundaria is not null) pistaBD.FotoSecundaria = await filesService.Editar(pistaBD!.FotoSecundaria, contenedor, pistaDTO.FotoSecundaria);
-                if (pistaDTO.FotoTerciaria is not null) pistaBD.FotoTerciaria = await filesService.Editar(pistaBD!.FotoTerciaria, contenedor, pistaDTO.FotoTerciaria);
 
+                if (pistaDTO.FotoPrimaria is not null) pistaBD.FotoPrimaria = await filesService.Editar(pistaBD!.FotoPrimaria, contenedor, pistaDTO.FotoPrimaria);
+                else pistaBD.FotoPrimaria = respaldoFoto[0];
+                if (pistaDTO.FotoSecundaria is not null) pistaBD.FotoSecundaria = await filesService.Editar(pistaBD!.FotoSecundaria, contenedor, pistaDTO.FotoSecundaria);
+                else pistaBD.FotoSecundaria = respaldoFoto[1];
+                if (pistaDTO.FotoTerciaria is not null) pistaBD.FotoTerciaria = await filesService.Editar(pistaBD!.FotoTerciaria, contenedor, pistaDTO.FotoTerciaria);
+                else pistaBD.FotoTerciaria = respaldoFoto[2];
+                pistaBD.Id = respaldoId;
                 await pistaService.ModificarPista(pistaBD);
                 return NoContent();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -125,7 +132,7 @@ namespace NascarPage.Controllers
             try
             {
                 if (!await pistaService.ExisteEnCalendario(id) || !await pistaService.ExisteEnCalendario(idIntercambio)) 
-                    return NotFound("Alguna de las pistas enviadas no existe");
+                    return NotFound(new { message = "Alguna de las pistas enviadas no existe" });
 
                 await pistaService.ModificarOrdenPistas(id, idIntercambio);
                 return NoContent();
@@ -133,7 +140,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -142,8 +149,8 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await pistaService.ExisteEnCalendario(idSale)) return NotFound("La pista enviada no existe o no esta en el calendario");
-                if (!await pistaService.ExisteFueraEnCalendario(idEntra)) return NotFound("La pista enviada no existe o  esta en el calendario");
+                if (!await pistaService.ExisteEnCalendario(idSale)) return NotFound(new { message = "La pista enviada no existe o no esta en el calendario" });
+                if (!await pistaService.ExisteFueraEnCalendario(idEntra)) return NotFound(new { message = "La pista enviada no existe o  esta en el calendario" });
 
                 await pistaService.AgregarySacarPistaCalendario(idEntra, idSale);
                 return NoContent();
@@ -151,7 +158,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -160,7 +167,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (patchDocument is null) return BadRequest("Error en el documento Patch");
+                if (patchDocument is null) return BadRequest(new { message = "Error en el documento Patch" });
 
                 var pistaBD = await pistaService.GetPistaId(id);
                 if (pistaBD is null) return NotFound();
@@ -169,7 +176,7 @@ namespace NascarPage.Controllers
                 patchDocument.ApplyTo(pistaDTO, ModelState);
 
                 var esValido = TryValidateModel(pistaDTO);
-                if (!esValido) return BadRequest("Ingreso Datos erroneos a la pista");
+                if (!esValido) return BadRequest(new { message = "Ingreso Datos erroneos a la pista" });
 
                 var pista = mapper.Map(pistaDTO, pistaBD);
                 await pistaService.ModificarPista(pista);
@@ -178,7 +185,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -188,7 +195,7 @@ namespace NascarPage.Controllers
             try
             {
                 var existe = await pistaService.Existe(id);
-                if (!existe) return BadRequest("La pista a borrar no existe");
+                if (!existe) return BadRequest(new { message = "La pista a borrar no existe" });
                 var ruta = await pistaService.EliminarPista(id);
                 await filesService.Borrar(ruta.Item1, contenedor);
                 await filesService.Borrar(ruta.Item2, contenedor);
@@ -198,9 +205,24 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
+        [HttpGet("calendario")]
+        public async Task<ActionResult<CalendarioDTO>> GetCalendario()
+        {
+            try
+            {
+                var cal = await pistaService.GetCalendario();
+                if (cal == null) return NotFound(new { message = "Calendario No Encontrada" });
+                return Ok(mapper.Map<CalendarioDTO>(cal));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message, ex);
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
+            }
+        }
     }
 }

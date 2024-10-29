@@ -7,6 +7,6 @@ namespace NascarPage.DTOs
     {
         [PesoArchivoValidation(15)]
         [ExtensionArchivoValidation(GruposExtensiones.Imagen)]
-        public IFormFile FotoPiloto { get; set; } = null!;
+        public IFormFile? FotoPiloto { get; set; }
     }
 }

@@ -18,6 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("NascarPage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NascarPage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("NascarPageTest")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

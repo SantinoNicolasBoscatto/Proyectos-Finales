@@ -67,11 +67,8 @@ namespace NascarPage.Repositorio
                 foreach (var item in playoff)
                 {
                     item.BehindPlayoff = item.PuntosPlayoff - minPlayoff.Item1;
-                    //if (!minPlayoff.Item2)
-                    //{
-                    if (item.BehindPlayoff > 0) aux = item.BehindPlayoff;
+                    if (item.BehindPlayoff > 0 && item.PuntosPlayoff != minPlayoff.Item1) aux = item.BehindPlayoff;
                     else item.BehindPlayoff -= aux;
-                    //}
                 }
 
 

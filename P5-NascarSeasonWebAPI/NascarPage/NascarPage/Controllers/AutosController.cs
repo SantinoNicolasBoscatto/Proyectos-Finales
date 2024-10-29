@@ -39,7 +39,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -49,13 +49,13 @@ namespace NascarPage.Controllers
             try
             {
                 var auto = await autoService.GetAutoId(id);
-                if (auto == null) return NotFound("Auto No Encontrado");
+                if (auto == null) return NotFound(new { message = "Auto No Encontrado" });
                 return Ok(mapper.Map<LecturaAutoDTO>(auto));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -64,9 +64,9 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (autoDTO.Foto == null) return BadRequest("Imagen no cargada");
-                if (autoDTO.PilotoId != null && !await autoService.ExistePiloto(autoDTO.PilotoId)) return BadRequest("No existe el piloto");
-                if (!await autoService.ExisteMarca(autoDTO.MarcaId)) return BadRequest("Esta Marca no existe en la Base de Datos");
+                if (autoDTO.Foto == null) return BadRequest(new { message = "Imagen no cargada" });
+                if (autoDTO.PilotoId != null && !await autoService.ExistePiloto(autoDTO.PilotoId)) return BadRequest(new { message = "No existe el piloto" });
+                if (!await autoService.ExisteMarca(autoDTO.MarcaId)) return BadRequest(new { message = "Esta Marca no existe en la Base de Datos" });
 
 
                 var auto = mapper.Map<Auto>(autoDTO);
@@ -78,7 +78,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -87,21 +87,22 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await autoService.Existe(id)) return BadRequest("No existe el auto que desea modificar");
-                if (autoDTO.PilotoId != null && !await autoService.ExistePiloto(autoDTO.PilotoId)) return BadRequest($"El Piloto de id {id} no existe en la Base de Datos");
-                if (!await autoService.ExisteMarca(autoDTO.MarcaId)) return BadRequest("Esta Marca no existe en la Base de Datos");
+                if (!await autoService.Existe(id)) return BadRequest(new { message = "No existe el auto que desea modificar" });
+                if (autoDTO.PilotoId != null && !await autoService.ExistePiloto(autoDTO.PilotoId)) return BadRequest(new { message = $"El Piloto de id {id} no existe en la Base de Datos" });
+                if (!await autoService.ExisteMarca(autoDTO.MarcaId)) return BadRequest(new { message = "Esta Marca no existe en la Base de Datos" });
 
                 var autoBD = await autoService.GetAutoId(id);
                 autoBD = mapper.Map(autoDTO, autoBD);
                 if (autoDTO.Foto is not null) autoBD!.Foto = await filesService.Editar(autoBD.Foto, contenedor, autoDTO.Foto!);
-
+                autoBD!.Marca = null!;
+                autoBD!.Piloto = null!;
                 await autoService.ModificarAuto(autoBD!);
                 return NoContent();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -110,7 +111,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (patchDocument is null) return BadRequest("Error en el documento Patch");
+                if (patchDocument is null) return BadRequest(new { message = "Error en el documento Patch" });
 
                 var autoBD = await autoService.GetAutoId(id);
                 if (autoBD is null) return NotFound();
@@ -119,7 +120,7 @@ namespace NascarPage.Controllers
                 patchDocument.ApplyTo(autoDTO, ModelState);
 
                 var esValido = TryValidateModel(autoDTO);
-                if (!esValido) return BadRequest("Ingreso Datos erroneos al Piloto");
+                if (!esValido) return BadRequest(new { message = "Ingreso Datos erroneos al Piloto" });
 
                 var auto = mapper.Map(autoDTO, autoBD);
                 await autoService.ModificarAuto(auto);
@@ -128,7 +129,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -138,7 +139,7 @@ namespace NascarPage.Controllers
             try
             {
                 var existe = await autoService.Existe(id);
-                if (!existe) return BadRequest("Piloto a borrar no existe");
+                if (!existe) return BadRequest(new { message = "Piloto a borrar no existe" });
                 var ruta = await autoService.EliminarAuto(id);
                 await filesService.Borrar(ruta, contenedor);
                 return NoContent();
@@ -146,7 +147,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
     }

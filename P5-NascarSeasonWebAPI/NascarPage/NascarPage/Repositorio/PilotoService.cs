@@ -7,10 +7,13 @@ namespace NascarPage.Repositorio
     {
         Task<(string?, string?)> EliminarPiloto(int id);
         Task<bool> Existe(int id);
+        Task<List<Piloto>> GetCampeones();
+        Task<List<Piloto>> GetCarless();
         Task<Piloto?> GetPilotoPorId(int id);
         Task<List<Piloto>> GetPilotos();
         Task ModificarPiloto(Piloto piloto);
         Task<int> PostPilotos(Piloto piloto);
+        (int?, int?) PreviousNext(int id);
     }
 
     public class PilotoService : IPilotoService
@@ -23,10 +26,36 @@ namespace NascarPage.Repositorio
             this.negocio = negocio;
         }
 
+
+        public (int?, int?) PreviousNext(int id)
+        {
+            var list = negocio.Pilotos.AsEnumerable().OrderBy(x => int.Parse(x.Numero!)).ToList();
+            var piloto = list.FirstOrDefault(x => x.Id == id);
+            if (piloto == null) return (null, null);
+
+            var index = list.IndexOf(piloto);
+            int? prev = index > 0 ? list[index - 1].Id : null;
+            int? next = index < list.Count - 1 ? list[index + 1].Id : null;
+            return (prev, next);
+        }
+
         public async Task<List<Piloto>> GetPilotos()
         {
-            return await negocio.Pilotos.Include(x => x.Auto).Include(x => x.Nacionalidad).AsNoTracking().ToListAsync();
+            return negocio.Pilotos.Include(x => x.Auto).Include(x => x.Nacionalidad)
+                    .AsEnumerable().OrderBy(x => int.Parse(x.Numero!)).ToList();
         }
+
+        public async Task<List<Piloto>> GetCampeones()
+        {
+            return await negocio.Pilotos.Where(x => x.Campeonatos > 0).Include(x => x.Auto).Include(x => x.Nacionalidad)
+                        .AsNoTracking().ToListAsync();
+        }
+
+        public async Task<List<Piloto>> GetCarless()
+        {
+            return await negocio.Pilotos.Where(x => x.Auto == null).Include(x => x.Nacionalidad).AsNoTracking().ToListAsync();
+        }
+
         public async Task<int> PostPilotos(Piloto piloto)
         {          
             negocio.Add(piloto);

@@ -34,7 +34,7 @@ export class AutosFormComponent implements OnInit{
     if (this.modelo !== undefined){
       this.pilotoService.cargarRegistros().subscribe((res: LecturaPilotoDTO[])=> {
         this.listaPilotos = res;
-        this.selectedPiloto = this.listaPilotos[0].id;
+        this.selectedPiloto = this.modelo!.piloto.id;
       })
       const modeloConvertido = {
         ...this.modelo,

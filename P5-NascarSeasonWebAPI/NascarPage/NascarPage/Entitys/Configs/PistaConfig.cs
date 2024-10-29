@@ -8,7 +8,7 @@ namespace NascarPage.Entitys.Configs
     {
         public void Configure(EntityTypeBuilder<Pista> builder)
         {
-            builder.HasIndex(x => x.Orden).IsUnique();
+            
         }
     }
 }

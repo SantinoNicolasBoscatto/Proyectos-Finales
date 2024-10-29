@@ -37,7 +37,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -47,13 +47,13 @@ namespace NascarPage.Controllers
             try
             {
                 var champ = await campeonService.GetCampeonId(id);
-                if (champ == null) return NotFound("Campeon No Encontrado");
+                if (champ == null) return NotFound(new { message = "Campeon No Encontrado" });
                 return Ok(mapper.Map<LecturaCampeonDTO>(champ));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -63,13 +63,13 @@ namespace NascarPage.Controllers
             try
             {
                 var champ = await campeonService.GetCampeonYear(ChampYear);
-                if (champ == null) return NotFound("Campeon No Encontrado");
+                if (champ == null) return NotFound(new { message = "Campeon No Encontrado" });
                 return Ok(mapper.Map<LecturaCampeonDTO>(champ));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -78,9 +78,9 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (campeonDTO.AutoCampeon == null) return BadRequest("Imagen no cargada");
-                if (!await campeonService.ExistePiloto(campeonDTO.PilotoId)) return BadRequest("No existe el piloto");
-                if (!await campeonService.EsCampeon(campeonDTO.PilotoId)) return BadRequest("El piloto cargado no es Campeón");
+                if (campeonDTO.AutoCampeon == null) return BadRequest(new { message = "Imagen no cargada" });
+                if (!await campeonService.ExistePiloto(campeonDTO.PilotoId)) return BadRequest(new { message = "No existe el piloto" });
+                if (!await campeonService.EsCampeon(campeonDTO.PilotoId)) return BadRequest(new { message = "El piloto cargado no es Campeón" });
 
                 var campeon = mapper.Map<Campeon>(campeonDTO);
                 campeon.AutoCampeon = await filesService.GuardarImagen(contenedor, campeonDTO.AutoCampeon!);
@@ -91,7 +91,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -100,22 +100,27 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await campeonService.Existe(id)) return BadRequest("No existe el Campeon que desea modificar");
-                if (!await campeonService.ExistePiloto(campeonDTO.PilotoId)) return BadRequest($"El Piloto de id {id} no existe en la Base de Datos");
-                if (!await campeonService.EsCampeon(campeonDTO.PilotoId, 1)) return BadRequest("El Piloto no es campeon o ya fue registrado");
+                if (!await campeonService.Existe(id)) return BadRequest(new { message = "No existe el Campeon que desea modificar" });
+                if (!await campeonService.ExistePiloto(campeonDTO.PilotoId)) return BadRequest(new { message = $"El Piloto de id {id} no existe en la Base de Datos" });
+                if (!await campeonService.EsCampeon(campeonDTO.PilotoId)) return BadRequest(new { message = "El Piloto no es campeon o ya fue registrado" });
 
                 var campeonBD = await campeonService.GetCampeonId(id);
+                var idRespaldo = campeonBD!.Id;
+                var fotoRespaldo = campeonBD.AutoCampeon;
                 campeonBD = mapper.Map<Campeon>(campeonDTO);
                 if (campeonDTO.AutoCampeon is not null)
                     campeonBD.AutoCampeon = await filesService.Editar(campeonBD!.AutoCampeon, contenedor, campeonDTO.AutoCampeon!);
+                else
+                    campeonBD.AutoCampeon = fotoRespaldo;
 
+                campeonBD.Id = idRespaldo;
                 await campeonService.ModificarCampeon(campeonBD);
                 return NoContent();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -124,7 +129,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (patchDocument is null) return BadRequest("Error en el documento Patch");
+                if (patchDocument is null) return BadRequest(new { message = "Error en el documento Patch" });
 
                 var campeonBD = await campeonService.GetCampeonId(id);
                 if (campeonBD is null) return NotFound();
@@ -133,7 +138,7 @@ namespace NascarPage.Controllers
                 patchDocument.ApplyTo(campeonDTO, ModelState);
 
                 var esValido = TryValidateModel(campeonDTO);
-                if (!esValido) return BadRequest("Ingreso Datos erroneos del Campeon");
+                if (!esValido) return BadRequest(new { message = "Ingreso Datos erroneos del Campeon" });
 
                 var campeon = mapper.Map(campeonDTO, campeonBD);
                 await campeonService.ModificarCampeon(campeon);
@@ -142,7 +147,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -151,7 +156,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await campeonService.Existe(id)) return BadRequest("Este campeon no existe");
+                if (!await campeonService.Existe(id)) return BadRequest(new { message = "Este campeon no existe" });
                 var ruta = await campeonService.EliminarCampeon(id);
                 await filesService.Borrar(ruta, contenedor);
                 return NoContent();
@@ -159,7 +164,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
     }

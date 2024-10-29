@@ -555,6 +555,28 @@ namespace NascarPage.Migrations
                         });
                 });
 
+            modelBuilder.Entity("NascarPage.Entitys.Noticia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Detalles")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Foto")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Noticias");
+                });
+
             modelBuilder.Entity("NascarPage.Entitys.Piloto", b =>
                 {
                     b.Property<int>("Id")
@@ -1248,9 +1270,6 @@ namespace NascarPage.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Orden")
-                        .IsUnique();
 
                     b.ToTable("Pistas");
 

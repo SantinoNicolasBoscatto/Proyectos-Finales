@@ -10,7 +10,7 @@ namespace NascarPage.Repositorio
     {
         Task AgregarCampeon(Campeon campeon);
         Task<string> EliminarCampeon(int id);
-        Task<bool> EsCampeon(int? id, int discount = 0);
+        Task<bool> EsCampeon(int? id);
         Task<bool> Existe(int id);
         Task<bool> ExistePiloto(int? id);
         Task<List<Campeon>> GetCampeones(PaginacionDTO paginacionDTO);
@@ -31,7 +31,7 @@ namespace NascarPage.Repositorio
         }
         public async Task<List<Campeon>> GetCampeones(PaginacionDTO paginacionDTO)
         {
-            var query = negocio.Campeones.Include(x => x.Piloto).AsNoTracking().AsQueryable();
+            var query = negocio.Campeones.Include(x => x.Piloto).OrderByDescending(x => x.Year).AsNoTracking().AsQueryable();
             await httpContextAccessor.HttpContext!.InsertarCantidadPaginasCabecera(query, paginacionDTO.RecordsPorPagina);
             return await query.Paginar(paginacionDTO).ToListAsync();
         }
@@ -63,10 +63,10 @@ namespace NascarPage.Repositorio
 
         public async Task<bool> Existe(int id) => await negocio.Campeones.AnyAsync(x => x.Id == id);
         public async Task<bool> ExistePiloto(int? id) => await negocio.Pilotos.AnyAsync(x => x.Id == id);
-        public async Task<bool> EsCampeon(int? id, int discount = 0)
+        public async Task<bool> EsCampeon(int? id)
         {
             var count = negocio.Campeones.Where(x => x.PilotoId == id).Count();
-            return await negocio.Pilotos.AnyAsync(x => x.Id == id && x.Campeonatos > count - discount);
+            return await negocio.Pilotos.AnyAsync(x => x.Id == id && x.Campeonatos > count );
         }
 
     }

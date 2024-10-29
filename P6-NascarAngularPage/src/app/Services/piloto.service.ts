@@ -37,6 +37,11 @@ export class PilotoService implements IServicioCRUD<LecturaPilotoDTO, CrearPilot
     return this.httpClient.delete(`${this.urlBase}/${id}`)
   }
 
+
+  public prevNext(id: number) : Observable<any> {
+    return this.httpClient.get<any>(`${this.urlBase}/prevnext/${id}`);
+  }
+ 
   private construirFormData(pilotoDTO: CrearPilotoDTO): FormData{
     const formData = new FormData();
     formData.append('nombre', pilotoDTO.nombre!);

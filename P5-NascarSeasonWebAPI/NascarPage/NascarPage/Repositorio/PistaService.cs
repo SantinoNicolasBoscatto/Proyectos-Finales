@@ -13,6 +13,7 @@ namespace NascarPage.Repositorio
         Task<bool> ExisteEnCalendario(int id);
         Task<bool> ExisteFecha(int? orden);
         Task<bool> ExisteFueraEnCalendario(int id);
+        Task<Calendario?> GetCalendario();
         Task<Pista?> GetPistaId(int id);
         Task<Pista?> GetPistaOrden(int Orden);
         Task<List<Pista>> GetPistas(bool calendario);
@@ -44,6 +45,11 @@ namespace NascarPage.Repositorio
             return await negocio.Pistas.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<Calendario?> GetCalendario()
+        {
+            return await negocio.Calendario.AsNoTracking().FirstOrDefaultAsync();
+        }
+
         public async Task<Pista?> GetPistaOrden(int Orden)
         {
             return await negocio.Pistas.AsNoTracking().FirstOrDefaultAsync(x => x.Orden == Orden);
@@ -59,13 +65,13 @@ namespace NascarPage.Repositorio
         public async Task ModificarPista(Pista pista)
         {
             negocio.Update(pista);
-            if (pista.EnElCalendario == false) pista.Orden = null;
-            else if(pista.Orden == null)
-            {
-                var maxOrd = await negocio.Pistas.Where(x => x.EnElCalendario == true).OrderByDescending(x => x.Orden).FirstOrDefaultAsync();
-                if (maxOrd is null) pista.Orden = 1;
-                else pista.Orden = maxOrd.Orden + 1;
-            }
+            //if (pista.EnElCalendario == false) pista.Orden = null;
+            //else if(pista.Orden == null)
+            //{
+            //    var maxOrd = await negocio.Pistas.Where(x => x.EnElCalendario == true).OrderByDescending(x => x.Orden).FirstOrDefaultAsync();
+            //    if (maxOrd is null) pista.Orden = 1;
+            //    else pista.Orden = maxOrd.Orden + 1;
+            //}
             await negocio.SaveChangesAsync();
         }
 

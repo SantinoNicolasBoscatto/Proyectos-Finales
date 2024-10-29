@@ -29,19 +29,19 @@ namespace NascarPage.Repositorio
 
         public  async Task<List<Galeria>> GetFotos(PaginacionDTO paginacionDTO)
         {
-            var query = negocio.Galeria.AsQueryable();
+            var query = negocio.Galeria.AsNoTracking().AsQueryable();
             await httpContextAccessor.HttpContext!.InsertarCantidadPaginasCabecera(query, paginacionDTO.RecordsPorPagina);
             return await query.Paginar(paginacionDTO).ToListAsync();
         }
 
         public async Task<Galeria?> GetFotosPorId(int id)
         {
-            return await negocio.Galeria.FirstOrDefaultAsync(x => x.Id == id);
+            return await negocio.Galeria.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Galeria?> GetFotosPorRonda(int ronda)
         {
-            return await negocio.Galeria.FirstOrDefaultAsync(x => x.Ronda == ronda);
+            return await negocio.Galeria.AsNoTracking().FirstOrDefaultAsync(x => x.Ronda == ronda);
         }
 
         public async Task AgregarGaleria(Galeria galeria)

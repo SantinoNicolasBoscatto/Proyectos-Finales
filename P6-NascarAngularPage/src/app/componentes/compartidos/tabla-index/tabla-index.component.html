@@ -57,6 +57,12 @@
               </td>
           </ng-container>
           }
+          @else if (col === "distancia") {
+            <ng-container [matColumnDef]="col">
+              <th mat-header-cell *matHeaderCellDef> {{PrimeraLetraMayuscula(col)}} </th>
+              <td mat-cell *matCellDef="let element" style="font-size: 12px; font-weight: bold;"> {{convertirComa(element[col])}} Km </td>
+            </ng-container>
+          }
           @else { 
             <ng-container [matColumnDef]="col">
               <th mat-header-cell *matHeaderCellDef> {{PrimeraLetraMayuscula(col)}} </th>

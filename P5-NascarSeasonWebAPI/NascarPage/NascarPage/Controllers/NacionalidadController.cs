@@ -38,23 +38,22 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
-
         [HttpGet("{id:int}", Name = "NacionPorId")]
         public async Task<ActionResult<LecturaNacionalidadDTO>> GetPorId(int id)
         {
             try
             {
                 var nacion = await nacionalidadService.GetNacionalidadPorId(id);
-                if (nacion == null) return NotFound("Nacionalidad No Encontrada");
+                if (nacion == null) return NotFound(new { message = "Nacionalidad No Encontrada" });
                 return Ok(mapper.Map<LecturaNacionalidadDTO>(nacion));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -63,7 +62,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (nacionDTO.Bandera == null ) BadRequest("Imagen no cargada");
+                if (nacionDTO.Bandera == null ) BadRequest(new { message = "Imagen no cargada" });
 
                 var nacion = mapper.Map<Nacionalidad>(nacionDTO);
                 nacion.Bandera = await filesService.GuardarImagen(contenedor, nacionDTO.Bandera!);
@@ -74,7 +73,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -83,20 +82,25 @@ namespace NascarPage.Controllers
         {
             try
             {            
-                if (!await nacionalidadService.Existe(id)) return BadRequest("No existe el auto que desea modificar");
+                if (!await nacionalidadService.Existe(id)) return BadRequest(new { message = "No existe el auto que desea modificar" });
 
                 var nacionBD = await nacionalidadService.GetNacionalidadPorId(id);
+                var banderaRespaldo = nacionBD!.Bandera;
+                var idRespaldo = nacionBD!.Id;
                 nacionBD = mapper.Map<Nacionalidad>(nacionDTO);
                 if (nacionDTO.Bandera is not null)
                     nacionBD.Bandera = await filesService.Editar(nacionBD!.Bandera, contenedor, nacionDTO.Bandera!);
+                else
+                    nacionBD.Bandera = banderaRespaldo;
 
+                nacionBD.Id = idRespaldo;
                 await nacionalidadService.ModificarNacionalidad(nacionBD);
                 return NoContent();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -105,19 +109,19 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await nacionalidadService.Existe(id)) return BadRequest("La nacionalidad a borrar no existe");
+                if (!await nacionalidadService.Existe(id)) return BadRequest(new { message = "La nacionalidad a borrar no existe" });
                 var ruta = await nacionalidadService.EliminarNacionalidad(id);
                 await filesService.Borrar(ruta, contenedor);
                 return NoContent();
             }
             catch(Microsoft.EntityFrameworkCore.DbUpdateException)
             {
-                return BadRequest("Ha ocurrido un error en la peticion, la nacionalidad que quiere borrar tiene pilotos asociados");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, la nacionalidad que quiere borrar tiene pilotos asociados" });
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 

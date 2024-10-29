@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NascarPage.Entitys;
-using NascarPage.Seeding;
 using System.Reflection;
 
 namespace NascarPage
@@ -14,13 +13,6 @@ namespace NascarPage
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-
-            Seeding.Seeding.CrearNacionalidad(modelBuilder.Entity<Nacionalidad>());
-            Seeding.Seeding.CrearMarcas(modelBuilder.Entity<Marca>());
-            Seeding.Seeding.CrearPilotos(modelBuilder.Entity<Piloto>());
-            Seeding.Seeding.CrearAutos(modelBuilder.Entity<Auto>());
-            Seeding.Seeding.CrearPista(modelBuilder.Entity<Pista>());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -40,5 +32,6 @@ namespace NascarPage
         public DbSet<Calendario> Calendario { get; set; }
         public DbSet<Nacionalidad> Nacionalidades { get; set; }
         public DbSet<Galeria> Galeria { get; set; }
+        public DbSet<Noticia> Noticias { get; set; }
     }
 }

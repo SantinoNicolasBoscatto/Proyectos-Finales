@@ -6,7 +6,7 @@ namespace NascarPage.Repositorio
     public interface IAutoService
     {
         Task AgregarAuto(Auto auto);
-        Task<string> EliminarAuto(int id);
+        Task<string?> EliminarAuto(int id);
         Task<bool> Existe(int id); 
         Task<bool> ExisteMarca(int id);
         Task<bool> ExistePiloto(int? id);
@@ -23,8 +23,8 @@ namespace NascarPage.Repositorio
         {
             this.negocio = negocio;
         }
-        public async Task<List<Auto>> GetAutos() => await negocio.Autos.AsNoTracking().ToListAsync();
-        public async Task<Auto?> GetAutoId(int id) => await negocio.Autos.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<List<Auto>> GetAutos() => await negocio.Autos.Include(x => x.Marca).Include(x => x.Piloto).AsNoTracking().ToListAsync();
+        public async Task<Auto?> GetAutoId(int id) => await negocio.Autos.Include(x => x.Marca).Include(x => x.Piloto).AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task AgregarAuto(Auto auto)
         {
@@ -38,9 +38,10 @@ namespace NascarPage.Repositorio
             await negocio.SaveChangesAsync();
         }
 
-        public async Task<string> EliminarAuto(int id)
+        public async Task<string?> EliminarAuto(int id)
         {
-            var autoBD = await negocio.Autos.Where(x => x.Id == id).FirstAsync();
+            var autoBD = await negocio.Autos.FirstOrDefaultAsync(x => x.Id == id);
+            if (autoBD == null) return null;
             var URL = autoBD.Foto;
             negocio.Remove(autoBD);
             await negocio.SaveChangesAsync();

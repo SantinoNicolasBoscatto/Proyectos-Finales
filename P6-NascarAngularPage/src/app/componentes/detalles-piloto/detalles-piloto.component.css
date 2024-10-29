@@ -31,4 +31,9 @@ h5{
     top: 0;
     bottom: 0;
     left: calc(49.5%);
+    width: auto;
+}
+
+.button-prevnext:hover{
+    opacity: 0.7;
 }

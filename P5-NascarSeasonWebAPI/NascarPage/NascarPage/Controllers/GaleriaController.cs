@@ -38,7 +38,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
         [HttpGet("ronda/{ronda:int}", Name = "RondaFotosPorRonda")]
@@ -47,13 +47,13 @@ namespace NascarPage.Controllers
             try
             {
                 var rondaFotos = await galeriaService.GetFotosPorRonda(ronda);
-                if (rondaFotos == null) return NotFound("No hay fotos en esta ronda del campeonato No Encontrada");
+                if (rondaFotos == null) return NotFound(new { message = "No hay fotos en esta ronda del campeonato No Encontrada" });
                 return Ok(mapper.Map<LecturaGaleriaDTO>(rondaFotos));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
         [HttpGet("{id:int}", Name = "RondaFotosPorId")]
@@ -62,13 +62,13 @@ namespace NascarPage.Controllers
             try
             {
                 var rondaFotos = await galeriaService.GetFotosPorId(id);
-                if (rondaFotos == null) return NotFound($"No hay fotos relacionadas al id {id}");
+                if (rondaFotos == null) return NotFound(new { message = $"No hay fotos relacionadas al id {id}" });
                 return Ok(mapper.Map<LecturaGaleriaDTO>(rondaFotos));
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Estamos teniendo inconvenientes tecnicos");
+                return BadRequest(new { message = "Estamos teniendo inconvenientes tecnicos" });
             }
         }
 
@@ -77,7 +77,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (galeriaDTO.FotoUno == null || galeriaDTO.FotoDos == null || galeriaDTO.FotoTres == null) BadRequest("Imagen no cargada");
+                if (galeriaDTO.FotoUno == null || galeriaDTO.FotoDos == null || galeriaDTO.FotoTres == null) BadRequest(new { message = "Imagen no cargada" });
 
                 var galeria = mapper.Map<Galeria>(galeriaDTO);
                 galeria.FotoUno = await filesService.GuardarImagen(contenedor, galeriaDTO.FotoUno!);
@@ -91,7 +91,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -100,21 +100,28 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await galeriaService.Existe(id)) return BadRequest("No existe la galeria que desea modificar");
+                if (!await galeriaService.Existe(id)) return BadRequest(new { message = "No existe la galeria que desea modificar" });
 
                 var galeriaBD = await galeriaService.GetFotosPorId(id);
+                var idRespaldo = galeriaBD!.Id;
+                string[] respaldoFotos = { galeriaBD.FotoUno, galeriaBD.FotoDos, galeriaBD.FotoTres };
+
                 galeriaBD = mapper.Map<Galeria>(galeriaDTO);
                 if (galeriaDTO.FotoUno is not null) galeriaBD.FotoUno = await filesService.Editar(galeriaBD!.FotoUno, contenedor, galeriaDTO.FotoUno!);
+                else galeriaBD.FotoUno = respaldoFotos[0];
                 if (galeriaDTO.FotoDos is not null) galeriaBD.FotoDos = await filesService.Editar(galeriaBD!.FotoDos, contenedor, galeriaDTO.FotoDos!);
+                else galeriaBD.FotoDos = respaldoFotos[1];
                 if (galeriaDTO.FotoTres is not null) galeriaBD.FotoTres = await filesService.Editar(galeriaBD!.FotoTres, contenedor, galeriaDTO.FotoTres!);
+                else galeriaBD.FotoTres = respaldoFotos[2];
 
+                galeriaBD.Id = idRespaldo;
                 await galeriaService.ModificarGaleria(galeriaBD);
                 return NoContent();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
 
@@ -123,7 +130,7 @@ namespace NascarPage.Controllers
         {
             try
             {
-                if (!await galeriaService.Existe(id)) return BadRequest("La galeria a borrar no existe");
+                if (!await galeriaService.Existe(id)) return BadRequest(new { message = "La galeria a borrar no existe" });
                 var ruta = await galeriaService.Eliminar(id);
                 await filesService.Borrar(ruta.Item1, contenedor);
                 await filesService.Borrar(ruta.Item2, contenedor);
@@ -133,7 +140,7 @@ namespace NascarPage.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar");
+                return BadRequest(new { message = "Ha ocurrido un error en la peticion, porfavor revise los datos y vuelva a intentar" });
             }
         }
     }

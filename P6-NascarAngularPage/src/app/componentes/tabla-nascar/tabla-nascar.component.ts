@@ -25,20 +25,23 @@ export class TablaNascarComponent {
     return cadena.charAt(0).toUpperCase() + cadena.slice(1);
   }
   verificarClasificado(position: LecturaPlayoffDTO, fecha: number){
-    if(fecha < 27){
+    if(fecha < 28){
       if(position.clasificado16avos) return "Win";
       return position.behindPlayoff;
     }
-    else if(fecha < 30){
+    else if(fecha < 31){
       if(position.clasificado12avos) return "Win";
       return position.behindPlayoff;
     }
-    else if(fecha < 33){
+    else if(fecha < 34){
       if(position.clasificado8avos) return "Win";
       return position.behindPlayoff;
     }
-    else{
+    else if(fecha < 37){
       if(position.clasificadoFinal4) return "Win";
+      return position.behindPlayoff;
+    }
+    else{
       return position.behindPlayoff;
     }
   }

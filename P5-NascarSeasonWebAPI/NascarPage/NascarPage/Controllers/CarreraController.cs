@@ -28,7 +28,7 @@ namespace NascarPage.Controllers
         public async Task<ActionResult<List<LecturaCarreraDTO>>> GetCarrera(int id)
         {
             List<Carrera> list = await carreraService.GetCarrera(id);
-            if (list.Count == 0 || list == null) return NotFound("Carrera no encontrada");
+            if (list.Count == 0 || list == null) return NotFound(new { message = "Carrera no encontrada" });
             return Ok(mapper.Map<List<LecturaCarreraDTO>>(list));
         }
         [HttpPost]
@@ -45,21 +45,18 @@ namespace NascarPage.Controllers
             var list = mapper.Map<List<LecturaRegularDTO>>(await tablaService.GetTablaRegular());
             return Ok(list);
         }
-
         [HttpGet("TablaPosicionesPlayoff")]
         public async Task<ActionResult<List<LecturaPlayoffDTO>>> GetCampeonatoPlayoff()
         {
             var list = mapper.Map<List<LecturaPlayoffDTO>>(await tablaService.GetTablaPlayOff());
             return Ok(list);
         }
-
         [HttpGet("TablaPosicionesPlayoffReducida")]
         public async Task<ActionResult<List<LecturaPlayoffDTO>>> GetCampeonatoPlayoffReducido()
         {
             var list = mapper.Map<List<LecturaPlayoffDTO>>(await tablaService.GetTablaPlayOffReducida());
             return Ok(list);
         }
-
         [HttpGet("TablaPosicionesManofactura")]
         public async Task<ActionResult<List<LecturaManofacturaDTO>>> GetCampeonatoManofactura()
         {
@@ -71,14 +68,14 @@ namespace NascarPage.Controllers
         public async Task<ActionResult> ReiniciarTemporada()
         {
             try
-            {
+            {       
                 await tablaService.ReiniciarTablasyCarreras();
                 return Ok();
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.Message, ex);
-                return BadRequest("Un Error ha ocurrido");
+                return BadRequest(new { message = "Un Error ha ocurrido" });
             }
         }
     }

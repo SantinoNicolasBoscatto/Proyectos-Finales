@@ -14,6 +14,10 @@ namespace NascarPage.DTOs
         [Required]
         public int Poles { get; set; }
         [Required]
+        public int Top5s { get; set; }
+        [Required]
+        public int Top10s { get; set; }
+        [Required]
         public int Campeonatos { get; set; }
         [Required]
         public bool EnActivo { get; set; }

@@ -41,6 +41,10 @@ export class TablaIndexComponent<LecturaDTO, CreacionDTO> implements OnInit{
     return cadena.charAt(0).toUpperCase() + cadena.slice(1);
   }
 
+  convertirComa(valor: string): string {
+    return valor.replace('.', ',');
+  }
+
   cargarRegistros(){
     this.servicioCRUD.cargarRegistros().subscribe({
       next: (res: any[])=>{

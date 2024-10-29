@@ -1,20 +1,20 @@
 <div class="row row-cols-1 row-cols-md-2 g-4 mb-3">
   <div class="col-2"></div>
-  <div class="col-8">
+  <div class="col-sm-8">
     <div class="card mb-1" style="max-width: 100%;">
       <div class="row g-0">
-          <div class="col-md-6">
-              <img [src]="pilotoDTO.fotoPiloto" class="img-fluid rounded-start" alt="..." class="driverImg">
+          <div class="col-6">
+              <img [src]="pilotoDTO.fotoPiloto"  alt="..." class="driverImg" style="width: 100%; height: 100%;">
               <img src="/NumberFonts/{{pilotoDTO.numero}}.png" alt="" style="position: absolute; object-fit: contain; left: 0;" width="55" height="55">
           </div>
-          <div class="col-md-6">
+          <div class="col-6">
             <img [src]="pilotoDTO.nacionalidad.bandera?pilotoDTO.nacionalidad.bandera : 
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8bikI-KUuM1IWosgqDRS5jyv2U_PPYlG6Tg&s'" class="img-fluid rounded-start" alt="..."
-            style="width: 100%; height: 100%; object-fit: cover;">
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8bikI-KUuM1IWosgqDRS5jyv2U_PPYlG6Tg&s'" alt="..."
+            style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 50;">
           </div>
       </div>
     </div>
-      <div class="card">
+      <div class="card mb-3">
         <div class="card-body" style="outline: solid 3px black">
           <div class="row" >
             <div class="col-6">
@@ -27,7 +27,7 @@
                 <li>Championships: <strong>{{pilotoDTO.campeonatos}}</strong></li>
               </ul>
             </div>
-            <div class="verticalLine">
+            <div class="verticalLine" style="max-width: 100%;">
             </div>
             <div class="col-6">
               <h5 class="card-title">Biography</h5>
@@ -38,10 +38,17 @@
           </div>          
         </div>
       </div>
+      <div class="d-flex justify-content-center" style="min-width: 320px;">
+        <img [src]="pilotoDTO.auto.foto? pilotoDTO.auto.foto: 'Auto.png'" alt="" class="w-100" style="min-width: 320px; border-radius: 5px;">
+      </div>
   </div>
   <div class="col-2"></div>
 </div> 
-<div class="d-flex justify-content-center">
+
+<div class="d-flex justify-content-evenly mt-4">
+  <a mat-flat-button (click)="changeDriver(prev)"  class="button-prevnext"
+   style="background-color: white; color: black;">Prev</a>
   <a mat-flat-button color="warn" routerLink="/pilotos">Volver</a>
+  <a mat-flat-button (click)="changeDriver(next)" class="button-prevnext" style="background-color: white; color: black;">Next</a>
 </div>
 <br><br><br><br>

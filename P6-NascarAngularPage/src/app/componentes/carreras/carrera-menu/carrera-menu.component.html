@@ -1,15 +1,23 @@
 <div class="d-flex justify-content-center text-white">
     <div class="MyCard d-flex justify-content-center m-1">
         <div class="overlay-container">
-            <img src="/Common/Form/Auto.png" class="img-fluid">
+            <img src="/Common/Form/Campeon-Index.png" class="img-fluid">
             <div class="overlay" (click)="seleccionar.click()">
-                <h5>Agregar Carrera</h5>
+                <h5 style="text-align: center;">Agregar Carrera Modo Campeonato</h5>
+            </div>
+        </div>
+    </div>
+    <div class="MyCard d-flex justify-content-center m-1">
+        <div class="overlay-container">
+            <img src="/Common/Form/AddRace.jpg" class="img-fluid">
+            <div class="overlay" (click)="seleccionarTablas.click()">
+                <h5 style="text-align: center;">Agregar Carrera Modo Weekend</h5>
             </div>
         </div>
     </div>  
     <div class="MyCard d-flex justify-content-center m-1">
         <div class="overlay-container">
-            <img src="/Common/Form/Auto.png" class="img-fluid">
+            <img src="/Common/Form/Preseason.jpg" class="img-fluid">
             <div class="overlay" [swal]="{title: 'Confirmacion', text: 'Desea reiniciar la temporada?', showCancelButton: true}" (confirm)="showAlert()">
                 <h5>Reiniciar Temporada</h5>
             </div>
@@ -25,3 +33,4 @@
 <app-errores-mostrar [listaErrores]="errores" [MensajeError]="msgBase"></app-errores-mostrar>
 }
 <input hidden type="file" accept=".html" (change)="onFileSelected($event)" #seleccionar>
+<input hidden type="file" accept=".html" (change)="onFileSelectedTables($event)" #seleccionarTablas>

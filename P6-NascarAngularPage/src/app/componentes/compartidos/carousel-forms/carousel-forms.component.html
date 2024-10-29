@@ -3,7 +3,7 @@
     <div class="row g-2 justify-content-center">
         @for (item of FormMenuData; track $index) {
             <div class="MyCard col-sm-3 d-flex justify-content-center m-1">
-                <div class="overlay-container">
+                <div class="overlay-container" style="min-height: 150px;">
                     <img ngSrc="/Common/Form/{{item.foto}}" alt="{{item.nombre}}" class="img-fluid" width="320" height="200">
                     <div class="overlay" routerLink="{{Titulo.toLocaleLowerCase()}}/{{item.nombre.toLocaleLowerCase()}}">
                         <h5>{{item.nombre}}</h5>

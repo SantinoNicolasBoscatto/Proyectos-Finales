@@ -22,8 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd)=>{
-      this.showFooter = !event.urlAfterRedirects.startsWith('/formularios');
-    })
+      this.showFooter = !event.urlAfterRedirects.startsWith('/formularios') && !event.urlAfterRedirects.startsWith('/pilotos');
+        })
     this.checkScroll();
   }
   ngOnDestroy() {
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
       if(footer !== null && footer !== undefined){
         const scrollPosition = window.scrollY + window.innerHeight;
         const maxScroll = document.documentElement.scrollHeight;
-        if (maxScroll - scrollPosition > 15) {
+        if (maxScroll - scrollPosition > 1) {
           this.renderer.addClass(footer, 'hidden'); // Añade la clase 'hidden' para ocultar el footer
         } else {
           this.renderer.removeClass(footer, 'hidden'); // Remueve la clase 'hidden' para mostrar el footer

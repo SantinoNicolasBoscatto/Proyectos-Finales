@@ -64,29 +64,45 @@ namespace NascarPage.Repositorio
         {
             List<PosicionPlayoff> list = new List<PosicionPlayoff>();
             var fecha = await negocio.Calendario.Select(x => x.EventoActual).FirstAsync();
-            if (fecha < 27)
+            if (fecha < 28)
             {
                 list = await negocio.TablaPosicionesPlayoff.Include(x => x.Piloto).Include(x => x.Marca)
                         .OrderByDescending(x => x.Clasificado16avos)
-                        .ThenByDescending(x => x.PuntosPlayoff).Take(20).ToListAsync();
+                        .ThenByDescending(x => x.PuntosPlayoff)
+                        .ThenByDescending(x => x.Regular.Wins)
+                        .ThenByDescending(x => x.Regular.Top5s)
+                        .ThenByDescending(x => x.Regular.Top10s)
+                        .Take(20).ToListAsync();
             }
-            else if (fecha >= 27 && fecha <= 29)
+            else if (fecha >= 27 && fecha <= 30)
             {
                 list = await negocio.TablaPosicionesPlayoff.Include(x => x.Piloto).Include(x => x.Marca)
                         .OrderByDescending(x => x.Clasificado12avos)
-                        .ThenByDescending(x => x.PuntosPlayoff).Take(16).ToListAsync();
+                        .ThenByDescending(x => x.PuntosPlayoff)
+                        .ThenByDescending(x => x.Regular.Wins)
+                        .ThenByDescending(x => x.Regular.Top5s)
+                        .ThenByDescending(x => x.Regular.Top10s)
+                        .Take(16).ToListAsync();
             }
-            else if (fecha >= 30 && fecha <= 32)
+            else if (fecha >= 30 && fecha <= 33)
             {
                 list = await negocio.TablaPosicionesPlayoff.Include(x => x.Piloto).Include(x => x.Marca)
                         .OrderByDescending(x => x.Clasificado8avos)
-                        .ThenByDescending(x => x.PuntosPlayoff).Take(12).ToListAsync();
+                        .ThenByDescending(x => x.PuntosPlayoff)
+                        .ThenByDescending(x => x.Regular.Wins)
+                        .ThenByDescending(x => x.Regular.Top5s)
+                        .ThenByDescending(x => x.Regular.Top10s)
+                        .Take(12).ToListAsync();
             }
-            else if (fecha >= 33 && fecha <= 35)
+            else if (fecha >= 33 && fecha <= 36)
             {
                 list = await negocio.TablaPosicionesPlayoff.Include(x => x.Piloto).Include(x => x.Marca)
                         .OrderByDescending(x => x.ClasificadoFinal4)
-                        .ThenByDescending(x => x.PuntosPlayoff).Take(8).ToListAsync();
+                        .ThenByDescending(x => x.PuntosPlayoff)
+                        .ThenByDescending(x => x.Regular.Wins)
+                        .ThenByDescending(x => x.Regular.Top5s)
+                        .ThenByDescending(x => x.Regular.Top10s)
+                        .Take(8).ToListAsync();
             }
             else
             {
@@ -117,8 +133,16 @@ namespace NascarPage.Repositorio
 
             var borrarCalendario = await negocio.Calendario.FirstOrDefaultAsync();
             if(borrarCalendario != null)negocio.Remove(borrarCalendario);
+            var listaPistasDisputadas = await negocio.Pistas.Where(x => x.Disputada == true).ToListAsync();
+            foreach (var item in listaPistasDisputadas)
+            {
+                item.Disputada = false;
+            }
             await negocio.SaveChangesAsync();
-            var list = await negocio.Pilotos.Where(x => x.EnActivo == true).Select(x => new
+
+
+            var list = await negocio.Pilotos.Include(x => x.Auto)
+                .Where(x =>x.Auto != null && x.EnActivo == true).Select(x => new
             {
                 Id = x.Id,
                 MarcaId = x.Auto.MarcaId

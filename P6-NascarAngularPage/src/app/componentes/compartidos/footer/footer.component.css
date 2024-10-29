@@ -20,7 +20,7 @@ footer.hidden {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 13px 0;
 }
 .footerContent img {
     max-width: 150px; 

@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(opt => opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
 .AddNewtonsoftJson();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 var origenesPermitidos = builder.Configuration.GetValue<string>("Origenes")!;
 builder.Services.AddCors(options =>
 {
@@ -34,6 +33,7 @@ builder.Services.AddScoped<ICarreraService, CarreraService>();
 builder.Services.AddScoped<ITablaService, TablasService>();
 builder.Services.AddScoped<INacionalidadService, NacionalidadService>();
 builder.Services.AddScoped<IGaleriaService, GaleriaService>();
+builder.Services.AddScoped<INoticiaService, NoticiaService>();
 builder.Services.AddScoped<IFilesService, FilesService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(Program));
@@ -46,11 +46,8 @@ var app = builder.Build();
 app.UseCors();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthorization();
