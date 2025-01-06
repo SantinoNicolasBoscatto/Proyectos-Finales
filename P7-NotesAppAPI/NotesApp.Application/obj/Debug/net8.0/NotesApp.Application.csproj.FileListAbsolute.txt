@@ -1,0 +1,15 @@
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.csproj.AssemblyReference.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.AssemblyInfo.cs
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\bin\Debug\net8.0\NotesApp.Application.deps.json
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\bin\Debug\net8.0\NotesApp.Application.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\bin\Debug\net8.0\NotesApp.Application.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\bin\Debug\net8.0\NotesApp.Domain.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\bin\Debug\net8.0\NotesApp.Domain.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.BC6A68C8.Up2Date
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\refint\NotesApp.Application.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\NotesApp.Application.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Application\obj\Debug\net8.0\ref\NotesApp.Application.dll

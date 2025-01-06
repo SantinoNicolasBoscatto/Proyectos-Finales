@@ -1,0 +1,11 @@
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\bin\Release\net8.0\NotesApp.Models.deps.json
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\bin\Release\net8.0\NotesApp.Models.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\bin\Release\net8.0\NotesApp.Models.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.AssemblyInfo.cs
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\refint\NotesApp.Models.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\NotesApp.Models.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Models\obj\Release\net8.0\ref\NotesApp.Models.dll

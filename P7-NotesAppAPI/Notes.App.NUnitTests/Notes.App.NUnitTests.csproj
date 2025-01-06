@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.18.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="NUnit" Version="4.2.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NotesApp.Application\NotesApp.Application.csproj" />
+    <ProjectReference Include="..\NotesApp.Data\NotesApp.Data.csproj" />
+    <ProjectReference Include="..\NotesApp.Domain\NotesApp.Domain.csproj" />
+    <ProjectReference Include="..\NotesApp.Mapper\NotesApp.Mapper.csproj" />
+    <ProjectReference Include="..\NotesApp.Models\NotesApp.Models.csproj" />
+    <ProjectReference Include="..\NotesApp.PresentationController\NotesApp.PresentationController.csproj" />
+    <ProjectReference Include="..\NotesApp.Repository\NotesApp.Repository.csproj" />
+    <ProjectReference Include="..\NotesApp.Security\NotesApp.Security.csproj" />
+  </ItemGroup>
+
+</Project>

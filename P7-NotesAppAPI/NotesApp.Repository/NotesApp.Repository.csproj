@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NotesApp.Application\NotesApp.Application.csproj" />
+    <ProjectReference Include="..\NotesApp.Data\NotesApp.Data.csproj" />
+    <ProjectReference Include="..\NotesApp.Domain\NotesApp.Domain.csproj" />
+    <ProjectReference Include="..\NotesApp.Mapper\NotesApp.Mapper.csproj" />
+    <ProjectReference Include="..\NotesApp.Security\NotesApp.Security.csproj" />
+  </ItemGroup>
+
+</Project>

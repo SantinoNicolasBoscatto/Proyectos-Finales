@@ -1,0 +1,6 @@
+@NotesApp.PresentationController_HostAddress = http://localhost:5082
+
+GET {{NotesApp.PresentationController_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

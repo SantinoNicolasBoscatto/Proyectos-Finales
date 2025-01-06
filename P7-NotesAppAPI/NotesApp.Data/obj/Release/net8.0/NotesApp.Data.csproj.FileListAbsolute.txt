@@ -1,0 +1,17 @@
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Data.deps.json
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Data.runtimeconfig.json
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Data.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Data.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Models.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\bin\Release\net8.0\NotesApp.Models.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.csproj.AssemblyReference.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.AssemblyInfo.cs
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.2400AB55.Up2Date
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\refint\NotesApp.Data.dll
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.pdb
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\NotesApp.Data.genruntimeconfig.cache
+C:\Users\Santino\source\repos\NotesApp\NotesApp.Data\obj\Release\net8.0\ref\NotesApp.Data.dll
