@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Z4mg+6jDsmYlNJ3JHIAmJ2KHGWMkdZr0cmmI5RA/Zm4=",
+  "Source": "PruebaMicroservicios.ApiGateway",
+  "BasePath": "_content/PruebaMicroservicios.ApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

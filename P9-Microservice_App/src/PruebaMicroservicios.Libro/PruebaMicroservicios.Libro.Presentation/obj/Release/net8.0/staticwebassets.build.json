@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "muSVYgi7k+TZJW2pr9lYwlWmWCUVHwii+sYeEQcwlro=",
+  "Source": "PruebaMicroservicios.Libro.Presentation",
+  "BasePath": "_content/PruebaMicroservicios.Libro.Presentation",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

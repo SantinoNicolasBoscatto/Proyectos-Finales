@@ -1,0 +1,11 @@
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\bin\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.deps.json
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\bin\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\bin\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.AssemblyInfo.cs
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\refint\PruebaMicroservicios.Libro.Infrastructure.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\PruebaMicroservicios.Libro.Infrastructure.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Libro\PruebaMicroservicios.Libro.Infrastructure\obj\Release\net8.0\ref\PruebaMicroservicios.Libro.Infrastructure.dll

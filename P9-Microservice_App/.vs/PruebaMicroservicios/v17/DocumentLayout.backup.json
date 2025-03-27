@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76DCCB96-D1A6-41A0-9CED-23BB0947B464}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\PruebaMicroservicios.Libro.Presentation.csproj|c:\\users\\santino\\source\\repos\\pruebamicroservicios\\src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76DCCB96-D1A6-41A0-9CED-23BB0947B464}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\PruebaMicroservicios.Libro.Presentation.csproj|solutionrelative:src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87EBCFB2-2C40-46A4-8002-FE761CA6F7AD}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\PruebaMicroservicios.Libro.Infrastructure.csproj|c:\\users\\santino\\source\\repos\\pruebamicroservicios\\src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.infrastructure\\integrationevents\\testeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87EBCFB2-2C40-46A4-8002-FE761CA6F7AD}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\PruebaMicroservicios.Libro.Infrastructure.csproj|solutionrelative:src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.infrastructure\\integrationevents\\testeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87EBCFB2-2C40-46A4-8002-FE761CA6F7AD}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\PruebaMicroservicios.Libro.Infrastructure.csproj|c:\\users\\santino\\source\\repos\\pruebamicroservicios\\src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.infrastructure\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87EBCFB2-2C40-46A4-8002-FE761CA6F7AD}|src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\PruebaMicroservicios.Libro.Infrastructure.csproj|solutionrelative:src\\pruebamicroservicios.libro\\pruebamicroservicios.libro.infrastructure\\infrastructureservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C54281AA-D3C8-4256-BB01-03F1FCFA9BC9}|src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\PruebaMicroservicios.Autor.Application.csproj|c:\\users\\santino\\source\\repos\\pruebamicroservicios\\src\\pruebamicroservicios.autor\\pruebamicroservicios.autor.application\\usecases\\features\\autors\\queries\\getallautors\\getallautorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C54281AA-D3C8-4256-BB01-03F1FCFA9BC9}|src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\PruebaMicroservicios.Autor.Application.csproj|solutionrelative:src\\pruebamicroservicios.autor\\pruebamicroservicios.autor.application\\usecases\\features\\autors\\queries\\getallautors\\getallautorsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetAllAutorsQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\UseCases\\Features\\Autors\\Queries\\GetAllAutors\\GetAllAutorsQueryHandler.cs",
+              "RelativeDocumentMoniker": "src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\UseCases\\Features\\Autors\\Queries\\GetAllAutors\\GetAllAutorsQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\UseCases\\Features\\Autors\\Queries\\GetAllAutors\\GetAllAutorsQueryHandler.cs",
+              "RelativeToolTip": "src\\PruebaMicroservicios.Autor\\PruebaMicroservicios.Autor.Application\\UseCases\\Features\\Autors\\Queries\\GetAllAutors\\GetAllAutorsQueryHandler.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:45:31.539Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestEventHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\IntegrationEvents\\TestEventHandler.cs",
+              "RelativeDocumentMoniker": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\IntegrationEvents\\TestEventHandler.cs",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\IntegrationEvents\\TestEventHandler.cs",
+              "RelativeToolTip": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\IntegrationEvents\\TestEventHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:49:53.178Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\Program.cs",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\Program.cs",
+              "RelativeToolTip": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Presentation\\Program.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:50:41.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InfrastructureServices.cs",
+              "DocumentMoniker": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\InfrastructureServices.cs",
+              "RelativeDocumentMoniker": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\InfrastructureServices.cs",
+              "ToolTip": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\InfrastructureServices.cs",
+              "RelativeToolTip": "src\\PruebaMicroservicios.Libro\\PruebaMicroservicios.Libro.Infrastructure\\InfrastructureServices.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T03:49:59.954Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

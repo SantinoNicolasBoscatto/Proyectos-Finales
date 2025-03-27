@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Santino\\Desktop\\Repositorio GITHUB\\Proyectos Finales\\P3-ServiPryntWeb\\ServiPryntWeb\\ServiPryntWeb\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F187AFAE-9E90-47A3-99CB-224CB8E89F45}|ServiPryntWeb.csproj|c:\\users\\santino\\desktop\\repositorio github\\proyectos finales\\p3-servipryntweb\\servipryntweb\\servipryntweb\\views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F187AFAE-9E90-47A3-99CB-224CB8E89F45}|ServiPryntWeb.csproj|solutionrelative:views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Contacto.cshtml",
+              "DocumentMoniker": "C:\\Users\\Santino\\Desktop\\Repositorio GITHUB\\Proyectos Finales\\P3-ServiPryntWeb\\ServiPryntWeb\\ServiPryntWeb\\Views\\Home\\Contacto.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contacto.cshtml",
+              "ToolTip": "C:\\Users\\Santino\\Desktop\\Repositorio GITHUB\\Proyectos Finales\\P3-ServiPryntWeb\\ServiPryntWeb\\ServiPryntWeb\\Views\\Home\\Contacto.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contacto.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-20T19:01:12.217Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

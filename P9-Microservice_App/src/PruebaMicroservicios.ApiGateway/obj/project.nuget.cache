@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "vmyVB4a3yJc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Santino\\source\\repos\\PruebaMicroservicios\\src\\PruebaMicroservicios.ApiGateway\\PruebaMicroservicios.ApiGateway.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Santino\\.nuget\\packages\\grpc.core.api\\2.70.0\\grpc.core.api.2.70.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\grpc.net.client\\2.70.0\\grpc.net.client.2.70.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\grpc.net.common\\2.70.0\\grpc.net.common.2.70.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\system.io.hashing\\7.0.0\\system.io.hashing.7.0.0.nupkg.sha512",
+    "C:\\Users\\Santino\\.nuget\\packages\\yarp.reverseproxy\\2.1.0\\yarp.reverseproxy.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

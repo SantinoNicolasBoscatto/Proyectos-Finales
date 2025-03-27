@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PruebaMicroservicios.Autor.Presentation.props" />
+</Project>

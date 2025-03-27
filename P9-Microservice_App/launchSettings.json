@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "pruebamicroservicios.autor.presentation": "StartDebugging",
+        "pruebamicroservicios.libro.presentation": "StartDebugging",
+        "pruebamicroservicios.gateway": "StartDebugging",
+        "pruebamicroservicios.apigateway": "StartDebugging"
+      }
+    }
+  }
+}

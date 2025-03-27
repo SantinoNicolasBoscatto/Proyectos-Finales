@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+option csharp_namespace = "PruebaMicroservicios.Libro.Presentation";
+
+import "google/api/annotations.proto";
+
+service Libro {
+	rpc GetLibro(GetLibroByIdRequest) returns (GetLibroByIdResponse) {
+		option (google.api.http) = {
+		  get: "/api/libro/{Id}"
+		};
+	}
+	rpc GetAllLibro(GetAllLibroRequest) returns (GetAllLibroResponse){
+		option (google.api.http) = {
+		  get: "/api/libro"
+		};
+	} 
+
+	rpc GetAllLibroByAutor(GetAllLibroByAutorRequest) returns (GetAllLibroByAutorResponse){
+		option (google.api.http) = {
+		  get: "/api/libro/autor/{AutorId}"
+		};
+	} 
+
+	rpc CreateLibro(CreateLibroRequest) returns (CreateLibroResponse){
+		option (google.api.http) = {
+		  post: "/api/libro"
+		  body: "*"
+		};
+	}
+	rpc UpdateLibro(UpdateLibroRequest) returns (UpdateLibroResponse) {
+		option (google.api.http) = {
+		  put: "/api/libro"
+		  body: "*"
+		};
+	}
+	rpc DeleteLibro(DeleteLibroRequest) returns (DeleteLibroResponse){
+		option (google.api.http) = {
+		  delete: "/api/libro/{Id}"
+		};
+	}
+}
+
+
+message ServerResponse{
+	bool IsSuccess = 1;
+	string Message = 2;
+	string Errors = 3;
+}
+
+message LibroResponse{
+	string id = 1;
+    string name = 2;
+    double price = 3;
+    string autorId = 4;
+}
+
+// GetAll
+message GetAllLibroRequest{}
+
+message GetAllLibroResponse{
+	ServerResponse serverResponse = 1;
+	repeated LibroResponse Data = 2;
+}
+
+
+// GetById
+message GetLibroByIdRequest{
+	string Id = 1;
+}
+
+message GetLibroByIdResponse{
+	ServerResponse serverResponse = 1;
+	LibroResponse Data = 2;
+}
+
+// GetByAutor
+message GetAllLibroByAutorRequest{
+	string AutorId = 1;
+}
+
+message GetAllLibroByAutorResponse{
+	ServerResponse serverResponse = 1;
+	repeated LibroResponse Data = 2;
+}
+
+
+// CREATE  
+message CreateLibroRequest{
+    string name = 1;
+    double price = 2;
+    string autorId = 3;
+}
+
+message CreateLibroResponse {
+	ServerResponse Response = 1;
+	LibroResponse Data = 2;
+}
+
+// UPDATE 
+message UpdateLibroRequest{
+	string id = 1;
+    string name = 2;
+    double price = 3;
+    string autorId = 4;
+}
+
+message UpdateLibroResponse {
+	ServerResponse Response = 1;
+	LibroResponse Data = 2;
+}
+
+
+// DELETE 
+message DeleteLibroRequest{
+	string Id = 1;
+}
+
+message DeleteLibroResponse{
+	ServerResponse serverResponse = 1;
+}

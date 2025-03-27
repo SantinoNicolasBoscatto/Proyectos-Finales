@@ -1,0 +1,5 @@
+obj\Release\net8.0\Protos/Libro.cs \
+obj\Release\net8.0\Protos/LibroGrpc.cs: C:/Users/Santino/.nuget/packages/microsoft.aspnetcore.grpc.jsontranscoding/8.0.13/content/protos/google/api/http.proto\
+ C:/Users/Santino/.nuget/packages/grpc.tools/2.71.0/build/native/include/google/protobuf/descriptor.proto\
+ C:/Users/Santino/.nuget/packages/microsoft.aspnetcore.grpc.jsontranscoding/8.0.13/content/protos/google/api/annotations.proto\
+ Protos/libro.proto

@@ -1,0 +1,17 @@
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\PruebaMicroservicios.Autor.Application.deps.json
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\PruebaMicroservicios.Autor.Application.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\PruebaMicroservicios.Autor.Application.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\PruebaMicroservicios.Autor.Domain.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\PruebaMicroservicios.Autor.Domain.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.csproj.AssemblyReference.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.AssemblyInfo.cs
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMi.EF895006.Up2Date
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\refint\PruebaMicroservicios.Autor.Application.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\PruebaMicroservicios.Autor.Application.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\obj\Debug\net8.0\ref\PruebaMicroservicios.Autor.Application.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\EventBus.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Application\bin\Debug\net8.0\EventBus.pdb

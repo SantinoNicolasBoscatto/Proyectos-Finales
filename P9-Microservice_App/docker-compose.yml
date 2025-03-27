@@ -1,0 +1,47 @@
+services:
+  pruebamicroservicios.autor.presentation:
+    image: ${DOCKER_REGISTRY-}autormicroservice
+    build:
+      context: .
+      dockerfile: src/PruebaMicroservicios.Autor/PruebaMicroservicios.Autor.Presentation/Dockerfile
+    networks:
+      - my_custom_network
+    ports:
+      - "8080:8080"
+
+  pruebamicroservicios.libro.presentation:
+    image: ${DOCKER_REGISTRY-}libromicroservice
+    build:
+      context: .
+      dockerfile: src/PruebaMicroservicios.Libro/PruebaMicroservicios.Libro.Presentation/Dockerfile
+    networks:
+      - my_custom_network
+    ports:
+      - "8081:8081"
+
+  pruebamicroservicios.apigateway:
+    image: ${DOCKER_REGISTRY-}pruebamicroserviciosapigateway
+    build:
+      context: .
+      dockerfile: src/PruebaMicroservicios.ApiGateway/Dockerfile
+    networks:
+      - my_custom_network
+    ports:
+      - "8082:8082"
+
+  rabbitmq:
+        image: rabbitmq:3.9-management-alpine
+        ports:
+            - 5672:5672
+            - 15672:15672
+        networks:
+            - my_custom_network
+        
+  
+
+networks:
+  my_custom_network:
+    driver: bridge
+
+
+

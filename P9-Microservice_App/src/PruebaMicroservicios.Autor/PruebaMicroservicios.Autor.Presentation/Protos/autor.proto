@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "PruebaMicroservicios.Autor.Presentation";
+
+
+
+service Autor {
+	rpc GetAutor(GetAutorByIdRequest) returns (GetAutorByIdResponse){
+		option (google.api.http) = {
+		  get: "/api/autor/{Id}"
+		};
+	}
+	rpc GetAllAutor(GetAllAutorRequest) returns (GetAllAutorResponse){
+		option (google.api.http) = {
+		  get: "/api/autor"
+		};
+	}
+	rpc CreateAutor(CreateAutorRequest) returns (CreateAutorResponse){
+		option (google.api.http) = {
+		  post: "/api/autor"
+		  body: "*"
+		};
+	}
+	rpc UpdateAutor(UpdateAutorRequest) returns (UpdateAutorResponse){
+		option (google.api.http) = {
+		  put: "/api/autor"
+		  body: "*"
+		};
+	}
+	rpc DeleteAutor(DeleteAutorRequest) returns (DeleteAutorResponse){
+		option (google.api.http) = {
+		  delete: "/api/autor/{Id}"
+		};
+	}
+}
+
+// Respuesta del Servidor Generica
+message ServerResponse{
+	bool IsSuccess = 1;
+	string Message = 2;
+	string Errors = 3;
+}
+
+// Este sera la estructura de datos de autor
+message AutorResponse{
+	string id = 1;
+    string name = 2;
+    google.protobuf.Timestamp born = 3;
+    repeated string books = 4;
+}
+
+
+// GetAll
+message GetAllAutorRequest{}
+
+message GetAllAutorResponse{
+	ServerResponse serverResponse = 1;
+	repeated AutorResponse Data = 2;
+}
+
+
+// GetById
+message GetAutorByIdRequest{
+	string Id = 1;
+}
+
+message GetAutorByIdResponse{
+	ServerResponse serverResponse = 1;
+	AutorResponse Data = 2;
+}
+
+
+// CREATE  
+message CreateAutorRequest{
+    string name = 1;
+    google.protobuf.Timestamp born = 2;
+}
+
+message CreateAutorResponse {
+	ServerResponse Response = 1;
+	AutorResponse Data = 2;
+}
+
+
+// UPDATE 
+message UpdateAutorRequest{
+	string id = 1;
+    string name = 2;
+    google.protobuf.Timestamp born = 3;
+}
+
+message UpdateAutorResponse {
+	ServerResponse Response = 1;
+	AutorResponse Data = 2;
+}
+
+
+// DELETE 
+message DeleteAutorRequest{
+	string Id = 1;
+}
+
+message DeleteAutorResponse{
+	ServerResponse serverResponse = 1;
+}

@@ -1,0 +1,12 @@
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\bin\Release\net8.0\EventBus.deps.json
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\bin\Release\net8.0\EventBus.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\bin\Release\net8.0\EventBus.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.csproj.AssemblyReference.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.AssemblyInfo.cs
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\refint\EventBus.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\EventBus.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\EventBus\obj\Release\net8.0\ref\EventBus.dll

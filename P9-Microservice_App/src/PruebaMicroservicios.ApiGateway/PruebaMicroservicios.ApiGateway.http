@@ -1,0 +1,6 @@
+@PruebaMicroservicios.ApiGateway_HostAddress = http://localhost:5231
+
+GET {{PruebaMicroservicios.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

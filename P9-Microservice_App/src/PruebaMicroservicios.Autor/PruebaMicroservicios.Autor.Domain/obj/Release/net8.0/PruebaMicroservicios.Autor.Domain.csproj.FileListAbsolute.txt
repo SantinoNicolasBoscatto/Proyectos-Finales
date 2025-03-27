@@ -1,0 +1,11 @@
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\bin\Release\net8.0\PruebaMicroservicios.Autor.Domain.deps.json
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\bin\Release\net8.0\PruebaMicroservicios.Autor.Domain.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\bin\Release\net8.0\PruebaMicroservicios.Autor.Domain.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.AssemblyInfoInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.AssemblyInfo.cs
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\refint\PruebaMicroservicios.Autor.Domain.dll
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\PruebaMicroservicios.Autor.Domain.pdb
+C:\Users\Santino\source\repos\PruebaMicroservicios\src\PruebaMicroservicios.Autor\PruebaMicroservicios.Autor.Domain\obj\Release\net8.0\ref\PruebaMicroservicios.Autor.Domain.dll
