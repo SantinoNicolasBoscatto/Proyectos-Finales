@@ -1,0 +1,30 @@
+<div class="container">
+    <input type="checkbox" id="signup_toggle">
+    <form class="form">
+        <div class="form_front">
+            <div class="form_details">Login</div>
+            <input placeholder="Email" class="input" type="email" id="loginEmail">
+            <input placeholder="Password" class="input" type="password" id="loginPass">
+            @if(loginError){
+                <mat-error>{{ loginErrorMessage }}</mat-error>
+            }
+            <button class="btn" (click)="Loguearse()" type="button">Login</button>
+            <span class="switch">No tienes una cuenta? 
+                <label class="signup_tog" for="signup_toggle">
+                    Sign Up
+                </label>
+            </span>
+        </div>
+        <div class="form_back">
+            <div class="form_details">Register</div>
+            <input placeholder="Email" class="input" type="email" id="registerEmail">
+            <input placeholder="Password" class="input" type="password" id="registerPass">
+            <button class="btn" (click)="Registrarse()" type="button">Registrarse</button>
+            <span class="switch">Ya tienes una cuenta? 
+                <label class="signup_tog" for="signup_toggle">
+                    Login
+                </label>
+            </span>
+        </div>
+    </form>
+</div>

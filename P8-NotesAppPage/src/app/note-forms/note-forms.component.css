@@ -1,0 +1,17 @@
+.form-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+mat-form-field{
+  min-width: 350px;
+  margin-bottom: 25px;
+}
+
+h2{
+    text-align: center;
+    font-size: 36px;
+    margin-top: 20px;
+}

@@ -1,0 +1,35 @@
+<form class="example-form" style="margin-top: 35px;">
+    <div class="filter-container">
+        <mat-form-field class="example-full-width">
+            <mat-label>Buscar</mat-label>
+            <input matInput placeholder="Buscar" value="" [formControl]="form.controls.buscar">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Categorias</mat-label>
+            <mat-select value="0" [formControl]="form.controls.categoriaId">
+              <mat-option value="0" selected="true">Todas</mat-option>
+              @for (category of listaCategorias; track $index) {
+                <mat-option [value]="category.id">{{category.name}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 20px; margin-bottom: 45px;">
+        <button style="margin-right: 10px; background-color: rgb(16, 158, 39); color: whitesmoke; border-radius: 50px;" 
+    mat-flat-button (click)="Buscar()">Buscar</button>
+    </div>
+</form>
+@if(listaNotes){
+  <div class="notes-container">
+    @for (note of listaNotes; track $index) {
+      <app-notes style="margin-bottom: 25px;" [note]="note" [id]="note.id"/>
+    }
+  </div>
+}
+<button mat-fab class="hamburger-button" routerLink="/addNote">
+  <mat-icon>add</mat-icon>
+</button>
+<button class="logout-btn" (click)="LogOut()">
+  <mat-icon>close</mat-icon>
+</button>
+

@@ -1,0 +1,57 @@
+.notes-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.filter-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+mat-form-field{
+    min-width: 330px;
+    margin-bottom: 20px;
+}
+
+input{
+    caret-color: transparent;
+}
+
+.hamburger-button {
+    position: fixed;
+    bottom: 20px; /* Puedes ajustar esto según sea necesario */
+    right: 20px; /* Puedes ajustar esto según sea necesario */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    background-color: #6200ea; /* Color de fondo del botón */
+    color: #ffffff; /* Color del ícono */
+    width: 50px;
+    height: 50px;
+}
+
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: red;
+    color: white; /* Asegúrate de que el ícono sea visible */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.logout-btn mat-icon {
+    font-size: 24px;
+}
+  

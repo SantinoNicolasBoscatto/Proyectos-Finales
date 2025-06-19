@@ -1,0 +1,77 @@
+<div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+    <div class="card-detail">
+        <div>
+            <h3>Pediente</h3>
+            <ul>
+                @for (task of note.toDoTasks; track $index) {
+                    @if(task.statusId == 1){
+                        <div style="display: block; margin-bottom: 10px;">
+                            @if (task.priorityId === 1) {<li (click)="tacharListado($event, task.id)">{{task.name}} 🟢</li>}
+                            @else if (task.priorityId === 2) {<li (click)="tacharListado($event, task.id)">{{task.name}} 🟡</li>}
+                            @else {<li (click)="tacharListado($event, task.id)">{{task.name}} 🔴</li>}                      
+                            <div class="action-container">
+                                <button class="edit-button" routerLink="updatetask/{{task.id}}" mat-flat-button color="primary"
+                                style="width: 50px; height: 30px; margin: 5px;">Editar</button>
+                                <button class="delete-button" mat-flat-button style="background-color: red; color: white;
+                                width: 50px; height: 30px; margin: 5px;" value="{{task.id}}" 
+                                [swal]="{title: 'Confirmacion', text: 'Desea borrar esta tarea?', showCancelButton: true}"
+                                (confirm)="borrarTarea(task.id)">Delete</button>
+                            </div>
+                        </div>
+                    }
+                }
+            </ul>
+        </div>
+        <div>
+            <h3>Expirado</h3>
+            <ul>
+                @for (task of note.toDoTasks; track $index) {
+                    @if(task.statusId == 2){
+                        <div style="display: block; margin-bottom: 10px;">
+                            @if (task.priorityId === 1) {<li (click)="tacharListado($event, task.id)">{{task.name}} 🟢</li>}
+                            @else if (task.priorityId === 2) {<li (click)="tacharListado($event, task.id)">{{task.name}} 🟡</li>}
+                            @else {<li (click)="tacharListado($event, task.id)">{{task.name}} 🔴</li>}                      
+                            <div class="action-container">
+                                <button class="edit-button" routerLink="updatetask/{{task.id}}" mat-flat-button color="primary"
+                                style="width: 50px; height: 30px; margin: 5px;">Editar</button>
+                                <button class="delete-button" mat-flat-button style="background-color: red; color: white;
+                                width: 50px; height: 30px; margin: 5px;" value="{{task.id}}" 
+                                [swal]="{title: 'Confirmacion', text: 'Desea borrar esta tarea?', showCancelButton: true}"
+                                (confirm)="borrarTarea(task.id)">Delete</button>
+                            </div>
+                        </div>
+                    }
+                }
+            </ul>
+        </div>
+        <div>
+            <h3>Completado</h3>
+            <ul>
+                @for (task of note.toDoTasks; track $index) {
+                    @if(task.statusId == 3){
+                        <div style="display: block; margin-bottom: 10px;">
+                            @if (task.priorityId === 1) {<li (click)="tacharListado($event, task.id)" class="tachadoCompletado">{{task.name}} 🟢</li>}
+                            @else if (task.priorityId === 2) {<li (click)="tacharListado($event, task.id)" class="tachadoCompletado">{{task.name}} 🟡</li>}
+                            @else {<li (click)="tacharListado($event, task.id)" class="tachadoCompletado">{{task.name}} 🔴</li>}                      
+                            <div class="action-container">
+                                <button class="edit-button" routerLink="updatetask/{{task.id}}" mat-flat-button color="primary"
+                                style="width: 50px; height: 30px; margin: 5px;">Editar</button>
+                                <button class="delete-button" mat-flat-button style="background-color: red; color: white;
+                                width: 50px; height: 30px; margin: 5px;" value="{{task.id}}" 
+                                [swal]="{title: 'Confirmacion', text: 'Desea borrar esta tarea?', showCancelButton: true}"
+                                (confirm)="borrarTarea(task.id)">Delete</button>
+                            </div>
+                        </div>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="button-conteiner" style="margin-top: 15px; margin-right: 1vw;">
+    <a mat-flat-button style="border-radius: 50px; margin-right: 10px; background-color: rgb(16, 158, 39); color: whitesmoke;"
+    routerLink="addtask">Agregar</a>
+    <button style="margin-right: 10px; background-color: rgb(118, 22, 192); color: whitesmoke; border-radius: 50px;" 
+    mat-flat-button (click)="ActivarBorrado()">Modificar</button>
+    <a mat-flat-button style="border-radius: 50px; background-color: red; color: whitesmoke;" routerLink="/menu">Volver</a>
+</div>

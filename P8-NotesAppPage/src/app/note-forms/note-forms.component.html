@@ -1,0 +1,34 @@
+<h2>{{Titulo}}</h2>
+
+<form [formGroup]="form">
+  <div class="form-container">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="form.controls.name" [value]="model?.name">
+        <mat-error>{{ErrorCampoGenerico(form.controls.name)}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <mat-select [formControl]="form.controls.category" [ngModel]="selectedCategory">
+          @for (category of listCategory; track $index) {
+            @if(model?.categoryId == category.id){
+              <mat-option [value]="category.id" selected>{{category.name}}</mat-option>
+            }
+            @else {
+              <mat-option [value]="category.id">{{category.name}}</mat-option>
+            }   
+          }   
+      </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; margin-top: 25px;">
+    <a mat-flat-button style="border-radius: 50px; margin-right: 10px; background-color: rgb(16, 158, 39); color: whitesmoke;"
+    (click)="guardarCambios()">{{ButtonName}}</a>
+    <a style="margin-right: 10px; background-color: rgb(192, 22, 22); color: whitesmoke; border-radius: 50px;" 
+  mat-flat-button routerLink="/menu">Volver</a>
+  </div>
+</form>

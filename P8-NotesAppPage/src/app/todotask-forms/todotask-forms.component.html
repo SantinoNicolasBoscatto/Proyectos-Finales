@@ -1,0 +1,64 @@
+<h2>{{Titulo}}</h2>
+<form [formGroup]="form">
+    <div style="display: flex; margin-top: 40px; justify-content: space-evenly;">
+      <div class="form-container"> 
+        <div>
+          <mat-form-field appearance="fill" >
+            <mat-label>Nombre</mat-label>
+            <input matInput [formControl]="form.controls.name" [value]="model?.name">
+            <mat-error>{{ErrorCampoGenerico(form.controls.name)}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Fecha limite</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="form.controls.dateLimit">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>{{ErrorCampoGenerico(form.controls.dateLimit)}}</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Prioridad</mat-label>
+            <mat-select [formControl]="form.controls.priority" [ngModel]="selectedPriority">
+              @for (priority of listPriority; track $index) {
+                @if(model?.priorityId == priority.id){
+                  <mat-option [value]="priority.id" selected>{{priority.name}}</mat-option>
+                }
+                @else {
+                  <mat-option [value]="priority.id">{{priority.name}}</mat-option>
+                }
+              }      
+          </mat-select>
+          <mat-error>{{ErrorCampoGenerico(form.controls.dateLimit)}}</mat-error>
+          </mat-form-field>
+        </div>
+      
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select [formControl]="form.controls.status" [ngModel]="selectedStatus">
+              @for (status of listStatus; track $index) {
+                @if(model?.statusId == status.id){
+                  <mat-option [value]="status.id" selected>{{status.name}}</mat-option>
+                }
+                @else {
+                  <mat-option [value]="status.id">{{status.name}}</mat-option>
+                }
+              } 
+            </mat-select>
+            <mat-error>{{ErrorCampoGenerico(form.controls.dateLimit)}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 25px;">
+      <a mat-flat-button style="border-radius: 50px; margin-right: 10px; background-color: rgb(16, 158, 39); color: whitesmoke;"
+      [disabled]="form.invalid" (click)="guardarCambios()">{{ButtonName}}</a>
+      <a style="margin-right: 10px; background-color: rgb(192, 22, 22); color: whitesmoke; border-radius: 50px;" 
+    mat-flat-button routerLink="/notedetail/{{noteid}}">Volver</a>
+    </div>
+</form>
+  

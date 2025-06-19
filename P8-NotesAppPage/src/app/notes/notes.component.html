@@ -1,0 +1,39 @@
+<div class="myCard" (mouseenter)="showButton()" (mouseleave)="hideButton()">
+    <div class="innerCard">
+        <div class="frontSide">
+            <div>
+                <h3 class="title">{{note.name}}</h3>
+                <h5>{{note.category.name}}</h5>
+            </div>
+        </div>
+        <div class="backSide" (click)="navigateMenu()">
+            <div>
+                <h3 class="title" style="margin-top: 10px;">Pendientes</h3>
+                <ul>
+                    @for (item of note.toDoTasks; track $index) {
+                        @if(countPendientes < 3 && item.statusId == 1){
+                            <li>- {{item.name}}</li>
+                            {{AumentarContador(countPendientes)}}
+                        }
+                    }
+                </ul>
+            </div>
+            <div>
+                <h3 class="title">Expirados</h3>
+                <ul>
+                    @for (item of note.toDoTasks; track $index) {
+                        @if(countExpirados < 3 && item.statusId == 2){
+                            <li>- {{item.name}}</li>
+                            {{AumentarContador(countExpirados)}}
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        @if(isButtonVisible){
+            <button style="display: block; position: absolute; bottom: 5px; left: 5px; border-radius: 50%;
+                background-color: blueviolet; color: white; width: 45px; height: 45px; text-align: center; cursor: pointer;"
+                (click)="navigateEditNote()" id="EditNoteButton">📝</button>
+        }
+    </div>
+</div>

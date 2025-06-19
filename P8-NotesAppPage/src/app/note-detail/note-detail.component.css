@@ -1,0 +1,113 @@
+.card-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 90vw;
+    height: 95vh;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+h3{
+    font-size: 21px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+    font-weight: 400;
+    margin-top: 3px;
+    text-align: center;
+}
+
+li{
+    padding: 0 5px;
+    margin: 20px 0;
+    cursor: pointer;
+    caret-color: transparent;
+    display: inline;
+}
+
+.card-detail > div {
+    border-right: 2px solid #000; /* Línea derecha con color negro */
+    padding-right: 10px; /* Espaciado para que el texto no quede pegado a la línea */
+}
+
+.card-detail > div:last-child {
+    border-right: none; /* Eliminar la línea derecha del último elemento */
+}
+
+
+
+@keyframes strike{
+    0%   { width : 0; }
+    100% { width: 100%; }
+  }
+.tachado {
+    position: relative;
+}
+.tachado::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: red;
+    animation-name: strike;
+    animation-duration: .7s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; 
+}
+.tachadoCompletado {
+    position: relative;
+}
+
+.tachadoCompletado::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: red;
+    animation-name: strike;
+    animation-duration: 0s;
+}
+
+.button-conteiner{
+    display: flex;
+    justify-content: center;
+}
+
+.action-container{
+    display: none;
+}
+
+.action-container.active{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .card-detail {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 90vw;
+        height: 100vh;
+        background-color: whitesmoke;
+        color: black;
+        border-radius: 20px;
+        flex-basis: 1;
+    }
+    .card-detail > div {
+        border-right: none; /* Línea derecha con color negro */
+    }
+}

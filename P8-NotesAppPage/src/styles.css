@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root{
+    color-scheme: light dark;
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+ }
+
+mat-error{
+    color: red;
+    font-size: 14px;
+}
+
+.mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper{
+    padding: 0 !important;
+}
+
+.mat-form-field .mat-error {
+    white-space: normal;
+    word-wrap: break-word;
+}
+  
